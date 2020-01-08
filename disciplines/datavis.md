@@ -1,4 +1,10 @@
-# Data Visualisation
+# data visualisation
+## литература 
+- Visualization and Visual Communication https://eagereyes.org
+- Observable https://observablehq.com/explore
+- A Tour through the Visualization Zoo https://queue.acm.org/detail.cfm?id=1805128
+- 20 инструментов https://freelance.today/poleznoe/20-luchshih-instrumentov-dlya-vizualizacii-dannyh.html
+- 21 инструмент https://yagla.ru/blog/marketing/21-instrument-vizualizacii-dannyh-dlya-marketologov-i-analitikov/
 ## Зачем визуализировать 
 - кейсы    
     - сравнить разные показатели
@@ -10,6 +16,10 @@
         - лаконично
         - заточено под тезис 
         - однозначно интерпретируется 
+        - ссылки
+            - 11 правил https://habr.com/ru/company/netologyru/blog/341364/
+            - 5 трендов 2017 https://l-a-b-a.com/blog/show/100
+            - Правила, приёмы, инструменты https://www.owox.ru/blog/articles/data-visualization/
     - отчёты (формальная отчётность)
         - как презентации, но можно подробнее 
         - упор на общепринятые стандартизированные показатели 
@@ -21,9 +31,10 @@
         - интерактивность
         - качество
         - соответствие стайлгайдам 
-    - справочник
-        - база знаний: аккумуляция, структурирование, эталоны (пример: графики на климатических картах)
+    - база знаний, справочники
         - результаты исследований 
+        - аккумуляция, структурирование, эталоны
+        - пример: графики на климатических картах
     - eda / исследование
         - расширить картину мира: какое бывает А, из чего состоит, ...
         - найти сигнал: контраст, паттерн, ... дрилл-даун 
@@ -86,7 +97,6 @@
             - неаддитивные из аддитивных получать на этапе отрисовки
                 - SpU=S/U
                 - mean_price=revenue/count 
-
 ## Чем визуализировать
 - популярные инструменты
     - Электронные таблицы
@@ -123,7 +133,9 @@
         - чем плох: внедрение/поддежка/расширение требует квалификации
         - библиотеки
             - highcharts - используется в дешбордах
-            - d3js - лучшие интерактивные визуализации 
+            - d3js - Data-Driven Documents - лучшие интерактивные визуализации 
+                - official http://d3js.org
+                - Введение в d3js habr.com/ru/company/datalaboratory/blog/217905
             - dc.js Dimensional Charting Javascript Library http://nickqizhu.github.com/dc.js/
             - bokeh js - позволяет рисовать динамические графики для моделей 
     - кастомные решения 
@@ -169,6 +181,7 @@
             - важны пересечения (примеры: мы vs конкурент, 2 распределения)
             - распределения на равномерной шкале
         - скаттерплот - scatterplot
+            - пример: Scatterplot Matrix of Automobile Data https://queue.acm.org/detail.cfm?id=1805128 -> https://homes.cs.washington.edu/~jheer//files/zoo/ex/stats/splom.html
         - хитмапы - heatmap
         - фигуры: круг, кольцо, квадрат, прямоугольник 
     - специализированные
@@ -255,6 +268,9 @@
     - менять масштаб: обзор и детализация 
     - улавливать паттерны, повторяющиеся элементы 
     - вертикальное отношение опознаётся надёжнее горизонтального
+    - ссылки
+        - Моделирование зрения https://habr.com/ru/post/57686
+            - 4 Eye tracking и Саккады habr.com/ru/post/57683
 - как визуализировать хорошо
     - предсказуемо 
         - однотипные графики: похожие вещи должны выглядеть похоже
