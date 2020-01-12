@@ -197,11 +197,6 @@
             - MSPE, MAPE, SMAPE
             - RMSLE
         - ranking
-                - Метрики качества ранжирования https://habr.com/ru/company/econtenta/blog/303458/
-                - Learning to Rank using Gradient Descent -- original paper about pairwise method for AUC optimization http://icml.cc/2015/wp-content/uploads/2015/06/icml_ranking.pdf
-                - Overview of further developments of RankNet https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/MSR-TR-2010-82.pdf
-                - RankLib (implemtations for the 2 papers from above) https://sourceforge.net/p/lemur/wiki/RankLib/
-                - Learning to Rank Overview https://wellecks.wordpress.com/2015/01/15/learning-to-rank-overview
             - precision-family
                 - p@K
                 - ap@K
@@ -217,6 +212,12 @@
             - каскадная модель поведения
                 - err - expected reciprocal rank
                 - pfound
+            - read more
+                - Метрики качества ранжирования https://habr.com/ru/company/econtenta/blog/303458/  
+                - Learning to Rank using Gradient Descent -- original paper about pairwise method for AUC optimization http://icml.cc/2015/wp-content/uploads/2015/06/icml_ranking.pdf 
+                - Overview of further developments of RankNet https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/MSR-TR-2010-82.pdf
+                - RankLib (implemtations for the 2 papers from above) https://sourceforge.net/p/lemur/wiki/RankLib/
+                - Learning to Rank Overview https://wellecks.wordpress.com/2015/01/15/learning-to-rank-overview
         - clustering
             - Evaluation metrics for clustering http://nlp.uned.es/docs/amigo2007a.pdf
                 - formal constraints
@@ -372,26 +373,22 @@
                 - Препарируем t-SNE https://habr.com/ru/post/267041/
     - NMF (NNMF, Non-negative matrix factorization)
         - not applicable to features containing negative values, i.e. standartized matrices
-    - read More
+    - read more
         - Overview of Matrix Decomposition methods (sklearn) https://www.coursera.org/learn/competitive-data-science/supplement/3XpTg/additional-materials-and-links
-    - факторизация и регуляризация by Peter Popov
-        - корен - один из призёров Netflix Prize https://github.com/gpfvic/IRR/blob/master/Factorization%20meets%20the%20neighborhood-%20a%20multifaceted%20collaborative%20filtering%20model.pdf
-            - его версия градиента расходится с его же описанием оптимизационной задачи
-            - взвешенная регуляризация: перед регуляризационными тихоновскими коэффициентами стоят дополнительные множители, равные кратности данного объекта в датасете
-        - математические обоснования https://papers.nips.cc/paper/3208-probabilistic-matrix-factorization.pdf
-            - и ещё от этих же авторов https://www.cs.toronto.edu/~amnih/papers/bpmf.pdf
-        - https://www.cs.umn.edu/sites/cs.umn.edu/files/tech_reports/10-024.pdf
-            - достаточно сложен и требовал для факторизационной машины серьезной адаптации
-        - две принципиальные сложности - построить расширяемую модель и научить к ней параметры регуляризации
-        - далее: фото 7.07 23:15
-        - https://github.com/buptjz/Factorization-Machine/blob/master/paper/Steffen%20Rendle%20(2012)%20Learning%20Recommender%20Systems%20with%20Adaptive%20Regularization.pdf
-            - считаем на каждом шаге итерации производную скора на валидейте по параметрам регуляризации
-            - Реализуется достаточно просто, памятую про то, что в регуляризации есть постоянный член и член, зависящий от кратности переменной
-            - авторы ppmf молодцы
 - Reinforcement learning
-    - подходы: value-based, policy-based, model-based
-    - методы и модели: q-learning, sarsa, actor-critic, a3c, dqn
-    - трудности: exploration-vs-exploitation, long term credit assignment
+    - подходы
+        - value-based
+        - policy-based
+        - model-based
+    - методы и модели
+        - q-learning
+        - sarsa
+        - actor-critic
+        - a3c
+        - dqn
+    - трудности
+        - exploration-vs-exploitation
+        - long term credit assignment
 ## Libraries and frameworks
 - basic SciPy stack
     - Numpy - linear algebra library
@@ -460,10 +457,10 @@
     - TFFM - TF implementation of Arbitrary order factorization machines https://github.com/geffy/tffm
     - kaggletils - framework for Kaggle competitions by Far0n https://github.com/Far0n/kaggletils/blob/master/kaggletils/metrics.py
 - neural networks
-        - классификация фреймворков для NN
-            - фиксированные модули: Caffe, Caffe2, CNTK, Kaldi, DL4J, Keras
-            - статический граф вычислений: Theano, TensorFlow, MXNet
-            - динамический граф вычислений: Torch и PyTorch
+    - классификация фреймворков для NN
+        - фиксированные модули: Caffe, Caffe2, CNTK, Kaldi, DL4J, Keras
+        - статический граф вычислений: Theano, TensorFlow, MXNet
+        - динамический граф вычислений: Torch и PyTorch
     - Tensorflow
         - https://www.coursera.org/learn/intro-to-deep-learning/lecture/hscFv/what-is-tensorflow
         - TensorFlow: The Confusing Parts https://jacobbuckman.com/post/tensorflow-the-confusing-parts-1
