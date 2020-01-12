@@ -527,62 +527,85 @@
     - ggplot http://ggplot.yhathq.com/
     - Graph visualization with NetworkX https://networkx.github.io/
     - Biclustering algorithms for sorting corrplots https://scikit-learn.org/stable/auto_examples/bicluster/plot_spectral_biclustering.html
-## CRISP-DM
-- этапы согласно wikipedia.org/wiki/CRISP-DM
-    - business understanding
-    - data understanding
-    - data preparation
-    - modeling
-    - evaluation
-    - deployment
-- этапы согласно habr.com/ru/company/ods/blog/430006
-    - формулировка задачи
-    - методы решения и данные
-        - исследуем возможные подходы к её решению и сформулируем требования к данным
-        - соберём необходимые данные
-    - exploratory research / eda - exploratory data analysis - изучим собранный датасетт
-    - feature engineering - извлечём признаки из сырых данных
-    - обучим модель
-    - model evaluation - сравним полученные результаты, оценим качество полученных решений и при необходимости повторим пункты 2-6
-    - deployment to production - упакуем решение в сервис, который можно будет использовать
-## Типовые ошибки data-science (AI community @ Avito, 24.04.2018)
-- на этапе бизнес-анализа
-    - 1 проблема не валидирована заказчиком
-    - 2 заказчик и спонсор неверно определены
-    - 3 решение не валидировано с заказчиком
-    - 4 потенциальное решение не продано заказчику
-        - рецепт: написать будущий пресс-релиз на 1 стр (каким он был бы, если бы цель была достигнута сегодня)
-    - заведомо сложное решение
-        - если есть проблемы с базовой отчётностью - бесполезно делать data science
-- на этапе анализа данных
-    - 5 анализ без чётко сформулированных гипотез
-    - 6 слушаем данные, мало слушаем экспертов
-- ошибки при подготовке данных
-    - 7 создание слишком сложной инфраструктуры с начала VS создание одноразовых скритпов над локальными выгрузками
-    - отсутствие документации по всем шагам выгрузки и подготовки
-    - смещение данных при подготовке
-- ошибки на этапе моделирования
-    - 8 фокус 
-        - фокус на алгоритме, а не на доступных данных (сигнале)
-        - фокус на алгоритме, а не на подготовке данных
-        - фокус на алгоритме, а не на знаниях предметной области
-    - использование слишком сложных моделей
-    - переобучение моделей
-- ошибки на этапе внедрения
-    - 9 отсутствие эксперимента с боевым тестированием
-    - дефицит коммуникации по продаже фактических результатов
-    - 10 отсутствие мониторинга качества модели
-    - отсутствие процесса переобучения/неверная частота переобучения
+## Организация DS-процесса
+- методология CRISP-DM
+    - этапы согласно wikipedia.org/wiki/CRISP-DM
+        - business understanding
+        - data understanding
+        - data preparation
+        - modeling
+        - evaluation
+        - deployment
+    - этапы согласно habr.com/ru/company/ods/blog/430006
+        - формулировка задачи
+        - методы решения и данные
+            - исследуем возможные подходы к её решению и сформулируем требования к данным
+            - соберём необходимые данные
+        - exploratory research / eda - exploratory data analysis - изучим собранный датасетт
+        - feature engineering - извлечём признаки из сырых данных
+        - обучим модель
+        - model evaluation - сравним полученные результаты, оценим качество полученных решений и при необходимости повторим пункты 2-6
+        - deployment to production - упакуем решение в сервис, который можно будет использовать
+- Топ10 ошибок data-science (AI community @ Avito, 24.04.2018) https://www.youtube.com/watch?v=QbISiKZRDLg
+    - на этапе бизнес-анализа
+        - 1 проблема не валидирована заказчиком
+        - 2 заказчик и спонсор неверно определены
+        - 3 решение не валидировано с заказчиком
+        - 4 потенциальное решение не продано заказчику
+            - рецепт: написать будущий пресс-релиз на 1 стр (каким он был бы, если бы цель была достигнута сегодня)
+        - заведомо сложное решение
+            - если есть проблемы с базовой отчётностью - бесполезно делать data science
+    - на этапе анализа данных
+        - 5 анализ без чётко сформулированных гипотез
+        - 6 слушаем данные, мало слушаем экспертов
+    - ошибки при подготовке данных
+        - 7 создание слишком сложной инфраструктуры с начала VS создание одноразовых скритпов над локальными выгрузками
+        - отсутствие документации по всем шагам выгрузки и подготовки
+        - смещение данных при подготовке
+    - ошибки на этапе моделирования
+        - 8 фокус 
+            - фокус на алгоритме, а не на доступных данных (сигнале)
+            - фокус на алгоритме, а не на подготовке данных
+            - фокус на алгоритме, а не на знаниях предметной области
+        - использование слишком сложных моделей
+        - переобучение моделей
+    - ошибки на этапе внедрения
+        - 9 отсутствие эксперимента с боевым тестированием
+        - дефицит коммуникации по продаже фактических результатов
+        - 10 отсутствие мониторинга качества модели
+        - отсутствие процесса переобучения/неверная частота переобучения
 ## Coursera
 - базовый набор
-    - Курс «Введение в машинное обучение»: Константин Воронцов, Евгений Соколов, Анна Козлова https://www.coursera.org/learn/vvedenie-mashinnoe-obuchenie
-    - Специализация «Машинное обучение и анализ данных»: Константин Воронцов, Евгений Соколов, Антон Слесарев, Эмели Драль, Виктор Кантор https://www.coursera.org/specializations/machine-learning-data-analysis
-    - ВШЭ - Advanced machine learning coursera.org/specializations/aml
-        - Deep learning Intro 
-        - How to win in data science competitions
-    - Andrew NG - Deep Learning Specialization coursera.org/specializations/deep-learning
-    - Stanford - CS231n: Convolutional Neural Networks for Visual Recognition http://cs231n.stanford.edu/
-- рекомендовано yellowduck@
+    - ВШЭ - Курс «Введение в машинное обучение»: Константин Воронцов, Евгений Соколов, Анна Козлова 
+        - https://www.coursera.org/learn/vvedenie-mashinnoe-obuchenie
+        - самый компактный и ёмкий курс по ML
+        - требует знания Python и математики 
+    - МФТИ - Специализация «Машинное обучение и анализ данных»: Константин Воронцов, Евгений Соколов, Антон Слесарев, Эмели Драль, Виктор Кантор 
+        - https://www.coursera.org/specializations/machine-learning-data-analysis
+        - более простой и подробный курс
+        - включает введение в Python и необходимые разделы математики
+        - рекомендуется проходить по порядку и целиком 
+    - ВШЭ - Advanced machine learning 
+        - https://www.coursera.org/specializations/aml
+        - желательно проходить после вышеприведённых курсов 
+        - краткий курс про нейросети - рекомендуется в любом случае
+            - AML Deep learning Intro 
+                - https://www.coursera.org/learn/intro-to-deep-learning
+        - остальные курсы можно проходить выборочно под свои цели 
+            - AML How to win in data science competitions
+                - https://www.coursera.org/learn/competitive-data-science
+                - полезно не только для Kaggle, но и для бизнес-кейсов 
+            - AML Cumputer vision 
+                - https://www.coursera.org/learn/deep-learning-in-computer-vision
+            - AML Natural Language Processing 
+                - https://www.coursera.org/learn/language-processing
+    - Andrew NG - Deep Learning Specialization 
+        - https://www.coursera.org/specializations/deep-learning
+        - более подробный аналог вышеприведённого AML Deep Learnig Intro от ВШЭ 
+    - Stanford - CS231n: Convolutional Neural Networks for Visual Recognition
+        - http://cs231n.stanford.edu/
+        - более подробный аналог вышеприведённого AML Cumputer vision от ВШЭ
+- рекомендовано DS Игорем Слинько
     - Pattern Discovery in Data Mining - Coursera.org, University of Illinois at Urbana-Champaign
     - Text Retrieval and Search Engines - Coursera.org, University of Illinois at Urbana-Champaign
     - Cluster Analysis in Data Mining - Coursera.org, University of Illinois at Urbana-Champaign
