@@ -550,31 +550,31 @@
     - deployment to production - упакуем решение в сервис, который можно будет использовать
 ## Типовые ошибки data-science (AI community @ Avito, 24.04.2018)
 - на этапе бизнес-анализа
-    1 проблема не валидирована заказчиком
-    2 заказчик и спонсор неверно определены
-    3 решение не валидировано с заказчиком
-    4 потенциальное решение не продано заказчику
+    - 1 проблема не валидирована заказчиком
+    - 2 заказчик и спонсор неверно определены
+    - 3 решение не валидировано с заказчиком
+    - 4 потенциальное решение не продано заказчику
         - рецепт: написать будущий пресс-релиз на 1 стр (каким он был бы, если бы цель была достигнута сегодня)
     - заведомо сложное решение
         - если есть проблемы с базовой отчётностью - бесполезно делать data science
 - на этапе анализа данных
-    5 анализ без чётко сформулированных гипотез
-    6 слушаем данные, мало слушаем экспертов
+    - 5 анализ без чётко сформулированных гипотез
+    - 6 слушаем данные, мало слушаем экспертов
 - ошибки при подготовке данных
-    7 создание слишком сложной инфраструктуры с начала VS создание одноразовых скритпов над локальными выгрузками
+    - 7 создание слишком сложной инфраструктуры с начала VS создание одноразовых скритпов над локальными выгрузками
     - отсутствие документации по всем шагам выгрузки и подготовки
     - смещение данных при подготовке
 - ошибки на этапе моделирования
-    8 фокус 
+    - 8 фокус 
         - фокус на алгоритме, а не на доступных данных (сигнале)
         - фокус на алгоритме, а не на подготовке данных
         - фокус на алгоритме, а не на знаниях предметной области
     - использование слишком сложных моделей
     - переобучение моделей
 - ошибки на этапе внедрения
-    9 отсутствие эксперимента с боевым тестированием
+    - 9 отсутствие эксперимента с боевым тестированием
     - дефицит коммуникации по продаже фактических результатов
-    10 отсутствие мониторинга качества модели
+    - 10 отсутствие мониторинга качества модели
     - отсутствие процесса переобучения/неверная частота переобучения
 ## Coursera
 - базовый набор
@@ -586,15 +586,15 @@
     - Andrew NG - Deep Learning Specialization coursera.org/specializations/deep-learning
     - Stanford - CS231n: Convolutional Neural Networks for Visual Recognition http://cs231n.stanford.edu/
 - рекомендовано yellowduck@
-    Pattern Discovery in Data Mining - Coursera.org, University of Illinois at Urbana-Champaign
-    Text Retrieval and Search Engines - Coursera.org, University of Illinois at Urbana-Champaign
-    Cluster Analysis in Data Mining - Coursera.org, University of Illinois at Urbana-Champaign
-    Text Mining and Analytics - Coursera.org, University of Illinois at Urbana-Champaign
-    Data Visualization - Coursera.org, University of Illinois at Urbana-Champaign
-    Data Mining Capstone - Coursera.org, University of Illinois at Urbana-Champaign
-    Machine Learning - Coursera.org, Stanford University
-    Hadoop. Система для обработки больших объемов данных - Stepik.org, Mail.ru Group
-    Deep Learning - Udacity.com, Google
+    - Pattern Discovery in Data Mining - Coursera.org, University of Illinois at Urbana-Champaign
+    - Text Retrieval and Search Engines - Coursera.org, University of Illinois at Urbana-Champaign
+    - Cluster Analysis in Data Mining - Coursera.org, University of Illinois at Urbana-Champaign
+    - Text Mining and Analytics - Coursera.org, University of Illinois at Urbana-Champaign
+    - Data Visualization - Coursera.org, University of Illinois at Urbana-Champaign
+    - Data Mining Capstone - Coursera.org, University of Illinois at Urbana-Champaign
+    - Machine Learning - Coursera.org, Stanford University
+    - Hadoop. Система для обработки больших объемов данных - Stepik.org, Mail.ru Group
+    - Deep Learning - Udacity.com, Google
 ## Read more
 - для знающих
     - events.yandex.ru/events/mltr
