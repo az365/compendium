@@ -1,0 +1,151 @@
+# Аналитика данных
+## Аналитические задачи
+- особенность аналитическхи задач: некорректность, неполнота, ...
+    - remember that a majority of analytical tasks is realy incorrect
+    - correct tasks are not an analytical tasks, but statical tasks
+    - a majority of your orders by marketers will not only to calculate smth concretly, but they are about to decide: what we can to calculate for help to resolve applied problems
+- типы задач 
+    - как это устроено?
+    - А или Б?
+    - что произошло?
+- аналитика в продукте
+    - создание продукта
+        - изучение данных
+        - изучение аудитории
+        - изучение структуры спроса
+        - изучение типовых сценариев
+        - разработка KPI и метрик
+    - поддержка продукта
+        - мониторинг 
+        - оценка качества
+        - расследование проблем
+        - исследование живой аудитории
+        - новая функциональность => новый виток (создание продукта)
+## Аспекты
+- источники данных
+    - состав работ 
+        - поиск источников и получение данных
+        - понимание природы источников
+        - чистка и формализация данных
+    - типы источников
+        - внутренняя статистика
+        - внешняя публичная статистика
+        - целевой сбор
+        - закупка
+    - параметры источников
+        - точность: чему можно верить а чему нет
+        - состав: соцдем, география, интересы, активность, ...
+        - детальность
+        - дискретность, регулярность: каждые 5 минут, день, месяц, квартал
+        - полнота: иногда видим нерепрезентативную часть активности
+        - перекосы: чем выборка отличается от генеральной совокупности
+        - гибкость: например, возможность пересекать множества
+        - шумность
+        - скорость: ответ за 5 секунд или 3 недели
+        - цена
+- multivariate analysis
+    - cohort analysis
+        - Churn/Retention
+        - LTV 
+        - RFM 
+    - segmentation
+    - abt
+        - эксперименты в Бинге: http://www.exp-platform.com/Documents/puzzlingOutcomesInControlledExperiments.pdf
+- презентация результатов
+    - говорить на понятном языке
+    - отвечать на волнующие вопросы
+    - объективная картина (факты)
+    - субъективная картина (storytelling) http://www.unece.org/fileadmin/DAM/stats/documents/writing/MDM_Part1_English.pdf
+    - визуализация https://github.com/az365/compendium/blob/master/disciplines/datavis.md
+    - приятные бонусы
+## Workflows and frameworks
+- базовая последовательность (может итерироваться)
+    - ознакомление, визуализация
+    - формирование гипотез, построение моделей
+    - прототипирование расчётов
+    - интерпретация модели и результатов
+- Reproducible Research
+    - John Hopkins University - Reproducible Research cource https://www.coursera.org/learn/reproducible-research
+- Lean analytics 
+    - cycle: ideas->build->product->measure->data->learn->ideas->...
+    - lean canvas: problem, customer segments, unique value proposition, solution, channels, revenue streams, cost structure, metrics, unfair advantage
+    - lean analytics cycle (the cycle of life for analytical startups)
+- HADI canvas 
+    - HADI-циклы в развитии компании http://artbayard.ru/hadi
+    - HADI: 5 лайфхаков для проверки гипотез https://www.iidf.ru/media/articles/lifehacks/hadi-tsikly-5-layfkhakov/
+- CRISP-DM
+    - этапы согласно wikipedia.org/wiki/CRISP-DM
+        - business understanding
+        - data understanding
+        - data preparation
+        - modeling
+        - evaluation
+        - deployment
+    - этапы согласно habr.com/ru/company/ods/blog/430006
+        - формулировка задачи
+        - методы решения и данные
+            - исследуем возможные подходы к её решению и сформулируем требования к данным
+            - соберём необходимые данные
+        - exploratory research / eda - exploratory data analysis - изучим собранный датасетт
+        - feature engineering - извлечём признаки из сырых данных
+        - обучим модель
+        - model evaluation - сравним полученные результаты, оценим качество полученных решений и при необходимости повторим пункты 2-6
+        - deployment to production - упакуем решение в сервис, который можно будет использовать
+## Метрики
+- хорошая метрика (согласно Lean Analytics)
+    - comparative
+    - understandable
+    - ratio or rate (ratios are easier to act on, are inherently comparative, are good for comparing factors)
+    - changes the way to behave
+- классификации метрик 
+    - из Lean Analytics http://leananalyticsbook.com/
+        - qualitative vs quantitative
+        - vanity vs actionable (8 vanity m: hits, pageviews, visits, visitors, followers/likes, time on, emails collected, downloads)
+        - exploratory vs reporting metrics (the hidded genius of Donald Rumsfeld)
+        - accounting (how close you are to an ideal) vs experimental (help to optimize the product, pricing, market)
+        - leading vs lagging
+        - correlated vs causal
+    - по способу сопоставления
+        - мониторинг и KPI 
+            - измеримость
+            - достижимость
+            - объективность
+            - понятный физический смысл
+            - понятное влияние на цели компании
+            - понятно, как влиять на этот kpi
+        - приёмочные (АБТ)
+            - красить ухудшения (благодаря монтонности прокрасят и улучшения)
+            - не красить контроли (АА-тест)
+            - чувствительность (красить лучше других)
+            - применимость (некоторые метрики не совместимы с некоторыми типами экспериментов)
+    - по близости к прикладным целям продукта
+        - оффлайн: оценка качества модели (на тест-сетах)
+            - оффлайновая метрика строится на модели продукта и пользователя и приближает онлайновую, но считается дешевле и без рисков на живой аудитории
+        - онлайн: измеримые пользовательские (на АБТ)
+        - абстрактные: счастье пользователя (то, что в идеале хотим померить, но не можем)
+## Требования к дата-аналитикам
+- собственно аналитический скилл
+    - стремление докопаться до причины явления, понять смысл
+    - критическое мышление, способность и стремление оспаривать собственные гипотезы и сомневаться во всём
+    - способность видеть или находить все возможные: взаимосвязи, причины, пути
+    - умение декомпозировать сложную аналитическую задачу на ряд более простых
+    - развитая логика
+- математические скиллы https://github.com/az365/compendium/blob/master/disciplines/math.md
+    - тервер, матстат
+    - линейная алгебра
+    - дискретная математика
+    - численные методы
+- алгоритмы и структуры данных https://github.com/az365/compendium/blob/master/disciplines/algo.md
+- визуализация данных https://github.com/az365/compendium/blob/master/disciplines/datavis.md
+## Ошибки и заблуждения
+- Топ10 ошибок и заблуждений - согласно Monica Rogati, a data scientist at LinkedIn
+    - Assuming data is clean.
+    - Not normalizing (пример: искали, где больше выездных свадеб, нашли крупные аэропорты)
+    - Excluding outliers.
+    - Including outliers.
+    - Ignoring seasonality.
+    - Ignoring size when reporting growth.
+    - Data vomit (плохие деши)
+    - Metrics that cry wolf (ложные алерты ведут к слепоте)
+    - The 'Not Collected Here' syndrome (неприятие внешних данных ведёт к упущению возможностей по обогащению своих)
+    - Focusing on noise
