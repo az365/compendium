@@ -1,0 +1,605 @@
+# Machine Learning and Data Science
+## Based on
+- probability theories
+- math statistics
+- lenear algebra
+- numerical optimisation
+- programming
+## Теория supervized learning
+- methods/models for regression&classification
+    - широкие обзоры методов
+        - Example from sklearn with different decision surfaces https://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html
+        - Overview of algorithms and parameters in H2O documentation http://docs.h2o.ai/h2o/latest-stable/h2o-docs/data-science.html
+    - linear regression
+        - Overview of Linear Models (sklearn's documentation) http://scikit-learn.org/stable/modules/linear_model.html
+        - Vowpal Wabbit repository https://github.com/JohnLangford/vowpal_wabbit
+    - logistic regression
+        - L=..., p=...
+        - оптимизировать: градиентным спуском, стохастический градиентный спуск, mini-batch
+        - проблемы локальных оптимумов нет, функционал (логарифм от сигмойды) выпуклый (можно взять производную), линейное преобразование не меняет выпуклости
+        - без регуляризации масштаб признаков влияет на процесс оптимизации и на полученные веса, но не на итоговое качество; с регуляризацией масштаб влияет: на фичи с большей дисперсией регуляризация действует меньше, чем на фичи с меньшей, поэтому стоит нормализовать признаки
+        - переобучение: если выборка меньше, чем число признаков; помогут: регуляризация (L2 и/или L1), отбор признаков (L1 автоматом отберёт признаки, сожмёт полученную модель).
+        - ускоренная оптимизация: метод Ньютона (если признаков мало), L-BFGS (если датасет в памяти)
+    - neighbour-based
+        - kNN
+            - intro/overview
+                - Introduction to k-Nearest Neighbors: A powerful Machine Learning Algorithm https://www.analyticsvidhya.com/blog/2018/03/introduction-k-neighbours-algorithm-clustering/
+                - Overview of k-NN (sklearn's documentation) http://scikit-learn.org/stable/modules/neighbors.html
+            - как используются расстояния, как взвешиваются объекты, как считаются предсказания?
+            - необходимо масштабировать признаки
+            - проблема: нужно хранить все данные
+            - при большом объёме данных предсказания делаются медленно
+        - tSNE - t-distributed stochastic neighbor embedding - внедрение соседей
+            - нелинейное снижение размерности
+            - используется для визуализации, но можно и для фичей
+            - главный параметр: perplexity
+            - read more
+                - Multicore t-SNE implementation https://github.com/DmitryUlyanov/Multicore-TSNE
+                - Comparison of Manifold Learning methods (sklearn) https://scikit-learn.org/stable/auto_examples/manifold/plot_compare_methods.html
+                - How to Use t-SNE Effectively (distill.pub blog) https://distill.pub/2016/misread-tsne/
+                - tSNE homepage (Laurens van der Maaten) https://lvdmaaten.github.io/tsne/
+                - Example: tSNE with different perplexities (sklearn) https://scikit-learn.org/stable/auto_examples/manifold/plot_t_sne_perplexity.html#sphx-glr-auto-examples-manifold-plot-t-sne-perplexity-py
+                - Препарируем t-SNE https://habr.com/ru/post/267041/
+    - tree-based: tree, forest, GBDT
+        - Single Tree
+            - Overview of Decision Trees (sklearn's documentation) https://scikit-learn.org/stable/modules/tree.html
+            - Decision Trees: Gini vs Entropy criteria https://www.garysieling.com/blog/sklearn-gini-vs-entropy-criteria
+        - Random Forest
+            - Random Forests explained intuitively https://www.datasciencecentral.com/profiles/blogs/random-forests-explained-intuitively
+        - GBDT
+            - Gradient Boosting explained http://arogozhnikov.github.io/2016/06/24/gradient_boosting_explained.html
+            - TimeBudget = Iterations * BorderCount * RSM
+        - ExtraTrees
+            - ExtraTrees classifier always tests random splits over fraction of features (in contrast to RandomForest, which tests all possible splits over fraction of features)
+        - RGF - Regularized GreedyForest
+            - baidu/fast_rgf - Regularized Greedy Forest
+                - https://github.com/baidu/fast_rgf
+                - https://arxiv.org/pdf/1109.0887.pdf
+        - общее и сравнения
+            - какие параметры подбирать
+                - random forest: количество деревьев, глубина, тот или иной способ ограничить количество листьев (кол-во объектов в листе, критерий останова деления), сэмплинг по объектам и по факторам для бэггинга.
+                - Gradient Boosting: те же + learning rate/shrinkage
+            - bias и variance у forest и GB
+                - У глубоких деревьев будет маленький bias и большой variance, у неглубоких - наоборот
+                - RandomForest не меняет bias (линейность матожидания) и уменьшает variance
+                - дисперсия среднего n _независимых_ одинаково распределенных случайных величин - в n раз меньше, чем дисперсия одной; для зависимых это неверно
+                - в RandomForest нужны глубокие деревья, чтобы и bias был маленький в итоге, и variance
+                - если неглубокие взять, то bias останется большим, хоть variance и уменьшится
+                - для GB наоборот, bias постепенно уменьшается за счет движения по градиенту, а variance не падает, т.к. деревья зависимы.
+                - нужны относительно неглубокие деревья, чтобы не переобучиться (variance большой будет, если взять глубокие)
+    - neural networks
+        - intro
+            - Основы нейронных сетей by Технострим: https://www.youtube.com/watch?v=Am82yvUSwRE
+            - Interactive demo of simple feed-forward Neural Net http://playground.tensorflow.org/
+            - Frameworks for Neural Nets: Keras, PyTorch, TensorFlow, MXNet, Lasagne
+        - Introduction to Deep Learning https://www.coursera.org/learn/intro-to-deep-learning
+            - типы слоёв
+                - dense полносвязный
+                - сonvolutional свёрточный
+                - pooling
+            - известные архитектуры
+                - MLP - multilayer perceptron
+                - CNN
+                    - LeNet-5
+                        ? ImageNet top5 error 26%
+                    - AlexNet (2012)
+                        - first deep CNN for ImageNet
+                        - ImageNet top5 error 15%
+                        - 11x11, 5x5, 3x3 conv, max pooling, dropout, data augm, ReLu act, SGD with momentum
+                        - 60 mln parameters
+                        - trains on 2 GPU for 6 days
+                    - VGG (2015)
+                        - ImageNet top5 errors 8%
+                        - only 3x3 conv, lots of filters
+                        - additional multi-scale cropping
+                        - 138 mln parameters
+                        - trains on 4 gpu for 2-3 weeks
+                        - VGG-16 - recommended as pretrain network
+                    - GoogLeNet aka Inception V1
+                        - inception block concat 5 parallel chains
+                            - avg.pool + 1x1 conv: 1x1
+                            - 1 conv layer: 1x1
+                            - 3 conv layers: 1x1 + 1x3 + 3x1
+                            - 5 conv layers: 1x1 + 1x3 + 3x1 + 1x3 + 3x1
+                    - Inception V3 (2015)
+                        - ImageNet top5 errors: 5.6% (single model), 3.6% (ensemble)
+                        - uses inception block from Inception V1
+                        - batch normalization, image distortion, RMSprop
+                        - 25 mln(?bln) parameters
+                        - trains on 8 gpu for 2 weeks
+                        - https://ai.googleblog.com/2016/03/train-your-own-image-classifier-with.html
+                    - ResNet (2015) - resudual connections
+                        - ImageNet top5 errors: 4.5% (single model), 3.5% (ensemble)
+                        - 152 layers, few 7x7 conv, the rest are 3x3, batch norm, max and avg pooling
+                        - 60 mln parameters
+                        - trains on 8 GPU 2-3 weeks
+                        - ResNet[-50] - recommended as pretrain network
+                - RNN
+            - activation functions
+                - sigmoid: sigma(x) = 1 / (1 + e^-x) 
+                    - d sigma / dx = sigma(x)(1 - sigma(x))
+                    - dL/dx = dL / d sigma * d sigma / dx
+                    - vanishig gradients
+                    - not zero-centred
+                    - e^x is computationally expensive
+                - TanH: tanh(x) = 2 / 1 + e^-2x - 1
+                    - zero-centred
+                    - but still pretty much like sigmoid
+                - ReLu: f(x) = max(0,x) 
+                    - fast to compute
+                    - gradients do not vanish for x>0
+                    - faster convergence
+                    - not zero-centred
+                    - can die: if not activated, never updates
+                - Leaky ReLu: f(x) = max(ax, a), a!=1
+                    - will not die
+            - weights initialization
+                - zeroes: symmetry problem
+                - Xavier: multiply weights by sqrt(2)/sqrt(n in + n out)
+                - for ReLu: multipy by sqrt(2)/sqrt(n in)
+            - batch normalization
+                - hi = gamma i * (hi - mu i)/sqrt(sigma i ^2) + beta i
+                - estimate mu i and sigma i ^2 having a current train batch
+                - mu i = alpha * mean(batch) + (1-alpha)*mu i
+                - sigma i ^2 = alpha * variance(batch) + (1-alpha)*sigma i ^2
+            - dropout
+            - data augmentation
+    - специализированные модели для CountData
+        - Negative Binomial Regression / Poisson Regression
+            - популярные виды распределений для CountData
+                - Poisson
+                - Negative Binomial
+                - Negative Binomial Zero Inflated (=with extra zero)
+                - Hurdle
+            - Poisson for CountData 
+                - для дискретных таргетов типа запросов и кликов пуассоновская регрессия подходит, для денег нет
+                - используется когда есть фиксированная интенсивность каких-то событий
+                - вероятность, что сколько-то автобусов придёт в ед врем - распределена по пуассону
+                - м.б. сколько времени юзер юзает распределно экспоненциально, а сколько ищет по пуаассону
+            - zero inflated @ wiki https://en.wikipedia.org/wiki/Zero-inflated_model
+            - regression analysis of Count Data https://books.google.ru/books?id=qVEwBQAAQBAJ&printsec=frontcover&hl=ru&cad=0#v=onepage&q&f=false
+            - пример применения https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3238139/
+    - модели для временнЫх рядов
+        - Data Mining in Action 10: Прогнозирование временных рядов https://www.youtube.com/watch?v=u433nrxdf5k
+        - ML Course: анализ временных рядов https://habr.com/ru/company/ods/blog/327242/ https://www.youtube.com/watch?v=nQjul-5_0_M
+            - rolling window estimations
+            - экспоненциальное сглаживание, модель Хольта-Винтерса
+            - кросс-валидация, подбор параметров
+            - эконометрический подход
+            - избавляемся от нестационарности, строим SARIMA
+            - feature-based модели на временнЫх рядах
+                - линейная регрессия 
+                - XGBoost на временнЫх рядах
+- metrics
+    - classical quality metrics
+        - for classification
+                - Evaluation Metrics for Classification Problems: Quick Examples + References http://queirozf.com/entries/evaluation-metrics-for-classification-quick-examples-references
+            - accuracy
+            - precision, recall
+            - F1
+            - Top-K
+            - TPR (чувствительность), FPR, 1-FPR (специфичность)
+            - AUC ROC (receiver operating characteristic)
+                - Understanding ROC curves http://www.navan.name/roc/
+            - LogLoss
+            - cohen's kappa = 1 - (1-accuracy / 1-baseline)
+            - weighted kappa = 1 - weighted error / weighted baseline error
+            - quadratic weighted cappa
+                - On The Direct Maximization of Quadratic Weighted Kappa https://arxiv.org/abs/1509.07107 (implemented in coursera's ipynb)
+                - used in
+                    - Crowd Flower search results relevance
+                    - Prudential life insurance assessment
+                    - diabetic retinophaty detection
+                    - The Hewlett Foundation automated essay scoring
+        - for regression
+            - MSE, RMSE, R2
+            - MAE
+            - MSPE, MAPE, SMAPE
+            - RMSLE
+        - ranking
+                - Метрики качества ранжирования https://habr.com/ru/company/econtenta/blog/303458/
+                - Learning to Rank using Gradient Descent -- original paper about pairwise method for AUC optimization http://icml.cc/2015/wp-content/uploads/2015/06/icml_ranking.pdf
+                - Overview of further developments of RankNet https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/MSR-TR-2010-82.pdf
+                - RankLib (implemtations for the 2 papers from above) https://sourceforge.net/p/lemur/wiki/RankLib/
+                - Learning to Rank Overview https://wellecks.wordpress.com/2015/01/15/learning-to-rank-overview
+            - precision-family
+                - p@K
+                - ap@K
+                - map@K - mean average precision
+            - nDCG-family
+                - CG@K
+                - DCG@K
+                - nDCG@K - normalized discounted cumulative gain
+            - MRR - mean reciprocal rank
+            - ранговые коэффициенты коррелляции
+                - кендэлла
+                - спирмена
+            - каскадная модель поведения
+                - err - expected reciprocal rank
+                - pfound
+        - clustering
+            - Evaluation metrics for clustering http://nlp.uned.es/docs/amigo2007a.pdf
+                - formal constraints
+                    - cluster homogenity
+                    - cluster completness
+                    - rag bag (introducing disorder into a disordered cluster is less harmful than introducing disorder into a clean cluster)
+                    - size vs quantity
+                - comparison of evaluation metrics
+                    - Evaluation by set matching
+                    - Metrics based on Counting Pairs
+                    - Metrics based on entropy
+                    - Evaluation metrics based on edit distance
+                    - BCubed: a mixed family of metrics
+    - approaches for target metric optimization
+        - just run the right model: mse, logloss
+        - preprocess train and optimize another metric: mspe, mape, rmsle
+        - optimize another metric, postprocess predictions: acuracy, kappa
+        - write custom loss function: any, if you can
+        - optimize another metric, use early stopping
+    - metrics optimization
+        - for regression
+            - sample weights
+                - e.g. mape/mspe <-> oversampling big targets for mae
+            - target transforms
+                - e.g. rlmse <-> log target
+        - for classification
+            - probability calibration
+                    - approach: fit to AUC -> calibrate to LogLoss
+                - Platt scaling
+                    - fit logreg to predictions - like stacking
+                - isotonic regression
+                    - fit isotoic regression to pred - like stacking
+                - stacking
+                    - fit XGBoost or NN to predictions
+            - proxy-losses 
+                - for accuracy (zero-one loss)
+                    - logistic loss
+                    - Hinge loss (using in SVM)
+- concepts
+    - генерализация vs запоминание
+    - bias vs variance - дилемма смещения-дисперсии
+        - bias - ошибочное предположения, пропуск связи между признаками и выводом - недообучение
+        - variance - ошибка чувствительности к малым отклонениям в тренировочном наборе - переобучение
+        - как влиять
+            - снижение размерности и отбор признаков -> упрощение модели -> уменьшить дисперсию
+            - больше тренировочное множество приводит -> уменьшение дисперсии
+            - добавление признаков -> уменьшение смещения, увеличения дисперсии
+    - loss vs metric
+## Области
+- NLP: тексты
+    - задачи
+        - text classification/regression
+            - safe search (adult content filtering)
+            - detect age/gender/interests by search queries
+            - convert moovie review into stars
+            - SNA, social network analysis - public opinion about new product vs old
+    - text representation / извлечение признаков из текстов
+        - BoW - bag of words
+        - OHE - one-hot-eocoding
+        - TF-IDF
+        - word embeddings: w2vec(cbow, skipgram), glove, fasttext, Sent2Vec, ELMO
+            - word2vec 
+                - approaches
+                    - CBOW, Continuous Bag of Words: autoencoder from OHE to OHE
+                    - skip-gram: learn to predict missing word
+                - side-effed: word algebra
+            - GloVe - global vectors
+            - FastText
+            - sent2vec, doc2vec
+            - ELMO
+            - other embedding methods (not only? for text): 
+                - MDS (multidimensional scaling)
+                - LLE (locally linear embedding)
+                - tSNE (t-distributed Stochastic Neighbor Embedding)
+    - алгоритмы обработки последовательностей
+        - рекурентные сети (GRU, LSTM)
+        - казуальные свертки
+        - attention
+    - регуляризация 
+        - dropout
+        - batchnormalization
+    - функции активации
+        - relu (между слоями)
+        - softmax
+        - sigmoid (на выходе)
+- ComputerVision: изображения
+    - типы задач
+        - images classification
+        - semantic segmentation (of every pixel in image)
+            - need corresponding pairs of downsampling (pooling) and upsampling layers
+        - object classification + localization
+    - как сделать классификацию под конкретные задачи
+        - скачать современную архитектуру: VGG, ResNet, Inception (принцип - свертки, пулинги)
+        - снять верхние слои, доучить под классы, которые нужны в задаче
+        - softmax, sigmoid
+    - fine-tuning
+        - pretrained CNN network
+            - recommended architectures
+                - VGG[-16]
+                - ResNet[-50]
+            - read more
+                - Using pretrained models in Keras https://keras.io/applications/
+                - Image classification with a pre-trained deep neural network https://www.kernix.com/blog/image-classification-with-a-pre-trained-deep-neural-network_p11
+        - how to fine-tune
+                - replace last layer(s)
+                - дообучиь на релевантных примерах с малым LR (в 1000 раз меньше, чем изначальный)
+            - read more
+                - How to Retrain Inception's Final Layer for New Categories in Tensorflow https://www.tensorflow.org/tutorials/image_retraining
+                - Fine-tuning Deep Learning Models in Keras https://flyyufelix.github.io/2016/10/08/fine-tuning-in-keras-part2.html
+        - how to choise technic
+            - imagenet domain
+                - small dataset -> train last MLP layers
+                - big dataset -> fine-tuning of deeper layers
+            - not similar to ImageNet
+                - small dataset -> collect more data
+                - big dataset -> train from scratch
+    - Data augmemntation - getting 5x as large dataset for free is a great deal
+        - https://keras.io/preprocessing/image/
+        - Zoom-in+slice = move
+        - Rotate+zoom(to remove black stripes)
+        - any other perturbations
+        - Simple way to do that (if you have PIL/Image): from scipy.misc import imrotate, imresize ... and a few slicing
+        - Stay realistic. There's usually no point in flipping dogs upside down as that is not the way you usually see them.
+- Unsupervised learning
+    - for
+        - unsupervised pretraining - for large amount of unlabeled data - for NNs
+        - find most relevant features / dimensionality reduction - before XGBoost
+        - explore high-dimensional data / dimensionality reduction - for EDA
+        - compress information
+        - retrieve similar objects
+        - generate new data samples
+        - image morphing
+    - autoencoders
+        - image2image: convolutional
+            - data 3xWxH | conv 16x5x5 pad 2 | pool x3 | dense H=256 | unpool x3 | conv 16x5x5 | data 3xWxH
+        - regularization
+            - L1 - adding sum of weights to loss
+            - dropout/noize - between encoder and decoder
+            - dropout/noize - before encoder
+- Embeddings, dimensionality reduction, matrix factorization
+    - PCA - метод главных компонент (principal component analysis)
+    - SVD-разложение (singular vector decomposition)
+    - tSNE (t-distributed stochastic neighbor embedding)
+            - нелинейное снижение размерности
+            - используется для визуализации, но можно и для фичей
+            - главный параметр: perplexity
+            - read more
+                - Multicore t-SNE implementation https://github.com/DmitryUlyanov/Multicore-TSNE
+                - Comparison of Manifold Learning methods (sklearn) https://scikit-learn.org/stable/auto_examples/manifold/plot_compare_methods.html
+                - How to Use t-SNE Effectively (distill.pub blog) https://distill.pub/2016/misread-tsne/
+                - tSNE homepage (Laurens van der Maaten) https://lvdmaaten.github.io/tsne/
+                - Example: tSNE with different perplexities (sklearn) https://scikit-learn.org/stable/auto_examples/manifold/plot_t_sne_perplexity.html#sphx-glr-auto-examples-manifold-plot-t-sne-perplexity-py
+                - Препарируем t-SNE https://habr.com/ru/post/267041/
+    - NMF (NNMF, Non-negative matrix factorization)
+        - not applicable to features containing negative values, i.e. standartized matrices
+    - read More
+        - Overview of Matrix Decomposition methods (sklearn) https://www.coursera.org/learn/competitive-data-science/supplement/3XpTg/additional-materials-and-links
+    - факторизация и регуляризация by Peter Popov
+        - корен - один из призёров Netflix Prize https://github.com/gpfvic/IRR/blob/master/Factorization%20meets%20the%20neighborhood-%20a%20multifaceted%20collaborative%20filtering%20model.pdf
+            - его версия градиента расходится с его же описанием оптимизационной задачи
+            - взвешенная регуляризация: перед регуляризационными тихоновскими коэффициентами стоят дополнительные множители, равные кратности данного объекта в датасете
+        - математические обоснования https://papers.nips.cc/paper/3208-probabilistic-matrix-factorization.pdf
+            - и ещё от этих же авторов https://www.cs.toronto.edu/~amnih/papers/bpmf.pdf
+        - https://www.cs.umn.edu/sites/cs.umn.edu/files/tech_reports/10-024.pdf
+            - достаточно сложен и требовал для факторизационной машины серьезной адаптации
+        - две принципиальные сложности - построить расширяемую модель и научить к ней параметры регуляризации
+        - далее: фото 7.07 23:15
+        - https://github.com/buptjz/Factorization-Machine/blob/master/paper/Steffen%20Rendle%20(2012)%20Learning%20Recommender%20Systems%20with%20Adaptive%20Regularization.pdf
+            - считаем на каждом шаге итерации производную скора на валидейте по параметрам регуляризации
+            - Реализуется достаточно просто, памятую про то, что в регуляризации есть постоянный член и член, зависящий от кратности переменной
+            - авторы ppmf молодцы
+- Reinforcement learning
+    - подходы: value-based, policy-based, model-based
+    - методы и модели: q-learning, sarsa, actor-critic, a3c, dqn
+    - трудности: exploration-vs-exploitation, long term credit assignment
+## Libraries and frameworks
+- basic SciPy stack
+    - Numpy - linear algebra library
+    - Pandas - data reading/processing (not algebra)
+        - DataFrame blog about Pandas usage https://tomaugspurger.github.io/
+    - Matplotlib - visualisation
+    - SkLearn 
+- другие общего назначения
+    - H2O.ai на Java от MS http://docs.h2o.ai/h2o/latest-stable/h2o-docs/data-science.html
+    - Spark MLLib
+    - CaReT - Classification And REgression Training для R
+- tree-based
+    - XGBoost (dmlc/xgboost)
+    - MS LightGBM (microsoft/lightgbm)
+    - H2O's GBM - supported cat-features
+    - CatBoost
+        - solving problems
+            - categorical features
+            - parameter tunning
+            - prediction speed
+            - overfitting
+            - training speed
+        - additional features
+            - overfitting detector
+            - evaluating custom metrics during training
+            - catboost viewer
+            - user defined metrics and loss functions
+            - NaN features support
+            - cross-validation
+            - feature importances
+        - speed
+            - options to speedup
+                - rsm=0.1
+                - max_ctr_complexity=1
+                - boosting_type='Plain'
+            - cpu-mode
+                - large-datasets
+                    - same speed as LightGBM
+                - small-datasets
+                    - 2 times faster than XGBoost
+                    - 2 times slower than LightGBM
+            - gpu-mode
+                - 2 times faster than LightGBM
+                - 20 times faster than XGBoost
+        - training parameter
+            - number of trees, learning rate
+            - tree depth
+            - L2 regularization
+            - bagging temperature - how agressive the sampling is
+            - random strength - helps to reduce overfitting
+    - (f)RGF baidu/fast_rgf - Regularized Greedy Forest
+        - https://github.com/baidu/fast_rgf
+        - https://arxiv.org/pdf/1109.0887.pdf
+    - randomforest
+- work with sparse CTR-like data
+    - srendle/libfm
+    - guestwalk/libffm
+- линейные модели
+    - vowpal wabbit
+        - https://habrahabr.ru/company/mlclass/blog/248779/ Когда данных действительно много: Vowpal Wabbit
+        - vowpal wabbit https://github.com/JohnLangford/vowpal_wabbit
+- временнЫе ряды
+    - prophet
+- additional tools
+    - danielfrg/tsne (osdf/py_bh_tsne, lvdmaaten/tsne) - about dimensionality reduction
+    - TFFM - TF implementation of Arbitrary order factorization machines https://github.com/geffy/tffm
+    - kaggletils - framework for Kaggle competitions by Far0n https://github.com/Far0n/kaggletils/blob/master/kaggletils/metrics.py
+- neural networks
+        - классификация фреймворков для NN
+            - фиксированные модули: Caffe, Caffe2, CNTK, Kaldi, DL4J, Keras
+            - статический граф вычислений: Theano, TensorFlow, MXNet
+            - динамический граф вычислений: Torch и PyTorch
+    - Tensorflow
+        - https://www.coursera.org/learn/intro-to-deep-learning/lecture/hscFv/what-is-tensorflow
+        - TensorFlow: The Confusing Parts https://jacobbuckman.com/post/tensorflow-the-confusing-parts-1
+        - TensorFlow tutorials: https://www.tensorflow.org/tutorials
+        - TensorFlow documentation: https://www.tensorflow.org/versions/r1.3/api_docs/python
+    - Keras
+        - Guide to using Keras as part of a TensorFlow workflow https://blog.keras.io/keras-as-a-simplified-interface-to-tensorflow-tutorial.html
+    - Caffe
+    - PyTorch от Facebook не похожа на Caffe, Theano, TensofFlow (habr.com/ru/post/334380)
+        - PyTorch — ваш новый фреймворк глубокого обучения https://habr.com/ru/post/334380/
+    - Fast.ai для PyTorch
+    - MXNet - распределённое обучение сеточек
+    - CNTK - CogNitive TookKit от Microsoft Research
+- clouds
+    - Amazon AWS
+        - AWS spot option
+            - Overview of Spot mechanism http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html
+            - Spot Setup Guide http://www.datasciencebowl.com/aws_guide/
+    - MS Azure
+    - Google Cloud
+## EDA - exploratory data analysis
+- tools for features exploration
+    - base
+        - df.dtypes
+        - df.info()
+    - explore individual features
+        - histograms
+            - plt.hist(x)
+        - plot
+            - plt.plot(x, '.')
+        - statistics
+            - df.describe()
+            - x.mean()
+            - x.var()
+        - other tools
+            - x.value_counts()
+            - x.isnull()
+    - explore feature relations
+        - scatter plots
+            - pd.scatter_matrix(df)
+        - correlation matrices
+            - df.corr()
+            - plt.matshow()
+    - explore features groups
+        - corrplot+clustering
+        - plot: index vs feature statistics
+            - df.mean().sort_values().plot(style='.')
+- dataset cleaning and other things to check
+    - duplicated and constant features    
+        - train.nunique(axis=1) == 1
+        - traintest.T.drop_duplicates()
+        - for f in categorical_feats: traintest[f]=traintest[f].factorize() ; traintest.T.drop_duplicates()
+- EDA checklist
+    - get domain knowledge
+    - check if data is intuitive
+    - understand how the data was geerated
+    - explore features, pairs, groups
+    - clean features up
+    - check for leaks
+- Visualization tools https://github.com/az365/compendium/blob/master/disciplines/datavis.md
+    - Seaborn https://seaborn.pydata.org
+    - Plotly https://plot.ly/python/
+    - Bokeh https://github.com/bokeh/bokeh
+    - ggplot http://ggplot.yhathq.com/
+    - Graph visualization with NetworkX https://networkx.github.io/
+    - Biclustering algorithms for sorting corrplots https://scikit-learn.org/stable/auto_examples/bicluster/plot_spectral_biclustering.html
+## CRISP-DM
+- этапы согласно wikipedia.org/wiki/CRISP-DM
+    - business understanding
+    - data understanding
+    - data preparation
+    - modeling
+    - evaluation
+    - deployment
+- этапы согласно habr.com/ru/company/ods/blog/430006
+    - формулировка задачи
+    - методы решения и данные
+        - исследуем возможные подходы к её решению и сформулируем требования к данным
+        - соберём необходимые данные
+    - exploratory research / eda - exploratory data analysis - изучим собранный датасетт
+    - feature engineering - извлечём признаки из сырых данных
+    - обучим модель
+    - model evaluation - сравним полученные результаты, оценим качество полученных решений и при необходимости повторим пункты 2-6
+    - deployment to production - упакуем решение в сервис, который можно будет использовать
+## Типовые ошибки data-science (AI community @ Avito, 24.04.2018)
+- на этапе бизнес-анализа
+    1 проблема не валидирована заказчиком
+    2 заказчик и спонсор неверно определены
+    3 решение не валидировано с заказчиком
+    4 потенциальное решение не продано заказчику
+        - рецепт: написать будущий пресс-релиз на 1 стр (каким он был бы, если бы цель была достигнута сегодня)
+    - заведомо сложное решение
+        - если есть проблемы с базовой отчётностью - бесполезно делать data science
+- на этапе анализа данных
+    5 анализ без чётко сформулированных гипотез
+    6 слушаем данные, мало слушаем экспертов
+- ошибки при подготовке данных
+    7 создание слишком сложной инфраструктуры с начала VS создание одноразовых скритпов над локальными выгрузками
+    - отсутствие документации по всем шагам выгрузки и подготовки
+    - смещение данных при подготовке
+- ошибки на этапе моделирования
+    8 фокус 
+        - фокус на алгоритме, а не на доступных данных (сигнале)
+        - фокус на алгоритме, а не на подготовке данных
+        - фокус на алгоритме, а не на знаниях предметной области
+    - использование слишком сложных моделей
+    - переобучение моделей
+- ошибки на этапе внедрения
+    9 отсутствие эксперимента с боевым тестированием
+    - дефицит коммуникации по продаже фактических результатов
+    10 отсутствие мониторинга качества модели
+    - отсутствие процесса переобучения/неверная частота переобучения
+## Coursera
+- базовый набор
+    - Курс «Введение в машинное обучение»: Константин Воронцов, Евгений Соколов, Анна Козлова
+    - Специализация «Машинное обучение и анализ данных»: Константин Воронцов, Евгений Соколов, Антон Слесарев, Эмели Драль, Виктор Кантор https://www.coursera.org/specializations/machine-learning-data-analysis
+    - ВШЭ - Advanced machine learning coursera.org/specializations/aml
+        - Deep learning Intro 
+        - How to win in data science competitions
+    - Andrew NG - Deep Learning Specialization coursera.org/specializations/deep-learning
+    - Stanford - CS231n: Convolutional Neural Networks for Visual Recognition http://cs231n.stanford.edu/
+- рекомендовано yellowduck@
+    Pattern Discovery in Data Mining - Coursera.org, University of Illinois at Urbana-Champaign
+    Text Retrieval and Search Engines - Coursera.org, University of Illinois at Urbana-Champaign
+    Cluster Analysis in Data Mining - Coursera.org, University of Illinois at Urbana-Champaign
+    Text Mining and Analytics - Coursera.org, University of Illinois at Urbana-Champaign
+    Data Visualization - Coursera.org, University of Illinois at Urbana-Champaign
+    Data Mining Capstone - Coursera.org, University of Illinois at Urbana-Champaign
+    Machine Learning - Coursera.org, Stanford University
+    Hadoop. Система для обработки больших объемов данных - Stepik.org, Mail.ru Group
+    Deep Learning - Udacity.com, Google
+## Read more
+- для знающих
+    - events.yandex.ru/events/mltr
+- где батлиться
+    - kaggle.com
+    - boosters.pro
+- сообщества
+    - ods.ai
