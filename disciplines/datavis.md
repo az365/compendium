@@ -1,10 +1,28 @@
-# data visualisation
-## литература 
+# Data visualisation
+## Литература 
 - Visualization and Visual Communication https://eagereyes.org
 - Observable https://observablehq.com/explore
 - A Tour through the Visualization Zoo https://queue.acm.org/detail.cfm?id=1805128
 - 20 инструментов https://freelance.today/poleznoe/20-luchshih-instrumentov-dlya-vizualizacii-dannyh.html
 - 21 инструмент https://yagla.ru/blog/marketing/21-instrument-vizualizacii-dannyh-dlya-marketologov-i-analitikov/
+- репы по DS и визуализации https://habr.com/ru/company/mailru/blog/437940/
+    - data science
+        - The Open-Source Data Science Masters https://github.com/datasciencemasters/go#readme
+        - Awesome Data Science https://github.com/academic/awesome-datascience#readme
+        - Data science blogs https://github.com/rushter/data-science-blogs#readme
+        - LearnDataScience https://github.com/nborwankar/LearnDataScience#readme
+        - data-science-ipython-notebooks https://github.com/donnemartin/data-science-ipython-notebooks#readme
+    - visualisation 
+        - d3.js https://github.com/mbostock/d3 
+        - Chart.js https://github.com/chartjs/Chart.js#readme 
+        - Echarts https://github.com/apache/incubator-echarts#readme
+        - Leaflet https://github.com/Leaflet/Leaflet#readme
+        - Sigma.js https://github.com/jacomyal/sigma.js#readme
+        - Vega https://github.com/vega/vega#readme
+        - DC.js https://github.com/dc-js/dc.js#readme
+        - Epoch https://github.com/epochjs/epoch#readme
+        - data-science-ipython-notebooks https://github.com/donnemartin/data-science-ipython-notebooks#matplotlib
+- Как писать истории на данных http://www.unece.org/fileadmin/DAM/stats/documents/writing/MDM_Part1_English.pdf
 ## Зачем визуализировать 
 - кейсы    
     - сравнить разные показатели
@@ -208,7 +226,7 @@
                 - системы безопасности промышленных предприятий
         - таймлайны
             - последовательности событий
-            - примеры сессий на сайте 
+            - примеры сессий на сайте
             - диаграммы ганта
         - кастомная инфографика 
             - примеры
@@ -314,3 +332,13 @@
     - помнить, что корреляция не означает причинно-следственной связи 
         - correlation is not causation 
         - пример: число смертей в водоёмах коррелирует с продажами мороженого 
+## Как доносить 
+- говорить на понятном языке
+- отвечать на волнующие вопросы
+- объективная картина (факты)
+    - в устной речи: показывать степень подкреплённости каждого утверждения речевыми оборотами
+    - в письменной - подкреплять ссылками на данные и расчёты
+- субъективная картина (storytelling) 
+    - UN - Как рассказывать истории по цифрам http://www.unece.org/fileadmin/DAM/stats/documents/writing/MDM_Part1_English.pdf
+- визуализация 
+    - Data Visualisation compendium https://github.com/az365/compendium/blob/master/disciplines/datavis.md
