@@ -361,16 +361,16 @@
     - PCA - метод главных компонент (principal component analysis)
     - SVD-разложение (singular vector decomposition)
     - tSNE (t-distributed stochastic neighbor embedding)
-            - нелинейное снижение размерности
-            - используется для визуализации, но можно и для фичей
-            - главный параметр: perplexity
-            - read more
-                - Multicore t-SNE implementation https://github.com/DmitryUlyanov/Multicore-TSNE
-                - Comparison of Manifold Learning methods (sklearn) https://scikit-learn.org/stable/auto_examples/manifold/plot_compare_methods.html
-                - How to Use t-SNE Effectively (distill.pub blog) https://distill.pub/2016/misread-tsne/
-                - tSNE homepage (Laurens van der Maaten) https://lvdmaaten.github.io/tsne/
-                - Example: tSNE with different perplexities (sklearn) https://scikit-learn.org/stable/auto_examples/manifold/plot_t_sne_perplexity.html#sphx-glr-auto-examples-manifold-plot-t-sne-perplexity-py
-                - Препарируем t-SNE https://habr.com/ru/post/267041/
+        - нелинейное снижение размерности
+        - используется для визуализации, но можно и для фичей
+        - главный параметр: perplexity
+        - read more
+            - Multicore t-SNE implementation https://github.com/DmitryUlyanov/Multicore-TSNE
+            - Comparison of Manifold Learning methods (sklearn) https://scikit-learn.org/stable/auto_examples/manifold/plot_compare_methods.html
+            - How to Use t-SNE Effectively (distill.pub blog) https://distill.pub/2016/misread-tsne/
+            - tSNE homepage (Laurens van der Maaten) https://lvdmaaten.github.io/tsne/
+            - Example: tSNE with different perplexities (sklearn) https://scikit-learn.org/stable/auto_examples/manifold/plot_t_sne_perplexity.html#sphx-glr-auto-examples-manifold-plot-t-sne-perplexity-py
+            - Препарируем t-SNE https://habr.com/ru/post/267041/
     - NMF (NNMF, Non-negative matrix factorization)
         - not applicable to features containing negative values, i.e. standartized matrices
     - read more
@@ -482,7 +482,7 @@
     - MS Azure
     - Google Cloud
 ## EDA - exploratory data analysis
-- tools for features exploration
+- tools for features exploration (from pandas stack)
     - base
         - df.dtypes
         - df.info()
@@ -575,7 +575,7 @@
     - отсутствие процесса переобучения/неверная частота переобучения
 ## Coursera
 - базовый набор
-    - Курс «Введение в машинное обучение»: Константин Воронцов, Евгений Соколов, Анна Козлова
+    - Курс «Введение в машинное обучение»: Константин Воронцов, Евгений Соколов, Анна Козлова https://www.coursera.org/learn/vvedenie-mashinnoe-obuchenie
     - Специализация «Машинное обучение и анализ данных»: Константин Воронцов, Евгений Соколов, Антон Слесарев, Эмели Драль, Виктор Кантор https://www.coursera.org/specializations/machine-learning-data-analysis
     - ВШЭ - Advanced machine learning coursera.org/specializations/aml
         - Deep learning Intro 
