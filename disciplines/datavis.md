@@ -137,6 +137,7 @@
         - чем плох: погружения в код
         - библиотеки
             - Matplotlib https://matplotlib.org/gallery/index.html
+                - 50 оттенков matplotlib — The Master Plots (с полным кодом на Python) https://habr.com/ru/post/468295/
             - Seaborn https://seaborn.pydata.org
             - Plotly https://plot.ly/python/
             - Bokeh https://github.com/bokeh/bokeh
@@ -200,6 +201,7 @@
             - распределения на равномерной шкале
         - скаттерплот - scatterplot
             - пример: Scatterplot Matrix of Automobile Data https://queue.acm.org/detail.cfm?id=1805128 -> https://homes.cs.washington.edu/~jheer//files/zoo/ex/stats/splom.html
+            - больше примеров: 50 оттенков matplotlib — The Master Plots https://habr.com/ru/post/468295/
         - хитмапы - heatmap
         - фигуры: круг, кольцо, квадрат, прямоугольник 
     - специализированные
@@ -208,13 +210,27 @@
                 - много дименшенов, 1 аддитивный межер 
                 - когда неочевидная или неточная иерархия 
             - примеры 
+                - ParallelSets https://eagereyes.org/parallel-sets
                 - как Наполеон шёл на Москву https://dl.acm.org/cms/attachment/8205d858-3366-4cff-9d9c-473e1af819ea/heer_fig3a.png https://queue.acm.org/detail.cfm?id=1805128
                 - энергопотребление UK https://pbs.twimg.com/media/EGmB424W4AE0xL-.jpg https://www.gov.uk/government/statistics/energy-flow-chart-2018
-        - графы, укладка, кластеризация (+деревья, +simple-flow-charts)
-            - примеры: схема метро, CJM, города и логистика (?)
+        - иерархии
+            - много примеров: https://queue.acm.org/detail.cfm?id=1805128
             - частый частный случай: отображение дерева иерархии (товаров, например)
                 - пример https://dl.acm.org/cms/attachment/7081f85b-d731-41bd-9af6-26c5cde19e91/heer_fig4a.png https://queue.acm.org/detail.cfm?id=1805128 
                 - альтернатива для дерева: прямоугольники с мощностями классов
+        - графы, укладка, кластеризация (+деревья, +simple-flow-charts)
+            - примеры: 
+                - схема метро
+                - кластера 
+                    - Визуализация больших графов для самых маленьких https://habr.com/ru/company/ods/blog/464715/
+                    - Визуализация графа социальной сети: анализ событий блогосферы перед декабрём 2011 года https://habr.com/ru/post/164307/
+                    - Алексей Савватеев: Модели интернета и социальных сетей https://habr.com/ru/post/458454/
+                - CJM 
+                    - https://advenio.es/wp-content/uploads/2015/05/customer-journey-map.png
+                - логистика и навигация
+                    - граф навигации Карт и Навигатора 
+                    - Задачи о кенигсбергских мостах https://urok.1sept.ru/%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8/656970/
+                    - Методика формализации междисциплинарных факторов и критериев оптимизации региональных систем экономики https://eee-region.ru/article/5405/
         - поверхности
             - в 2D и 3D-проекциях
             - хитмап, карты изолиний (триангуляция?), берк-штрихи, потоки 
@@ -223,6 +239,11 @@
         - подсветка объектов на фото/видео 
             - примеры
                 - отображение дорожной ситуации в беспилотном автомобиле
+                    - Методы распознавания 3D-объектов для беспилотных автомобилей https://habr.com/ru/company/yandex/blog/437674/
+                    - Технологии беспилотных автомобилей. Лекция Яндекса https://habr.com/ru/company/yandex/blog/350414/
+                    - Deep Drive BDD100K Dataset https://deepdrive.pl/bdd100k-dataset-pl/
+                - трекинг посетителей магазинов по камерам 
+                    - Вижу, значит существую: обзор Deep Learning в Computer Vision https://habr.com/ru/company/mipt/blog/458190/
                 - системы безопасности промышленных предприятий
         - таймлайны
             - последовательности событий
