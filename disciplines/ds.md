@@ -5,7 +5,8 @@
 - lenear algebra
 - numerical optimisation
 - programming
-## Теория supervized learning
+## Supervised learning
+- обучение с учителем, на размеченных выборках
 - methods/models for regression&classification
     - широкие обзоры методов
         - Example from sklearn with different decision surfaces https://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html
@@ -266,7 +267,345 @@
             - больше тренировочное множество приводит -> уменьшение дисперсии
             - добавление признаков -> уменьшение смещения, увеличения дисперсии
     - loss vs metric
-## Области
+## Techniques and practices
+- Splitting & validation
+    - validation strategies
+        - holdout
+        - K-fold
+        - Leave-one-out
+    - data splitting strategies
+        - random, rowwise
+        - timewise (time-based)
+        - stratisfied validation (test has different entities than the train)
+        - by id
+    - read more
+        - Validation in Sklearn http://scikit-learn.org/stable/modules/cross_validation.html
+        - Advices on validation in a competition http://www.chioka.in/how-to-select-your-final-models-in-a-kaggle-competitio/
+        - Time Series Nested Cross-Validation https://towardsdatascience.com/time-series-nested-cross-validation-76adba623eb9
+            - пример: Прогнозирование нагрузки колл-центра https://habr.com/ru/company/ods/blog/438212/
+- Features
+    - feature types
+        - numeric
+        - categorial
+        - ordinal
+        - datetime
+        - coordinates
+    - feature preprocessing & generation with respect to model type
+        - for non-trees models
+            - scaling
+                - MinMax: sklearn.preprocessing.MinMaxScale (0..1)
+                - Standard: sklearn.preprocessing.StandardScaler (mean=0, std=1)
+            - scaling-like transforms
+                - log transform: np.log(1+x)
+                - raising to the power<1: np.sqrt(x + 2/3)
+            - rank
+        - for trees and non-trees models
+            - outliers reduction
+                - sqrt, log(1+x)
+                - rank transform
+                - winsorization (clipping) - итеративное выбрасывание 1..5% крайних значений, пока mean и std не перестанут меняться
+            - label encoding
+                - one-hot-encoding: sklearn.preprocessing.OneHotEncoder
+                - alphabetical (sorted): sklearn.preprocessing.LabelEncoder
+                - order of appearance: Pandas.factorize
+                - frequency econding
+        - datetime and coordinates
+            - datetime
+                - periodicity: weekday, month, season, year, second, minute, hour
+                - lags: time since event, difference betweet moments
+                - weighted averaging, expoential smoothing
+                - Kaggle example: Walmart recruitment
+            - coordinates
+                - interesting places from train/test data or additional data
+                - centers of clusters
+                - aggregated stats
+                - rotate
+        - interactions and recommenders
+            - interactions
+                - multiplications
+                - divisions
+                - group-by-features
+                - concatenations
+                - Kaggle example: Homesite
+            - recommendations
+                - features on transactional history
+                - item popularity
+                - frequency of purchase
+                - Kaggle example: Acquire Valued Shoppers
+    - missing values handling
+        - fillNA approaches
+            - -999, -1, etc
+            - mean, median
+            - reconstruct value
+        - IsNull feature
+        - treating values which do not present in train data
+            - threat it randomly
+            - unsupervised encoding
+    - feature extraction from text and images
+        - text
+            - preprocessing
+                - lowercase
+                - lemmatization
+                - stemming
+                - stopwords removal (articles and prepositions)
+                    - NLTK - natural language toolkit library for python
+                    - sklearn.feature_extraction.text.CountVectorizer(max_df=) - threshold for most often words
+            - BOW - bag of words: sklearn.feature_extraction.text.CountVectorizer
+                - TFiDF - term frequency transformation
+                    - TF: tf = 1 / x.sum(axis=1)[:,None]; x=x*tf
+                    - IDF: idf = np.log(x.shape[0]/(x>0).sum(0)); x=x*idf
+                    - sklearn.feature_extraction.text.TfidfVectorizer
+                - N-grams: sklearn.feature_extraction.text.CountVectorizer(Ngram_range=, analyzer=)
+            - embeddings word2vec
+                - for words
+                    - word2vec
+                    - Glove
+                    - FastText
+                - for sentences
+                    - doc2vec
+            - read more
+                - Bag of words
+                    - Feature extraction from text with Sklearn http://scikit-learn.org/stable/modules/feature_extraction.html
+                    - More examples of using Sklearn https://andhint.github.io/machine-learning/nlp/Feature-Extraction-From-Text/
+                - Word2vec
+                    - Tutorial to Word2vec https://www.tensorflow.org/tutorials/word2vec
+                    - Tutorial to word2vec usage https://rare-technologies.com/word2vec-tutorial/
+                    - Text Classification With Word2Vec http://nadbordrozd.github.io/blog/2016/05/20/text-classification-with-word2vec/
+                    - Introduction to Word Embedding Models with Word2Vec http://nadbordrozd.github.io/blog/2016/05/20/text-classification-with-word2vec/
+                - NLP Libraries
+                    - NLTK http://www.nltk.org/
+                    - TextBlob https://github.com/sloria/TextBlob
+            - example of competition
+                - Kaggle: StumbleUponEvergreen Classification
+        - descriptors for images
+            - fine-tuning
+                - pretrained CNN network
+                    - recommended architectures
+                        - VGG[-16]
+                        - ResNet[-50]
+                    - read more
+                        - Using pretrained models in Keras https://keras.io/applications/
+                        - Image classification with a pre-trained deep neural network https://www.kernix.com/blog/image-classification-with-a-pre-trained-deep-neural-network_p11
+                - how to fine-tune
+                        - replace last layer(s)
+                        - дообучиь на релевантных примерах с малым LR (в 1000 раз меньше, чем изначальный)
+                    - read more
+                        - How to Retrain Inception's Final Layer for New Categories in Tensorflow https://www.tensorflow.org/tutorials/image_retraining
+                        - Fine-tuning Deep Learning Models in Keras https://flyyufelix.github.io/2016/10/08/fine-tuning-in-keras-part2.html
+                - how to choise technic
+                    - imagenet domain
+                        - small dataset -> train last MLP layers
+                        - big dataset -> fine-tuning of deeper layers
+                    - not similar to ImageNet
+                        - small dataset -> collect more data
+                        - big dataset -> train from scratch
+            - feature engeneering for images
+                - scaling
+                - shifting
+                - rotations
+        - sound classifications
+            - feature engeneering for sound
+                - fourier
+                - mfcc
+                - specgrams
+                - scaling
+            - example of competition
+                - Kaggle: Tensorflow speech recognition
+    - read more about feature engeneering
+        - Feature preprocessing
+            - Preprocessing in Sklearn http://scikit-learn.org/stable/modules/preprocessing.html
+            - Andrew NG about gradient descent and feature scaling https://www.coursera.org/learn/machine-learning/lecture/xx3Da/gradient-descent-in-practice-i-feature-scaling
+            - Feature Scaling and the effect of standardization for machine learning algorithms https://www.coursera.org/learn/machine-learning/lecture/xx3Da/gradient-descent-in-practice-i-feature-scaling
+        - Feature generation
+            - Discover Feature Engineering, How to Engineer Features and How to Get Good at It https://machinelearningmastery.com/discover-feature-engineering-how-to-engineer-features-and-how-to-get-good-at-it/
+            - Discussion of feature engineering on Quora https://www.quora.com/What-are-some-best-practices-in-Feature-Engineering
+        - Feature Interactions
+            - Facebook Research's paper about extracting categorical features from trees https://research.fb.com/publications/practical-lessons-from-predicting-clicks-on-ads-at-facebook/
+            - Example: Feature transformations with ensembles of trees (sklearn) https://scikit-learn.org/stable/auto_examples/ensemble/plot_feature_transformation.html
+- Encoding and Regularisation
+    - Encodings for categorical features
+        - one-hot-encoding
+        - mean target encoding
+        - more statistics for regression tasks: median, quantiles, bins, min, max, ...
+    - Regulatisation
+        - cross-validation loop inside training data
+        - smoothing
+            - smooth = mean(target)*nrows + globalmean*alpha / nrows + alpha
+        - adding random noize
+        - sorting and calculating expanding mean
+    - Extensions and generalizations
+        - regression
+            - more statistics for regression tasks: median, quantiles, bins, min, max, ...
+        - multiclass
+            - encodings for each class
+        - many-to-many relations
+            - flat table
+        - timeseries
+            - rolling statistics of target variable
+- Hyperparameter optimization
+    - библиотеки
+        - hyperopt
+        - scikit-optimize
+        - spearmint
+        - GPyOpt
+        - RoBo
+        - SMAC3
+    - какие параметры тюнить
+        - GBDT
+            - глубина (XGB: max_depth, LGBM: max_depth/num_leaves)
+            - subsample (XGB: subsample, LGBM: bagging_fraction)
+            - fraction (XGB: colsample_bytree, _bylevel, LGBM: feature_fraction)
+            - regularization (XGB: min_child_weight, lambda, alpha, LGBM: min_data_in_leaf, labmda_l1, lambda_l2)
+            - lr, num_trees (XGB: eta, num_round, LGBM: learning_rate, num_iterations)
+        - RandomForest, ExtraTrees
+            - n_estimators
+            - max_depth
+            - max_features
+            - min_samples_leaf
+            - criterion (for split): Ginny, Entropy
+            - n_jobs
+        - NNs
+            - number of neurons per layer
+            - number of layers
+            - omtimizers
+                - SGD+momentum (slower, but generalize better)
+                - adam/adadelta/adagrad (fast, but lead to more overfitting)
+            - batch size (start by 32-64, 500 leads to overfitting)
+            - learing rate
+            - regularization
+                - L2/L1 for weights
+                - dropout/dropconnect
+                - static dropconnect
+        - linear
+            - regularization parameter: C, alpha, lambda
+            - Vowpal Wabbit: FTRL - follow the regularized leader
+    - read more
+        - Tuning the hyper-parameters of an estimator (sklearn) http://scikit-learn.org/stable/modules/grid_search.html
+        - Optimizing hyperparameters with hyperopt http://fastml.com/optimizing-hyperparams-with-hyperopt/
+        - Complete Guide to Parameter Tuning in Gradient Boosting (GBM) in Python https://www.analyticsvidhya.com/blog/2016/02/complete-guide-parameter-tuning-gradient-boosting-gbm-python/
+- Ensembling
+    - Averaging/blanding
+    - Weighted averaging
+        - (model1*w1 + model2*w2)
+    - Conditional averaging
+        - methods can potentially learn conditional averaging
+            - GBDT
+            - stacking
+    - Bagging
+        - example: random forest
+        - parameters that control bagging 
+            - changing random seed
+            - shuffling train-set
+            - row (sub)sampling or bootstrapping
+            - column (sub)sampling
+            - model-specific parameters
+            - number of models (bags)
+            - (optionally) parallelism
+    - Boosting
+        - weight based
+            - generate weiths for rows for next model
+                - after first model create new column weith = 1+abs_error
+            - parameters
+                - learning rate (shrinkage of eta)
+                    - predictionN = pred0*eta + pred1*eta + ... + predN*eta
+                - number of estimators
+                - input model - anything that accepts weight
+                - sub boosting types
+                    - AdaBoost - SkLearn for Python
+                    - LogitBoost - Weka for Java
+        - residual based
+            - parameters
+                - learning rate (shrinkage of eta)
+                - number of estimators
+                - row (sub)sampling
+                - column (sub)sampling
+                - input model - better be trees
+                - sub busting type
+                    - fully gradient based
+                    - dart - drop-out mechanism to control contribution of the models
+    - Stacking
+        - splitting&validation meta-models coursera.org/learn/competitive-data-science/supplement/JThpg/validation-schemes-for-2-nd-level-models
+            - (a) Simple hold-out scheme (fair)
+                - 1 train -> partA, partB, partC
+                - 2 fit N diverse models on partA, predict for partB, partC, test_data getting meta-features partB_meta, partC_meta and test_meta respectively
+                - 3 fit a metamodel to a partB_meta, validate hyperparameters on partC_meta
+                - 4 fit validated metamodel it to [partB_meta, partC_meta], predict for test_meta
+            - (b) Meta holdout scheme with OOF (out-of-fold) meta-features (leaky!)
+                - 1 train -> K folds
+                    - iterate through each fold: retrain N diverse models on all folds except current fold, predict for the current fold
+                    - we will have N meta-features (OOF predictions) -> train_meta
+                - 2 fit models to whole train, predict for test -> test_meta
+                - 3 train_meta -> train_metaA, train_metaB
+                - 4 fit a meta-model to train_metaA, validate hyperparameters on train_metaB
+                - 5 fit validated meta-model to train_meta, predict for test_meta.
+            - (c) Meta KFold scheme with OOF meta-features (leaky!)
+                - 1 obtain OOF predictions train_meta, test metafeatures test_meta using b1, b2
+                - 2 use KFold on train_meta to validate hyperparameters for meta-model (seed for this KFold = seed for KFold used to get OOF predictions)
+                - 3 fit validated meta-model to train_meta, predict for test_meta
+            - (d) Holdout scheme with OOF meta-features (fair)
+                - 1 train -> partA, partB
+                - 2 partA -> K folds
+                    - iterate through each fold: retrain N diverse models on all folds except current fold, predict for the current fold
+                    - we will have N meta-features (OOF predictions) for each object in partA -> partA_meta
+                - 3 fit models to whole partA; predict for partB, test_data; getting partB_meta, test_meta respectively
+                - 4 fit a meta-model to a partA_meta, validate hyperparameters on partB_meta
+                - 5 When the meta-model is validated basically do d2, d3 w/o dividing train_data into parts, then train a meta-model
+                    - that is, first get OOF predictions train_meta for the train_data using models
+                    - train models on train_data, predict for test_data, getting test_meta
+                    - train meta-model on the train_meta, predict for test_meta
+            - (e) KFold scheme with OOF meta-features (fair)
+                - 1 to validate the model basically do d1-d4 
+                    - but: (train -> partA, partB)*M times using KFold with M folds
+                - 2 when the meta-model is validated do d5
+            - (f) KFold scheme in time series
+                - 1 train -> chunks of duration T; select first M chunks
+                - 2 fit N models on those M chunks, predict for the chunk M+1
+                    - fit those models on first M+1 chunks, predict for chunk M+2 and so on, until you hit the end
+                    - fit models to all train, get predictions for test
+                    - now we will have meta-features for the chunks starting from number M+1 as well as meta-features for the test
+                - 3 use meta-features from first K chunks [M+1,M+2,..,M+K] to fit level 2 models and validate them on chunk M+K+1
+                    - essentially we are back to step f1 with the lesser amount of chunks and meta-features instead of features
+            - (g) KFold scheme in time series with limited amount of data
+                - if not enough history for scheme f
+                - use scheme c with KFold by time component
+                - i.e. in case several years we would treat each year as a fold
+    - StackNet
+        - StackNet github.com/kaz-Anova/StackNet
+        - stacked ensembles from H2O
+        - Xcessiv github.com/reiinkano/xcessiv
+    - read more
+        - Kaggle ensembling guide at MLWave.com (overview of approaches) https://mlwave.com/kaggle-ensembling-guide
+        - Heamy — a set of useful tools for competitive data science (including ensembling) https://github.com/rushter/heamy
+    - способы комбинации моделей by Emely Dral
+        - switching
+        - каскады
+        - feature augmentation
+        - многоступенчатая комбинация
+- Выбор моделей под цели
+    - from KazAnova's competition pipeline
+        - Image classification: CNN (Resnet, VGG, densenet)
+        - Sound classification: CNN (CRNN), LSTM
+        - Text classification: GBMs, Linear, DL, Naive Bayes, KNNs, LibFM, LibFFM
+        - Time series: Autoregressive mocels, ARIMA, linear, GBMs, DL, LSTMs
+        - Categorial features: GBMs, Linear models, DL, LibFM, LibFFM
+        - Numerical features: GBMs, Linear models, DL, SVMs
+        - Interactions: GBMs, Linear models, DL 
+        - Recommedners: CF, DL, LibFM, LibFFM, GBMs
+- интерпретация
+    - топ инструментов с kaggle (согласно habr.com/ru/company/ods/blog/434134)
+        - plot predicted vs actual results - сравнение распределения предсказаний с распределением целевой переменной
+        - examine feature importances
+        - examine feature correlations
+        - examine individual model coefficients
+        - dimensionality reduction techniques
+        - plot decision boundaries
+        - print out a decision tree
+        - sensitivity analysis/pertrubation importance
+        - create partial dependence plots
+        - LIME functions
+        - SHAP functions
+        - ELI5 functions
+## Специализированные области
 - NLP: тексты
     - задачи
         - text classification/regression
@@ -301,8 +640,8 @@
         - batchnormalization
     - функции активации
         - relu (между слоями)
-        - softmax
         - sigmoid (на выходе)
+        - softmax
 - ComputerVision: изображения
     - типы задач
         - images classification
@@ -601,7 +940,7 @@
                 - https://www.coursera.org/learn/language-processing
     - Andrew NG - Deep Learning Specialization 
         - https://www.coursera.org/specializations/deep-learning
-        - более подробный аналог вышеприведённого AML Deep Learnig Intro от ВШЭ 
+        - более подробный аналог вышеприведённого AML Deep Learning Intro от ВШЭ
     - Stanford - CS231n: Convolutional Neural Networks for Visual Recognition
         - http://cs231n.stanford.edu/
         - более подробный аналог вышеприведённого AML Cumputer vision от ВШЭ
@@ -617,9 +956,9 @@
     - Deep Learning - Udacity.com, Google
 ## Read more
 - для знающих
-    - events.yandex.ru/events/mltr
+    - https://events.yandex.ru/events/mltr
 - где батлиться
-    - kaggle.com
-    - boosters.pro
+    - https://kaggle.com
+    - https://boosters.pro
 - сообщества
-    - ods.ai
+    - https://ods.ai
