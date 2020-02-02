@@ -174,10 +174,6 @@
     - https://gopractice.ru
     - http://sergeytikhomirov.ru
 ## Мерики в АБ-тестинге
-- Что такое A/B-тестирование и как его правильно провести https://blog.travelpayouts.com/split-ab-testing
-    - инструменты тестирования странц
-        - ручные тесты 
-        - ...
 - Как провести A/B-тестирование: 6 простых шагов https://academy.yandex.ru/posts/kak-provesti-a-b-testirovanie-6-prostykh-shagov
     - 1 Определите цели 
     - 2 Определите метрику 
@@ -185,6 +181,11 @@
     - 4 Подготовьте эксперимент 
     - 5 Проведите эксперимент 
     - 6 Анализируйте результаты
+- Популярные инструменты тестирования веб-страниц https://blog.travelpayouts.com/split-ab-testing
+    - Google Optimize https://marketingplatform.google.com/about/optimize
+    - ABTasty https://www.abtasty.com
+    - Optimizely https://www.optimizely.com/
+    - ClickMeter https://clickmeter.com
 - культура экспериментов 
     - онлайн-метрики
     - оффлайн-метрики 
@@ -196,7 +197,9 @@
     - применимость (некоторые метрики не совместимы с некоторыми типами экспериментов)
 - валидация метрик
 - сложные дизайны экспреиментов 
-- особые кейсы: кластера в соцсеточках, города в ритейле
+- особые кейсы
+    - кластера в соцсеточках
+    - города в ритейле
 ## Метрики качества Machine Learning моделей
 - для задач классификации http://queirozf.com/entries/evaluation-metrics-for-classification-quick-examples-references
     - accuracy
