@@ -1,0 +1,257 @@
+# Metrics
+## Intro
+- зачем метрики 
+    - анализ данных https://github.com/az365/compendium/blob/master/disciplines/datan.md
+    - управление продуктом https://github.com/az365/compendium/blob/master/disciplines/prodman.md
+    - качество ML-моделей https://github.com/az365/compendium/blob/master/disciplines/ds.md
+## Классификации метрик 
+- из Lean Analytics http://leananalyticsbook.com/
+    - qualitative vs quantitative
+    - vanity vs actionable (8 vanity m: hits, pageviews, visits, visitors, followers/likes, time on, emails collected, downloads)
+    - exploratory vs reporting metrics (the hidded genius of Donald Rumsfeld)
+    - accounting (how close you are to an ideal) vs experimental (help to optimize the product, pricing, market)
+    - leading vs lagging
+    - correlated vs causal
+- по способу сопоставления
+    - мониторинг и KPI 
+        - измеримость
+        - достижимость
+        - объективность
+        - понятный физический смысл
+        - понятное влияние на цели компании
+        - понятно, как влиять на этот kpi
+    - приёмочные (АБТ)
+        - красить ухудшения (благодаря монтонности прокрасят и улучшения)
+        - не красить контроли (АА-тест)
+        - чувствительность (красить лучше других)
+        - применимость (некоторые метрики не совместимы с некоторыми типами экспериментов)
+    - исследовательские
+- стоимость получения vs близость к прикладным целям продукта
+    - оффлайн: оценка качества модели (на тест-сетах)
+        - оффлайновая метрика строится на модели продукта и пользователя и приближает онлайновую, но считается дешевле и без рисков на живой аудитории
+        - см. далее: Метрики качества ML-моделей
+    - онлайн: измеримые пользовательские (на АБТ)
+        - см. далее: Метрики в АБ-тестинге
+    - абстрактные: счастье пользователя (то, что в идеале хотим померить, но не можем)
+- по назначению
+    - безнесовые: оцифровка бизнес-модели 
+    - аудиторные: MAU, DAU, Core, Churn/Retention, LT, LTV
+        - про ретеншены и LifeTime: http://kxk.ru/matriarhat/v1_693889__.php
+        - параметры сессионного LT/LTV: timeout, timebound
+    - поведенческие: как пользуются продуктом 
+        - сессионные (session-based)
+        - секвенциальные (CJM-based)
+    - оценочные
+        - метрики качества продукта
+        - метрики качества ML-модели
+## Продуктовые и бизнесовые метрики
+- хорошие и плохие 
+    - хорошая метрика (согласно Lean Analytics http://leananalyticsbook.com)
+        - comparative
+        - understandable
+        - ratio or rate (ratios are easier to act on, are inherently comparative, are good for comparing factors)
+        - changes the way to behave
+    - плохая метрика (согласно Lean Analytics http://leananalyticsbook.com)
+        - vanity, not actionable: hits, pageviews, visits, visitors, followers/likes, time on, emails collected, downloads
+- фреймворки продуктовых метрик
+    - фреймворк HEART
+        - Happiness (Счастье)
+        - Engagement (Вовлечение)
+        - Adoption (Принятие)
+        - Retention (Возвращаемость)
+        - Task Success (Успех ключевых задач)
+    - фреймворк AARRR
+        - Acquisition - How do users find us?
+        - Activation - Do users have a great first experience?
+        - Retention - Do users come back?
+        - Revenue - How do you make money?
+        - Referral - Do users tell others?
+    - Product Metric Canvas
+        - фича
+        - на кого влияет (внутри, снаружи)
+        - как влияет (внутри, снаружи)
+        - как измеряем влияние (внутри, снаружи)
+    - Метрики по этапам жизненного цикла продукта http://sergeytikhomirov.ru/mobile-product-marketing
+        - внедрение нового продукта - выход на рынок
+            - installations
+            - feedback
+            - store rating 
+        - первые клиенты - стабилизация аудитории 
+            - engagement 
+            - retention 
+            - conversions
+            - DAU 
+        - рост базы клиентов - наращивание аудитории 
+            - install retention 
+            - interactions 
+            - user growth 
+            - virality 
+            - ROI 
+        - насыщение рынка - стимулирвоание продаж 
+            - sales funnel 
+            - MAU 
+            - average purchase value 
+            - chrurn rate 
+            - LTV 
+            - CAC 
+            - ARPU 
+        - спад интереса - смена парадигмы 
+- культура работы с метриками
+    - верифицируемость
+        - всегда ссылаться на источник с подробностями 
+        - коммитить отчуждаемый код расчёта метрик 
+        - формулировать воспроизводимо 
+    - верифицированность 
+        - сбиваться с эталонными расчётами 
+        - можем объяснить, что и почему видим 
+        - можно умножать/делить на показатели из других каноничных источников
+    - как визуализировать https://github.com/az365/compendium/blob/master/disciplines/datavis.md
+        - рисовать больше одного числа на кртинке
+        - всегда указывать полное наименование среза и метрики на картинке (аббревиатуры и жаргонизмы можно)
+        - аккуратность и стандартизация форматов определяют скорость и однозначность чтения
+        - стандартизированные обозначеня (цвета, штриховки, шрифты)
+        - растры по-английски 
+    - как анализировать 
+        - выписать, что отображено 
+        - выпивать, что тут видно (по факту)
+        - гипотезы и трактовки
+        - выписывать допущения и ограничения 
+    - как расследовать 
+        - формулировать увиденную аномалию KPI
+        - симптомы: локализация до среза, сопутствующие факты со ссылками
+        - гипотезы и проверки 
+    - как доносить/формулировать 
+        - показывать степень уверенности (показывается вводными оборотами)
+            - фактическое наблюдение (видим, что)
+            - доказанный факт (показано, что)
+            - сильная гипотеза (кажется, что)
+            - авторитетное утверждение (утверждается, что)
+            - собственное мнение (на мой взгляд)
+            - слабая гипотеза (может быть)
+            - фантазия (а вдруг, вот бы)
+        - разделять корреляции и причины-следствия
+        - убедиться, что правильно поняли 
+        - проследить, как использовано (попросить согласовать решение/публикации)
+- разработка системы метрик 
+    - для чего система метрик 
+        - разделение зон ответственности
+        - мотивация за счёт более прозрачного влияния на KPI 
+        - возможность находить узкие места, точки роста компании/сервиса
+        - анализ динамики, разложение на влияющие факторы
+        - ...
+    - иерархия метрик
+        - принципы
+            - нижележащие метрики либо аппроксимируют, либо детализируют вышележащие
+            - аппроксимации всегда неточны и в случае метрик эта погрешность неизмерима
+            - всегда остаются белые пятна, которые надо заполянть волей и виженом 
+        - от структуры метрик к структуре организации
+            - каждый человек/подразделение должны знать, какую метрику они растят, и как она влияет на вешележащие по иерархии
+        - больше об иерархии метрик 
+            - С.Тихомиров - Иерархия/пирамида метрик http://sergeytikhomirov.ru/piramida-metrik/
+            - Е.Серёгина - Иерархия метрик VS Пирамида метрик. А также что такое North Star Metrics (метрики Всевластия) https://medium.com/@elenest/%D0%B8%D0%B5%D1%80%D0%B0%D1%80%D1%85%D0%B8%D1%8F-%D0%BC%D0%B5%D1%82%D1%80%D0%B8%D0%BA-vs-%D0%BF%D0%B8%D1%80%D0%B0%D0%BC%D0%B8%D0%B4%D0%B0-%D0%BC%D0%B5%D1%82%D1%80%D0%B8%D0%BA-8eeda61fdefe
+            - М.Ираидина - Что такое иерархия и Пирамида метрик https://skillbox.ru/media/management/chto_takoe_produktovye_metriki_i_zachem_oni_nuzhny/#3
+    - техническая подложка: согласованность ключевых данных и показателей + стыкуемость инструментов
+        - онтология (бизнес-глоссарий)
+            - общие понятия в команде 
+            - переиспользуемость и сопоставимость расчётов 
+            - техническая реализация и применение 
+        - кубы (витрины)
+        - сетка vs вертикали
+        - велосипеды vs компоненты/микросервисы
+        - плоские vs сессионные таблицы 
+        - материализации vs библиотеки/вьюхи/апи/api 
+- анализ и поддержка метрик
+    - качество данных, стоимость поддержки, скорость разработки
+        - под каждым KPI должен быть куб, позволяющий распилить его на компоненты
+        - KPI-метрика должна быть зрелой, чторбы иметь доверие, быть экшенабельной и интерпретабельной
+    - бизнес/продакшен: мониторинг и расследования
+        - аномалия как (бес)полезный сигнал
+        - точки измерения
+        - цепочки для локализации измерений
+        - чеклисты
+        - WTF-framework
+- больше о продуктах и продуктовых метриках
+    - https://gopractice.ru
+    - http://sergeytikhomirov.ru
+## Мерики в АБ-тестинге
+- Что такое A/B-тестирование и как его правильно провести https://blog.travelpayouts.com/split-ab-testing
+    - инструменты тестирования странц
+        - ручные тесты 
+        - ...
+- Как провести A/B-тестирование: 6 простых шагов https://academy.yandex.ru/posts/kak-provesti-a-b-testirovanie-6-prostykh-shagov
+    - 1 Определите цели 
+    - 2 Определите метрику 
+    - 3 Разработайте гипотезу 
+    - 4 Подготовьте эксперимент 
+    - 5 Проведите эксперимент 
+    - 6 Анализируйте результаты
+- культура экспериментов 
+    - онлайн-метрики
+    - оффлайн-метрики 
+    - side-by-side aka бок-о-бок
+- требования к приёмочным метрикам
+    - красить ухудшения (благодаря монтонности прокрасят и улучшения)
+    - не красить контроли (АА-тест)
+    - чувствительность (красить лучше других)
+    - применимость (некоторые метрики не совместимы с некоторыми типами экспериментов)
+- валидация метрик
+- сложные дизайны экспреиментов 
+- особые кейсы: кластера в соцсеточках, города в ритейле
+## Метрики качества Machine Learning моделей
+- для задач классификации http://queirozf.com/entries/evaluation-metrics-for-classification-quick-examples-references
+    - accuracy
+    - precision, recall
+    - F1
+    - Top-K
+    - TPR (чувствительность), FPR, 1-FPR (специфичность)
+    - AUC ROC (receiver operating characteristic)
+        - Understanding ROC curves http://www.navan.name/roc/
+    - LogLoss
+    - cohen's kappa = 1 - (1-accuracy / 1-baseline)
+    - weighted kappa = 1 - weighted error / weighted baseline error
+    - quadratic weighted cappa https://arxiv.org/abs/1509.07107 (implemented in coursera's ipynb)
+        - примеры использования
+            - Crowd Flower search results relevance
+            - Prudential life insurance assessment
+            - diabetic retinophaty detection
+            - The Hewlett Foundation automated essay scoring
+- для задач регрессии
+    - MSE, RMSE, R2
+    - MAE
+    - MSPE, MAPE, SMAPE
+    - RMSLE
+- для задач ранжирования
+    - precision-family
+        - p@K
+        - ap@K
+        - map@K - mean average precision
+    - nDCG-family
+        - CG@K
+        - DCG@K
+        - nDCG@K - normalized discounted cumulative gain
+    - MRR - mean reciprocal rank
+    - ранговые коэффициенты коррелляции
+        - кендэлла
+        - спирмена
+    - каскадная модель поведения
+        - err - expected reciprocal rank
+        - pfound
+    - read more
+        - Метрики качества ранжирования https://habr.com/ru/company/econtenta/blog/303458/
+        - Learning to Rank using Gradient Descent -- original paper about pairwise method for AUC optimization http://icml.cc/2015/wp-content/uploads/2015/06/icml_ranking.pdf
+        - Overview of further developments of RankNet https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/MSR-TR-2010-82.pdf
+        - RankLib (implemtations for the 2 papers from above) https://sourceforge.net/p/lemur/wiki/RankLib/
+        - Learning to Rank Overview https://wellecks.wordpress.com/2015/01/15/learning-to-rank-overview
+- для задач кластеризации
+    - Evaluation metrics for clustering http://nlp.uned.es/docs/amigo2007a.pdf
+        - formal constraints
+            - cluster homogenity
+            - cluster completness
+            - rag bag (introducing disorder into a disordered cluster is less harmful than introducing disorder into a clean cluster)
+            - size vs quantity
+        - comparison of evaluation metrics
+            - Evaluation by set matching
+            - Metrics based on Counting Pairs
+            - Metrics based on entropy
+            - Evaluation metrics based on edit distance
+            - BCubed: a mixed family of metrics
