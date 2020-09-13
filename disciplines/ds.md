@@ -161,6 +161,7 @@
             - regression analysis of Count Data https://books.google.ru/books?id=qVEwBQAAQBAJ&printsec=frontcover&hl=ru&cad=0#v=onepage&q&f=false
             - пример применения https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3238139/
     - модели для временнЫх рядов
+        - лекция Технострим: Временные ряды (Введение в анализ данных) https://www.youtube.com/watch?v=Qflkzc6Ep78&list=PLrCZzMib1e9p6lpNv-yt6uvHGyBxQncEh&index=8
         - Data Mining in Action 10: Прогнозирование временных рядов https://www.youtube.com/watch?v=u433nrxdf5k
         - ML Course: анализ временных рядов https://habr.com/ru/company/ods/blog/327242/ https://www.youtube.com/watch?v=nQjul-5_0_M
             - rolling window estimations
@@ -171,6 +172,12 @@
             - feature-based модели на временнЫх рядах
                 - линейная регрессия 
                 - XGBoost на временнЫх рядах
+        - популярные методы и библиотеки
+            - Prophet https://habr.com/ru/company/ods/blog/323730/
+            - ARIMA https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average
+            - ARCH https://en.wikipedia.org/wiki/Autoregressive_conditional_heteroskedasticity
+        - приведение к нормальному распределению
+            - преобразование бокса-кокса http://www.machinelearning.ru/wiki/index.php?title=%D0%9C%D0%B5%D1%82%D0%BE%D0%B4_%D0%91%D0%BE%D0%BA%D1%81%D0%B0-%D0%9A%D0%BE%D0%BA%D1%81%D0%B0
 - metrics
     - classical quality metrics
         - for classification
@@ -642,6 +649,9 @@
         - relu (между слоями)
         - sigmoid (на выходе)
         - softmax
+    - обзорные статьи
+        - DataMonsters - 7 types of Artificial Neural Networks for Natural Language Processing https://medium.com/@datamonsters/artificial-neural-networks-for-natural-language-processing-part-1-64ca9ebfa3b2
+        - DataMonsters - Sentiment Analysis Tools Overview, Part 1. Positive and Negative Words Databases https://medium.com/@datamonsters/sentiment-analysis-tools-overview-part-1-positive-and-negative-words-databases-ae35431a470c
 - ComputerVision: изображения
     - типы задач
         - images classification
@@ -866,7 +876,55 @@
     - ggplot http://ggplot.yhathq.com/
     - Graph visualization with NetworkX https://networkx.github.io/
     - Biclustering algorithms for sorting corrplots https://scikit-learn.org/stable/auto_examples/bicluster/plot_spectral_biclustering.html
-## Организация DS-процесса
+## Применения
+- Ритейл 
+    - Technostartup - How Retail Stores Can Use Machine Learning To Boost Their Sales? (2017) https://medium.com/@technostartup1m/how-retail-stores-can-use-machine-learning-to-boost-their-sales-2c108de7c597
+        - управление запасами
+        - маркетинг 
+        - рекомендация товаров 
+        - ценообразование 
+        - распознавание клиентских паттернов (Uber: константный спрос путём изменений цен)
+        - персонализированные купоны-предложения 
+        - логистика 
+    - Николай Савин (Competera) - AI-powered price optimization (2019) https://bigdata-madesimple.com/ai-powered-price-optimization
+    - 1C Sales Prediction https://www.kaggle.com/c/competitive-data-science-predict-future-sales
+        - пример работы https://www.kaggle.com/dimitreoliveira/model-stacking-feature-engineering-and-eda
+        - A beginner guide for sale data prediction https://www.kaggle.com/minhtriet/a-beginner-guide-for-sale-data-prediction
+    - VisionLabs - CV в ритейле https://visionlabs.ai/ru/industries/retail
+        - трекинг посетителей (объём аудитории, маршруты, время ожидания, точки внимания, эмоции, соцдем, постоянные клиенты)
+        - выявление воровства
+        - распознавание зарегенных клиентов по лицу для отслеживания и анализа опыта, персонализации предположений
+        - контроль доступа, отслеживание посещаемости сотрудников 
+- Закупки 
+    - Federico Castanedo - Advancing Procurement Analytics (O'Reilly, 2016) https://www.oreilly.com/content/advancing-procurement-analytics/
+    - Naman Shah - Role of data and machine learning in procurement (2019) https://yourstory.com/2019/10/data-machine-learning-procurement-operations
+        - применения данных 
+            - анализ контрактов
+            - оценка вендоров
+            - отношения с поставщиками 
+            - анализ затрат 
+            - прогнозирование спроса 
+        - машинное обучение в закупках 
+            - прогнозирование стока 
+            - автоматизация заказов поставщикам 
+            - прогнозирование цен (для переговоров)
+    - Caterpillar @ Kaggle https://www.kaggle.com/c/caterpillar-tube-pricing
+        - https://www.slideshare.net/KarthikVenkataraman11/kaggle-caterpillar-tube-assembly-pricing
+        - https://github.com/cedar10b/Caterpillar-Tube-Pricing
+        - https://github.com/codebender/kaggle-caterpillar-tube-pricing
+- медицина 
+    - B.L. Mittal - Smarter healthcare (2019) https://yourstory.com/2019/01/smarter-healthcare-ai-machine-learning-wearables-will-pave-path-ahead
+    - 
+- рекомендательные системы 
+    - М.Рофзнер - Как работают рекомендательные системы https://habr.com/ru/company/yandex/blog/241455/
+    - Jonathan Hui - Рекомендательные системы (2020, перевод с TowardsDS) https://vc.ru/ml/132779-mashinnoe-obuchenie-rekomendatelnye-sistemy
+- предсказание популярности 
+    - предсказание популярности постов на хабре https://www.kaggle.com/c/howpop-habrahabr-favs-lognorm https://www.kaggle.com/c/howpop-habrahabr-favs
+    - 
+- транспорт 
+    - Комбайны-автопилоты https://habr.com/ru/company/cognitivepilot/blog/496058/ https://cognitivepilot.com/products/cognitive-agro-pilot
+    - 
+## Организация DS-процесса 
 - методология CRISP-DM
     - этапы согласно wikipedia.org/wiki/CRISP-DM
         - business understanding
@@ -885,6 +943,66 @@
         - обучим модель
         - model evaluation - сравним полученные результаты, оценим качество полученных решений и при необходимости повторим пункты 2-6
         - deployment to production - упакуем решение в сервис, который можно будет использовать
+- LeanDS (с митапа Асхата Уразбаева)
+    - для проверки 1 продуктовой гипотезы нужно проверить несколько DS-гипотез 
+    - декомпозиция гипотез мерседесом 
+        - method 
+        - data 
+        - user-story 
+    - ICE-score 
+        - ice = impact * confidence / effort 
+    - work items на доске 
+        - hypothesis: US user stories, DH data hypothesis, MH method hypothesis, Q questions 
+        - C chore (taks) - инфраструктурные / архитектурные работы 
+        - B bug: production defects 
+    - LeanDS доска 
+        - колонки
+            - hot queue - приоритетные гипотезы (пополняет AIPO)
+            - analysis - обсуждение и создание приёмочных критериев 
+            - experimenting - работа с данными, создание модели, тестирование и верификация 
+            - evaluation - приёмка заказчиком, валидация модели 
+            - development - подготовка к деполю 
+            - prod/abt - валидаци в проде (АБТ)
+        - свимлвйны - отдельные продуктовые гипотезы 
+        - на выходе - Findings 
+    - метрики 
+        - бизнес-метрика
+        - прокси-бизнес-метрика
+        - DS-метрика 
+        - прокси-DS-метрика 
+    - чек-лист для продуктовых гипотез и assumptions 
+        - цль и метрика 
+            - какую проблему пользователя или бизнеса мы решаем?
+            - какую метрику мы оптимизируем?
+            - на какие другие метрики эта метрика влияет?
+            - какие метрики влияют на эту метрику?
+            - какие прокси-метрики использовать?
+            - как доказать связь бизнес-метрики и прокси-метрики на данных?
+        - контекст 
+            - как выглядит жц ползьователя?
+            - как работает сейчас?
+            - как буедт работать когда сервис появится?
+            - какие технологические ограничения существуют для сервиса?
+        - заинтересованные лица 
+            - кто стейкхолдеры сервиса?
+            - какие системы и команды зависят от сервиса?
+            - как стейкхолдеры оценивают результат появления продукта?
+            - как на них влияет решение?
+        - данные 
+            - какие данные доступны?
+            - заражены ли данные предрассудками (biased)?
+            - достаточно ли данных для постреония модели?
+            - как модель будет получать данные в проде?
+            - как сохранить качество данных после выхода в прод?
+            - не отрежем ли мы нужные данные?
+            - есть ли юридические риски использования данных?
+        - метод 
+            - есть ли sota?
+            - как эту работу делают sme сейчас?
+        - валидация 
+            - как проводить АБТ?
+            - что будет, если сервис откажет?
+            - как часто нужно переобучать модель в проде? 
 - Топ10 ошибок data-science (AI community @ Avito, 24.04.2018) https://www.youtube.com/watch?v=QbISiKZRDLg
     - на этапе бизнес-анализа
         - 1 проблема не валидирована заказчиком
@@ -962,3 +1080,9 @@
     - https://boosters.pro
 - сообщества
     - https://ods.ai
+- книги, обзоры
+    - Anrew Ng - Страсть к машинному обучению https://habr.com/ru/post/419757/
+    - 
+- сообщества, новостные ленты, агрегаторы
+    - DS topics @ O'Reilly https://www.oreilly.com/content/topics/data-science/
+    - ...
