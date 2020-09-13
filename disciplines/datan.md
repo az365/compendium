@@ -55,7 +55,7 @@
     - segmentation
         - метрики для анализа перекосов сегментов
             - (A-B) / (A+B)
-             - аффинити, аффинитивность
+            - аффинити, аффинитивность
     - AB-testig
         - эксперименты в Бинге: http://www.exp-platform.com/Documents/puzzlingOutcomesInControlledExperiments.pdf
         - валидации метрик на эталонных экспериментах 
@@ -110,6 +110,7 @@
         - model evaluation - сравним полученные результаты, оценим качество полученных решений и при необходимости повторим пункты 2-6
         - deployment to production - упакуем решение в сервис, который можно будет использовать
 ## Метрики
+- https://github.com/az365/compendium/blob/master/disciplines/metrics.md
 - классификации метрик 
     - из Lean Analytics http://leananalyticsbook.com/
         - qualitative vs quantitative
@@ -214,20 +215,90 @@
         - цепочки для локализации измерений
         - чеклисты
         - WTF-framework
-## Требования к дата-аналитикам
-- собственно аналитический скилл
-    - стремление докопаться до причины явления, понять смысл
-    - критическое мышление, способность и стремление оспаривать собственные гипотезы и сомневаться во всём
-    - способность видеть или находить все возможные: взаимосвязи, причины, пути
-    - умение декомпозировать сложную аналитическую задачу на ряд более простых
-    - развитая логика
-- математические скиллы https://github.com/az365/compendium/blob/master/disciplines/math.md
-    - тервер, матстат
-    - линейная алгебра
-    - дискретная математика
-    - численные методы
-- алгоритмы и структуры данных https://github.com/az365/compendium/blob/master/disciplines/algo.md
-- визуализация данных https://github.com/az365/compendium/blob/master/disciplines/datavis.md
+## Data Architecture for Business 
+- https://www.youtube.com/watch?v=ArzohefZLE4
+- The data science hierarchy of needs (pyramide)
+    - AI, DL
+    - Learn/optimize: ABT, experimentations, simple ML algorythms
+    - Aggregate/label: Analytics, metrics, segments, aggregates, features, training data
+    - Explore/transform: Cleaning, anomaly detection, prep
+    - Move/store: Reliable data flow, infrastructure, pipelines, ETL, structured and unstructured data storage
+    - Collect: instrumentation, logging, sensors, exteral data, UGC
+- Timeline
+    - Start of a product
+    - Looking for a weekly reports and a KPI dashboard
+    - Anomaly detection to see issues right away
+    - Want to make decisions based on information
+    - Want a platform for a forensic analytics to speed up product development
+    - ...
+    - You are road-blocked by your current setup and looking for new opportunities/improvements
+    - Recognize you want to use your data more excessively
+    - Transition into a data-driven company
+- Data collection
+    - Onwnership and access of data
+    - Near-real time raw data
+    - No data sampling
+    - Personal identification Information
+    - Data model
+    - SDKs with persistent layer
+## некоторые распространённые инструменты
+- Rapid Miner
+- sas
+- ibm spss
+    - см есть ли про него в толстой красной книге
+## Некоторые области
+- временнЫе ряды 
+    - лекция Технострим: Временные ряды (Введение в анализ данных) https://www.youtube.com/watch?v=Qflkzc6Ep78&list=PLrCZzMib1e9p6lpNv-yt6uvHGyBxQncEh&index=8
+    - Data Mining in Action 10: Прогнозирование временных рядов https://www.youtube.com/watch?v=u433nrxdf5k
+    - ML Course: анализ временных рядов https://habr.com/ru/company/ods/blog/327242/ https://www.youtube.com/watch?v=nQjul-5_0_M
+        - rolling window estimations
+        - экспоненциальное сглаживание, модель Хольта-Винтерса
+        - кросс-валидация, подбор параметров
+        - эконометрический подход
+        - избавляемся от нестационарности, строим SARIMA
+        - feature-based модели на временнЫх рядах
+            - линейная регрессия 
+            - XGBoost на временнЫх рядах
+    - популярные методы и библиотеки
+        - Prophet https://habr.com/ru/company/ods/blog/323730/
+        - ARIMA https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average
+        - ARCH https://en.wikipedia.org/wiki/Autoregressive_conditional_heteroskedasticity
+    - приведение к нормальному распределению
+        - преобразование бокса-кокса http://www.machinelearning.ru/wiki/index.php?title=%D0%9C%D0%B5%D1%82%D0%BE%D0%B4_%D0%91%D0%BE%D0%BA%D1%81%D0%B0-%D0%9A%D0%BE%D0%BA%D1%81%D0%B0
+- анализ пространственных данных
+    - конспект лекций про spatial analysis: http://www.seas.upenn.edu/~ese502/#notebook
+    - Spatial Data Science and Applications https://www.coursera.org/lecture/spatial-data-science/spatial-data-analysis-zT39o
+    - пример задачи: выбор точек для открытия магазинов
+        - https://new-retail.ru/persony/bst_organika_kak_uspeshno_upravlyat_otkrytiyami_nayti_luchshie_mesta_i_postroit_optimalnuyu_set_torg1113
+## Роли, специальности, скиллы 
+- Виды аналитиков 
+    - BI-аналитик 
+    - дата-аналитик 
+    - бизнес-аналитик
+    - системный аналитик 
+- Смежные специальности 
+    - аналитик-разработчик
+    - дата-инженер 
+    - data scientist 
+    - ml-инженер 
+- Аналитик частично совмещает смежные роли 
+- Сравнение с...
+    - Алексей Натёкин - Чем отличаются DA, DE, DS https://www.youtube.com/watch?v=lDkTNURDIaY
+- Требования к дата-аналитикам
+    - собственно аналитический скилл
+        - стремление докопаться до причины явления, понять смысл
+        - критическое мышление, способность и стремление оспаривать собственные гипотезы и сомневаться во всём
+        - способность видеть или находить все возможные: взаимосвязи, причины, пути
+        - умение декомпозировать сложную аналитическую задачу на ряд более простых
+        - развитая логика
+    - математические скиллы https://github.com/az365/compendium/blob/master/disciplines/math.md
+        - тервер, матстат
+        - линейная алгебра
+        - дискретная математика
+        - численные методы
+    - технические скиллы
+        - алгоритмы и структуры данных https://github.com/az365/compendium/blob/master/disciplines/algo.md
+        - визуализация данных https://github.com/az365/compendium/blob/master/disciplines/datavis.md
 ## Ошибки и заблуждения
 - Топ10 ошибок и заблуждений - согласно Monica Rogati, a data scientist at LinkedIn
     - Assuming data is clean.
@@ -240,9 +311,34 @@
     - Metrics that cry wolf (ложные алерты ведут к слепоте)
     - The 'Not Collected Here' syndrome (неприятие внешних данных ведёт к упущению возможностей по обогащению своих)
     - Focusing on noise
+- согласно Евгению Завьялову (Технострим Mail.ru) https://www.youtube.com/watch?v=uZ-l13XzejA&list=PLrCZzMib1e9p5F99rIOzugNgQP5KHHfK8
+    - (не)нормальное распределение 
+    - выбросы в данных
 - мифы о метриках
     - метрики нужны только для отчётности руководству 
     - посчитать одну правильную цифру проще, чем много цифр 
     - можно принимать все решения только на метриках 
     - твоя работа всегда должна влиять на какую-то метрику 
     - есть ложь, есть наглая ложь, есть статистика 
+## Литература, курсы, ссылки
+- курсы 
+    - Технострим - Введение в анализ данных (2019) https://www.youtube.com/watch?v=5Yl6_2d0CN0&list=PLrCZzMib1e9p6lpNv-yt6uvHGyBxQncEh
+        - Анализ данных - процесс исследования, фильтрации, преобразования и моделирования данных с целью извлечения полезной информации и приняия решений
+        - специалисты по анализу данных
+            - bi-аналитик - решает срочные задачи, работает с БД, готовит дешборды, отвечает за визуализацю 
+            - аналитик - знает предметную область, анализирует метрики, проводит эксперименты, составляет прогнозы, закапывается в данные
+            - data scientist - структурирует и анализирует большие объёмы данных, применяет машинное обучение для предсказания событий и обнаружения неочевидных закономерностей
+        - рекомендуемые книги по python 
+            - Learning Python (O'Reilly)
+            - Python for Data Analysis 
+    - Технострим - Введение в анализ данных (2016) https://www.youtube.com/playlist?list=PLrCZzMib1e9p5F99rIOzugNgQP5KHHfK8
+- книги 
+    - Alistair Croll - Lean Analytics, Lean UX, Lean Startup http://leananalyticsbook.com https://gopractice.ru/lean_analytics/
+    - Аналитическая культура (O'Reilly)
+    - Билл Фрэнкс - Революция в Аналитике 
+    - ...
+- блоги
+    - Олег Якубенков http://gopractice.ru
+- примеры данных для тренировки
+    - Примеры датасетов для Clickhouse https://clickhouse.tech/docs/ru/getting-started/example-datasets
+    - Kaggle datasets https://www.kaggle.com/datasets
