@@ -1,5 +1,8 @@
 # Metrics
 ## Intro
+- что такое метрика
+    - Мария Ираидина - Что такое продуктовые метрики и зачем они нужны https://skillbox.ru/media/management/chto_takoe_produktovye_metriki_i_zachem_oni_nuzhny
+        - Метрика — это качественный или количественный показатель, который отражает ту или иную характеристику и уровень успешности продукта.
 - зачем метрики 
     - анализ данных https://github.com/az365/compendium/blob/master/disciplines/datan.md
     - управление продуктом https://github.com/az365/compendium/blob/master/disciplines/prodman.md
@@ -148,8 +151,12 @@
             - каждый человек/подразделение должны знать, какую метрику они растят, и как она влияет на вешележащие по иерархии
         - больше об иерархии метрик 
             - С.Тихомиров - Иерархия/пирамида метрик http://sergeytikhomirov.ru/piramida-metrik/
-            - Е.Серёгина - Иерархия метрик VS Пирамида метрик. А также что такое North Star Metrics (метрики Всевластия) https://medium.com/@elenest/%D0%B8%D0%B5%D1%80%D0%B0%D1%80%D1%85%D0%B8%D1%8F-%D0%BC%D0%B5%D1%82%D1%80%D0%B8%D0%BA-vs-%D0%BF%D0%B8%D1%80%D0%B0%D0%BC%D0%B8%D0%B4%D0%B0-%D0%BC%D0%B5%D1%82%D1%80%D0%B8%D0%BA-8eeda61fdefe
-            - М.Ираидина - Что такое иерархия и Пирамида метрик https://skillbox.ru/media/management/chto_takoe_produktovye_metriki_i_zachem_oni_nuzhny/#3
+            - Мария Ираидина - Что такое продуктовые метрики и зачем они нужны https://skillbox.ru/media/management/chto_takoe_produktovye_metriki_i_zachem_oni_nuzhny/#3
+            - Е.Серёгина - Ещё одна пирамида метрик @ ProductSense (2018) https://www.youtube.com/watch?v=hgQgr6v39_8
+            - Е.Серёгина - Иеархия vs пирамида метрик (2019) https://medium.com/@elenest/%D0%B8%D0%B5%D1%80%D0%B0%D1%80%D1%85%D0%B8%D1%8F-%D0%BC%D0%B5%D1%82%D1%80%D0%B8%D0%BA-vs-%D0%BF%D0%B8%D1%80%D0%B0%D0%BC%D0%B8%D0%B4%D0%B0-%D0%BC%D0%B5%D1%82%D1%80%D0%B8%D0%BA-8eeda61fdefe
+            - Е.Серёгина - когда пирамида метрик поможет/не_поможет (2019) https://medium.com/@elenest/metrics-frameworks-d7c800f91246
+            - Гокул Раджарам - Метрика полярной звезды (2017) https://vc.ru/flood/26005-north-star-metric
+            - П.Филонов (Kaspersky) - Связь DS-метрик с бизнес-метриками https://youtu.be/pDMgvhsUPJM
     - техническая подложка: согласованность ключевых данных и показателей + стыкуемость инструментов
         - онтология (бизнес-глоссарий)
             - общие понятия в команде 
@@ -258,3 +265,6 @@
             - Metrics based on entropy
             - Evaluation metrics based on edit distance
             - BCubed: a mixed family of metrics
+- связь метрик DS и бизнеса 
+    - П.Филонов (Kaspersky) - Связь DS-метрик с бизнес-метриками https://youtu.be/pDMgvhsUPJM
+    - А.Дьяконов - Кривые в машинном обучении https://dyakonov.org/2019/08/29/кривые-в-машинном-обучении/
