@@ -1,9 +1,16 @@
 # Аналитика данных
+## Intro
+- Что такое Дата-аналитика
+    - извлечение знаний из данных
+    - исследования и расследования 
+    - разовые задачи/вопросы
+    - итеративные задачи с заранее неизвестным результатом 
+    - нестандартные, некорректные, неполные, нечёткие задачи
+    - подкрепление/замена экспертного мнения измеримыми фактами
+    - поддержка принятия решений на данных (продуктовых, бизнесовых, управленческих)
+- Чем занимаются аналитики данных и как начать? https://academy.yandex.ru/posts/chem-zanimayutsya-analitiki-dannykh-i-kak-nachat-rabotat-v-etoy-oblasti
 ## Аналитические задачи
 - особенность аналитическхи задач: нестандартность, некорректность, неполнота, ...
-    - remember that a majority of analytical tasks is realy incorrect
-    - correct tasks are not an analytical tasks, but statical tasks
-    - a majority of your orders by marketers will not only to calculate smth concretly, but they are about to decide: what we can to calculate for to help to resolve applied problems
 - типы задач 
     - как это устроено?
     - А или Б?
@@ -31,7 +38,7 @@
         - поиск источников и получение данных
         - понимание природы источников
         - чистка и формализация данных
-    - типы источников
+    - происхождение источников
         - внутренняя статистика
         - внешняя публичная статистика
         - целевой сбор
@@ -47,18 +54,16 @@
         - шумность
         - скорость: ответ за 5 секунд или 3 недели
         - цена
-- multivariate analysis
-    - cohort analysis
-        - Churn/Retention
-        - LTV 
-        - RFM 
-    - segmentation
-        - метрики для анализа перекосов сегментов
-            - (A-B) / (A+B)
-            - аффинити, аффинитивность
-    - AB-testig
-        - эксперименты в Бинге: http://www.exp-platform.com/Documents/puzzlingOutcomesInControlledExperiments.pdf
-        - валидации метрик на эталонных экспериментах 
+    - некоторые виды источников 
+        - информационные/транзакционные системы
+        - логи сервисов, приложений, внешних счётчиков
+        - панельные данные - когда 1 объект трекается очень долго (не куки, не случайные опросы)
+        - парсинг внешних сайтов
+- проведение исследования 
+    - выявление структуры
+    - построение гипотез
+    - проверка гипотез 
+    - построение выводов на данных
 - презентация результатов
     - говорить на понятном языке
     - отвечать на волнующие вопросы
@@ -138,7 +143,7 @@
         - онлайн: измеримые пользовательские (на АБТ)
         - абстрактные: счастье пользователя (то, что в идеале хотим померить, но не можем)
     - по назначению
-        - безнесовые: оцифровка бизнес-модели 
+        - бизнесовые: оцифровка бизнес-модели 
         - аудиторные: MAU, DAU, Core, Churn/Retention, LT, LTV
             - про ретеншены и LifeTime: http://kxk.ru/matriarhat/v1_693889__.php
             - параметры сессионного LT/LTV: timeout, timebound
@@ -215,6 +220,9 @@
         - цепочки для локализации измерений
         - чеклисты
         - WTF-framework
+- литература
+    - О.Якубенков - Интро: Метрики (2013) https://gopractice.ru/metrics1/
+    - О.Якубенков - Продуктовая и аналитическая культура Facebook https://gopractice.ru/fb-product-culture/
 ## Data Architecture for Business 
 - https://www.youtube.com/watch?v=ArzohefZLE4
 - The data science hierarchy of needs (pyramide)
@@ -265,25 +273,42 @@
         - ARCH https://en.wikipedia.org/wiki/Autoregressive_conditional_heteroskedasticity
     - приведение к нормальному распределению
         - преобразование бокса-кокса http://www.machinelearning.ru/wiki/index.php?title=%D0%9C%D0%B5%D1%82%D0%BE%D0%B4_%D0%91%D0%BE%D0%BA%D1%81%D0%B0-%D0%9A%D0%BE%D0%BA%D1%81%D0%B0
+- Cohort analysis
+    - Churn/Retention
+    - LT, LTV 
+    - RFM 
+    - литература
+        - О.Якубенков - Когортный анализ (2014) https://gopractice.ru/cohort_analysis/
+        - О.Якубенков - Длинный и короткий ретеншен (2020) https://gopractice.ru/why-long-term-retention-is-key-to-growth/
+        - В.Голубев - Оценка LifeTime через ретеншен (2010): http://kxk.ru/matriarhat/v1_693889__.php
+- Segmentation
+    - поиск контраста по срезам
+        - перебор срезов или попарных сочетаний
+        - кутим круб в BI (или в pandas)
+    - кластеризация
+    - метрики контраста сегментов
+        - перекос = (A-B) / (A+B)
+        - аффинити, аффинитивность
+        - потенциалы сегментов
+    - литература
+        - Олег Якубенков - Сегментация (2014) https://gopractice.ru/segmentation/
 - анализ пространственных данных
     - конспект лекций про spatial analysis: http://www.seas.upenn.edu/~ese502/#notebook
     - Spatial Data Science and Applications https://www.coursera.org/lecture/spatial-data-science/spatial-data-analysis-zT39o
     - пример задачи: выбор точек для открытия магазинов
         - https://new-retail.ru/persony/bst_organika_kak_uspeshno_upravlyat_otkrytiyami_nayti_luchshie_mesta_i_postroit_optimalnuyu_set_torg1113
-## Роли, специальности, скиллы 
+## Роли, специальности, скиллы, процесс и культура
 - Виды аналитиков 
     - BI-аналитик 
     - дата-аналитик 
     - бизнес-аналитик
     - системный аналитик 
-- Смежные специальности 
+- Смежные специальности (аналитик частично совмещает такие роли)
     - аналитик-разработчик
     - дата-инженер 
     - data scientist 
     - ml-инженер 
-- Аналитик частично совмещает смежные роли 
-- Сравнение с...
-    - Алексей Натёкин - Чем отличаются DA, DE, DS https://www.youtube.com/watch?v=lDkTNURDIaY
+- А.Натёкин (ODS): Чем отличаются DA, DE, DS (2018) https://www.youtube.com/watch?v=lDkTNURDIaY
 - Требования к дата-аналитикам
     - собственно аналитический скилл
         - стремление докопаться до причины явления, понять смысл
@@ -299,6 +324,9 @@
     - технические скиллы
         - алгоритмы и структуры данных https://github.com/az365/compendium/blob/master/disciplines/algo.md
         - визуализация данных https://github.com/az365/compendium/blob/master/disciplines/datavis.md
+- Процесс и культура
+    - Understand, Identify, Execute 
+        - Продуктовая культура Facebook: Understand, Identify, Execute https://gopractice.ru/fb-product-culture/
 ## Ошибки и заблуждения
 - Топ10 ошибок и заблуждений - согласно Monica Rogati, a data scientist at LinkedIn
     - Assuming data is clean.
