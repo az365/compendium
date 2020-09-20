@@ -249,11 +249,6 @@
     - Personal identification Information
     - Data model
     - SDKs with persistent layer
-## некоторые распространённые инструменты
-- Rapid Miner
-- sas
-- ibm spss
-    - см есть ли про него в толстой красной книге
 ## Области и методы
 - Timeseries
     - лекция Технострим: Временные ряды (Введение в анализ данных) https://www.youtube.com/watch?v=Qflkzc6Ep78&list=PLrCZzMib1e9p6lpNv-yt6uvHGyBxQncEh&index=8
