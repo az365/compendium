@@ -2,11 +2,11 @@
 ## Based on
 - probability theories
 - math statistics
-- lenear algebra
+- linear algebra
 - numerical optimisation
 - programming
 ## Supervised learning
-- обучение с учителем, на размеченных выборках
+- обучение с учителем - на размеченных выборках
 - methods/models for regression&classification
     - широкие обзоры методов
         - Example from sklearn with different decision surfaces https://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html
@@ -176,6 +176,7 @@
             - Prophet https://habr.com/ru/company/ods/blog/323730/
             - ARIMA https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average
             - ARCH https://en.wikipedia.org/wiki/Autoregressive_conditional_heteroskedasticity
+            - STL-decompositions of time-series
         - приведение к нормальному распределению
             - преобразование бокса-кокса http://www.machinelearning.ru/wiki/index.php?title=%D0%9C%D0%B5%D1%82%D0%BE%D0%B4_%D0%91%D0%BE%D0%BA%D1%81%D0%B0-%D0%9A%D0%BE%D0%BA%D1%81%D0%B0
 - metrics
@@ -598,8 +599,8 @@
         - Numerical features: GBMs, Linear models, DL, SVMs
         - Interactions: GBMs, Linear models, DL 
         - Recommedners: CF, DL, LibFM, LibFFM, GBMs
-- интерпретация
-    - топ инструментов с kaggle (согласно habr.com/ru/company/ods/blog/434134)
+- Интерпретация
+    - топ инструментов с kaggle: https://habr.com/ru/company/ods/blog/434134
         - plot predicted vs actual results - сравнение распределения предсказаний с распределением целевой переменной
         - examine feature importances
         - examine feature correlations
@@ -612,6 +613,7 @@
         - LIME functions
         - SHAP functions
         - ELI5 functions
+    - Д.Воротынцев (Oura): ML Interpretability Problems in Tabular Data Tasks (2020) youtu.be/jOfl9_utKx8
 ## Специализированные области
 - NLP: тексты
     - задачи
@@ -815,6 +817,9 @@
         - TensorFlow: The Confusing Parts https://jacobbuckman.com/post/tensorflow-the-confusing-parts-1
         - TensorFlow tutorials: https://www.tensorflow.org/tutorials
         - TensorFlow documentation: https://www.tensorflow.org/versions/r1.3/api_docs/python
+        - Tensorflow virualenv
+            - https://medium.com/@margaretmz/anaconda-jupyter-notebook-tensorflow-and-keras-b91f381405f8
+            - https://docs.docker.com/toolbox/toolbox_install_windows/
     - Keras
         - Guide to using Keras as part of a TensorFlow workflow https://blog.keras.io/keras-as-a-simplified-interface-to-tensorflow-tutorial.html
     - Caffe
@@ -876,26 +881,39 @@
     - ggplot http://ggplot.yhathq.com/
     - Graph visualization with NetworkX https://networkx.github.io/
     - Biclustering algorithms for sorting corrplots https://scikit-learn.org/stable/auto_examples/bicluster/plot_spectral_biclustering.html
-## Применения
+## Кейсы применения
 - Ритейл 
-    - Technostartup - How Retail Stores Can Use Machine Learning To Boost Their Sales? (2017) https://medium.com/@technostartup1m/how-retail-stores-can-use-machine-learning-to-boost-their-sales-2c108de7c597
-        - управление запасами
-        - маркетинг 
-        - рекомендация товаров 
-        - ценообразование 
-        - распознавание клиентских паттернов (Uber: константный спрос путём изменений цен)
-        - персонализированные купоны-предложения 
-        - логистика 
-    - Николай Савин (Competera) - AI-powered price optimization (2019) https://bigdata-madesimple.com/ai-powered-price-optimization
-    - 1C Sales Prediction https://www.kaggle.com/c/competitive-data-science-predict-future-sales
-        - пример работы https://www.kaggle.com/dimitreoliveira/model-stacking-feature-engineering-and-eda
-        - A beginner guide for sale data prediction https://www.kaggle.com/minhtriet/a-beginner-guide-for-sale-data-prediction
-    - VisionLabs - CV в ритейле https://visionlabs.ai/ru/industries/retail
-        - трекинг посетителей (объём аудитории, маршруты, время ожидания, точки внимания, эмоции, соцдем, постоянные клиенты)
-        - выявление воровства
-        - распознавание зарегенных клиентов по лицу для отслеживания и анализа опыта, персонализации предположений
-        - контроль доступа, отслеживание посещаемости сотрудников 
-- Закупки 
+    - моделирование продаж
+        - x5+Rubbles @ RetailHero: ИИ для предсказания спроса (2020) https://youtu.be/M5NOU9eq-Pw
+            - принудительная элластичность: в GBDT-либах бывают параметры, заставляющие считать некоторые признаки монотонными
+            - проблема Causal Inference: пример с огурцами зимой и летом
+        - Technostartup: How Retail Stores Can Use ML To Boost Their Sales? (2017) https://medium.com/@technostartup1m/how-retail-stores-can-use-machine-learning-to-boost-their-sales-2c108de7c597
+            - управление запасами
+            - маркетинг 
+            - рекомендация товаров 
+            - ценообразование 
+            - распознавание клиентских паттернов (Uber: константный спрос путём изменений цен)
+            - персонализированные купоны-предложения 
+            - логистика 
+        - Николай Савин (Competera) - AI-powered price optimization (2019) https://bigdata-madesimple.com/ai-powered-price-optimization
+        - 1C Sales Prediction @ Kaggle https://www.kaggle.com/c/competitive-data-science-predict-future-sales
+            - пример работы https://www.kaggle.com/dimitreoliveira/model-stacking-feature-engineering-and-eda
+            - A beginner guide for sale data prediction https://www.kaggle.com/minhtriet/a-beginner-guide-for-sale-data-prediction
+    - геоаналитика 
+        - BST Digital: выбор точек для открытия магазинов (2018, реклама) https://new-retail.ru/persony/bst_organika_kak_uspeshno_upravlyat_otkrytiyami_nayti_luchshie_mesta_i_postroit_optimalnuyu_set_torg1113
+    - CV в ритейле
+        - ComputerVision в проде x5 (2020) https://youtu.be/XDEawkpXPVI
+            - анализ доступности товаров на полках 
+            - детектирование очередей на кассах 
+            - табелирование сотрудников 
+        - VisionLabs - CV в ритейле https://visionlabs.ai/ru/industries/retail
+            - трекинг посетителей (объём аудитории, маршруты, время ожидания, точки внимания, эмоции, соцдем, постоянные клиенты)
+            - выявление воровства
+            - распознавание зарегенных клиентов по лицу для отслеживания и анализа опыта, персонализации предположений
+            - контроль доступа, отслеживание посещаемости сотрудников 
+    - колл-центры
+        - МТС VoiceTracker: супервайзинг в колл-центре (2020) https://voicetracker.mts.ru
+- закупки 
     - Federico Castanedo - Advancing Procurement Analytics (O'Reilly, 2016) https://www.oreilly.com/content/advancing-procurement-analytics/
     - Naman Shah - Role of data and machine learning in procurement (2019) https://yourstory.com/2019/10/data-machine-learning-procurement-operations
         - применения данных 
@@ -914,16 +932,54 @@
         - https://github.com/codebender/kaggle-caterpillar-tube-pricing
 - медицина 
     - B.L. Mittal - Smarter healthcare (2019) https://yourstory.com/2019/01/smarter-healthcare-ai-machine-learning-wearables-will-pave-path-ahead
-    - 
+    - ...
 - рекомендательные системы 
     - М.Рофзнер - Как работают рекомендательные системы https://habr.com/ru/company/yandex/blog/241455/
     - Jonathan Hui - Рекомендательные системы (2020, перевод с TowardsDS) https://vc.ru/ml/132779-mashinnoe-obuchenie-rekomendatelnye-sistemy
 - предсказание популярности 
     - предсказание популярности постов на хабре https://www.kaggle.com/c/howpop-habrahabr-favs-lognorm https://www.kaggle.com/c/howpop-habrahabr-favs
-    - 
-- транспорт 
-    - Комбайны-автопилоты https://habr.com/ru/company/cognitivepilot/blog/496058/ https://cognitivepilot.com/products/cognitive-agro-pilot
-    - 
+    - ...
+- беспилотный транспорт 
+    - Комбайны-автопилоты (2020) https://habr.com/ru/company/cognitivepilot/blog/496058/ https://cognitivepilot.com/products/cognitive-agro-pilot
+    - Starsky Robotics закрылся (2020) https://vc.ru/transport/113897-proekt-bespilotnyh-gruzovikov-starsky-robotics-s-investiciyami-fonda-dmitriya-grishina-zakrylsya-chto-proizoshlo-i-pochemu https://medium.com/starsky-robotics-blog
+    - Беспилотное Я.Такси (2019) https://bespilot.com/news/366-yandex-bespilot
+    - вертолёты uvr.su (2020) https://youtu.be/vefNgzqJpzc
+- CouputerVision
+    - камеры в электричах
+        - EORA: Видеоаналитика сына маминой подруги https://www.youtube.com/watch?v=Zsz6yIQZHPU
+    - CV в ритейле
+        - ComputerVision в проде x5 (2020) https://youtu.be/XDEawkpXPVI
+            - кейсы 
+                - анализ доступности товаров на полках 
+                - детектирование очередей на кассах 
+                - табелирование сотрудников 
+            - челленджи 
+                - инференс на устройствах в магазинах 
+                - ограничение по стоимости устройств 
+                - работа без человеческих вмешательств
+                - оперативно обнаруживать и исправлять проблемы 
+            - рецепты 
+                - исключить перекидывание кода через стенку (ds->dev)
+                - определение интерфейсов и окружения модели 
+                - разделение на компоненты с интерфейсами
+                - единая платформа и переиспользование компонентов 
+                - унификация стека технологий 
+                - воспроизводимое окружение (docker+piptools, s3 для моделей)
+                - 3 репозитория: эксперименты и обучение, прод, использующий сервис
+                - автопроверки кода 
+                - мониторинг и логирование
+            - правило 60/60 
+                - на поддержку идёт 60% затрат проекта 
+                - изменение функционала даёт 60% затрат на поддержку 
+                - итеративное внедрение 
+        - VisionLabs - CV в ритейле https://visionlabs.ai/ru/industries/retail
+            - трекинг посетителей (объём аудитории, маршруты, время ожидания, точки внимания, эмоции, соцдем, постоянные клиенты)
+            - выявление воровства
+            - распознавание зарегенных клиентов по лицу для отслеживания и анализа опыта, персонализации предположений
+            - контроль доступа, отслеживание посещаемости сотрудников 
+- Аудио-аналитика
+    - супервайзинг в колл-центре
+        - МТС VoiceTracker (2020) https://voicetracker.mts.ru
 ## Организация DS-процесса 
 - методология CRISP-DM
     - этапы согласно wikipedia.org/wiki/CRISP-DM
@@ -1031,58 +1087,58 @@
         - дефицит коммуникации по продаже фактических результатов
         - 10 отсутствие мониторинга качества модели
         - отсутствие процесса переобучения/неверная частота переобучения
-## Coursera
-- базовый набор
-    - ВШЭ - Курс «Введение в машинное обучение»: Константин Воронцов, Евгений Соколов, Анна Козлова 
-        - https://www.coursera.org/learn/vvedenie-mashinnoe-obuchenie
-        - самый компактный и ёмкий курс по ML
-        - требует знания Python и математики 
-    - МФТИ - Специализация «Машинное обучение и анализ данных»: Константин Воронцов, Евгений Соколов, Антон Слесарев, Эмели Драль, Виктор Кантор 
-        - https://www.coursera.org/specializations/machine-learning-data-analysis
-        - более простой и подробный курс
-        - включает введение в Python и необходимые разделы математики
-        - рекомендуется проходить по порядку и целиком 
-    - ВШЭ - Advanced machine learning 
-        - https://www.coursera.org/specializations/aml
-        - желательно проходить после вышеприведённых курсов 
-        - краткий курс про нейросети - рекомендуется в любом случае
-            - AML Deep learning Intro 
-                - https://www.coursera.org/learn/intro-to-deep-learning
-        - остальные курсы можно проходить выборочно под свои цели 
-            - AML How to win in data science competitions
-                - https://www.coursera.org/learn/competitive-data-science
-                - полезно не только для Kaggle, но и для бизнес-кейсов 
-            - AML Cumputer vision 
-                - https://www.coursera.org/learn/deep-learning-in-computer-vision
-            - AML Natural Language Processing 
-                - https://www.coursera.org/learn/language-processing
-    - Andrew NG - Deep Learning Specialization 
-        - https://www.coursera.org/specializations/deep-learning
-        - более подробный аналог вышеприведённого AML Deep Learning Intro от ВШЭ
-    - Stanford - CS231n: Convolutional Neural Networks for Visual Recognition
-        - http://cs231n.stanford.edu/
-        - более подробный аналог вышеприведённого AML Cumputer vision от ВШЭ
-- рекомендовано DS Игорем Слинько
-    - Pattern Discovery in Data Mining - Coursera.org, University of Illinois at Urbana-Champaign
-    - Text Retrieval and Search Engines - Coursera.org, University of Illinois at Urbana-Champaign
-    - Cluster Analysis in Data Mining - Coursera.org, University of Illinois at Urbana-Champaign
-    - Text Mining and Analytics - Coursera.org, University of Illinois at Urbana-Champaign
-    - Data Visualization - Coursera.org, University of Illinois at Urbana-Champaign
-    - Data Mining Capstone - Coursera.org, University of Illinois at Urbana-Champaign
-    - Machine Learning - Coursera.org, Stanford University
-    - Hadoop. Система для обработки больших объемов данных - Stepik.org, Mail.ru Group
-    - Deep Learning - Udacity.com, Google
-## Read more
-- для знающих
-    - https://events.yandex.ru/events/mltr
-- где батлиться
-    - https://kaggle.com
-    - https://boosters.pro
-- сообщества
-    - https://ods.ai
-- книги, обзоры
-    - Anrew Ng - Страсть к машинному обучению https://habr.com/ru/post/419757/
-    - 
-- сообщества, новостные ленты, агрегаторы
-    - DS topics @ O'Reilly https://www.oreilly.com/content/topics/data-science/
-    - ...
+## Литература и курсы
+- Coursera
+    - базовый набор
+        - ВШЭ - Курс «Введение в машинное обучение»: Константин Воронцов, Евгений Соколов, Анна Козлова 
+            - https://www.coursera.org/learn/vvedenie-mashinnoe-obuchenie
+            - самый компактный и ёмкий курс по ML
+            - требует знания Python и математики 
+        - МФТИ - Специализация «Машинное обучение и анализ данных»: Константин Воронцов, Евгений Соколов, Антон Слесарев, Эмели Драль, Виктор Кантор 
+            - https://www.coursera.org/specializations/machine-learning-data-analysis
+            - более простой и подробный курс
+            - включает введение в Python и необходимые разделы математики
+            - рекомендуется проходить по порядку и целиком 
+        - ВШЭ - Advanced machine learning 
+            - https://www.coursera.org/specializations/aml
+            - желательно проходить после вышеприведённых курсов 
+            - краткий курс про нейросети - рекомендуется в любом случае
+                - Deep learning Intro https://www.coursera.org/learn/intro-to-deep-learning?specialization=aml
+            - остальные курсы можно проходить выборочно под свои цели 
+                - AML How to win in data science competitions
+                    - https://www.coursera.org/learn/competitive-data-science
+                    - полезно не только для Kaggle, но и для бизнес-кейсов 
+                - AML Cumputer vision 
+                    - https://www.coursera.org/learn/deep-learning-in-computer-vision
+                - AML Natural Language Processing 
+                    - https://www.coursera.org/learn/language-processing
+        - Andrew NG - Deep Learning Specialization 
+            - https://www.coursera.org/specializations/deep-learning
+            - более подробный аналог вышеприведённого AML Deep Learnig Intro от ВШЭ
+        - Stanford - CS231n: Convolutional Neural Networks for Visual Recognition 
+            - http://cs231n.stanford.edu/
+            - более подробный аналог вышеприведённого AML Cumputer vision от ВШЭ
+    - рекомендовано DS Игорем Слинько
+        - Pattern Discovery in Data Mining - Coursera.org, University of Illinois at Urbana-Champaign
+        - Text Retrieval and Search Engines - Coursera.org, University of Illinois at Urbana-Champaign
+        - Cluster Analysis in Data Mining - Coursera.org, University of Illinois at Urbana-Champaign
+        - Text Mining and Analytics - Coursera.org, University of Illinois at Urbana-Champaign
+        - Data Visualization - Coursera.org, University of Illinois at Urbana-Champaign
+        - Data Mining Capstone - Coursera.org, University of Illinois at Urbana-Champaign
+        - Machine Learning - Coursera.org, Stanford University
+        - Hadoop. Система для обработки больших объемов данных - Stepik.org, Mail.ru Group
+        - Deep Learning - Udacity.com, Google
+- Read more
+    - для знающих
+        - https://events.yandex.ru/events/mltr
+    - где батлиться
+        - https://kaggle.com
+        - https://boosters.pro
+    - сообщества
+        - https://ods.ai
+    - книги, обзоры
+        - Anrew Ng - Страсть к машинному обучению https://habr.com/ru/post/419757/
+        - ...
+    - сообщества, новостные ленты, агрегаторы
+        - DS topics @ O'Reilly https://www.oreilly.com/content/topics/data-science/
+        - ...
