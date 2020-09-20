@@ -254,8 +254,8 @@
 - sas
 - ibm spss
     - см есть ли про него в толстой красной книге
-## Некоторые области
-- временнЫе ряды 
+## Области и методы
+- Timeseries
     - лекция Технострим: Временные ряды (Введение в анализ данных) https://www.youtube.com/watch?v=Qflkzc6Ep78&list=PLrCZzMib1e9p6lpNv-yt6uvHGyBxQncEh&index=8
     - Data Mining in Action 10: Прогнозирование временных рядов https://www.youtube.com/watch?v=u433nrxdf5k
     - ML Course: анализ временных рядов https://habr.com/ru/company/ods/blog/327242/ https://www.youtube.com/watch?v=nQjul-5_0_M
@@ -292,7 +292,84 @@
         - потенциалы сегментов
     - литература
         - Олег Якубенков - Сегментация (2014) https://gopractice.ru/segmentation/
-- анализ пространственных данных
+- Causal inference
+    - AB-testig
+        - основы 
+            - литература 
+                - Я.Академия, Lisa Xu: Как провести АБТ, 6 простых шагов (2019) https://academy.yandex.ru/posts/kak-provesti-a-b-testirovanie-6-prostykh-shagov
+                - Яндекс @ Habr: Как у нас устроено АБТ (2017) https://habr.com/ru/company/yandex/blog/342704
+                - Uber Experimentation Platform (2018) https://eng.uber.com/xp
+                - Bing: Five Puzzling Outcomes Explained (2012): http://www.exp-platform.com/Documents/puzzlingOutcomesInControlledExperiments.pdf
+                - AdOneTech @ Habr: 70 ресурсов про АБТ для начинающих (2014) https://habr.com/ru/post/242701
+        - выбор приёмочных метрик
+            - процесс
+                - поиск коррелирующих с бизнес-метрикой и/или текущей приёмочной
+                - валидации метрик на эталонных экспериментах 
+                - проверка на АА-тестах
+            - критерии выбора приёмочных АБТ-метрик
+                - красить ухудшения (благодаря монтонности прокрасят и улучшения)
+                - не красить контроли (АА-тест)
+                - чувствительность (красить лучше других)
+                - применимость (некоторые метрики не совместимы с некоторыми типами экспериментов)
+        - АБ-тесты на малых выборках 
+            - МТС: АБТ на регионах (2020) https://youtu.be/e9kSPMjpLL8
+                - https://engineering.nordeus.com/
+                - https://www.tripadvisor.com/engineering/reducing-a-b-test-measurement-variance-by-30/
+                - https://booking.ai/how-booking-com-increases-the-power-of-online-experiments-with-cuped-995d186fff1d
+        - проблемы и решения 
+            - некорректный эксперимент 
+                - пересмотреть методику и реализацию, перепровести
+            - потребовался релиз до эксперимента
+                - провести разовый обратный эксперимент
+            - шумные метрики, ничего не красится 
+                - увеличение выборок и продолжительности
+                - методы на малых выборках (см. выше про  АБТ на регионах)
+                - методы понижения дисперсии 
+                - поиск чувствительных прокси-метрик (см. про приёмочные метрики выше)
+                - последовательные внедрения с оффлайн-приёмкой + постоянный/долгий обратный эксперимент
+            - превратить приёмочную метрику в KPI
+                - постоянный обратный эксперимент (или долгие разовые)
+            - много гипотез/версий/объектов для тестирования
+                - многомерные параллельные тесты + Multivariate analysis
+                - однорукие бандиты - для автоматического опробования большого числа гипотез/объектов-кандидатов
+            - сложно задизайнить или дорого провести эксперимент 
+                - Observational studies на исторических данных (подробно см. ниже)
+    - Observational studies
+        - применение 
+            - может проводиться до АБ-тестинга - для формирования или первичной проверки гипотез
+            - может рассматриваться как альтернативап АБ-тестингу, когда он затруднён 
+        - AB-testing vs Observational Studies
+            - АБ-тест
+                - иногда проблематично задизайнить или дорого провести
+            - Observational studies
+                - корреляции не означают причинно-следственной связи
+                - мешают неизвестные/неизмеренные зависимости
+        - препятствия
+            - conditioned cofounding (общая причина, пример: лекарство тяжело больным)
+            - selection bias (общее следствие, пример: фолиевая кислота беременным)
+            - complicated bias with conditioning (зафиксированный фактор, пример: зожники vs больные раком)
+        - подходы
+            - stratification (перевзвешивание страт/сегментов в зааффекченной выборке на их доли в генеральной совокупности)
+            - propensity scores (перевзвешивание групп на вероятность воздействия на объект)
+            - outcome regression (проблема: могут просочиться фичи с результатами воздействия)
+            - тесты причинности
+                - Granger causality test https://ru.wikipedia.org/wiki/Причинность_по_Грэнджеру
+                - g-метод https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6074945/
+        - литература
+            - видео доклада Causal Inference: Если бы да кабы (2020) https://youtu.be/V4ONp9PZrvk
+            - KDD-tutorial - Causal Inference and Counterfactual Reasoning (2018) https://causalinference.gitlab.io/kdd-tutorial/intro.html
+            - книга M.Hernan - Causal Inference (2020) https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book
+            - статья A.Naimi - An introduction to g methods (2017) https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6074945
+            - обзор J.Pearl - Causal inference in statistics (2009) http://ftp.cs.ucla.edu/pub/stat_ser/r350.pdf
+            - видео доклада P.Tennant - https://www.youtube.com/watch?v=SbrX3YEMj_0
+            - видео+код A.Sharma - Causal Inference in Online Systems (2016) https://github.com/amit-sharma/causal-inference-tutorial
+    - Simple modeling
+        - Causal Impact python library
+    - Counterfactual learning
+        - Causal inference, counterfactual frameworks https://causalinference.gitlab.io/kdd-tutorial/intro.html
+        - Large-scale Validation of CounterfactualLearning Methods: A Test-Bed http://www.cs.cornell.edu/~adith/Criteo/NIPS16_Benchmark.pdf
+- Анализ графов
+- Spatial / Геоаналитика
     - конспект лекций про spatial analysis: http://www.seas.upenn.edu/~ese502/#notebook
     - Spatial Data Science and Applications https://www.coursera.org/lecture/spatial-data-science/spatial-data-analysis-zT39o
     - пример задачи: выбор точек для открытия магазинов
