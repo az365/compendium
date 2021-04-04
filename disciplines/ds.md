@@ -222,8 +222,8 @@
                 - err - expected reciprocal rank
                 - pfound
             - read more
-                - Метрики качества ранжирования https://habr.com/ru/company/econtenta/blog/303458/  
-                - Learning to Rank using Gradient Descent -- original paper about pairwise method for AUC optimization http://icml.cc/2015/wp-content/uploads/2015/06/icml_ranking.pdf 
+                - Метрики качества ранжирования https://habr.com/ru/company/econtenta/blog/303458/
+                - Learning to Rank using Gradient Descent -- original paper about pairwise method for AUC optimization http://icml.cc/2015/wp-content/uploads/2015/06/icml_ranking.pdf
                 - Overview of further developments of RankNet https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/MSR-TR-2010-82.pdf
                 - RankLib (implemtations for the 2 papers from above) https://sourceforge.net/p/lemur/wiki/RankLib/
                 - Learning to Rank Overview https://wellecks.wordpress.com/2015/01/15/learning-to-rank-overview
@@ -887,6 +887,28 @@
         - x5+Rubbles @ RetailHero: ИИ для предсказания спроса (2020) https://youtu.be/M5NOU9eq-Pw
             - принудительная элластичность: в GBDT-либах бывают параметры, заставляющие считать некоторые признаки монотонными
             - проблема Causal Inference: пример с огурцами зимой и летом
+        - x5: прогнозирование спроса (2020) https://youtu.be/6n1Fg8IcHUs
+            - методы: arima, gbdt, --rnn--
+            - горизонт: 4-12 недель 
+            - лосс: MAE, Tweede
+            - метрики качества: (s)WAPE, Bias, Money 
+            - метрики ритейла: трафик, маржа, RTO (retail turnover)
+            - факторы
+                - чеки
+                - погода (прогноз погоды даёт эффект лучше, чем факты погоды) - найти непросто, но полезно
+                - факторы по результатам кластеризации магазинов 
+            - гало/канибализация 
+                - совместная/несовместная покупка 
+                - эмбединги по чекам (word2vec)
+                - регрессия для каждого объекта магазин-товар 
+            - помогают приёмы 
+                - логарифмированиее/экспоненцирование таргета 
+                - кластеризация магазинов 
+                - очистка аномалий 
+                - данные об активности конкурентов 
+                - лояльность 
+                ? реклама (сложно оценить, если реклама идёт постоянно)
+                - сегментация модели по категор иям + обогащение малых категорий данными по большим 
         - Technostartup: How Retail Stores Can Use ML To Boost Their Sales? (2017) https://medium.com/@technostartup1m/how-retail-stores-can-use-machine-learning-to-boost-their-sales-2c108de7c597
             - управление запасами
             - маркетинг 
@@ -902,6 +924,7 @@
     - геоаналитика 
         - BST Digital: выбор точек для открытия магазинов (2018, реклама) https://new-retail.ru/persony/bst_organika_kak_uspeshno_upravlyat_otkrytiyami_nayti_luchshie_mesta_i_postroit_optimalnuyu_set_torg1113
     - CV в ритейле
+        - x5: Face Re-Identication: Try to capture me https://youtu.be/XuWp4OkwYvY
         - ComputerVision в проде x5 (2020) https://youtu.be/XDEawkpXPVI
             - анализ доступности товаров на полках 
             - детектирование очередей на кассах 
@@ -911,8 +934,13 @@
             - выявление воровства
             - распознавание зарегенных клиентов по лицу для отслеживания и анализа опыта, персонализации предположений
             - контроль доступа, отслеживание посещаемости сотрудников 
+    - CR 
+        - Kaggle example: Acquire Valued Shoppers
     - колл-центры
+        - ODS: Прогнозирование нагрузки колл-центра (2019) https://habr.com/ru/company/ods/blog/438212/
         - МТС VoiceTracker: супервайзинг в колл-центре (2020) https://voicetracker.mts.ru
+    - HR 
+        - Лента/Север.AI: Лента ускорила подбор сотрудников с помощью ИИ https://www.cnews.ru/news/line/2020-09-23_lenta_uskorila_podbor https://sever.ai
 - закупки 
     - Federico Castanedo - Advancing Procurement Analytics (O'Reilly, 2016) https://www.oreilly.com/content/advancing-procurement-analytics/
     - Naman Shah - Role of data and machine learning in procurement (2019) https://yourstory.com/2019/10/data-machine-learning-procurement-operations
@@ -948,6 +976,7 @@
     - камеры в электричах
         - EORA: Видеоаналитика сына маминой подруги https://www.youtube.com/watch?v=Zsz6yIQZHPU
     - CV в ритейле
+        - x5: Face Re-Identication: Try to capture me https://youtu.be/XuWp4OkwYvY
         - ComputerVision в проде x5 (2020) https://youtu.be/XDEawkpXPVI
             - кейсы 
                 - анализ доступности товаров на полках 
@@ -977,6 +1006,8 @@
             - выявление воровства
             - распознавание зарегенных клиентов по лицу для отслеживания и анализа опыта, персонализации предположений
             - контроль доступа, отслеживание посещаемости сотрудников 
+    - CV по спутникам 
+        - Сбер: Спутниковы контроль за строительством https://youtu.be/MOWbWHTgnng
 - Аудио-аналитика
     - супервайзинг в колл-центре
         - МТС VoiceTracker (2020) https://voicetracker.mts.ru
@@ -1116,7 +1147,8 @@
         - дефицит коммуникации по продаже фактических результатов
         - 10 отсутствие мониторинга качества модели
         - отсутствие процесса переобучения/неверная частота переобучения
-## Литература и курсы
+- В.Бабушкин: Как мы не сделали рекомендательную систему в банке https://youtu.be/hCLI7a74lFs
+## Литература, курсы
 - Coursera
     - базовый набор
         - ВШЭ - Курс «Введение в машинное обучение»: Константин Воронцов, Евгений Соколов, Анна Козлова 
@@ -1166,7 +1198,7 @@
     - сообщества
         - https://ods.ai
     - книги, обзоры
-        - Anrew Ng - Страсть к машинному обучению https://habr.com/ru/post/419757/
+        - Andrew Ng - Страсть к машинному обучению https://habr.com/ru/post/419757/
         - ...
     - сообщества, новостные ленты, агрегаторы
         - DS topics @ O'Reilly https://www.oreilly.com/content/topics/data-science/
