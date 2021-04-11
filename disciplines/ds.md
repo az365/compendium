@@ -962,7 +962,7 @@
     - B.L. Mittal - Smarter healthcare (2019) https://yourstory.com/2019/01/smarter-healthcare-ai-machine-learning-wearables-will-pave-path-ahead
     - ...
 - рекомендательные системы 
-    - М.Рофзнер - Как работают рекомендательные системы https://habr.com/ru/company/yandex/blog/241455/
+    - М.Ройзнер - Как работают рекомендательные системы https://habr.com/ru/company/yandex/blog/241455/
     - Jonathan Hui - Рекомендательные системы (2020, перевод с TowardsDS) https://vc.ru/ml/132779-mashinnoe-obuchenie-rekomendatelnye-sistemy
 - предсказание популярности 
     - предсказание популярности постов на хабре https://www.kaggle.com/c/howpop-habrahabr-favs-lognorm https://www.kaggle.com/c/howpop-habrahabr-favs
@@ -1107,7 +1107,7 @@
     - подходы к нахождению продукта 
         - сверху-вниз: заказ-реализация - если есть зрелые заказчики
         - снизу-вверх: инсайты-продакшенизация - если есть зрелая аналитика 
-        - принцип акселератора: продукты-гипотезы - если есть запас инвестиций
+        - венчурная модель: продукты-гипотезы - если есть запас инвестиций
     - роли 
         - po: ProductOwner
         - bia: BI-analyst
@@ -1132,6 +1132,73 @@
         - внедрение в бизнес-процесс - po, bia 
         - защита методики - po, ds 
         - разбор запросов - po, bia, ada 
+- Методологии
+    - CRISP-DM: Cross-industry Process of Data Mining
+        - что призван решать
+            - цикл нахождения и разработки продукта с обратной связью 
+            - фиксирует определения стадий работы над продуктом
+        - что не решает
+            - как ускорить цикл 
+            - описывает лишь очевидные (для датера) этапы процесса
+            - не предписывает, как их правильно делать
+            - ничего не говорит про продуктовую составляющую
+    - Agile для Дата-продукта
+        - что призван решать
+            - fail fast - проверка продуктовых гипотез 
+            - инкремент продукта в каждом спринте
+        - проблемы применения в DS
+            - дольше идти до MVP, способного проверить продуктовую гипотезу
+            - трудно оценимые риски помимо продуктовых гипотез
+            - единица инкремента - не фича 
+    - Lean DS
+        - адаптация Agile-практик к DS
+            - единица инкремента - гипотеза 
+            - ICE-score = impact * confidence / effort
+        - классы задач/гипотез
+            - product hypothesis
+            - method hypothesis
+            - data hypothesis
+            - question
+            - chorn - архитектура, инфраструктура, оптимизация кода, техдолг, дешборды, логи и мониторинги
+    - Венчурная модель (Акселератор)
+        - как работает
+            - воркшоп с бизнесом - нащупываем идеи, где применить дату
+            - скоринг идей/гипотез: ICE-score = impact * confidence / effort
+            - делаем N продуктов: N-2 из них пофейлятся, 2 взлетят и окупят все N
+        - почему не всегда работает
+            - предполагает, что представители от бизнеса уже подкованы в дате
+            - нужен запас времени и компетентных ресурсов на старте 
+            - может пофейлиться больше, чем N-2
+    - Data Architecture for Business 
+        - https://www.youtube.com/watch?v=ArzohefZLE4
+        - The data science hierarchy of needs (pyramide)
+            - AI, DL
+            - Learn/optimize: ABT, experimentations, simple ML algorythms
+            - Aggregate/label: Analytics, metrics, segments, aggregates, features, training data
+            - Explore/transform: Cleaning, anomaly detection, prep
+            - Move/store: Reliable data flow, infrastructure, pipelines, ETL, structured and unstructured data storage
+            - Collect: instrumentation, logging, sensors, exteral data, UGC
+        - Timeline
+            - Start of a product
+            - Looking for a weekly reports and a KPI dashboard
+            - Anomaly detection to see issues right away
+            - Want to make decisions based on information
+            - Want a platform for a forensic analytics to speed up product development
+            - ...
+            - You are road-blocked by your current setup and looking for new opportunities/improvements
+            - Recognize you want to use your data more excessively
+            - Transition into a data-driven company
+    - Последовательный рост зрелости
+        - как работает
+            - начинаем с базовых приборов и AdHoc-аналитики
+            - Дата постепенно осознаёт Бизнес, Бизнес привыкает к Дата-культуре
+            - со временем находятся наилучшие точки внедрения ML и дата-продуктов
+            - профит на всех промежуточных этапах
+        - возможные препятствия
+            - предполагает inhouse-разработку
+            - требует взаимного вовлечения на всех стадиях
+            - на старте не нарисуем образ будущего результата
+            - не так вкусно упакуеся (на хайпе куш не сорвём)
 - Топ10 ошибок data-science (AI community @ Avito, 24.04.2018) https://www.youtube.com/watch?v=QbISiKZRDLg
     - на этапе бизнес-анализа
         - 1 проблема не валидирована заказчиком
