@@ -145,7 +145,7 @@
     - по назначению
         - бизнесовые: оцифровка бизнес-модели 
         - аудиторные: MAU, DAU, Core, Churn/Retention, LT, LTV
-            - про ретеншены и LifeTime: http://kxk.ru/matriarhat/v1_693889__.php
+            - оценка LifeTime через ретеншен (2010): http://kxk.ru/matriarhat/v1_693889__.php
             - параметры сессионного LT/LTV: timeout, timebound
         - поведенческие: как пользуются продуктом 
             - сессионные (session-based)
@@ -157,6 +157,24 @@
         - understandable
         - ratio or rate (ratios are easier to act on, are inherently comparative, are good for comparing factors)
         - changes the way to behave
+- продуктовые метрики
+    - фреймворк HEART
+        - Happiness (Счастье)
+        - Engagement (Вовлечение)
+        - Adoption (Принятие)
+        - Retention (Возвращаемость)
+        - Task Success (Успех ключевых задач)
+    - фреймворк AARRR
+        - acquisition
+        - activation
+        - retention
+        - referral
+        - revenue
+    - Product Metric Canvas
+        - фича
+        - на кого влияет (внутри, снаружи)
+        - как влияет (внутри, снаружи)
+        - как измеряем влияние (внутри, снаружи)
 - культура работы с метриками
     - верифицируемость
         - всегда ссылаться на источник с подробностями 
