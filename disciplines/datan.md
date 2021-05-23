@@ -306,6 +306,14 @@
     - литература
         - Олег Якубенков - Сегментация (2014) https://gopractice.ru/segmentation/
 - Causal inference
+    - вводное 
+        - курсы 
+            - https://www.bradyneal.com/causal-inference-course
+            - https://www.coursera.org/learn/crash-course-in-causality/home/welcome 
+        - некоторые понятия 
+            - causality по Грейнджеру - предшествуют ли изменения одной переменной другой 
+            - shapley values - тоже разновидность корреляции, просто не квадратная 
+            - p-value говорит, с какой вероятностью данные могли случайно сложиться так, что тебе показалась стат-значимость 
     - AB-testig
         - основы 
             - литература 
@@ -402,6 +410,120 @@
     - Counterfactual learning
         - Causal inference, counterfactual frameworks https://causalinference.gitlab.io/kdd-tutorial/intro.html
         - Large-scale Validation of CounterfactualLearning Methods: A Test-Bed http://www.cs.cornell.edu/~adith/Criteo/NIPS16_Benchmark.pdf
+    - Causal and Interpretable ML https://ods.ai/tracks/interpretable-ml-df2021
+        - Ольга Филиппова (Открытие) Causality and Shapley values https://www.youtube.com/watch?v=rrreuktS0gk
+            - зачем shapleey values 
+                - Shapley values нужны чтобы понять
+                    - как модель принимает решения
+                    - как устроен мир 
+                    - за какие рычаги дёргать, чтобы менять мир 
+                - From colitional game theory to ML model outputs explanation 
+                    - arxiv.org/pdf/2006.01272.pdf
+                    - arxiv.org/pdf/1910.30413.pdf
+            - виды Shapley Values
+                - Marginal Shapley values 
+                    - свойства Shapley values
+                        - Efficiency: сумма shapley values входящих фичей для конкретного примера равна отклонению от среднего предсказания модели 
+                        - Symmetry: фичи, которые одинаково влияют на отклонение предсказания модели, имеют одинаковые Shapley Values
+                        - Linearity: если у нас есть линейный ансамбль моделей, Shapley values описываются аналогичной линейной комбинацией 
+                        - Nullity: если фича не влияет на предсказание модели, её Shapley value равно нулю 
+                - Asymmetric Shapley values 
+                    - в Asymmetric SV из свойств Shapley Values выпадает Symmetry 
+                    - arxiv.org/pdf/1910.06358.pdf 
+                    - youtube.com/watch?v=7d13f4UaAn0&t=3061s
+                    - приложения 
+                        - casual-based model explanations 
+                            - пример: предсказание зарплаты сотрудникам (1994 US Census)
+                        - causal explanation of unfair discrimination
+                        - data types with intrinsic ordering 
+                    - ShapFlex - реализация Asymmetric Shapley Values на R: github.com/nredell/shapFlex 
+                - Causal Shapley values 
+                    - терминология bradyneal.com/causal-inference-course
+                        - causal graph - инструмент опесания причинно-следственной модели данных 
+                        - pearl's do-calculus - методика перевода causal estimate в statistical estimate 
+                    - partial causal ordering arxiv.org/pdf/2011.01625.pdf 
+                    - total_effect = direct_effect + indirect effect 
+                    - Caushapley - реализация Causal Shapley Values на R: gitlab.science.ru.nl/gbucur/caushapley
+            - реализации Shapley Values 
+                - ShapFlex - реализация Asymmetric Shapley Values на R: github.com/nredell/shapFlex 
+                - Caushapley - реализация Causal Shapley Values на R: gitlab.science.ru.nl/gbucur/caushapley
+            - общие соображения по Shapley Values 
+                - методы causal inference пока не работают из коробки 
+                    - определение причинно-следственных связей - это творчество и труд 
+                    - необходимо чётко понимать цель, с которой эта работа проводится 
+                - не пренебрегать обычными методами исследования надёжности модели 
+                    - рисовать качество по основным сегментам 
+                    - смотреть примеры, на которых ошибка больше 
+                    - строить зависимость точности от времени 
+                - управлять поведением модели на этапе построения 
+                    - GBDT умеет накладывать условия на зависимость переменных от таргета 
+                        - XGBoost Monotonic Constraints 
+                        - есть аналогичная опция в CatBoost
+        - Наталья Тоганова (GlowByte) Обзор библиотеки EconML: идеи и реализация https://www.youtube.com/watch?v=oCJI5tKi3AU
+            - типичный кейс: изменение выручки в окресности даты изменения в продукте 
+            - эксперимент: зависимость успеваемости школьников от наличия горячих завтраков 
+            - 2 подхода к оценке эффекта воздействия 
+                - Causality Judea Pearl 
+                - Эконометрика 
+            - библиотека EconML от Microsoft 
+                - работает как обёртка для методов Sklearn 
+                - дока: econml.azurewebsites.net/index.html 
+                - репа: github.com/microsoft/EconML 
+                - пример ipynb Customer Segmentation: Estimate Individualized Responces to Incentives 
+                    - github.com/microsoft/EconML/tree/master/notebooks/CustomerScenarios 
+                - реализация эконометрических статей, на которых базируются: 
+                    - orthogonal/double machine learning 
+                    - doubly robust learning 
+                    - meta-learners 
+                    - estimation methods and instruments 
+                - реализация НЕэконометрических статей, на которых базируются:
+                    - forest based estimators 
+                    - inference (в основном bootstrap)
+            - что происходит в эконометрике 
+                - cofounders/controls 
+                    - зафиксировать значимые переменные при регрессии, которые влияют и на X, и на Y, чтобы чётко выделить влияние T на Y 
+                - инструментальные переменные 
+                    - если влияющие на X и Y переменные нельзя измерить или они неизвестны 
+                    - Филипп Картаев - За пределами контролируемых экспериментов: инструментальные переменные: youtu.be/Qrz04qUMgVc 
+                - Difference in Difference 
+                    - изменение относительно контрольной группы и относительно прошлой динамике 
+                    - Дмитрий Архангельский - Causal Inference in panel data: youtu.be/sFJ4tNVc5Kw 
+            - как мы смотрим на данные 
+                - ML: X -> y
+                - эконометрика: T X W -> Y 
+                - T - воздействие 
+            - методы тестируются на искусственно сгенерированных датасетах, в которых взаимосвязь и взаимовлияние между переменными известно 
+            - методы Doubled Machine Learning 
+                - DML 
+                    - Chervonozhukov V. et al. (2016) Double/Debiased Machine Learning for Treatment and Causal Parameters
+                - LinearDML 
+                - SparceLinearDML 
+                    - Buhlmann P, Geer van de S. (2011) Statistics for High-Dimensional Data
+                    - Geer van de S. et al (2013) On asymptotically optimal confidence regions and tests or high-dimensional models 
+                - KernelDML 
+                    - нелинейный tretment
+                    - Nie X., Wager St. (2017) Quasi-Oracle Estimation of Heterogeneous Treatment Effects 
+                - NonParamDML 
+                    - бинарный treatment type
+                - CausalForestDML 
+                - DRLearner
+                - LinearDRLearner 
+                - SparceLinearDRLearner 
+                - ForestDRLearner 
+                - DRPolicyForest 
+                - DRPolicyTree 
+            - связь EconML с DoWhy 
+                - способ визуализации 
+                - обёртка над EconML 
+                - способы проверки 
+                    - замена тритмента 
+                    - добавление переменных, которые влияют на тритмент и на целевую переменную
+                    - уменьшение датасета 
+                - вебинар от MS: note.microsoft.com/MSR-Webinar-DoWhy-Library-Registration-On-Demand.html
+        - Татьяна Шаврина (SberDevices) Все способы измерить слона: заглянуть внутрь трансформерных моделей https://www.youtube.com/watch?v=29KJ-EOIXC0
+        - Кирилл Быков (TU Berlin) Explaining Hidden Representations https://www.youtube.com/watch?v=ounFVE-kxGs
+        - Инсаф Ашрапов (Сбер) Интерпретация банковских моделей https://www.youtube.com/watch?v=49QMdM4oZkQ
+        - Дмитрий Павлов (МФТИ/Тинькофф) Causal Inference в анализе временных рядов https://www.youtube.com/watch?v=Yr6b8Rpy7Ds
 - Анализ графов
 - Spatial / Геоаналитика
     - конспект лекций про spatial analysis: http://www.seas.upenn.edu/~ese502/#notebook
