@@ -329,6 +329,11 @@
                 - https://engineering.nordeus.com/
                 - https://www.tripadvisor.com/engineering/reducing-a-b-test-measurement-variance-by-30/
                 - https://booking.ai/how-booking-com-increases-the-power-of-online-experiments-with-cuped-995d186fff1d
+            - В.Бабушкин: АБТ без разбиения на группы (2019) https://youtu.be/XWw4Wi6K0QU 
+                - методология тройной разности 
+                - bayesian structural time-series model 
+                - регрессионный анализ (распределение ошибок предсказаний линрег смещается при воздействии)
+                - causal impact
         - проблемы и решения 
             - некорректный эксперимент 
                 - пересмотреть методику и реализацию, перепровести
@@ -347,6 +352,22 @@
                 - однорукие бандиты - для автоматического опробования большого числа гипотез/объектов-кандидатов
             - сложно задизайнить или дорого провести эксперимент 
                 - Observational studies на исторических данных (подробно см. ниже)
+        - литература 
+            - доклады с профильных мероприятий
+                - ABT section @ DataFest 2020 https://ods.ai/tracks/ab-testing-df2020/
+                    - А.Сахнов x5: Geometric interpretation of variance reduction (2020) https://youtu.be/BhxFaMGpVFw 
+                    - Э.Гргорян: Metric optimization for Quality Control of ABT https://youtu.be/4qvpZEKkARI 
+                    - Н.Багинян (Райфайзен): Peeking at A/B tests / Последовательное тестирование (2020) https://youtu.be/BJwNdethKwQ 
+                        - решения Peeking problem 
+                            - уменьшим уровень значимости (плохой путь)
+                            - байесовское АБТ 
+                            - многорукие бандиты 
+                            - последовательное тестироване 
+                                - mSPRT (mixture Sequential Probability Ratio test)
+                - Expfest x Я.Практикум 2020 
+                    - 001 А.Карпов: Методы сокращения дсперсии (2020) https://youtu.be/KvIJ8FCJzr4 
+                        - ...
+                    - 002 В.Бабушкн: Cruped для увеличения чувствительности АБТ (2020) https://habr.com/company/
     - Observational studies
         - применение 
             - может проводиться до АБ-тестинга - для формирования или первичной проверки гипотез
