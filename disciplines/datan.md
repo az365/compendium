@@ -1,16 +1,43 @@
 # Аналитика данных
 ## Intro
 - Что такое Дата-аналитика
-    - извлечение знаний из данных
-    - исследования и расследования 
-    - разовые задачи/вопросы
-    - итеративные задачи с заранее неизвестным результатом 
-    - нестандартные, некорректные, неполные, нечёткие задачи
-    - подкрепление/замена экспертного мнения измеримыми фактами
-    - поддержка принятия решений на данных (продуктовых, бизнесовых, управленческих)
-- Чем занимаются аналитики данных и как начать? https://academy.yandex.ru/posts/chem-zanimayutsya-analitiki-dannykh-i-kak-nachat-rabotat-v-etoy-oblasti
+  - извлечение знаний из данных
+  - исследования и расследования 
+  - разовые задачи/вопросы
+  - итеративные задачи с заранее неизвестным результатом 
+  - нестандартные, некорректные, неполные, нечёткие задачи
+  - подкрепление/замена экспертного мнения измеримыми фактами
+  - поддержка принятия решений на данных (продуктовых, бизнесовых, управленческих)
+- Скиллы дата-аналитика
+  - технические
+  - математические 
+  - аналитические 
+    - стремление докопаться до причины явления, понять смысл
+    - критическое мышление, способность оспаривать собственные гипотезы, сомневаться во всём
+    - способность видеть или находить все возможные: взаимосвязи, причины, пути 
+    - умение декомпозировать сложную задачу на ряд более простых
+    - развитая логиа
+- Литература
+  - Чем занимаются аналитики данных и как начать? https://academy.yandex.ru/posts/chem-zanimayutsya-analitiki-dannykh-i-kak-nachat-rabotat-v-etoy-oblasti
+  - Почему все помешались на профессии аналитика https://vc.ru/s/productstar/169600-pochemu-vse-pomeshalis-na-professii-analitik
+  - 10 Differences Between Amateurs and Professional Analysts https://towardsdatascience.com/10-differences-between-amateurs-and-professional-analysts-3a1be1a06a4d
 ## Аналитические задачи
 - особенность аналитическхи задач: нестандартность, некорректность, неполнота, ...
+- Data analysis maturity levels и вопросы к аналитикам 
+  - 4 вопроса к аналитикам (источник: Gartner - Стадии зрелости Даты) 
+    - What happens?
+    - Why did this happen?
+    - What will happen?
+    - What to do?
+  - 7 вопросов к аналитикам (источник: AI community @ Avito 2018-04-24) https://www.youtube.com/watch?v=QbISiKZRDLg)
+    - What happens? (Standard reporting)
+    - What, where, when? (AdHoc reports)
+    - Where is the problem? (Investigations)
+    - What decisions are needed? (Detect, alerting)
+    - Why did this happen? (Statistic analysis)
+    - What will happen next? (Extrapolations)
+    - What if...? (Modeling)
+    - What to do? (Optimization)
 - типы задач 
     - как это устроено?
     - А или Б?
@@ -64,6 +91,11 @@
     - построение гипотез
     - проверка гипотез 
     - построение выводов на данных
+      - крутим куб, визуализируем 
+      - читаем сигнал, описываем наблюдения 
+      - формулируем и проверяем гипотезы 
+      - суммируемы выводы, выносим рекомендации
+      - доносим результат до заказчика/потребителя 
 - презентация результатов
     - говорить на понятном языке
     - отвечать на волнующие вопросы
@@ -114,6 +146,31 @@
         - обучим модель
         - model evaluation - сравним полученные результаты, оценим качество полученных решений и при необходимости повторим пункты 2-6
         - deployment to production - упакуем решение в сервис, который можно будет использовать
+- Методы для разных стадий зрелости Даты в Бизнесе 
+    - 7 вопросов к аналитикам (источник: AI community @ Avito 2018-04-24) https://www.youtube.com/watch?v=QbISiKZRDLg)
+        - What happens? (Standard reporting)
+          - BI
+        - What, where, when? (AdHoc reports)
+        - Where is the problem? (Investigations)
+          - anomaly investigation 
+          - factor decomposition 
+          - exploratory data analysis 
+          - correlation analysis
+          - hypothesis testing
+        - What decisions are needed? (Detect, alerting)
+          - anomaly detection 
+          - timeseries decomposition 
+          - funnel analysis
+        - Why did this happen? (Statistic analysis)
+          - AB-testing
+          - causal inference
+        - What will happen next? (Extrapolations)
+          - timeseries forecasting 
+          - ML-forecasting 
+        - What if...? (Modeling)
+          - ML-prediction 
+        - What to do? (Optimization)
+          - recommenders 
 ## Метрики
 - https://github.com/az365/compendium/blob/master/disciplines/metrics.md
 - классификации метрик 
@@ -554,9 +611,15 @@
         - линейная алгебра
         - дискретная математика
         - численные методы
+        - моделирование
+        - основы машинного обучения https://github.com/az365/compendium/blob/master/disciplines/ds.md
     - технические скиллы
-        - алгоритмы и структуры данных https://github.com/az365/compendium/blob/master/disciplines/algo.md
+        - BI
+        - языки: SQL, Python, R, Bash
+        - библиотеки, фреймворки, инструменты 
         - визуализация данных https://github.com/az365/compendium/blob/master/disciplines/datavis.md
+        - алгоритмы и структуры данных https://github.com/az365/compendium/blob/master/disciplines/algo.md
+        - основы машинного обучения https://github.com/az365/compendium/blob/master/disciplines/ds.md
 - Процесс и культура
     - Understand, Identify, Execute 
         - Продуктовая культура Facebook: Understand, Identify, Execute https://gopractice.ru/fb-product-culture/
@@ -600,6 +663,7 @@
     - ...
 - блоги
     - Олег Якубенков http://gopractice.ru
+    - ProductStar https://vc.ru/productstar 
 - примеры данных для тренировки
     - Примеры датасетов для Clickhouse https://clickhouse.tech/docs/ru/getting-started/example-datasets
     - Kaggle datasets https://www.kaggle.com/datasets
