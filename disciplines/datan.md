@@ -22,7 +22,7 @@
   - Почему все помешались на профессии аналитика https://vc.ru/s/productstar/169600-pochemu-vse-pomeshalis-na-professii-analitik
   - 10 Differences Between Amateurs and Professional Analysts https://towardsdatascience.com/10-differences-between-amateurs-and-professional-analysts-3a1be1a06a4d
 ## Аналитические задачи
-- особенность аналитическхи задач: нестандартность, некорректность, неполнота, ...
+- особенность аналитических задач: нестандартность, некорректность, неполнота, ...
 - Data analysis maturity levels и вопросы к аналитикам 
   - 4 вопроса к аналитикам (источник: Gartner - Стадии зрелости Даты) 
     - What happens?
@@ -71,7 +71,7 @@
         - целевой сбор
         - закупка
     - параметры источников
-        - точность: чему можно верить а чему нет
+        - точность: чему можно верить, а чему нет
         - состав: соцдем, география, интересы, активность, ...
         - детальность
         - дискретность, регулярность: каждые 5 минут, день, месяц, квартал
@@ -111,16 +111,16 @@
     - интерпретация модели и результатов
 - от проблемы до публикации
     - бизнес-проблема
-    - синопис / что известно 
+    - синопсис / что известно 
     - формулировка гипотез/вопросов/подходов 
     - EDA, поиск сигнала 
     - отчёт 
     - деш/инструмент
     - мониторинг
     - преза 
-    - внешнеяя публикация
+    - внешняя публикация
 - Reproducible Research
-    - John Hopkins University - Reproducible Research cource https://www.coursera.org/learn/reproducible-research
+    - Johns Hopkins University - Reproducible Research course https://www.coursera.org/learn/reproducible-research
 - Lean analytics 
     - cycle: ideas->build->product->measure->data->learn->ideas->...
     - lean canvas: problem, customer segments, unique value proposition, solution, channels, revenue streams, cost structure, metrics, unfair advantage
@@ -141,7 +141,7 @@
         - методы решения и данные
             - исследуем возможные подходы к её решению и сформулируем требования к данным
             - соберём необходимые данные
-        - exploratory research / eda - exploratory data analysis - изучим собранный датасетт
+        - exploratory research / eda - exploratory data analysis - изучим собранный датасет
         - feature engineering - извлечём признаки из сырых данных
         - обучим модель
         - model evaluation - сравним полученные результаты, оценим качество полученных решений и при необходимости повторим пункты 2-6
@@ -177,7 +177,7 @@
     - из Lean Analytics http://leananalyticsbook.com/
         - qualitative vs quantitative
         - vanity vs actionable (8 vanity m: hits, pageviews, visits, visitors, followers/likes, time on, emails collected, downloads)
-        - exploratory vs reporting metrics (the hidded genius of Donald Rumsfeld)
+        - exploratory vs reporting metrics (the hidden genius of Donald Rumsfeld)
         - accounting (how close you are to an ideal) vs experimental (help to optimize the product, pricing, market)
         - leading vs lagging
         - correlated vs causal
@@ -190,7 +190,7 @@
             - понятное влияние на цели компании
             - понятно, как влиять на этот kpi
         - приёмочные (АБТ)
-            - красить ухудшения (благодаря монтонности прокрасят и улучшения)
+            - красить ухудшения (благодаря монотонности прокрасят и улучшения)
             - не красить контроли (АА-тест)
             - чувствительность (красить лучше других)
             - применимость (некоторые метрики не совместимы с некоторыми типами экспериментов)
@@ -203,7 +203,7 @@
         - бизнесовые: оцифровка бизнес-модели 
         - аудиторные: MAU, DAU, Core, Churn/Retention, LT, LTV
             - оценка LifeTime через ретеншен (2010): http://kxk.ru/matriarhat/v1_693889__.php
-            - параметры сессионного LT/LTV: timeout, timebound
+            - параметры сессионного LT/LTV: timeout, time-bound
         - поведенческие: как пользуются продуктом 
             - сессионные (session-based)
             - секвенциальные (CJM-based)
@@ -242,10 +242,10 @@
         - можем объяснить, что и почему видим 
         - можно умножать/делить на показатели из других каноничных источников
     - как визуализировать https://github.com/az365/compendium/blob/master/disciplines/datavis.md
-        - рисовать больше одного числа на кртинке
+        - рисовать больше одного числа на картинке
         - всегда указывать полное наименование среза и метрики на картинке (аббревиатуры и жаргонизмы можно)
         - аккуратность и стандартизация форматов определяют скорость и однозначность чтения
-        - стандартизированные обозначеня (цвета, штриховки, шрифты)
+        - стандартизированные обозначения (цвета, штриховки, шрифты)
         - растры по-английски 
     - как анализировать 
         - выписать, что отображено 
@@ -288,25 +288,25 @@
 - анализ и поддержка метрик
     - качество данных, стоимость поддержки, скорость разработки
         - под каждым KPI должен быть куб, позволяющий распилить его на компоненты
-        - KPI-метрика должна быть зрелой, чторбы иметь доверие, быть экшенабельной и интерпретабельной
-    - бизнес/продакшен: мониторинг и расследования
+        - KPI-метрика должна быть зрелой, чтобы иметь доверие, быть экшенабельной и интерпретабельной
+    - бизнес/продакшн: мониторинг и расследования
         - аномалия как (бес)полезный сигнал
         - точки измерения
         - цепочки для локализации измерений
-        - чеклисты
+        - чек-листы
         - WTF-framework
 - литература
     - О.Якубенков - Интро: Метрики (2013) https://gopractice.ru/metrics1/
     - О.Якубенков - Продуктовая и аналитическая культура Facebook https://gopractice.ru/fb-product-culture/
 ## Data Architecture for Business 
 - https://www.youtube.com/watch?v=ArzohefZLE4
-- The data science hierarchy of needs (pyramide)
+- The data science hierarchy of needs (pyramid)
     - AI, DL
-    - Learn/optimize: ABT, experimentations, simple ML algorythms
+    - Learn/optimize: ABT, experimentation, simple ML algorithms
     - Aggregate/label: Analytics, metrics, segments, aggregates, features, training data
     - Explore/transform: Cleaning, anomaly detection, prep
     - Move/store: Reliable data flow, infrastructure, pipelines, ETL, structured and unstructured data storage
-    - Collect: instrumentation, logging, sensors, exteral data, UGC
+    - Collect: instrumentation, logging, sensors, external data, UGC
 - Timeline
     - Start of a product
     - Looking for a weekly reports and a KPI dashboard
@@ -318,7 +318,7 @@
     - Recognize you want to use your data more excessively
     - Transition into a data-driven company
 - Data collection
-    - Onwnership and access of data
+    - Ownership and access of data
     - Near-real time raw data
     - No data sampling
     - Personal identification Information
