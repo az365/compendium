@@ -2,7 +2,7 @@
 
 <a name="intro"></a>
 ## Intro
-- [Что такое Дата-аналитика](#аналитические-задачи)
+- [Что такое Дата-аналитика](#tasks)
   - извлечение знаний из данных
   - исследования и расследования 
   - разовые задачи/вопросы
@@ -19,11 +19,11 @@
   - Проверка гипотез: верно/неверно, одинаковое/разное, ...
   - Расширение картины мира: выявление точек роста, поиск идей, ...
   - Поиск сигнала: выявление связи, закономерности, контрастов, паттернов
-- [Скиллы дата-аналитика](#скиллы-дата-аналитика)
+- [Скиллы дата-аналитика](#skills)
   - технические
   - математические
   - аналитические
-- [Литература](#литература-курсы-ссылки)
+- [Литература](#lib)
   - `post` [Я.Академия: Чем занимаются аналитики данных и как начать? (2019)](https://academy.yandex.ru/posts/chem-zanimayutsya-analitiki-dannykh-i-kak-nachat-rabotat-v-etoy-oblasti)
   - `post` [ProductStar@vc: Почему все помешались на профессии аналитика (2020)](https://vc.ru/s/productstar/169600-pochemu-vse-pomeshalis-na-professii-analitik)
   - `post` [Cassie Kozyrkov - 10 Differences Between Amateurs and Professional Analysts (2022)](https://towardsdatascience.com/10-differences-between-amateurs-and-professional-analysts-3a1be1a06a4d)
@@ -127,20 +127,23 @@
     - численные методы
     - моделирование
     - [основы машинного обучения](./ds.md)
-  - разработка
-    - языки: SQL, Python, R, Bash
+  - [разработка](./dev.md)
+    - языки: SQL, [Python](./dev.md#py), R, Bash
     - библиотеки, фреймворки, инструменты
       - numpy, pandas, matplotlib
       - plotly, seaborn
     - веб-фреймворки
       - Flask, Django
-    - VCS: Git, SVN
-    - IDE: PyCharm, VSCode, Jupyter
+    - [devtools](./dev.md#devtools)
+      - VCS: Git, SVN
+      - IDE: PyCharm, VSCode, Jupyter
     - [алгоритмы и структуры данных](./algo.md)
   - технологии
-    - BI
+    - хранилища/базы данных
+    - BI: PowerBI, Tableau, Qlik, SuperSet, DataLens
     - [визуализация данных](./datavis.md)
     - [основы машинного обучения](./ds.md)
+    - распределённые вычисления
   - менеджмент
     - [продуктовый](./prodman.md)
     - проектный

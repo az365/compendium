@@ -1,0 +1,229 @@
+# Разработка
+
+## Основы
+- [математика](./math.md)
+- [алгоритмы и структуры данных](./algo.md)
+- архитектура
+  - парадигмы
+    - структурная парадигма
+    - функциональная парадигма
+    - объектно-ориентированная парадигма
+  - паттерны проектирования
+
+<a name="langs"></a>
+## Языки
+- популярные
+  - [Python](#py)
+  - R
+  - Java
+  - JavaScript
+  - SQL
+  - C++
+
+<a name="py"></a>
+### Python
+- Python basis 
+  - principles
+    - User defined attributes 
+      - `doc` [docs.python.org: Python Data model](https://docs.python.org/3/reference/datamodel.html)
+        - Objects, values and types
+        - The standard type hierarchy
+        - Special method names
+          - Basic customization
+          - Customizing attribute access
+          - Customizing class creation
+          - Customizing instance and subclass checks
+          - Emulating generic types
+          - Emulating callable objects
+          - Emulating container types
+          - Emulating numeric types
+          - With Statement Context Managers
+          - Customizing positional arguments in class pattern matching
+          - Special method lookup 
+        - Coroutines
+      - Пользовательские аттрибуты в Python https://habr.com/ru/post/137415
+    - утиная типизация 
+      - отличия от (не)строгой 
+  - типы-контейнеры 
+    - итераторы, генераторы, последовательности 
+    - изменяемые, неизменяемые 
+- модули и пакеты, создание и публикация на pipy
+  - IBM - Программирование на Python: Часть 5. Модули https://www.ibm.com/developerworks/ru/library/l-python_part_5/index.html
+  - Модули и пакеты https://younglinux.info/oopython/module.php
+  - Создание python-пакетов https://klen.github.io/create-python-packages.html
+  - Публикация на PyPi https://djangofan.ru/publikaciya-paketa-na-pypi
+  - Импорты https://tproger.ru/translations/guide-into-python-imports
+  - Разработка идеального pypi пакета https://habr.com/ru/post/483512 
+  - Adding Sparkle to Social Coding https://cmustrudel.github.io/papers/icse18badges.pdf
+- автогенерируемые доки 
+  - PyDoc https://ru.stackoverflow.com/questions/957330/Генерация-документации
+  - Sphinx https://proft.me/2010/09/15/sphinx-dokumentirovanie-koda-v-python
+  - Sphinx на GitHub Pages https://habr.com/ru/post/180213
+  - pydoc-markdown https://pypi.org/project/pydoc-markdown
+  - конфликт декораторов и док https://habr.com/ru/post/74838
+- классы и наследование 
+  - Наследование и композиция: руководство по ООП в Python https://webdevblog.ru/nasledovanie-i-kompoziciya-rukovodstvo-po-oop-python
+  - Перестаньте писать классы https://habr.com/ru/post/140581/
+- библиотеки
+  - base libs 
+    - argparse
+      - альтернативы argparse (согласно dl x5 2020 https://youtu.be/W5GFH1erQ4U)
+        - argparse
+        - fire 
+        - facebook hydra
+  - DA-libs. Библиотеки для работы с данными
+    - numpy, pandas, matplotlib
+    - seaborn, joinplot
+    - python for db: https://www.coursera.org/learn/python-databases
+  - Py web frameworks
+    - Flask 
+    - Django 
+- рекомендуемые окружения
+  - для DA/DS
+    - tensorflow virualenv
+      - https://medium.com/@margaretmz/anaconda-jupyter-notebook-tensorflow-and-keras-b91f381405f8
+      - https://docs.docker.com/toolbox/toolbox_install_windows/
+- тесты и отладка
+  - отладка теста через PDB - PythonDeBugger
+    - `$ python -m pdb test.py`
+    - `(Pdb) l - list кода: где находишься`
+    - `(Pdb) q - плохо выйти`
+    - `(Pdb) c - хорошо выйти, продолжить`
+- стиль
+  - Google Python Style Guide
+    - https://google.github.io/styleguide/pyguide.html
+    - https://github.com/google/styleguide/blob/gh-pages/pyguide.md
+
+### C++
+- Курс «Основы разработки на C++: белый пояс»: Илья Шишков, Антон Полднев, Евгений Парамонов, Иван Лежанкин
+
+<a name="testing"></a>
+## Тестирование
+- уровни
+  - тестирование компонентов (юнит-тесты)
+  - интеграционное тестирование
+  - системное тестирование
+    - альфа-тестирование
+      - смок-тесты
+      - регрессионные тесты
+          - new bug-fix
+          - old bug-fix
+          - side-effect
+    - бета-тестирование
+    - тестирование производительности
+      - нагрузочное тестирование
+      - стресс-тесты
+      - тестирование стабильности
+    - юзабилити-тесты
+- testing in production https://habr.com/ru/company/funcorp/blog/418329/
+  - pre-production
+    - unit tests
+    - functional tests
+    - component tests
+    - fuzz tests
+    - static analysis
+    - property based tests
+    - coverage tests
+    - benchmark tests
+    - regression tests
+    - contract tests
+    - lint tests
+    - acceptance tests
+    - mutation tests
+    - smoke tests
+    - ui/ux tests
+    - usability tests
+  - deploy
+    - integration tests
+    - tap compare
+    - load tests
+    - shadowing
+    - config tests
+  - release
+    - canarying
+    - monitoring
+    - traffic shaping
+    - feature flagging
+    - exception tracking
+  - post-release
+    - testing
+    - profiling
+    - logs/events
+    - chaos testing
+    - monitoring
+    - AB-tests
+    - tracing
+    - dynamic exploration
+    - real user monitoring
+    - auditing
+    - oncall experience
+- ml-тесты
+  - бэк-тестирование на исторических данных
+    - Time Series Nested Cross-Validation https://towardsdatascience.com/time-series-nested-cross-validation-76adba623eb9
+    - пример: Прогнозирование нагрузки колл-центра https://habr.com/ru/company/ods/blog/438212/
+        
+<a name="devtools"></a>
+# devtools
+- GIT, SVN
+    - Ежедневная работа с Git https://habr.com/ru/post/174467
+- CI/CD
+- IDE
+  - JetBrains
+    - PyCharm
+      - удалённый запуск скриптов (только в PyCharm Professional)
+        - настроить удаленный интерпретатор и режим деплоя (Tool->Deployment).
+      - PyCharm, IntellijIdea hotkeys
+        - search everywhere: `Double Shift`
+        - project View: `Alt+1`
+        - go to file: `Ctrl+Shift+N`
+        - recent files: `Ctrl+E`
+        - navigation bar: `Alt+Home`
+        - drop files here to open
+  - VisualStudio Code
+  - jupyter
+    - tips and tricks
+      - `hotkey` номера строк в jupyter включаются по `Esc+L`
+      - `post` [DataQuest: 28 Jupyter Notebook tips, tricks and shortcuts](https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts)
+
+<a name="env"></a>
+# Среда и окружение
+- виртуалки, окружения, настройка
+  - Python VurtualEnv
+    - рекомендуемые окружения для DA/DS
+      - tensorflow virualenv
+        - https://medium.com/@margaretmz/anaconda-jupyter-notebook-tensorflow-and-keras-b91f381405f8
+        - https://docs.docker.com/toolbox/toolbox_install_windows/
+  - Docker
+- ОС
+  - Ubuntu Linux
+    - tips and tricks 
+      - управление процессами в Linux
+        - посмотреть всё дерево процессов:
+          - `$ pstree -aAlp`
+        - посмотреть процессы bzip
+          - `$ ps x | grep bzip2`
+        - если что можно убить процесс (номер которого мы увидели в дереве или списке)
+          - `$ kill -9 <номер_процесса>`
+        - узнать размер всех директорий в данном каталоге, варианты:
+          - `$ find . -maxdepth 1 -type d -print | xargs du -sk | sort -rn`
+          - `$ du -hcd1`
+        - узнать кто из юзеров сколько памяти хавает
+          - `$ ps hax -o rss,user | awk '{a[$2]+=$1;}END{for(i in a)print i" "int(a[i]/1024+0.5);}'| sort -rnk2 | head -n 25`
+        - Tmux: как выделить текст для копипасты
+          - `$ ^b: set-option mouse off`
+  - Windows
+    - tips and tricks 
+      - сетевая диагностика в Windows
+        - `C:\Users\%username%> ipconfig /all`
+        - `C:\Users\%username%> route print`
+  - Запуск Ubuntu в Windows
+    - WSL - подсистема windows для linux
+    - VirtualBox
+      - commandline tips ad tricks для vbox, linux, windows
+        - Linux
+        - Oracle Virtual Box
+          - Как подмонтировать в виртуальную Linux папку, расшаренную из физической Windows
+            - простой случай
+              - `sudo mount -t vboxsf <shared_folder> /home/<user_name>/<shared_folder>`
+            - сложный случай
+              - `sudo mount.cifs '//10.0.2.2/<shared_folder>/' /home/<username>/<shared_folder>/ -o user=<username>,dom=<domain>`
