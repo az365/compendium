@@ -1,4 +1,6 @@
 # Аналитика данных
+
+<a name="intro"></a>
 ## Intro
 - [Что такое Дата-аналитика](#аналитические-задачи)
   - извлечение знаний из данных
@@ -13,9 +15,11 @@
   - математические
   - аналитические
 - [Литература](#литература-курсы-ссылки)
-  - Чем занимаются аналитики данных и как начать? https://academy.yandex.ru/posts/chem-zanimayutsya-analitiki-dannykh-i-kak-nachat-rabotat-v-etoy-oblasti
-  - Почему все помешались на профессии аналитика https://vc.ru/s/productstar/169600-pochemu-vse-pomeshalis-na-professii-analitik
-  - 10 Differences Between Amateurs and Professional Analysts https://towardsdatascience.com/10-differences-between-amateurs-and-professional-analysts-3a1be1a06a4d
+  - `post` [Я.Академия: Чем занимаются аналитики данных и как начать? (2019)](https://academy.yandex.ru/posts/chem-zanimayutsya-analitiki-dannykh-i-kak-nachat-rabotat-v-etoy-oblasti)
+  - `post` [ProductStar@vc: Почему все помешались на профессии аналитика (2020)](https://vc.ru/s/productstar/169600-pochemu-vse-pomeshalis-na-professii-analitik)
+  - `post` [Cassie Kozyrkov - 10 Differences Between Amateurs and Professional Analysts (2022)](https://towardsdatascience.com/10-differences-between-amateurs-and-professional-analysts-3a1be1a06a4d)
+
+<a name="tasks"></a>
 ## Аналитические задачи
 - особенность аналитических задач: нестандартность, некорректность, неполнота, ...
 - Data analysis maturity levels и вопросы к аналитикам 
@@ -54,7 +58,8 @@
         - расследование проблем
         - исследование живой аудитории
         - новая функциональность => новый виток (создание продукта)
-{#skills}
+
+<a name="skills"></a>
 ## Скиллы дата-аналитика
 - Аналитическое мышление
     - стремление докопаться до причины явления, понять смысл
@@ -71,8 +76,9 @@
   - ориентация на бизнес
   - эффективная коммуникация
   - развитие себя и обучение других
-- Литература
-    - 10 Differences Between Amateurs and Professional Analysts https://towardsdatascience.com/10-differences-between-amateurs-and-professional-analysts-3a1be1a06a4d
+- [Литература](#lib)
+    - `post` [Cassie Kozyrkov - 10 Differences Between Amateurs and Professional Analysts (2022)](https://towardsdatascience.com/10-differences-between-amateurs-and-professional-analysts-3a1be1a06a4d)
+
 ## Аспекты
 - источники данных
     - состав работ 
@@ -185,6 +191,7 @@
           - ML-prediction 
         - What to do? (Optimization)
           - recommenders 
+
 ## [Метрики](https://github.com/az365/compendium/blob/master/disciplines/metrics.md)
 - классификации метрик 
     - из Lean Analytics http://leananalyticsbook.com/
@@ -313,6 +320,7 @@
     - О.Якубенков - Продуктовая и аналитическая культура Facebook https://gopractice.ru/fb-product-culture/
     - Операционализация: наука создания показателей или Азы психологии для специалистов в обработке данных https://habr.com/ru/company/skillfactory/blog/554430/
       - Операционализация - это создание поддающихся измерению приближённых значений для тщательного изучения нечётких понятий.
+
 ## Data Architecture for Business 
 - https://www.youtube.com/watch?v=ArzohefZLE4
 - The data science hierarchy of needs (pyramid)
@@ -339,6 +347,7 @@
     - Personal identification Information
     - Data model
     - SDKs with persistent layer
+
 ## Области и методы
 - Timeseries
     - лекция Технострим: Временные ряды (Введение в анализ данных) https://www.youtube.com/watch?v=Qflkzc6Ep78&list=PLrCZzMib1e9p6lpNv-yt6uvHGyBxQncEh&index=8
@@ -638,6 +647,7 @@
     - Spatial Data Science and Applications https://www.coursera.org/lecture/spatial-data-science/spatial-data-analysis-zT39o
     - пример задачи: выбор точек для открытия магазинов
         - https://new-retail.ru/persony/bst_organika_kak_uspeshno_upravlyat_otkrytiyami_nayti_luchshie_mesta_i_postroit_optimalnuyu_set_torg1113
+
 ## Роли, специальности, скиллы, процесс и культура
 - Виды аналитиков 
   - дата-аналитик 
@@ -676,7 +686,8 @@
     - Understand, Identify, Execute 
         - Продуктовая культура Facebook: Understand, Identify, Execute https://gopractice.ru/fb-product-culture/
     - Knowledge Management
-        - Не делать работу дважды https://habr.com/ru/company/oleg-bunin/blog/525110 
+        - Не делать работу дважды https://habr.com/ru/company/oleg-bunin/blog/525110
+
 ## Ошибки и заблуждения
 - Топ10 ошибок и заблуждений - согласно Monica Rogati, a data scientist at LinkedIn
     - Assuming data is clean.
@@ -697,27 +708,33 @@
     - посчитать одну правильную цифру проще, чем много цифр 
     - можно принимать все решения только на метриках 
     - твоя работа всегда должна влиять на какую-то метрику 
-    - есть ложь, есть наглая ложь, есть статистика 
+    - есть ложь, есть наглая ложь, есть статистика
+
+<a name="lib"></a>
 ## Литература, курсы, ссылки
-- курсы 
-    - Технострим - Введение в анализ данных (2019) https://www.youtube.com/watch?v=5Yl6_2d0CN0&list=PLrCZzMib1e9p6lpNv-yt6uvHGyBxQncEh
-        - Анализ данных - процесс исследования, фильтрации, преобразования и моделирования данных с целью извлечения полезной информации и приняия решений
-        - специалисты по анализу данных
-            - bi-аналитик - решает срочные задачи, работает с БД, готовит дешборды, отвечает за визуализацю 
-            - аналитик - знает предметную область, анализирует метрики, проводит эксперименты, составляет прогнозы, закапывается в данные
-            - data scientist - структурирует и анализирует большие объёмы данных, применяет машинное обучение для предсказания событий и обнаружения неочевидных закономерностей
-        - рекомендуемые книги по python 
-            - Learning Python (O'Reilly)
-            - Python for Data Analysis 
-    - Технострим - Введение в анализ данных (2016) https://www.youtube.com/playlist?list=PLrCZzMib1e9p5F99rIOzugNgQP5KHHfK8
+- видео-курсы 
+  - [YouTube: Технострим - Введение в анализ данных (2019)](https://www.youtube.com/watch?v=5Yl6_2d0CN0&list=PLrCZzMib1e9p6lpNv-yt6uvHGyBxQncEh)
+    - Анализ данных - процесс исследования, фильтрации, преобразования и моделирования данных с целью извлечения полезной информации и приняия решений
+    - специалисты по анализу данных
+      - bi-аналитик - решает срочные задачи, работает с БД, готовит дешборды, отвечает за визуализацю 
+      - аналитик - знает предметную область, анализирует метрики, проводит эксперименты, составляет прогнозы, закапывается в данные
+      - data scientist - структурирует и анализирует большие объёмы данных, применяет машинное обучение для предсказания событий и обнаружения неочевидных закономерностей
+    - рекомендуемые книги по python 
+      - Learning Python (O'Reilly)
+      - Python for Data Analysis 
+  - [Технострим - Введение в анализ данных (2016)](https://www.youtube.com/playlist?list=PLrCZzMib1e9p5F99rIOzugNgQP5KHHfK8)
 - книги 
-    - Alistair Croll - Lean Analytics, Lean UX, Lean Startup http://leananalyticsbook.com https://gopractice.ru/lean_analytics/
-    - Аналитическая культура (O'Reilly)
-    - Билл Фрэнкс - Революция в Аналитике 
-    - ...
+  - Alistair Croll - Lean Analytics, Lean UX, Lean Startup http://leananalyticsbook.com https://gopractice.ru/lean_analytics/
+  - Аналитическая культура (O'Reilly)
+  - Билл Фрэнкс - Революция в Аналитике 
+  - ...
 - блоги
-    - Олег Якубенков http://gopractice.ru
-    - ProductStar https://vc.ru/productstar 
+  - Олег Якубенков http://gopractice.ru
+  - ProductStar https://vc.ru/productstar
+- посты
+  - [Я.Академия: Чем занимаются аналитики данных и как начать? (2019)](https://academy.yandex.ru/posts/chem-zanimayutsya-analitiki-dannykh-i-kak-nachat-rabotat-v-etoy-oblasti)
+  - [ProductStar@vc: Почему все помешались на профессии аналитика (2020)](https://vc.ru/s/productstar/169600-pochemu-vse-pomeshalis-na-professii-analitik)
+  - [Cassie Kozyrkov - 10 Differences Between Amateurs and Professional Analysts (2022)](https://towardsdatascience.com/10-differences-between-amateurs-and-professional-analysts-3a1be1a06a4d)
 - примеры данных для тренировки
-    - Примеры датасетов для Clickhouse https://clickhouse.tech/docs/ru/getting-started/example-datasets
-    - Kaggle datasets https://www.kaggle.com/datasets
+  - [ClickHouse: Примеры датасетов для Clickhouse](https://clickhouse.tech/docs/ru/getting-started/example-datasets)
+  - [Kaggle: datasets](https://www.kaggle.com/datasets)
