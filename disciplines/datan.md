@@ -20,8 +20,8 @@
   - Расширение картины мира: выявление точек роста, поиск идей, ...
   - Поиск сигнала: выявление связи, закономерности, контрастов, паттернов
 - [Скиллы дата-аналитика](#skills)
-  - технические
-  - математические
+  - [технические](./dev.md)
+  - [математические](./math.md)
   - аналитические
 - [Литература](#lib)
   - `post` [Я.Академия: Чем занимаются аналитики данных и как начать? (2019)](https://academy.yandex.ru/posts/chem-zanimayutsya-analitiki-dannykh-i-kak-nachat-rabotat-v-etoy-oblasti)
@@ -92,7 +92,7 @@
   - чистка и формализация данных, преобразование и агрегация
     - данные: структурированные, не структурированные
     - типовые операции: вычисление, агрегация, группировка, извлечение, объединение, фильтрация
-    - языки: Python, SQL 
+    - языки: [Python](./dev.md#python), SQL 
   - визуализация, поиск сигнала, проверка гипотез, построение выводов и рекомендаций
     - крутим куб, визуализируем
     - читаем сигнал, описываем наблюдения
@@ -121,11 +121,11 @@
     - веб-аналитика и программные продукты 
 - Хард-скиллы
   - [математические скиллы](./math.md)
-    - тервер, матстат
-    - линейная алгебра
-    - дискретная математика
-    - численные методы
-    - моделирование
+    - [тервер, матстат](./math.md#stat)
+    - [линейная алгебра](./math.md#linalg)
+    - [дискретная математика](./math.md#discrete)
+    - [численные методы](./math.md#numeric)
+    - [моделирование](./math.md#models)
     - [основы машинного обучения](./ds.md)
   - [разработка](./dev.md)
     - языки: SQL, [Python](./dev.md#py), R, Bash
@@ -183,256 +183,132 @@
 
 ## Аспекты
 - источники данных
-    - состав работ 
-        - поиск источников и получение данных
-        - понимание природы источников
-        - чистка и формализация данных
-    - происхождение источников
-        - внутренняя статистика
-        - внешняя публичная статистика
-        - целевой сбор
-        - закупка
-    - параметры источников
-        - точность: чему можно верить, а чему нет
-        - состав: соцдем, география, интересы, активность, ...
-        - детальность
-        - дискретность, регулярность: каждые 5 минут, день, месяц, квартал
-        - полнота: иногда видим нерепрезентативную часть активности
-        - перекосы: чем выборка отличается от генеральной совокупности
-        - гибкость: например, возможность пересекать множества
-        - шумность
-        - скорость: ответ за 5 секунд или 3 недели
-        - цена
-    - некоторые виды источников 
-        - информационные/транзакционные системы
-        - логи сервисов, приложений, внешних счётчиков
-        - панельные данные - когда 1 объект трекается очень долго (не куки, не случайные опросы)
-        - парсинг внешних сайтов
+  - состав работ 
+    - поиск источников и получение данных
+    - понимание природы источников
+    - чистка и формализация данных
+  - происхождение источников
+    - внутренняя статистика
+    - внешняя публичная статистика
+    - целевой сбор
+    - закупка
+  - параметры источников
+    - точность: чему можно верить, а чему нет
+    - состав: соцдем, география, интересы, активность, ...
+    - детальность
+    - дискретность, регулярность: каждые 5 минут, день, месяц, квартал
+    - полнота: иногда видим нерепрезентативную часть активности
+    - перекосы: чем выборка отличается от генеральной совокупности
+    - гибкость: например, возможность пересекать множества
+    - шумность
+    - скорость: ответ за 5 секунд или 3 недели
+    - цена
+  - некоторые виды источников 
+    - информационные/транзакционные системы
+    - логи сервисов, приложений, внешних счётчиков
+    - панельные данные - когда 1 объект трекается очень долго (не куки, не случайные опросы)
+    - парсинг внешних сайтов
 - проведение исследования 
-    - выявление структуры
-    - построение гипотез
-    - проверка гипотез 
-    - построение выводов на данных
-      - крутим куб, визуализируем 
-      - читаем сигнал, описываем наблюдения 
-      - формулируем и проверяем гипотезы 
-      - суммируемы выводы, выносим рекомендации
-      - доносим результат до заказчика/потребителя 
+  - выявление структуры
+  - построение гипотез
+  - проверка гипотез 
+  - построение выводов на данных
+    - крутим куб, визуализируем 
+    - читаем сигнал, описываем наблюдения 
+    - формулируем и проверяем гипотезы 
+    - суммируемы выводы, выносим рекомендации
+    - доносим результат до заказчика/потребителя 
 - презентация результатов
-    - говорить на понятном языке
-    - отвечать на волнующие вопросы
-    - объективная картина (факты)
-    - субъективная картина (storytelling) http://www.unece.org/fileadmin/DAM/stats/documents/writing/MDM_Part1_English.pdf
-    - визуализация https://github.com/az365/compendium/blob/master/disciplines/datavis.md
-    - приятные бонусы
+  - говорить на понятном языке
+  - отвечать на волнующие вопросы
+  - объективная картина (факты)
+  - субъективная картина (storytelling) http://www.unece.org/fileadmin/DAM/stats/documents/writing/MDM_Part1_English.pdf
+  - [визуализация](./datavis.md)
+  - приятные бонусы
+
+<a name="workflow"></a>
 ## Workflows and frameworks
+### Workflow
 - базовая последовательность (может итерироваться)
-    - ознакомление, визуализация
-    - формирование гипотез, построение моделей
-    - прототипирование расчётов
-    - интерпретация модели и результатов
+  - ознакомление, визуализация
+  - формирование гипотез, построение моделей
+  - прототипирование расчётов
+  - интерпретация модели и результатов
 - от проблемы до публикации
-    - бизнес-проблема
-    - синопсис / что известно 
-    - формулировка гипотез/вопросов/подходов 
-    - EDA, поиск сигнала 
-    - отчёт 
-    - деш/инструмент
-    - мониторинг
-    - преза 
-    - внешняя публикация
+  - бизнес-проблема
+  - синопсис / что известно 
+  - формулировка гипотез/вопросов/подходов 
+  - EDA, поиск сигнала 
+  - отчёт 
+  - деш/инструмент
+  - мониторинг
+  - преза 
+  - внешняя публикация
 - Reproducible Research
-    - Johns Hopkins University - Reproducible Research course https://www.coursera.org/learn/reproducible-research
+  - `course` [Johns Hopkins University - Reproducible Research](https://www.coursera.org/learn/reproducible-research)
+
+### Frameworks
 - Lean analytics 
-    - cycle: ideas->build->product->measure->data->learn->ideas->...
-    - lean canvas: problem, customer segments, unique value proposition, solution, channels, revenue streams, cost structure, metrics, unfair advantage
-    - lean analytics cycle (the cycle of life for analytical startups)
+  - cycle: ideas->build->product->measure->data->learn->ideas->...
+  - lean canvas: problem, customer segments, unique value proposition, solution, channels, revenue streams, cost structure, metrics, unfair advantage
+  - lean analytics cycle (the cycle of life for analytical startups)
 - HADI canvas 
-    - HADI-циклы в развитии компании http://artbayard.ru/hadi
-    - HADI: 5 лайфхаков для проверки гипотез https://www.iidf.ru/media/articles/lifehacks/hadi-tsikly-5-layfkhakov/
+  - HADI-циклы в развитии компании http://artbayard.ru/hadi
+  - HADI: 5 лайфхаков для проверки гипотез https://www.iidf.ru/media/articles/lifehacks/hadi-tsikly-5-layfkhakov/
 - CRISP-DM
-    - этапы согласно wikipedia.org/wiki/CRISP-DM
-        - business understanding
-        - data understanding
-        - data preparation
-        - modeling
-        - evaluation
-        - deployment
-    - этапы согласно habr.com/ru/company/ods/blog/430006
-        - формулировка задачи
-        - методы решения и данные
-            - исследуем возможные подходы к её решению и сформулируем требования к данным
-            - соберём необходимые данные
-        - exploratory research / eda - exploratory data analysis - изучим собранный датасет
-        - feature engineering - извлечём признаки из сырых данных
-        - обучим модель
-        - model evaluation - сравним полученные результаты, оценим качество полученных решений и при необходимости повторим пункты 2-6
-        - deployment to production - упакуем решение в сервис, который можно будет использовать
-- Методы для разных стадий зрелости Даты в Бизнесе 
-    - 7 вопросов к аналитикам (источник: AI community @ Avito 2018-04-24) https://www.youtube.com/watch?v=QbISiKZRDLg)
-        - What happens? (Standard reporting)
-          - BI
-        - What, where, when? (AdHoc reports)
-        - Where is the problem? (Investigations)
-          - anomaly investigation 
-          - factor decomposition 
-          - exploratory data analysis 
-          - correlation analysis
-          - hypothesis testing
-        - What decisions are needed? (Detect, alerting)
-          - anomaly detection 
-          - timeseries decomposition 
-          - funnel analysis
-        - Why did this happen? (Statistic analysis)
-          - AB-testing
-          - causal inference
-        - What will happen next? (Extrapolations)
-          - timeseries forecasting 
-          - ML-forecasting 
-        - What if...? (Modeling)
-          - ML-prediction 
-        - What to do? (Optimization)
-          - recommenders 
+  - этапы согласно wikipedia.org/wiki/CRISP-DM
+    - business understanding
+    - data understanding
+    - data preparation
+    - modeling
+    - evaluation
+    - deployment
+  - этапы согласно habr.com/ru/company/ods/blog/430006
+    - формулировка задачи
+    - методы решения и данные
+      - исследуем возможные подходы к её решению и сформулируем требования к данным
+      - соберём необходимые данные
+    - exploratory research / eda - exploratory data analysis - изучим собранный датасет
+    - feature engineering - извлечём признаки из сырых данных
+    - обучим модель
+    - model evaluation - сравним полученные результаты, оценим качество полученных решений и при необходимости повторим пункты 2-6
+    - deployment to production - упакуем решение в сервис, который можно будет использовать
 
-## [Метрики](https://github.com/az365/compendium/blob/master/disciplines/metrics.md)
-- классификации метрик 
-    - из Lean Analytics http://leananalyticsbook.com/
-        - qualitative vs quantitative
-        - vanity vs actionable (8 vanity m: hits, pageviews, visits, visitors, followers/likes, time on, emails collected, downloads)
-        - exploratory vs reporting metrics (the hidden genius of Donald Rumsfeld)
-        - accounting (how close you are to an ideal) vs experimental (help to optimize the product, pricing, market)
-        - leading vs lagging
-        - correlated vs causal
-    - по способу сопоставления
-        - мониторинг и KPI 
-            - измеримость
-            - достижимость
-            - объективность
-            - понятный физический смысл
-            - понятное влияние на цели компании
-            - понятно, как влиять на этот kpi
-        - приёмочные (АБТ)
-            - красить ухудшения (благодаря монотонности прокрасят и улучшения)
-            - не красить контроли (АА-тест)
-            - чувствительность (красить лучше других)
-            - применимость (некоторые метрики не совместимы с некоторыми типами экспериментов)
-    - по близости к прикладным целям продукта
-        - оффлайн: оценка качества модели (на тест-сетах)
-            - оффлайновая метрика строится на модели продукта и пользователя и приближает онлайновую, но считается дешевле и без рисков на живой аудитории
-        - онлайн: измеримые пользовательские (на АБТ)
-        - абстрактные: счастье пользователя (то, что в идеале хотим померить, но не можем)
-    - по назначению
-        - бизнесовые: оцифровка бизнес-модели 
-        - аудиторные: MAU, DAU, Core, Churn/Retention, LT, LTV
-            - оценка LifeTime через ретеншен (2010): http://kxk.ru/matriarhat/v1_693889__.php
-            - параметры сессионного LT/LTV: timeout, time-bound
-        - поведенческие: как пользуются продуктом 
-            - сессионные (session-based)
-            - секвенциальные (CJM-based)
-        - оценочные: что такое счастье (измерения качества продукта)
-- хорошие и плохие 
-    - хорошая метрика согласно Lean Analytics http://leananalyticsbook.com/
-        - comparative
-        - understandable
-        - ratio or rate (ratios are easier to act on, are inherently comparative, are good for comparing factors)
-        - changes the way to behave
-- продуктовые метрики
-    - фреймворк HEART
-        - Happiness (Счастье)
-        - Engagement (Вовлечение)
-        - Adoption (Принятие)
-        - Retention (Возвращаемость)
-        - Task Success (Успех ключевых задач)
-    - фреймворк AARRR
-        - acquisition
-        - activation
-        - retention
-        - referral
-        - revenue
-    - Product Metric Canvas
-        - фича
-        - на кого влияет (внутри, снаружи)
-        - как влияет (внутри, снаружи)
-        - как измеряем влияние (внутри, снаружи)
-- культура работы с метриками
-    - верифицируемость
-        - всегда ссылаться на источник с подробностями 
-        - коммитить отчуждаемый код расчёта метрик 
-        - формулировать воспроизводимо 
-    - верифицированность 
-        - сбиваться с эталонными расчётами 
-        - можем объяснить, что и почему видим 
-        - можно умножать/делить на показатели из других каноничных источников
-    - как визуализировать https://github.com/az365/compendium/blob/master/disciplines/datavis.md
-        - рисовать больше одного числа на картинке
-        - всегда указывать полное наименование среза и метрики на картинке (аббревиатуры и жаргонизмы можно)
-        - аккуратность и стандартизация форматов определяют скорость и однозначность чтения
-        - стандартизированные обозначения (цвета, штриховки, шрифты)
-        - растры по-английски 
-    - как анализировать 
-        - выписать, что отображено 
-        - выпивать, что тут видно (по факту)
-        - гипотезы и трактовки
-        - выписывать допущения и ограничения 
-    - как расследовать 
-        - формулировать увиденную аномалию KPI
-        - симптомы: локализация до среза, сопутствующие факты со ссылками
-        - гипотезы и проверки 
-    - как доносить/формулировать 
-        - показывать степень уверенности (показывается вводными оборотами)
-            - фактическое наблюдение (видим, что)
-            - доказанный факт (показано, что)
-            - сильная гипотеза (кажется, что)
-            - авторитетное утверждение (утверждается, что)
-            - собственное мнение (на мой взгляд)
-            - слабая гипотеза (может быть)
-            - фантазия (а вдруг, вот бы)
-        - разделять корреляции и причины-следствия
-        - убедиться, что правильно поняли 
-        - проследить, как использовано (попросить согласовать решение/публикации)
-- разработка системы метрик 
-    - иерархия метрик
-        - нижележащие метрики либо аппроксимируют, либо детализируют вышележащие
-        - аппроксимации всегда неточны и в случае метрик эта погрешность неизмерима
-        - всегда остаются белые пятна, которые надо заполянть волей и виженом 
-    - от структуры метрик к структуре организации
-        - каждый человек/подразделение должны знать, какую метрику они растят, и как она влияет на вешележащие по иерархии
-    - техническая подложка: согласованность ключевых данных и показателей + стыкуемость инструментов
-        - онтология (бизнес-глоссарий)
-            - общие понятия в команде 
-            - переиспользуемость и сопоставимость расчётов 
-            - техническая реализация и применение 
-        - кубы (витрины)
-        - сетка vs вертикали
-        - велосипеды vs компоненты/микросервисы
-        - плоские vs сессионные таблицы 
-        - материализации vs библиотеки/вьюхи/апи/api 
-- анализ и поддержка метрик
-    - качество данных, стоимость поддержки, скорость разработки
-        - под каждым KPI должен быть куб, позволяющий распилить его на компоненты
-        - KPI-метрика должна быть зрелой, чтобы иметь доверие, быть экшенабельной и интерпретабельной
-    - бизнес/продакшн: мониторинг и расследования
-        - аномалия как (бес)полезный сигнал
-        - точки измерения
-        - цепочки для локализации измерений
-        - чек-листы
-        - WTF-framework
-- литература
-    - О.Якубенков - Интро: Метрики (2013) https://gopractice.ru/metrics1/
-    - О.Якубенков - Продуктовая и аналитическая культура Facebook https://gopractice.ru/fb-product-culture/
-    - Операционализация: наука создания показателей или Азы психологии для специалистов в обработке данных https://habr.com/ru/company/skillfactory/blog/554430/
-      - Операционализация - это создание поддающихся измерению приближённых значений для тщательного изучения нечётких понятий.
-
-## Data Architecture for Business 
-- https://www.youtube.com/watch?v=ArzohefZLE4
-- The data science hierarchy of needs (pyramid)
+<a name="maturity"></a>
+### Методы для разных стадий зрелости Даты в Бизнесе 
+- 7 вопросов к аналитикам (согласно [AI community @ Avito 2018-04-24](https://www.youtube.com/watch?v=QbISiKZRDLg))
+  - What happens? (Standard reporting)
+    - BI
+  - What, where, when? (AdHoc reports)
+  - Where is the problem? (Investigations)
+    - anomaly investigation 
+    - factor decomposition 
+    - exploratory data analysis 
+    - correlation analysis
+    - hypothesis testing
+  - What decisions are needed? (Detect, alerting)
+    - anomaly detection 
+    - timeseries decomposition 
+    - funnel analysis
+  - Why did this happen? (Statistic analysis)
+    - AB-testing
+    - causal inference
+  - What will happen next? (Extrapolations)
+    - timeseries forecasting 
+    - ML-forecasting 
+  - What if...? (Modeling)
+    - ML-prediction 
+  - What to do? (Optimization)
+    - recommenders
+- `video` [Microsoft: Data Architecture for Business](https://www.youtube.com/watch?v=ArzohefZLE4)
+  - The data science hierarchy of needs (pyramid)
     - AI, DL
     - Learn/optimize: ABT, experimentation, simple ML algorithms
     - Aggregate/label: Analytics, metrics, segments, aggregates, features, training data
     - Explore/transform: Cleaning, anomaly detection, prep
     - Move/store: Reliable data flow, infrastructure, pipelines, ETL, structured and unstructured data storage
     - Collect: instrumentation, logging, sensors, external data, UGC
-- Timeline
+  - Timeline
     - Start of a product
     - Looking for a weekly reports and a KPI dashboard
     - Anomaly detection to see issues right away
@@ -442,7 +318,7 @@
     - You are road-blocked by your current setup and looking for new opportunities/improvements
     - Recognize you want to use your data more excessively
     - Transition into a data-driven company
-- Data collection
+  - Data collection
     - Ownership and access of data
     - Near-real time raw data
     - No data sampling
@@ -450,305 +326,451 @@
     - Data model
     - SDKs with persistent layer
 
+## [Метрики](https://github.com/az365/compendium/blob/master/disciplines/metrics.md)
+- классификации метрик 
+  - из [Lean Analytics](http://leananalyticsbook.com/)
+    - qualitative vs quantitative
+    - vanity vs actionable (8 vanity m: hits, pageviews, visits, visitors, followers/likes, time on, emails collected, downloads)
+    - exploratory vs reporting metrics (the hidden genius of Donald Rumsfeld)
+    - accounting (how close you are to an ideal) vs experimental (help to optimize the product, pricing, market)
+    - leading vs lagging
+    - correlated vs [causal](./datan.md#ci)
+  - по способу сопоставления
+    - мониторинг и KPI 
+      - измеримость
+      - достижимость
+      - объективность
+      - понятный физический смысл
+      - понятное влияние на цели компании
+      - понятно, как влиять на этот kpi
+    - приёмочные (АБТ)
+      - красить ухудшения (благодаря монотонности прокрасят и улучшения)
+      - не красить контроли (АА-тест)
+      - чувствительность (красить лучше других)
+      - применимость (некоторые метрики не совместимы с некоторыми типами экспериментов)
+  - по близости к прикладным целям продукта
+    - оффлайн: оценка качества модели (на тест-сетах)
+      - оффлайновая метрика строится на модели продукта и пользователя и приближает онлайновую, но считается дешевле и без рисков на живой аудитории
+    - онлайн: измеримые пользовательские (на АБТ)
+    - абстрактные: счастье пользователя (то, что в идеале хотим померить, но не можем)
+  - по назначению
+    - бизнесовые: оцифровка бизнес-модели 
+    - аудиторные: MAU, DAU, Core, Churn/Retention, LT, LTV
+      - оценка LifeTime через ретеншен (2010): http://kxk.ru/matriarhat/v1_693889__.php
+      - параметры сессионного LT/LTV: timeout, time-bound
+    - поведенческие: как пользуются продуктом 
+      - сессионные (session-based)
+      - секвенциальные (CJM-based)
+    - оценочные: что такое счастье (измерения качества продукта)
+- хорошие и плохие 
+  - хорошая метрика согласно [Lean Analytics](http://leananalyticsbook.com/)
+    - comparative
+    - understandable
+    - ratio or rate (ratios are easier to act on, are inherently comparative, are good for comparing factors)
+    - changes the way to behave
+- продуктовые метрики
+  - фреймворк HEART
+    - Happiness (Счастье)
+    - Engagement (Вовлечение)
+    - Adoption (Принятие)
+    - Retention (Возвращаемость)
+    - Task Success (Успех ключевых задач)
+  - фреймворк AARRR
+    - acquisition
+    - activation
+    - retention
+    - referral
+    - revenue
+  - Product Metric Canvas
+    - фича
+    - на кого влияет (внутри, снаружи)
+    - как влияет (внутри, снаружи)
+    - как измеряем влияние (внутри, снаружи)
+- культура работы с метриками
+  - верифицируемость
+    - всегда ссылаться на источник с подробностями 
+    - коммитить отчуждаемый код расчёта метрик 
+    - формулировать воспроизводимо 
+  - верифицированность 
+    - сбиваться с эталонными расчётами 
+    - можем объяснить, что и почему видим 
+    - можно умножать/делить на показатели из других каноничных источников
+  - [как визуализировать](https://github.com/az365/compendium/blob/master/disciplines/datavis.md)
+    - рисовать больше одного числа на картинке
+    - всегда указывать полное наименование среза и метрики на картинке (аббревиатуры и жаргонизмы можно)
+    - аккуратность и стандартизация форматов определяют скорость и однозначность чтения
+    - стандартизированные обозначения (цвета, штриховки, шрифты)
+    - растры по-английски 
+  - как анализировать 
+    - выписать, что отображено 
+    - выпивать, что тут видно (по факту)
+    - гипотезы и трактовки
+    - выписывать допущения и ограничения 
+  - как расследовать 
+    - формулировать увиденную аномалию KPI
+    - симптомы: локализация до среза, сопутствующие факты со ссылками
+    - гипотезы и проверки 
+  - как доносить/формулировать 
+    - показывать степень уверенности (показывается вводными оборотами)
+      - фактическое наблюдение (видим, что)
+      - доказанный факт (показано, что)
+      - сильная гипотеза (кажется, что)
+      - авторитетное утверждение (утверждается, что)
+      - собственное мнение (на мой взгляд)
+      - слабая гипотеза (может быть)
+      - фантазия (а вдруг, вот бы)
+    - разделять корреляции и причины-следствия
+    - убедиться, что правильно поняли 
+    - проследить, как использовано (попросить согласовать решение/публикации)
+- разработка системы метрик 
+  - иерархия метрик
+    - нижележащие метрики либо аппроксимируют, либо детализируют вышележащие
+    - аппроксимации всегда неточны и в случае метрик эта погрешность неизмерима
+    - всегда остаются белые пятна, которые надо заполянть волей и виженом 
+  - от структуры метрик к структуре организации
+    - каждый человек/подразделение должны знать, какую метрику они растят, и как она влияет на вешележащие по иерархии
+  - техническая подложка: согласованность ключевых данных и показателей + стыкуемость инструментов
+    - онтология (бизнес-глоссарий)
+      - общие понятия в команде 
+      - переиспользуемость и сопоставимость расчётов 
+      - техническая реализация и применение 
+    - кубы (витрины)
+    - сетка vs вертикали
+    - велосипеды vs компоненты/микросервисы
+    - плоские vs сессионные таблицы 
+    - материализации vs библиотеки/вьюхи/апи/api 
+- анализ и поддержка метрик
+  - качество данных, стоимость поддержки, скорость разработки
+    - под каждым KPI должен быть куб, позволяющий распилить его на компоненты
+    - KPI-метрика должна быть зрелой, чтобы иметь доверие, быть экшенабельной и интерпретабельной
+  - бизнес/продакшн: мониторинг и расследования
+    - аномалия как (бес)полезный сигнал
+    - точки измерения
+    - цепочки для локализации измерений
+    - чек-листы
+    - WTF-framework
+- Литература
+  - `post` [GoPractice: О.Якубенков - Интро: Метрики (2013)](https://gopractice.ru/metrics1/)
+  - `post` [GoPractice: О.Якубенков - Продуктовая и аналитическая культура Facebook](https://gopractice.ru/fb-product-culture/)
+  - `post` [Habr: SkillFactory - Операционализация. Азы психологии для DA](https://habr.com/ru/company/skillfactory/blog/554430/)
+    - Операционализация - это создание поддающихся измерению приближённых значений для тщательного изучения нечётких понятий.
+
+
+<a name="methods"></a>
 ## Области и методы
-- Timeseries
-    - лекция Технострим: Временные ряды (Введение в анализ данных) https://www.youtube.com/watch?v=Qflkzc6Ep78&list=PLrCZzMib1e9p6lpNv-yt6uvHGyBxQncEh&index=8
-    - Data Mining in Action 10: Прогнозирование временных рядов https://www.youtube.com/watch?v=u433nrxdf5k
-    - ML Course: анализ временных рядов https://habr.com/ru/company/ods/blog/327242/ https://www.youtube.com/watch?v=nQjul-5_0_M
-        - rolling window estimations
-        - экспоненциальное сглаживание, модель Хольта-Винтерса
-        - кросс-валидация, подбор параметров
-        - эконометрический подход
-        - избавляемся от нестационарности, строим SARIMA
-        - feature-based модели на временнЫх рядах
-            - линейная регрессия 
-            - XGBoost на временнЫх рядах
-    - популярные методы и библиотеки
-        - Prophet https://habr.com/ru/company/ods/blog/323730/
-        - ARIMA https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average
-        - ARCH https://en.wikipedia.org/wiki/Autoregressive_conditional_heteroskedasticity
-    - приведение к нормальному распределению
-        - преобразование бокса-кокса http://www.machinelearning.ru/wiki/index.php?title=%D0%9C%D0%B5%D1%82%D0%BE%D0%B4_%D0%91%D0%BE%D0%BA%D1%81%D0%B0-%D0%9A%D0%BE%D0%BA%D1%81%D0%B0
+
+<a name="series"></a>
+### Timeseries
+- `video` [Технострим: Временные ряды (Введение в анализ данных)](https://www.youtube.com/watch?v=Qflkzc6Ep78&list=PLrCZzMib1e9p6lpNv-yt6uvHGyBxQncEh&index=8)
+- `video` [Data Mining in Action 10: Прогнозирование временных рядов](https://www.youtube.com/watch?v=u433nrxdf5k)
+- `post` `video` [ODS ML Course: анализ временных рядов](https://habr.com/ru/company/ods/blog/327242/) ([video](https://www.youtube.com/watch?v=nQjul-5_0_M))
+  - rolling window estimations
+  - экспоненциальное сглаживание, модель Хольта-Винтерса
+  - кросс-валидация, подбор параметров
+  - эконометрический подход
+  - избавляемся от нестационарности, строим SARIMA
+  - feature-based модели на временнЫх рядах
+    - линейная регрессия 
+    - XGBoost на временнЫх рядах
+- популярные методы и библиотеки
+  - Prophet `post` [ODS: Предсказываем будущее с помощью библиотеки Facebook Prophet](https://habr.com/ru/company/ods/blog/323730/)
+  - ARIMA `wiki` [Autoregressive integrated moving average](https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average)
+  - ARCH `wiki` [Autoregressive conditional heteroskedasticity](https://en.wikipedia.org/wiki/Autoregressive_conditional_heteroskedasticity)
+- приведение к нормальному распределению
+  - преобразование бокса-кокса
+    - `wiki` [machinelearning.ru: Метод Бокса-Кокса](http://www.machinelearning.ru/wiki/index.php?title=Метод_Бокса-Кокса)
+
+<a name="unit"></a>
+### Когортный анализ и юнит-экономика
 - Cohort analysis
-    - Churn/Retention
-    - LT, LTV 
-    - RFM 
-    - литература
-        - О.Якубенков - Когортный анализ (2014) https://gopractice.ru/cohort_analysis/
-        - О.Якубенков - Длинный и короткий ретеншен (2020) https://gopractice.ru/why-long-term-retention-is-key-to-growth/
-        - В.Голубев - Оценка LifeTime через ретеншен (2010): http://kxk.ru/matriarhat/v1_693889__.php
-- Segmentation
-    - поиск контраста по срезам
-        - перебор срезов или попарных сочетаний
-        - кутим круб в BI (или в pandas)
-    - кластеризация
-    - метрики контраста сегментов
-        - перекос = (A-B) / (A+B)
-        - аффинити, аффинитивность
-        - потенциалы сегментов
-    - литература
-        - Олег Якубенков - Сегментация (2014) https://gopractice.ru/segmentation/
-- Causal inference
-    - вводное 
-        - курсы 
-            - https://www.bradyneal.com/causal-inference-course
-            - https://www.coursera.org/learn/crash-course-in-causality/home/welcome 
-        - некоторые понятия 
-            - causality по Грейнджеру - предшествуют ли изменения одной переменной другой 
-            - shapley values - тоже разновидность корреляции, просто не квадратная 
-            - p-value говорит, с какой вероятностью данные могли случайно сложиться так, что тебе показалась стат-значимость 
-    - AB-testing
-        - основы 
-            - литература 
-                - АБ тесты - что это такое и как проводить?: https://vc.ru/s/productstar/425821-a-b-testy-chto-eto-takoe-i-kak-provodit
-                - Валерий Белокуров (Яндекс): AБ-тесты - что это такое и как использовать? https://vc.ru/s/productstar/132981-a-b-testy-chto-eto-takoe-i-kak-ispolzovat
-                  - Что такое АБ-тест
-                  - Кому и для чего нужны АБ-тесты 
-                  - Когда нужны АБ-тесты
-                  - Интересные факты
-                  - Как провести АБ-тест за 6 шагов 
-                    - Поставить цель
-                    - Выбрать метрику
-                    - Определиться с гипотезами
-                    - Определиться с дизайном
-                    - Провести эксперимент
-                    - Проанализировать результаты
-                    - Какова роль аналитика в АБ-тестировании
-                    - Частые ошибки в АБ-тестах
-                - A/B-тестирование: что это, зачем нужно и как проводить https://skillsetter.io/blog/AB-test-questions
-                  - Что такое АБ-тестирование (пример: тестирование рассылки)
-                  - Что делать, если нужно проверить больше двух вариантов? Например, протестировать 4 формы заявки
-                  - А можно проводить несколько экспериментов параллельно?
-                  - Задание
-                  - Кому нужно разбираться в АБ-тестировании?
-                  - Что делать, если в команде нет аналитика?
-                  - Когда не стоит использовать АБ-тестирование?
-                  - В вакансиях пишут, что нужен навык АБ-тестирования. Как его получить, если я ещё не работаю с продуктом?
-                  - Допустим, я хочу провести АБ-тестирование. Что нужно делать?
-                  - Задание
-                  - Чем можно заменить АБ-тестирование?
-                  - Задание
-                  - Где я могу узнать про АБ-тесты подробнее?
-                - АБТ это просто https://habr.com/ru/post/233911/
-                  - Зачем нужны АБ-тесты?
-                  - Как проводим тесты?
-                  - Что улучшаем: конверсия, экономические метрики, поведенческие факторы
-                  - Анализ результатов: оценить значимость, инструменты
-                - Я.Академия, Lisa Xu: Как провести АБТ, 6 простых шагов (2019) https://academy.yandex.ru/posts/kak-provesti-a-b-testirovanie-6-prostykh-shagov
-                - Яндекс @ Habr: Как у нас устроено АБТ (2017) https://habr.com/ru/company/yandex/blog/342704
-                - Uber Experimentation Platform (2018) https://eng.uber.com/xp
-                - Bing: Five Puzzling Outcomes Explained (2012): http://www.exp-platform.com/Documents/puzzlingOutcomesInControlledExperiments.pdf
-                - AdOneTech @ Habr: 70 ресурсов про АБТ для начинающих (2014) https://habr.com/ru/post/242701
-                - Лучшие экспериментальные протоколы для исследования реального мира https://habr.com/ru/company/skillfactory/blog/553220/
-                - Калькулятор времени АБТ https://vwo.com/tools/ab-test-duration-calculator 
-        - выбор приёмочных метрик
-            - процесс
-                - поиск коррелирующих с бизнес-метрикой и/или текущей приёмочной
-                - валидации метрик на эталонных экспериментах 
-                - проверка на АА-тестах
-            - критерии выбора приёмочных АБТ-метрик
-                - красить ухудшения (благодаря монтонности прокрасят и улучшения)
-                - не красить контроли (АА-тест)
-                - чувствительность (красить лучше других)
-                - применимость (некоторые метрики не совместимы с некоторыми типами экспериментов)
-        - АБ-тесты на малых выборках 
-            - МТС: АБТ на регионах (2020) https://youtu.be/e9kSPMjpLL8
-                - https://engineering.nordeus.com/
-                - https://www.tripadvisor.com/engineering/reducing-a-b-test-measurement-variance-by-30/
-                - https://booking.ai/how-booking-com-increases-the-power-of-online-experiments-with-cuped-995d186fff1d
-            - В.Бабушкин: АБТ без разбиения на группы (2019) https://youtu.be/XWw4Wi6K0QU 
-                - методология тройной разности 
-                - bayesian structural time-series model 
-                - регрессионный анализ (распределение ошибок предсказаний линрег смещается при воздействии)
-                - causal impact
-        - проблемы и решения 
-            - некорректный эксперимент 
-                - пересмотреть методику и реализацию, перепровести
-            - потребовался релиз до эксперимента
-                - провести разовый обратный эксперимент
-            - шумные метрики, ничего не красится 
-                - увеличение выборок и продолжительности
-                - методы на малых выборках (см. выше про  АБТ на регионах)
-                - методы понижения дисперсии 
-                - поиск чувствительных прокси-метрик (см. про приёмочные метрики выше)
-                - последовательные внедрения с оффлайн-приёмкой + постоянный/долгий обратный эксперимент
-            - превратить приёмочную метрику в KPI
-                - постоянный обратный эксперимент (или долгие разовые)
-            - много гипотез/версий/объектов для тестирования
-                - многомерные параллельные тесты + Multivariate analysis
-                - однорукие бандиты - для автоматического опробования большого числа гипотез/объектов-кандидатов
-            - сложно задизайнить или дорого провести эксперимент 
-                - Observational studies на исторических данных (подробно см. ниже)
-        - литература 
-            - доклады с профильных мероприятий
-                - ABT section @ DataFest 2020 https://ods.ai/tracks/ab-testing-df2020/
-                    - А.Сахнов x5: Geometric interpretation of variance reduction (2020) https://youtu.be/BhxFaMGpVFw 
-                    - Э.Гргорян: Metric optimization for Quality Control of ABT https://youtu.be/4qvpZEKkARI 
-                    - Н.Багинян (Райфайзен): Peeking at A/B tests / Последовательное тестирование (2020) https://youtu.be/BJwNdethKwQ 
-                        - решения Peeking problem 
-                            - уменьшим уровень значимости (плохой путь)
-                            - байесовское АБТ 
-                            - многорукие бандиты 
-                            - последовательное тестироване 
-                                - mSPRT (mixture Sequential Probability Ratio test)
-                - Expfest x Я.Практикум 2020 
-                    - 001 А.Карпов: Методы сокращения дсперсии (2020) https://youtu.be/KvIJ8FCJzr4 
-                        - ...
-                    - 002 В.Бабушкн: Cruped для увеличения чувствительности АБТ (2020) https://habr.com/company/
+  - Churn/Retention
+  - LT, LTV 
+  - RFM 
+  - литература
+    - `post` [GoPractice: О.Якубенков - Когортный анализ (2014)](https://gopractice.ru/cohort_analysis/)
+    - `post` [GoPractice: О.Якубенков - Длинный и короткий ретеншен (2020)](https://gopractice.ru/why-long-term-retention-is-key-to-growth/)
+    - `article` [В.Голубев - Оценка LifeTime через ретеншен (2010)](http://kxk.ru/matriarhat/v1_693889__.php)
+
+<a name="segm"></a>
+### Segmentation
+  - поиск контраста по срезам
+    - перебор срезов или попарных сочетаний
+    - кутим круб в BI (или в pandas)
+  - кластеризация
+  - метрики контраста сегментов
+    - `перекос = (A-B) / (A+B)`
+    - аффинити, аффинитивность
+    - потенциалы сегментов
+  - литература
+    - `post` [GoPractice: Олег Якубенков - Сегментация (2014)](https://gopractice.ru/segmentation/)
+
+<a name="ci"></a>
+### Causal inference
+- Intro
+  - курсы 
+    - https://www.bradyneal.com/causal-inference-course
+    - https://www.coursera.org/learn/crash-course-in-causality/home/welcome 
+  - некоторые понятия 
+    - causality по Грейнджеру - предшествуют ли изменения одной переменной другой 
+    - shapley values - тоже разновидность корреляции, просто не квадратная 
+    - p-value говорит, с какой вероятностью данные могли случайно сложиться так, что тебе показалась стат-значимость
+<a name="abt"></a>
+- AB-testing
+  - основы 
+    - литература 
+      - [ProductStar @ vc: АБ тесты - что это такое и как проводить?](https://vc.ru/s/productstar/425821-a-b-testy-chto-eto-takoe-i-kak-provodit)
+      - [Валерий Белокуров (Яндекс) @ vc: AБ-тесты - что это такое и как использовать?](https://vc.ru/s/productstar/132981-a-b-testy-chto-eto-takoe-i-kak-ispolzovat)
+        - Что такое АБ-тест
+        - Кому и для чего нужны АБ-тесты 
+        - Когда нужны АБ-тесты
+        - Интересные факты
+        - Как провести АБ-тест за 6 шагов 
+          - Поставить цель
+          - Выбрать метрику
+          - Определиться с гипотезами
+          - Определиться с дизайном
+          - Провести эксперимент
+          - Проанализировать результаты
+          - Какова роль аналитика в АБ-тестировании
+          - Частые ошибки в АБ-тестах
+      - `post` [A/B-тестирование: что это, зачем нужно и как проводить](https://skillsetter.io/blog/AB-test-questions)
+        - Что такое АБ-тестирование (пример: тестирование рассылки)
+        - Что делать, если нужно проверить больше двух вариантов? Например, протестировать 4 формы заявки
+        - А можно проводить несколько экспериментов параллельно?
+        - Задание
+        - Кому нужно разбираться в АБ-тестировании?
+        - Что делать, если в команде нет аналитика?
+        - Когда не стоит использовать АБ-тестирование?
+        - В вакансиях пишут, что нужен навык АБ-тестирования. Как его получить, если я ещё не работаю с продуктом?
+        - Допустим, я хочу провести АБ-тестирование. Что нужно делать?
+        - Задание
+        - Чем можно заменить АБ-тестирование?
+        - Задание
+        - Где я могу узнать про АБ-тесты подробнее?
+      - `post` [АБТ это просто](https://habr.com/ru/post/233911/)
+        - Зачем нужны АБ-тесты?
+        - Как проводим тесты?
+        - Что улучшаем: конверсия, экономические метрики, поведенческие факторы
+        - Анализ результатов: оценить значимость, инструменты
+      - `post` [Я.Академия, Lisa Xu: Как провести АБТ, 6 простых шагов (2019)](https://academy.yandex.ru/posts/kak-provesti-a-b-testirovanie-6-prostykh-shagov)
+      - `post` [Яндекс @ Habr: Как у нас устроено АБТ (2017)](https://habr.com/ru/company/yandex/blog/342704)
+      - `doc` [Uber Experimentation Platform (2018)](https://eng.uber.com/xp)
+      - `article` `pdf` [Bing: Five Puzzling Outcomes Explained (2012)](http://www.exp-platform.com/Documents/puzzlingOutcomesInControlledExperiments.pdf)
+      - `post` [AdOneTech @ Habr: 70 ресурсов про АБТ для начинающих (2014)](https://habr.com/ru/post/242701)
+      - `post` [SkillFactory: Лучшие экспериментальные протоколы для исследования реального мира](https://habr.com/ru/company/skillfactory/blog/553220/)
+      - `app` [Калькулятор времени АБТ](https://vwo.com/tools/ab-test-duration-calculator) 
+  - выбор приёмочных метрик
+    - процесс
+      - поиск коррелирующих с бизнес-метрикой и/или текущей приёмочной
+      - валидации метрик на эталонных экспериментах 
+      - проверка на АА-тестах
+    - критерии выбора приёмочных АБТ-метрик
+      - красить ухудшения (благодаря монтонности прокрасят и улучшения)
+      - не красить контроли (АА-тест)
+      - чувствительность (красить лучше других)
+      - применимость (некоторые метрики не совместимы с некоторыми типами экспериментов)
+  - АБ-тесты на малых выборках 
+    - `video` [МТС: АБТ на регионах (2020)](https://youtu.be/e9kSPMjpLL8)
+      - https://engineering.nordeus.com/
+      - https://www.tripadvisor.com/engineering/reducing-a-b-test-measurement-variance-by-30/
+      - https://booking.ai/how-booking-com-increases-the-power-of-online-experiments-with-cuped-995d186fff1d
+    - `video` [В.Бабушкин: АБТ без разбиения на группы (2019)](https://youtu.be/XWw4Wi6K0QU) 
+      - методология тройной разности 
+      - bayesian structural time-series model 
+      - регрессионный анализ (распределение ошибок предсказаний линрег смещается при воздействии)
+      - causal impact
+  - проблемы и решения 
+    - некорректный эксперимент 
+      - пересмотреть методику и реализацию, перепровести
+    - потребовался релиз до эксперимента
+      - провести разовый обратный эксперимент
+    - шумные метрики, ничего не красится 
+      - увеличение выборок и продолжительности
+      - методы на малых выборках (см. выше про  АБТ на регионах)
+      - методы понижения дисперсии 
+      - поиск чувствительных прокси-метрик (см. про приёмочные метрики выше)
+      - последовательные внедрения с оффлайн-приёмкой + постоянный/долгий обратный эксперимент
+    - превратить приёмочную метрику в KPI
+      - постоянный обратный эксперимент (или долгие разовые)
+    - много гипотез/версий/объектов для тестирования
+      - многомерные параллельные тесты + Multivariate analysis
+      - однорукие бандиты - для автоматического опробования большого числа гипотез/объектов-кандидатов
+    - сложно задизайнить или дорого провести эксперимент 
+      - Observational studies на исторических данных (подробно см. ниже)
+  - литература 
+    - доклады с профильных мероприятий
+      - `track` [ABT section @ DataFest 2020](https://ods.ai/tracks/ab-testing-df2020/)
+        - [А.Сахнов x5: Geometric interpretation of variance reduction (2020)](https://youtu.be/BhxFaMGpVFw) 
+        - [Э.Гргорян: Metric optimization for Quality Control of ABT](https://youtu.be/4qvpZEKkARI) 
+        - `video` [Н.Багинян (Райфайзен): Peeking at A/B tests / Последовательное тестирование (2020)](https://youtu.be/BJwNdethKwQ) 
+          - решения Peeking problem 
+            - уменьшим уровень значимости (плохой путь)
+            - байесовское АБТ 
+            - многорукие бандиты 
+            - последовательное тестироване 
+              - mSPRT (mixture Sequential Probability Ratio test)
+      - Expfest x Я.Практикум 2020 
+        - `video` [001 А.Карпов: Методы сокращения дсперсии (2020)](https://youtu.be/KvIJ8FCJzr4)
+        - `video` 002 В.Бабушкн: Cruped для увеличения чувствительности АБТ (2020)
+- Observational studies
+  - применение 
+    - может проводиться до АБ-тестинга - для формирования или первичной проверки гипотез
+    - может рассматриваться как альтернативап АБ-тестингу, когда он затруднён 
+  - AB-testing vs Observational Studies
+    - АБ-тест
+      - иногда проблематично задизайнить или дорого провести
     - Observational studies
-        - применение 
-            - может проводиться до АБ-тестинга - для формирования или первичной проверки гипотез
-            - может рассматриваться как альтернативап АБ-тестингу, когда он затруднён 
-        - AB-testing vs Observational Studies
-            - АБ-тест
-                - иногда проблематично задизайнить или дорого провести
-            - Observational studies
-                - корреляции не означают причинно-следственной связи
-                - мешают неизвестные/неизмеренные зависимости
-        - препятствия
-            - conditioned cofounding (общая причина, пример: лекарство тяжело больным)
-            - selection bias (общее следствие, пример: фолиевая кислота беременным)
-            - complicated bias with conditioning (зафиксированный фактор, пример: зожники vs больные раком)
-        - подходы
-            - stratification (перевзвешивание страт/сегментов в зааффекченной выборке на их доли в генеральной совокупности)
-            - propensity scores (перевзвешивание групп на вероятность воздействия на объект)
-            - outcome regression (проблема: могут просочиться фичи с результатами воздействия)
-            - тесты причинности
-                - Granger causality test https://ru.wikipedia.org/wiki/Причинность_по_Грэнджеру
-                - g-метод https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6074945/
-        - литература
-            - видео доклада Causal Inference: Если бы да кабы (2020) https://youtu.be/V4ONp9PZrvk
-            - KDD-tutorial - Causal Inference and Counterfactual Reasoning (2018) https://causalinference.gitlab.io/kdd-tutorial/intro.html
-            - книга M.Hernan - Causal Inference (2020) https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book
-            - статья A.Naimi - An introduction to g methods (2017) https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6074945
-            - обзор J.Pearl - Causal inference in statistics (2009) http://ftp.cs.ucla.edu/pub/stat_ser/r350.pdf
-            - видео доклада P.Tennant - https://www.youtube.com/watch?v=SbrX3YEMj_0
-            - видео+код A.Sharma - Causal Inference in Online Systems (2016) https://github.com/amit-sharma/causal-inference-tutorial
-    - Simple modeling
-        - Causal Impact python library
-    - Counterfactual learning
-        - Causal inference, counterfactual frameworks https://causalinference.gitlab.io/kdd-tutorial/intro.html
-        - Large-scale Validation of CounterfactualLearning Methods: A Test-Bed http://www.cs.cornell.edu/~adith/Criteo/NIPS16_Benchmark.pdf
-    - Causal and Interpretable ML https://ods.ai/tracks/interpretable-ml-df2021
-        - Ольга Филиппова (Открытие) Causality and Shapley values https://www.youtube.com/watch?v=rrreuktS0gk
-            - зачем shapleey values 
-                - Shapley values нужны чтобы понять
-                    - как модель принимает решения
-                    - как устроен мир 
-                    - за какие рычаги дёргать, чтобы менять мир 
-                - From colitional game theory to ML model outputs explanation 
-                    - arxiv.org/pdf/2006.01272.pdf
-                    - arxiv.org/pdf/1910.30413.pdf
-            - виды Shapley Values
-                - Marginal Shapley values 
-                    - свойства Shapley values
-                        - Efficiency: сумма shapley values входящих фичей для конкретного примера равна отклонению от среднего предсказания модели 
-                        - Symmetry: фичи, которые одинаково влияют на отклонение предсказания модели, имеют одинаковые Shapley Values
-                        - Linearity: если у нас есть линейный ансамбль моделей, Shapley values описываются аналогичной линейной комбинацией 
-                        - Nullity: если фича не влияет на предсказание модели, её Shapley value равно нулю 
-                - Asymmetric Shapley values 
-                    - в Asymmetric SV из свойств Shapley Values выпадает Symmetry 
-                    - arxiv.org/pdf/1910.06358.pdf 
-                    - youtube.com/watch?v=7d13f4UaAn0&t=3061s
-                    - приложения 
-                        - casual-based model explanations 
-                            - пример: предсказание зарплаты сотрудникам (1994 US Census)
-                        - causal explanation of unfair discrimination
-                        - data types with intrinsic ordering 
-                    - ShapFlex - реализация Asymmetric Shapley Values на R: github.com/nredell/shapFlex 
-                - Causal Shapley values 
-                    - терминология bradyneal.com/causal-inference-course
-                        - causal graph - инструмент опесания причинно-следственной модели данных 
-                        - pearl's do-calculus - методика перевода causal estimate в statistical estimate 
-                    - partial causal ordering arxiv.org/pdf/2011.01625.pdf 
-                    - total_effect = direct_effect + indirect effect 
-                    - Caushapley - реализация Causal Shapley Values на R: gitlab.science.ru.nl/gbucur/caushapley
-            - реализации Shapley Values 
-                - ShapFlex - реализация Asymmetric Shapley Values на R: github.com/nredell/shapFlex 
-                - Caushapley - реализация Causal Shapley Values на R: gitlab.science.ru.nl/gbucur/caushapley
-            - общие соображения по Shapley Values 
-                - методы causal inference пока не работают из коробки 
-                    - определение причинно-следственных связей - это творчество и труд 
-                    - необходимо чётко понимать цель, с которой эта работа проводится 
-                - не пренебрегать обычными методами исследования надёжности модели 
-                    - рисовать качество по основным сегментам 
-                    - смотреть примеры, на которых ошибка больше 
-                    - строить зависимость точности от времени 
-                - управлять поведением модели на этапе построения 
-                    - GBDT умеет накладывать условия на зависимость переменных от таргета 
-                        - XGBoost Monotonic Constraints 
-                        - есть аналогичная опция в CatBoost
-        - Наталья Тоганова (GlowByte) Обзор библиотеки EconML: идеи и реализация https://www.youtube.com/watch?v=oCJI5tKi3AU
-            - типичный кейс: изменение выручки в окресности даты изменения в продукте 
-            - эксперимент: зависимость успеваемости школьников от наличия горячих завтраков 
-            - 2 подхода к оценке эффекта воздействия 
-                - Causality Judea Pearl 
-                - Эконометрика 
-            - библиотека EconML от Microsoft 
-                - работает как обёртка для методов Sklearn 
-                - дока: econml.azurewebsites.net/index.html 
-                - репа: github.com/microsoft/EconML 
-                - пример ipynb Customer Segmentation: Estimate Individualized Responces to Incentives 
-                    - github.com/microsoft/EconML/tree/master/notebooks/CustomerScenarios 
-                - реализация эконометрических статей, на которых базируются: 
-                    - orthogonal/double machine learning 
-                    - doubly robust learning 
-                    - meta-learners 
-                    - estimation methods and instruments 
-                - реализация НЕэконометрических статей, на которых базируются:
-                    - forest based estimators 
-                    - inference (в основном bootstrap)
-            - что происходит в эконометрике 
-                - cofounders/controls 
-                    - зафиксировать значимые переменные при регрессии, которые влияют и на X, и на Y, чтобы чётко выделить влияние T на Y 
-                - инструментальные переменные 
-                    - если влияющие на X и Y переменные нельзя измерить или они неизвестны 
-                    - Филипп Картаев - За пределами контролируемых экспериментов: инструментальные переменные: youtu.be/Qrz04qUMgVc 
-                - Difference in Difference 
-                    - изменение относительно контрольной группы и относительно прошлой динамике 
-                    - Дмитрий Архангельский - Causal Inference in panel data: youtu.be/sFJ4tNVc5Kw 
-            - как мы смотрим на данные 
-                - ML: X -> y
-                - эконометрика: T X W -> Y 
-                - T - воздействие 
-            - методы тестируются на искусственно сгенерированных датасетах, в которых взаимосвязь и взаимовлияние между переменными известно 
-            - методы Doubled Machine Learning 
-                - DML 
-                    - Chervonozhukov V. et al. (2016) Double/Debiased Machine Learning for Treatment and Causal Parameters
-                - LinearDML 
-                - SparceLinearDML 
-                    - Buhlmann P, Geer van de S. (2011) Statistics for High-Dimensional Data
-                    - Geer van de S. et al (2013) On asymptotically optimal confidence regions and tests or high-dimensional models 
-                - KernelDML 
-                    - нелинейный tretment
-                    - Nie X., Wager St. (2017) Quasi-Oracle Estimation of Heterogeneous Treatment Effects 
-                - NonParamDML 
-                    - бинарный treatment type
-                - CausalForestDML 
-                - DRLearner
-                - LinearDRLearner 
-                - SparceLinearDRLearner 
-                - ForestDRLearner 
-                - DRPolicyForest 
-                - DRPolicyTree 
-            - связь EconML с DoWhy 
-                - способ визуализации 
-                - обёртка над EconML 
-                - способы проверки 
-                    - замена тритмента 
-                    - добавление переменных, которые влияют на тритмент и на целевую переменную
-                    - уменьшение датасета 
-                - вебинар от MS: note.microsoft.com/MSR-Webinar-DoWhy-Library-Registration-On-Demand.html
-        - Татьяна Шаврина (SberDevices) Все способы измерить слона: заглянуть внутрь трансформерных моделей https://www.youtube.com/watch?v=29KJ-EOIXC0
-        - Кирилл Быков (TU Berlin) Explaining Hidden Representations https://www.youtube.com/watch?v=ounFVE-kxGs
-        - Инсаф Ашрапов (Сбер) Интерпретация банковских моделей https://www.youtube.com/watch?v=49QMdM4oZkQ
-        - Дмитрий Павлов (МФТИ/Тинькофф) Causal Inference в анализе временных рядов https://www.youtube.com/watch?v=Yr6b8Rpy7Ds
-- Анализ графов
+      - корреляции не означают причинно-следственной связи
+      - мешают неизвестные/неизмеренные зависимости
+  - препятствия
+    - conditioned cofounding (общая причина, пример: лекарство тяжело больным)
+    - selection bias (общее следствие, пример: фолиевая кислота беременным)
+    - complicated bias with conditioning (зафиксированный фактор, пример: зожники vs больные раком)
+  - подходы
+    - stratification (перевзвешивание страт/сегментов в зааффекченной выборке на их доли в генеральной совокупности)
+    - propensity scores (перевзвешивание групп на вероятность воздействия на объект)
+    - outcome regression (проблема: могут просочиться фичи с результатами воздействия)
+    - тесты причинности
+      - Granger causality test https://ru.wikipedia.org/wiki/Причинность_по_Грэнджеру
+      - g-метод https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6074945/
+  - литература
+    - `video` [Causal Inference: Если бы да кабы (2020)](https://youtu.be/V4ONp9PZrvk)
+    - `doc` `tutorial` [KDD-tutorial - Causal Inference and Counterfactual Reasoning (2018)](https://causalinference.gitlab.io/kdd-tutorial/intro.html)
+    - `book` [M.Hernan - Causal Inference (2020)](https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book)
+    - `article` [A.Naimi - An introduction to g methods (2017)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6074945)
+    - `review` `pdf` [J.Pearl - Causal inference in statistics (2009)](http://ftp.cs.ucla.edu/pub/stat_ser/r350.pdf)
+    - `video` [P.Tennant](https://www.youtube.com/watch?v=SbrX3YEMj_0)
+    - `video` `code` `tutorial` [A.Sharma - Causal Inference in Online Systems (2016)](https://github.com/amit-sharma/causal-inference-tutorial)
+- Simple modeling
+  - Causal Impact python library
+- Counterfactual learning
+  - `pres` [Microsoft: Causal inference, counterfactual frameworks](https://causalinference.gitlab.io/kdd-tutorial/intro.html)
+  - `article` `pdf` [Facebook: Large-scale Validation of CounterfactualLearning Methods: A Test-Bed](http://www.cs.cornell.edu/~adith/Criteo/NIPS16_Benchmark.pdf)
+- `track` [ODS: Causal and Interpretable ML @ DataFest 2021] (https://ods.ai/tracks/interpretable-ml-df2021)
+  - `video` [Ольга Филиппова (Открытие) - Causality and Shapley values](https://www.youtube.com/watch?v=rrreuktS0gk)
+    - зачем shapleey values 
+      - Shapley values нужны чтобы понять
+        - как модель принимает решения
+        - как устроен мир 
+        - за какие рычаги дёргать, чтобы менять мир 
+      - From colitional game theory to ML model outputs explanation 
+        - arxiv.org/pdf/2006.01272.pdf
+        - arxiv.org/pdf/1910.30413.pdf
+    - виды Shapley Values
+        - Marginal Shapley values 
+          - свойства Shapley values
+            - Efficiency: сумма shapley values входящих фичей для конкретного примера равна отклонению от среднего предсказания модели 
+            - Symmetry: фичи, которые одинаково влияют на отклонение предсказания модели, имеют одинаковые Shapley Values
+            - Linearity: если у нас есть линейный ансамбль моделей, Shapley values описываются аналогичной линейной комбинацией 
+            - Nullity: если фича не влияет на предсказание модели, её Shapley value равно нулю 
+        - Asymmetric Shapley values 
+          - в Asymmetric SV из свойств Shapley Values выпадает Symmetry 
+          - arxiv.org/pdf/1910.06358.pdf 
+          - youtube.com/watch?v=7d13f4UaAn0&t=3061s
+          - приложения 
+            - casual-based model explanations 
+              - пример: предсказание зарплаты сотрудникам (1994 US Census)
+            - causal explanation of unfair discrimination
+            - data types with intrinsic ordering 
+          - ShapFlex - реализация Asymmetric Shapley Values на R: github.com/nredell/shapFlex 
+        - Causal Shapley values 
+          - терминология bradyneal.com/causal-inference-course
+            - causal graph - инструмент опесания причинно-следственной модели данных 
+            - pearl's do-calculus - методика перевода causal estimate в statistical estimate 
+          - partial causal ordering arxiv.org/pdf/2011.01625.pdf 
+          - total_effect = direct_effect + indirect effect 
+          - Caushapley - реализация Causal Shapley Values на R: gitlab.science.ru.nl/gbucur/caushapley
+    - реализации Shapley Values 
+      - ShapFlex - реализация Asymmetric Shapley Values на R: github.com/nredell/shapFlex 
+      - Caushapley - реализация Causal Shapley Values на R: gitlab.science.ru.nl/gbucur/caushapley
+    - общие соображения по Shapley Values 
+      - методы causal inference пока не работают из коробки 
+        - определение причинно-следственных связей - это творчество и труд 
+        - необходимо чётко понимать цель, с которой эта работа проводится 
+      - не пренебрегать обычными методами исследования надёжности модели 
+        - рисовать качество по основным сегментам 
+        - смотреть примеры, на которых ошибка больше 
+        - строить зависимость точности от времени 
+      - управлять поведением модели на этапе построения 
+        - GBDT умеет накладывать условия на зависимость переменных от таргета 
+          - XGBoost Monotonic Constraints 
+          - есть аналогичная опция в CatBoost
+  - `video` [Наталья Тоганова (GlowByte) Обзор библиотеки EconML: идеи и реализация](https://www.youtube.com/watch?v=oCJI5tKi3AU)
+    - типичный кейс: изменение выручки в окресности даты изменения в продукте 
+    - эксперимент: зависимость успеваемости школьников от наличия горячих завтраков 
+    - 2 подхода к оценке эффекта воздействия 
+      - Causality Judea Pearl 
+      - Эконометрика 
+    - библиотека EconML от Microsoft 
+      - работает как обёртка для методов Sklearn 
+      - `doc` econml.azurewebsites.net/index.html 
+      - `repo` github.com/microsoft/EconML 
+      - пример `ipynb` [Microsoft EconML - Customer Segmentation: Estimate Individualized Responces to Incentives](https://github.com/microsoft/EconML/tree/master/notebooks/CustomerScenarios) 
+      - реализация эконометрических статей, на которых базируются: 
+        - orthogonal/double machine learning 
+        - doubly robust learning 
+        - meta-learners 
+        - estimation methods and instruments 
+      - реализация НЕэконометрических статей, на которых базируются:
+        - forest based estimators 
+        - inference (в основном bootstrap)
+    - что происходит в эконометрике 
+      - cofounders/controls 
+        - зафиксировать значимые переменные при регрессии, которые влияют и на X, и на Y, чтобы чётко выделить влияние T на Y 
+      - инструментальные переменные 
+        - если влияющие на X и Y переменные нельзя измерить или они неизвестны 
+        - Филипп Картаев - За пределами контролируемых экспериментов: инструментальные переменные: youtu.be/Qrz04qUMgVc 
+      - Difference in Difference 
+        - изменение относительно контрольной группы и относительно прошлой динамике 
+        - Дмитрий Архангельский - Causal Inference in panel data: youtu.be/sFJ4tNVc5Kw 
+    - как мы смотрим на данные 
+      - ML: `X -> y`
+      - эконометрика: `T X W -> Y` 
+      - `T` - воздействие 
+    - методы тестируются на искусственно сгенерированных датасетах, в которых взаимосвязь и взаимовлияние между переменными известно 
+    - методы Doubled Machine Learning 
+      - DML 
+        - Chervonozhukov V. et al. (2016) Double/Debiased Machine Learning for Treatment and Causal Parameters
+      - LinearDML 
+      - SparceLinearDML 
+        - Buhlmann P, Geer van de S. (2011) Statistics for High-Dimensional Data
+        - Geer van de S. et al (2013) On asymptotically optimal confidence regions and tests or high-dimensional models 
+      - KernelDML 
+        - нелинейный tretment
+        - Nie X., Wager St. (2017) Quasi-Oracle Estimation of Heterogeneous Treatment Effects 
+      - NonParamDML 
+        - бинарный treatment type
+      - CausalForestDML 
+      - DRLearner
+      - LinearDRLearner 
+      - SparceLinearDRLearner 
+      - ForestDRLearner 
+      - DRPolicyForest 
+      - DRPolicyTree 
+    - связь EconML с DoWhy 
+      - способ визуализации 
+      - обёртка над EconML 
+      - способы проверки 
+        - замена тритмента 
+        - добавление переменных, которые влияют на тритмент и на целевую переменную
+        - уменьшение датасета 
+      - вебинар от MS: note.microsoft.com/MSR-Webinar-DoWhy-Library-Registration-On-Demand.html
+  - `video` [Татьяна Шаврина (SberDevices) Все способы измерить слона: заглянуть внутрь трансформерных моделей](https://www.youtube.com/watch?v=29KJ-EOIXC0)
+  - `video` [Кирилл Быков (TU Berlin) Explaining Hidden Representations](https://www.youtube.com/watch?v=ounFVE-kxGs)
+  - `video` [Инсаф Ашрапов (Сбер) Интерпретация банковских моделей](https://www.youtube.com/watch?v=49QMdM4oZkQ)
+  - `video` [Дмитрий Павлов (МФТИ/Тинькофф) Causal Inference в анализе временных рядов](https://www.youtube.com/watch?v=Yr6b8Rpy7Ds)
+
+<a name="graph"></a>
+### Анализ графов
+- ...
+
+<a name="spatial"></a>
+### Геоаналитика
 - Spatial / Геоаналитика
-    - конспект лекций про spatial analysis: http://www.seas.upenn.edu/~ese502/#notebook
-    - Spatial Data Science and Applications https://www.coursera.org/lecture/spatial-data-science/spatial-data-analysis-zT39o
-    - пример задачи: выбор точек для открытия магазинов
-        - https://new-retail.ru/persony/bst_organika_kak_uspeshno_upravlyat_otkrytiyami_nayti_luchshie_mesta_i_postroit_optimalnuyu_set_torg1113
+  - конспект лекций про spatial analysis: http://www.seas.upenn.edu/~ese502/#notebook
+  - Spatial Data Science and Applications https://www.coursera.org/lecture/spatial-data-science/spatial-data-analysis-zT39o
+  - пример задачи: выбор точек для открытия магазинов
+    - https://new-retail.ru/persony/bst_organika_kak_uspeshno_upravlyat_otkrytiyami_nayti_luchshie_mesta_i_postroit_optimalnuyu_set_torg1113
 
 ## Роли, специальности, скиллы, процесс и культура
 - Виды аналитиков 
@@ -770,16 +792,16 @@
     - способность видеть или находить все возможные: взаимосвязи, причины, пути
     - умение декомпозировать сложную аналитическую задачу на ряд более простых
     - развитая логика
-  - [математические скиллы](https://github.com/az365/compendium/blob/master/disciplines/math.md)
-    - тервер, матстат
-    - линейная алгебра
-    - дискретная математика
-    - численные методы
-    - моделирование
-    - [основы машинного обучения](https://github.com/az365/compendium/blob/master/disciplines/ds.md)
+  - [математические скиллы](./math.md)
+    - [тервер, матстат](./math.md#stat)
+    - [линейная алгебра](./math.md#linalg)
+    - [дискретная математика](./math.md#discrete)
+    - [численные методы](./math.md#numeric)
+    - [моделирование](./math.md#models)
+    - [основы машинного обучения](./ds.md)
   - технические скиллы
     - BI
-    - языки: SQL, Python, R, Bash
+    - языки: SQL, [Python](./dev.md#python), R, Bash
     - библиотеки, фреймворки, инструменты 
     - [визуализация данных](https://github.com/az365/compendium/blob/master/disciplines/datavis.md)
     - [алгоритмы и структуры данных](https://github.com/az365/compendium/blob/master/disciplines/algo.md)
