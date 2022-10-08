@@ -344,6 +344,12 @@
           - `course` [coursera: Intro to DeepLearning - Matrix Derivatives](https://www.coursera.org/learn/intro-to-deep-learning/lecture/YTunl/other-matrix-derivatives)
           - `pdf` `article` [github: Erik Learned-Miller - Vector, Matrix, and Tensor Derivatives](https://compsci697l.github.io/docs/vecDerivs.pdf)
           - `pdf` `book` [matrixcookbook.com: The Matrix CookBook](https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf)
+### Применения
+- Решение систем линейных алгебраических уравнений
+- Теория представлений
+- Линейное программирование
+- Эконометрика
+- Квантовая механика
 
 <a name="discrete"></a>
 ## Дискретная математика
