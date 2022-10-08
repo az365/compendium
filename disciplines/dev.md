@@ -14,15 +14,16 @@
 ## Языки
 - популярные
   - [Python](#py)
-  - R
+  - R - среда вычислений, разработанная учёными для обработки данных, математического моделирования, работы с графикой
   - Java
   - JavaScript
-  - SQL
+  - SQL - для создания, модификации и управления данными в реляционной БД, управляемой соответствующей СУБД 
   - C++
 
 <a name="py"></a>
 ### Python
 - Python basis 
+  - Python - ЯП общего назначения, ориентированный на повышение производительности разработчика и читаемости кода
   - principles
     - User defined attributes 
       - `doc` [docs.python.org: Python Data model](https://docs.python.org/3/reference/datamodel.html)
@@ -65,7 +66,11 @@
   - Наследование и композиция: руководство по ООП в Python https://webdevblog.ru/nasledovanie-i-kompoziciya-rukovodstvo-po-oop-python
   - Перестаньте писать классы https://habr.com/ru/post/140581/
 - библиотеки
-  - base libs 
+  - base libs
+    - datetime - для работы с временем и датой
+    - requests - для составления HTTP-запросов
+    - re - для работы с регулярными выражениями
+    - bs4 - для извлечения данных из файлов HTML и XML
     - argparse
       - альтернативы argparse (согласно dl x5 2020 https://youtu.be/W5GFH1erQ4U)
         - argparse
@@ -74,6 +79,7 @@
   - DA-libs. Библиотеки для работы с данными
     - numpy, pandas, matplotlib
     - seaborn, joinplot
+    - sklearn 
     - python for db: https://www.coursera.org/learn/python-databases
   - Py web frameworks
     - Flask 
@@ -93,6 +99,10 @@
   - Google Python Style Guide
     - https://google.github.io/styleguide/pyguide.html
     - https://github.com/google/styleguide/blob/gh-pages/pyguide.md
+- Литература
+  - рекомендуемые книги по Python
+    - Learning Python (O'Reilly)
+    - Python for Data Analysis
 
 ### C++
 - Курс «Основы разработки на C++: белый пояс»: Илья Шишков, Антон Полднев, Евгений Парамонов, Иван Лежанкин
@@ -184,6 +194,9 @@
     - tips and tricks
       - `hotkey` номера строк в jupyter включаются по `Esc+L`
       - `post` [DataQuest: 28 Jupyter Notebook tips, tricks and shortcuts](https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts)
+  - клиенты БД
+    - DBeaver - бесплатный универсальный инструмент для управления БД
+    - SuperSet - веб-клиент
 
 <a name="env"></a>
 # Среда и окружение
@@ -193,7 +206,7 @@
       - tensorflow virualenv
         - https://medium.com/@margaretmz/anaconda-jupyter-notebook-tensorflow-and-keras-b91f381405f8
         - https://docs.docker.com/toolbox/toolbox_install_windows/
-  - Docker
+  - Docker - ПО для автоматизации развёртывания и управления приложениями в среде виртуализации на уровне ОС
 - ОС
   - Ubuntu Linux
     - tips and tricks 
