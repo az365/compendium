@@ -288,6 +288,7 @@
 
 <a name="linalg"></a>
 ## Линейная алгебра
+
 ### Основные конструкции
 - скаляр
 - вектор
@@ -296,7 +297,7 @@
   - векторное исчисление 
     - векторная алгебра
       - сложение, умножение векторов на число 
-      - произведения векторов: скалярное, псевдоскалярное, векторное, смешанное, двойное векторное, ...
+      - произведения векторов: скалярное (внутреннее), псевдоскалярное, векторное (внешнее), смешанное, двойное векторное, ...
       - аналитическая геометрия - геометрические свойства: коллинеарность, компланарность векторов, свойства векторного базиса
       - тензорная алгебра - расширение векторной алгебры: алгебраические операции над тензорами 
     - векторный анализ
@@ -336,6 +337,19 @@
         - пространства непрерывных функций
         - пространства интегрируемых функций
 - матрица и определитель
+  - ранг (столбцовый/строчный) - число линейно независимых столбцов/строк
+  - область значений и нуль-пространство (согласно [Otus: Линейная алгебра для исследователей данных @ Habr](https://habr.com/ru/company/otus/blog/562744))
+    - `span({x1...xn})` = линейная оболочка (векторов `{x1...xn}`) - множество всех векторов, которые могут быть представлены линейной комбинацией векторов `{x1...xn}`
+    - область значений `R(A)` = пространством столбцов матрицы `A` - линейная оболочка её столбцов
+    - `kerA` = `N(A)` = ядро матрицы = нуль-пространство - множество всех векторов, которые при умножении на `A` обращаются в нуль
+  - что надо знать DS про матрицы (согласно [SkillFactory: Линейная алгебра для DS и ML @ Habr](https://habr.com/ru/company/skillfactory/blog/556954))
+    - транспонирование матрицы 
+    - обратная матрица
+    - определитель матрицы
+    - след матрицы - сумма элементов на ее главной диагонали
+    - скалярное произведение
+    - собственные значения
+    - собственные векторы
 - тензор
   - тензорное исчисление - расширение векторного исчисления
     - тензорная алгебра - расширение векторной алгебры: алгебраические операции над тензорами
@@ -344,12 +358,20 @@
           - `course` [coursera: Intro to DeepLearning - Matrix Derivatives](https://www.coursera.org/learn/intro-to-deep-learning/lecture/YTunl/other-matrix-derivatives)
           - `pdf` `article` [github: Erik Learned-Miller - Vector, Matrix, and Tensor Derivatives](https://compsci697l.github.io/docs/vecDerivs.pdf)
           - `pdf` `book` [matrixcookbook.com: The Matrix CookBook](https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf)
+
 ### Применения
 - Решение систем линейных алгебраических уравнений
 - Теория представлений
 - Линейное программирование
 - Эконометрика
 - Квантовая механика
+
+### Литература
+- `post` [SkillFactory: Линейная алгебра для DS и ML @ Habr](https://habr.com/ru/company/skillfactory/blog/556954)
+- `post` [Otus: Линейная алгебра для исследователей данных @ Habr](https://habr.com/ru/company/otus/blog/562744)
+- `course` [coursera: Intro to DeepLearning - Matrix Derivatives](https://www.coursera.org/learn/intro-to-deep-learning/lecture/YTunl/other-matrix-derivatives)
+- `pdf` `article` [github: Erik Learned-Miller - Vector, Matrix, and Tensor Derivatives](https://compsci697l.github.io/docs/vecDerivs.pdf)
+- `pdf` `book` [matrixcookbook.com: The Matrix CookBook](https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf)
 
 <a name="discrete"></a>
 ## Дискретная математика
