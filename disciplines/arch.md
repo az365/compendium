@@ -4,225 +4,229 @@
 
 ### Basics 
 - https://www.youtube.com/watch?v=xpDnVSmNFX0&list=PLMCXHnjXnTnvo6alSjVkgxV-VH6EPyvoX&index=2
-    - vertical vs horizontal scaling
-        - vertical: buy bigger machine
-        - horizontal: buy more machines
-        - props and cons 
-            - load balancer vs n/a 
-            - resilient vs single point of failure
-            - network cable (RPC) vs inter process communications
-            - data may be inconsistent vs consistency
-            - scales well vs hardware limit
-    - load balancing
-        - cosistent hashing
-    - message queue
-        - like pizza shop
-        - database
-        - notifier
-    - microservices
-        - microservices vs monoliths
-    - database sharding - horizontal partitioning
-    - distributed caching (w Redis)
-        - goals / use cases / scenarios 
-            - reduce network calls
-            - avoid recomputions
-            - reduce db load 
-        - caching policy
-            - LRU (last recently used)
-            - sliding window based policy (Google caffeine)
-        - Redis - cache for DB
-        - types
-            - write through 
-            - write back
-    - api designing
-        - what, params -> resutl, errors 
-            - naming 
-            - parameters
-            - response object designing
-    - how to avoid single points of failure
-        - more nodes
-        - master/slave
-        - multiple regions 
-    - sql vs nosql
-        - cassandra - key/value
-            - load balancing
-            - redundance/replication
-            - ...
+  - vertical vs horizontal scaling
+    - vertical: buy bigger machine
+    - horizontal: buy more machines
+    - props and cons 
+      - load balancer vs n/a 
+      - resilient vs single point of failure
+      - network cable (RPC) vs inter process communications
+      - data may be inconsistent vs consistency
+      - scales well vs hardware limit
+  - load balancing
+    - cosistent hashing
+  - message queue
+    - like pizza shop
+    - database
+    - notifier
+  - microservices
+    - microservices vs monoliths
+  - database sharding - horizontal partitioning
+  - distributed caching (w Redis)
+    - goals / use cases / scenarios 
+      - reduce network calls
+      - avoid recomputions
+      - reduce db load 
+    - caching policy
+      - LRU (last recently used)
+      - sliding window based policy (Google caffeine)
+    - Redis - cache for DB
+    - types
+      - write through 
+      - write back
+  - api designing
+    - what, params -> resutl, errors 
+      - naming 
+      - parameters
+      - response object designing
+  - how to avoid single points of failure
+    - more nodes
+    - master/slave
+    - multiple regions 
+  - sql vs nosql
+    - cassandra - key/value
+      - load balancing
+      - redundance/replication
+      - ...
 
 ### APIs 
 - API Gateway https://www.youtube.com/watch?v=vHQqQBYJtLI
-    - features
-        1 separate out cross cutting concerns
-            - authentication
-            - authorization
-            - ssl termination
-            - DDoS protection / throttling
-        2 separate and colsolidate cross cutting concerns across microservices
-            - authentication
-            - authorization
-            - ssl termination
-            - DDoS protection / throttling
-            - routing
-        3 replacing multiple client calls with single API
-            - also some features of reverse proxy
-                - serving static content
-                - caching responses
-        4 routing based on headers, paths and params etc
-            - also some features of load balancer component
-                - load balancing
-                - AB-testing
-                - canary releases
-    - examples
-        - self managed
-            - apache
-            - HAProxy
-            - HGINX
-            - Spring cloud gateway
-        - cloud services
-            - AWS API Gateway
-            - Azure API Gateway
-            - Google cloud endpoints
-            - Apigee
+  - features
+    - 1 separate out cross cutting concerns
+      - authentication
+      - authorization
+      - ssl termination
+      - DDoS protection / throttling
+    - 2 separate and colsolidate cross cutting concerns across microservices
+      - authentication
+      - authorization
+      - ssl termination
+      - DDoS protection / throttling
+      - routing
+    - 3 replacing multiple client calls with single API
+      - also some features of reverse proxy
+        - serving static content
+        - caching responses
+    - 4 routing based on headers, paths and params etc
+      - also some features of load balancer component
+        - load balancing
+        - AB-testing
+        - canary releases
+  - examples
+    - self managed
+      - apache
+      - HAProxy
+      - HGINX
+      - Spring cloud gateway
+    - cloud services
+      - AWS API Gateway
+      - Azure API Gateway
+      - Google cloud endpoints
+      - Apigee
 - API management in Digital transformations - https://www.youtube.com/watch?v=71VR84MtT-o
-    - API management
-        - Applications
-        - API endpoints
-            - security
-            - onboarding
-            - transform
-            - caching
-            - analytics
-            - quotas
-        - Business logic
-        - Data layer
-    - Key components of API management platform
-        - API gateway
-            - security
-            - performance
-            - transformation
-            - lifecycle management
-            - caching
-        - API portal
-            - documentation
-            - onboardings
-            - packaging
-            - analytics
-            - monetization
-        - Data layer
-            - Data Backend as a Service (DBaaS)
-    - exemple: API strategy for an e-commerce
-        - b2b & b2c API program (100k users)
-        - 20 public & 100 internal APIs
-        - automatic key generation
-        - 500 API calls/day per user
-        - XML, JSON support
-        - create app ecosystem around product & inventory data
+  - API management
+    - Applications
+    - API endpoints
+      - security
+      - onboarding
+      - transform
+      - caching
+      - analytics
+      - quotas
+    - Business logic
+    - Data layer
+  - Key components of API management platform
+    - API gateway
+      - security
+      - performance
+      - transformation
+      - lifecycle management
+      - caching
+    - API portal
+      - documentation
+      - onboardings
+      - packaging
+      - analytics
+      - monetization
+    - Data layer
+      - Data Backend as a Service (DBaaS)
+  - exemple: API strategy for an e-commerce
+    - b2b & b2c API program (100k users)
+    - 20 public & 100 internal APIs
+    - automatic key generation
+    - 500 API calls/day per user
+    - XML, JSON support
+    - create app ecosystem around product & inventory data
 
 ### Examples
 - netflix
-    - scenes/chunks
-    - converting
-    - caching on isp
+  - scenes/chunks
+  - converting
+  - caching on isp
 - tinder
-    - sotre profiles
-        - photos: blob (vs file)
-            - mutability
-            - transaction garanties (ACID)
-                - atomicity
-                - consistency
-                - isolation
-                - mutability
-            - indexes (search)
-            - access control
-    - recommend matches
-        - cassandra/dynamo - for profiles and recommendations
-    - note matches
-    - direct messaging
-        - XMPP (eXtensible Messaging and Presence Protocol) = Jabber
-        - TCP (Transmission Control Protocol) 
-        - web socket connection (API Web Sockets ещё стандартизируется)
-            - для обмена между браузером и веб-сервисом в реальном времени
-            - поверх TCP
+  - sotre profiles
+    - photos: blob (vs file)
+      - mutability
+      - transaction garanties (ACID)
+        - atomicity
+        - consistency
+        - isolation
+        - mutability
+      - indexes (search)
+      - access control
+  - recommend matches
+    - cassandra/dynamo - for profiles and recommendations
+  - note matches
+  - direct messaging
+    - XMPP (eXtensible Messaging and Presence Protocol) = Jabber
+    - TCP (Transmission Control Protocol) 
+    - web socket connection (API Web Sockets ещё стандартизируется)
+      - для обмена между браузером и веб-сервисом в реальном времени
+      - поверх TCP
 - whatsapp
-    - features
-        - group messaging
-        - sent + delivered + read receipts
-        - online / last seen 
-        - image sharing 
-        - chats are temporary/persistent
-    - components
-        - gatewaw(s)
-        - sessions microservice 
-        - logical sockets
-        - auth service
-        - group services
-        - threads
-        - apache/facebook thrift - framework for RPC 
-        - consistent hashing
-            - retrial - 
-            - imdempotency - свойство давать тот же результат при повторном применении к объекту
-            - ordering
-        - deprioritize messages 
+  - features
+    - group messaging
+    - sent + delivered + read receipts
+    - online / last seen 
+    - image sharing 
+    - chats are temporary/persistent
+  - components
+    - gatewaw(s)
+    - sessions microservice 
+    - logical sockets
+    - auth service
+    - group services
+    - threads
+    - apache/facebook thrift - framework for RPC 
+    - consistent hashing
+      - retrial - ...
+      - imdempotency - свойство давать тот же результат при повторном применении к объекту
+      - ordering
+    - deprioritize messages 
 - instagram
   - ...
 
+<a name="cloud"></a>
 ## Cloud apps 
-- cloud native cocept
-  - CNCF Cloud Native Interactive Landscape https://landscape.cncf.io/		
+- cloud native concept
+  - `site` [CNCF Cloud Native Interactive Landscape](https://landscape.cncf.io/)		
 - cloud platforms
-  - amazon aws
-    - aws изучать aws.amazon.com/ru/getting-started
-  - google cloud
-    - anthos = бывший cloud services platform
-            - главное
-                - GKE On-Perm - локальная оркестрация контейнеров инфраструктуры
-                - Istio - менеджмент микросервисов 
-                - GCP - облачные возможности 
-            - built on
-                - kubernetes - управление контейнеризируемыми приложениями (нода/под/том/контейнер)
-                - istio - решает сложности микросервисов: управление трафиком, безопасность, наблюдаемость
-                - knative - Kubernetes-based platform to build, deploy, and manage modern serverless workloads
-            - anthos platform
-                - application operation
-                    - ci/cd 
-                    - serverless 
-                    - marketplace 
-                    - api management 
-                    - observability & diagnostics 
-                - network and security operation 
-                    - policy & config management 
-                    - identity management 
-                    - service discovery & management 
-                    - secure software supply chain 
-                    - zero trust network security 
-                    - secure multitenancy 
-                - platform operation
-                    - managed kubernetes
-                    - centralized management
-                    - network
-                    - storage management
-                    - migration
-                    - monitoring 
-                - infrastructure
-                    - on-permises
-                    - public cloud 
-            - core components
-                - running anthos on-premises 
-                - google kubernetes engine 
-                - anthos config management 
-                - istio on GKE 
-                - kubernetes applications on GCP marketplace
-                - cloud run for anthos 
-                - migrate for anthos 
-            - integrated services
-                - stackdriver
-                - apigee
-                - continuous integration 
-                - continuous delivery
-                - google cloud hybrid connectivity 
-                - cloud identity-aware proxy 
-- ms azure
-- yandex cloud
+  - Amazon AWS
+    - `doc` [AWS: Getting Started](https://aws.amazon.com/ru/getting-started)
+    - AWS spot option
+      - `doc` [Overview of Spot mechanism](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
+      - `guide` [Spot Setup Guide](http://www.datasciencebowl.com/aws_guide/)
+  - Google Cloud Platform
+    - Anthos = бывший Cloud Services Platform
+      - главное
+        - GKE On-Perm - локальная оркестрация контейнеров инфраструктуры
+        - Istio - менеджмент микросервисов 
+        - GCP - облачные возможности 
+      - built on
+        - kubernetes - управление контейнеризируемыми приложениями (нода/под/том/контейнер)
+        - istio - решает сложности микросервисов: управление трафиком, безопасность, наблюдаемость
+        - knative - Kubernetes-based platform to build, deploy, and manage modern serverless workloads
+      - anthos platform
+        - application operation
+          - ci/cd 
+          - serverless 
+          - marketplace 
+          - api management 
+          - observability & diagnostics 
+        - network and security operation 
+          - policy & config management 
+          - identity management 
+          - service discovery & management 
+          - secure software supply chain 
+          - zero trust network security 
+          - secure multitenancy 
+        - platform operation
+          - managed kubernetes
+          - centralized management
+          - network
+          - storage management
+          - migration
+          - monitoring 
+        - infrastructure
+          - on-permises
+          - public cloud 
+      - core components
+        - running anthos on-premises 
+        - google kubernetes engine 
+        - anthos config management 
+        - istio on GKE 
+        - kubernetes applications on GCP marketplace
+        - cloud run for anthos 
+        - migrate for anthos 
+      - integrated services
+        - stackdriver
+        - apigee
+        - continuous integration 
+        - continuous delivery
+        - google cloud hybrid connectivity 
+        - cloud identity-aware proxy 
+  - MS Azure
+  - Yandex Cloud
 
 <a name="dev"></a>
 ## Development
@@ -233,69 +237,69 @@
 - объектно-ориентированная парадигма
 
 ### Паттерны проектирования
-- зачем: для описания API и соглашений между компонентами)
+- зачем: для описания API и соглашений между компонентами
 - классификация паттернов
-      - fundamental
-          - delegation
-          - functional design - каждый модуль имеет 1 обязанность, минимизация побочных эффектов
-          - immutable interface
-          - interface
-          - marker interface 
-          - property container
-          - event channel 
-      - creational
-          - astract factory
-          - builder
-          - factory method 
-          - lazy initialization
-          - multiton 
-          - singleton
-          - prorotype 
-          - RAII (resource acquisition is initialization) 
-      - structural
-          - adapter/wrapper 
-          - bridge 
-          - composite 
-          - decorator - расширение функциональность без наследования 
-          - facade - абстрагирует несколько объектов как один 
-          - front controller - единая точка входа 
-          - flyweight - приспособленец, прикидывается уникальным экземпляром
-          - proxy
-      - behavioral 
-          - chain of responsibility
-          - command
-          - interpreter 
-          - iterator 
-          - mediator - посредник
-          - memento - хранитель, сохраняет состояние объекта, чтобы потом восстановить
-          - null object - объект по умолчанию
-          - observer (listener) = publish/subscribe
-          - servant - слуга, общая функциональность группы классов 
-          - specification - связывание бизнес-логики 
-          - state - когда объект меняет поведение в зависимости от состояния
-          - strategy - семейство взаимозаменяемых инкапсулированных алгоритмов 
-          - template method - основа алгоритма, шаги переопределяются наследниками
-          - visitor 
-      - concurrancy
-          - active object - отделение потока выполнения метода от потока, в котором он был вызван 
-          - balking - действие выполняется над объектом только, когда он в корректном сосоянии
-          - binding properties - несколько наблюдателей синхронизируют свойства разных объектов 
-          - MDP (messaging design pattern)
-          - double-checked locking
-          - event-based asynchronous 
-          - guarded suspension
-          - half-sync/half-async 
-          - leaders/followers 
-          - lock 
-          - monitor object - для безопасного использования несколькими потоками 
-          - reactor - синхронная передача запросов к сервису от нескольких источников 
-          - read-write lock 
-          - sheduler 
-          - thread pool 
-          - thread-specific storage - разные глобальные переменные для разных потоков 
-          - single thread execution 
-          - cooperative pattern - безопасная остановка потоков общим флагом 
-      - architectural
+  - fundamental
+    - delegation
+    - functional design - каждый модуль имеет 1 обязанность, минимизация побочных эффектов
+    - immutable interface
+    - interface
+    - marker interface 
+    - property container
+    - event channel 
+  - creational
+    - astract factory
+    - builder
+    - factory method 
+    - lazy initialization
+    - multiton 
+    - singleton
+    - prorotype 
+    - RAII (resource acquisition is initialization) 
+  - structural
+    - adapter/wrapper 
+    - bridge 
+    - composite 
+    - decorator - расширение функциональность без наследования 
+    - facade - абстрагирует несколько объектов как один 
+    - front controller - единая точка входа 
+    - flyweight - приспособленец, прикидывается уникальным экземпляром
+    - proxy
+  - behavioral 
+    - chain of responsibility
+    - command
+    - interpreter 
+    - iterator 
+    - mediator - посредник
+    - memento - хранитель, сохраняет состояние объекта, чтобы потом восстановить
+    - null object - объект по умолчанию
+    - observer (listener) = publish/subscribe
+    - servant - слуга, общая функциональность группы классов 
+    - specification - связывание бизнес-логики 
+    - state - когда объект меняет поведение в зависимости от состояния
+    - strategy - семейство взаимозаменяемых инкапсулированных алгоритмов 
+    - template method - основа алгоритма, шаги переопределяются наследниками
+    - visitor 
+  - concurrancy
+    - active object - отделение потока выполнения метода от потока, в котором он был вызван 
+    - balking - действие выполняется над объектом только, когда он в корректном сосоянии
+    - binding properties - несколько наблюдателей синхронизируют свойства разных объектов 
+    - MDP (messaging design pattern)
+    - double-checked locking
+    - event-based asynchronous 
+    - guarded suspension
+    - half-sync/half-async 
+    - leaders/followers 
+    - lock 
+    - monitor object - для безопасного использования несколькими потоками 
+    - reactor - синхронная передача запросов к сервису от нескольких источников 
+    - read-write lock 
+    - sheduler 
+    - thread pool 
+    - thread-specific storage - разные глобальные переменные для разных потоков 
+    - single thread execution 
+    - cooperative pattern - безопасная остановка потоков общим флагом 
+  - architectural
 
 ### Уровни протоколов/архитектур
 - архитектуры
@@ -327,16 +331,18 @@
   - TCP - Transmission Control Protocol
   - UDP - User Datagram Protocol
 
+<a name="tools"></a>
 ### Инструменты архитектора
-  - ArchiMate
-  - SAP (Sybase) PowerDesigner
-    - средство UML-поектирования
-    - есть 30-дневный trial https://www.sap.com/products/powerdesigner-data-modeling-tools.html
-    - Sybase PowerDesigner — одно из лучших средств UML проектирования https://habr.com/ru/post/15761/
-      - нерекомендованные аналоги: Rational Rose, Visual Paradigm for UML, Umbrello UML Modeller, Poseidon for UML
-  - Enterprise Architect - CASE-инструмент
-  - нотации UML, BPMN
+- ArchiMate
+- SAP (Sybase) PowerDesigner
+  - средство UML-поектирования
+  - есть 30-дневный trial https://www.sap.com/products/powerdesigner-data-modeling-tools.html
+  - Sybase PowerDesigner — одно из лучших средств UML проектирования https://habr.com/ru/post/15761/
+    - нерекомендованные аналоги: Rational Rose, Visual Paradigm for UML, Umbrello UML Modeller, Poseidon for UML
+- Enterprise Architect - CASE-инструмент
+- нотации UML, BPMN
 
+<a name="principles"></a><a name="culture"></a>
 ### Principles and culture 
 - стремление к простоте
   - rich hickey - simple made easy
@@ -345,171 +351,172 @@
 <a name="data"></a>
 ## Data
 - базы данных
-    - RDBMS/реляционные
-        - нормальные формы
-            - 1NF
-            - 2NF
-            - 3NF+
-        - популярные СУБД 
-            - PostgreSQL - свободная объектно-реляционная СУБД 
-            - GreenPlum - распределённый PostgreSQL 
-            - ClickHouse - не тормозит 
-        - 12 правил реляционных субд: https://ru.wikipedia.org/wiki/12_%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB_%D0%9A%D0%BE%D0%B4%D0%B4%D0%B0
-        - python for db: https://www.coursera.org/learn/python-databases
-    - аналитические
-        - просто и доступно об аналитических БД https://habrahabr.ru/post/149641/
-        - Массово-параллельная архитектура: https://ru.wikipedia.org/wiki/%D0%9C%D0%B0%D1%81%D1%81%D0%BE%D0%B2%D0%BE-%D0%BF%D0%B0%D1%80%D0%B0%D0%BB%D0%BB%D0%B5%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F_%D0%B0%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0
-        - ...
-    - NoSQL
-        - MongoDB - документоориентированная СУБД с открытым кодом, не требующая описания схемы таблиц
-            - использует JSON-подобные документы и схему базы данных
-            - написана на C++
-            - применяется в веб-разработке
-        - Hadoop - технология/фреймворк/экосистема распределённых вычислений на кластерах из сотен и тысяч узлов
-    - БД для логов
-        - CH vs ELK https://habr.com/ru/company/ua-hosting/blog/483112
-    - схемы данных
-        - логическах схема - модель БД, выраженная в терминах модели данных
-            - 3 аспекта
-                - аспект структуры: методы описания типов и логических структур данных в базе данных
-                - аспект манипуляции: способы извлечения и модификации данных
-                - аспект целостности: методы описания и поддержки целостности базы данных.
-            - модели баз данных (каждый по-своему отвечает на эти 3 аспекта)
-                - реляционная
-                - иерархическая
-                - ER-модель - entity-relationship model - описывает концептуальные схемы предметной области
-                - объектная модель
-        - физическая схема
-            - описывает 
-                - типы, идентификаторы и разрядность полей
-                - размещение данных на машинных носителях, то есть, какой файл, какие объекты, с какими атрибутами содержит
-            - Онлайн генератор схем баз данных https://habr.com/ru/post/111754/
+  - RDBMS/реляционные
+    - нормальные формы
+      - 1NF
+      - 2NF
+      - 3NF+
+    - популярные СУБД 
+      - PostgreSQL - свободная объектно-реляционная СУБД 
+      - GreenPlum - распределённый PostgreSQL 
+      - ClickHouse - не тормозит 
+    - 12 правил реляционных субд: https://ru.wikipedia.org/wiki/12_%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB_%D0%9A%D0%BE%D0%B4%D0%B4%D0%B0
+    - python for db: https://www.coursera.org/learn/python-databases
+  - аналитические
+    - просто и доступно об аналитических БД https://habrahabr.ru/post/149641/
+    - Массово-параллельная архитектура: https://ru.wikipedia.org/wiki/%D0%9C%D0%B0%D1%81%D1%81%D0%BE%D0%B2%D0%BE-%D0%BF%D0%B0%D1%80%D0%B0%D0%BB%D0%BB%D0%B5%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F_%D0%B0%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0
+    - ...
+  - NoSQL
+    - MongoDB - документоориентированная СУБД с открытым кодом, не требующая описания схемы таблиц
+      - использует JSON-подобные документы и схему базы данных
+      - написана на C++
+      - применяется в веб-разработке
+    - Hadoop - технология/фреймворк/экосистема распределённых вычислений на кластерах из сотен и тысяч узлов
+  - БД для логов
+    - CH vs ELK https://habr.com/ru/company/ua-hosting/blog/483112
+  - схемы данных
+    - логическах схема - модель БД, выраженная в терминах модели данных
+      - 3 аспекта
+        - аспект структуры: методы описания типов и логических структур данных в базе данных
+        - аспект манипуляции: способы извлечения и модификации данных
+        - аспект целостности: методы описания и поддержки целостности базы данных.
+      - модели баз данных (каждый по-своему отвечает на эти 3 аспекта)
+        - реляционная
+        - иерархическая
+        - ER-модель - entity-relationship model - описывает концептуальные схемы предметной области
+        - объектная модель
+    - физическая схема
+      - описывает 
+        - типы, идентификаторы и разрядность полей
+        - размещение данных на машинных носителях, то есть, какой файл, какие объекты, с какими атрибутами содержит
+      - Онлайн генератор схем баз данных https://habr.com/ru/post/111754/
 - etl/elt and data management
-    - https://www.youtube.com/channel/UCrR22MmDd5-cKP2jTVKpBcQ Intricity101
-    - etl-инструменты, работающие с hadoop: Informatica, IBM Datastage, SAS и Pentaho Data Integration
-    - NiFi умеет работать с HDFS, Hive, HBase, Solr, Cassandra, MongoDB, ElastcSearch, Kafka, RabbitMQ, Syslog, HTTPS, SFTP
-    - другие ETL-средства: OWB, DTS/SSIS, DataStage, ODI/Sunopsis
+  - https://www.youtube.com/channel/UCrR22MmDd5-cKP2jTVKpBcQ Intricity101
+  - etl-инструменты, работающие с hadoop: Informatica, IBM Datastage, SAS и Pentaho Data Integration
+  - NiFi умеет работать с HDFS, Hive, HBase, Solr, Cassandra, MongoDB, ElastcSearch, Kafka, RabbitMQ, Syslog, HTTPS, SFTP
+  - другие ETL-средства: OWB, DTS/SSIS, DataStage, ODI/Sunopsis
 - data lake, data warehouse, API management
-    - архитектура хранилищ данных https://habr.com/ru/post/441538/
-        - традиционная
-            - Kimball vs Inmon
-                - Kimball - сочетание витрин данных (снизу-вверх)
-                - Inmon - нормализованная модель (сверху-вниз)
-            - модели хранилищ данных
-                - виртуальное - набор БД, которые можно использ. совместно
-                - модель витрины данных
-                - модель корпоративного хранилища
-            - звезда vs снежинка
-            - ETL vs ELT
-            - организационная зрелость
-                - DataSources : Warehouse : Users
-                - DataSources : StagingArea : Warehouse : Users
-                - DataSources : StagingArea : Warehouse : DataMarts : Users
-        - облака
-            - колоночные БД
-                - Amazon Redshift
-                - Google BigQuery
-            - Panoply - самооптимизирующееся управление данными
-    - data lake https://www.youtube.com/watch?v=hsq4s_l9ZDMz
-        - why datalake
-            - increasing data volumes
-            - workload complexity
-            - productivity & agile development
-            - time to value
-            - data collaboration
-        - best practices
-            - focus on architecture of services and APIs
-                - design of Data Lake should be driven by what is available rather what is required; the schema and data requirement are not defined until it is required
-                - design should be guided by disposable components integrated through service APIs
-                - data discovery & ingestion, storage & administration, quality & transformation and visualisation & interaction sould be managed independently
-            - support of native data types and industry
-                - architectural components, their interactions and identified products should naturally support native data types through the entire pipeline
-                - the architecture must be tailored to specific industry, to ensure that capabilities standard and necessary for that domain are inherent part of the design
-            - data servicing and governance
-                - faster onboarding of newly discovered data sources is important
-                - data profiling, data policies, lineage and security are properly enforced
-                - usage monitoring, data tagging, data parsing, data correlation, data workflows are all important aspects of the Data Lake platform
-            - search over data lake is crucial
-                - ability to discover and find data elements being managed with the Lake
-                - finding data insights via identification, unification and correlations across system is equally important
-                - analytics and audit of this search is equally important to understand what are users looking for and how they are utilizing it
-            - metadata management cannot be an after-thought
-                - metadata cataloging should be a must to the design of Data Lake
-                - Automation of metadata extraction, analyze, correlation and tracking
-        - take away
-            - know your sources
-                - data first; schema later
-                - discover and keep discovering for unknown
-            - study them well
-                - analyze them, understand their character, know their ingredients
-                - correlate the properties with the source origin
-                - determine how multiple sources interact and correlate with each other
-            - improved analytics
-                - relationship between various data sets
-                - separate out technical and business types of attrubutes in individual data sets
-            - measure and monitor
-                - track the usage at consumption; based on what is consumed, not what was sourced
-                - new data arrivals/removals/edits
-                - how well you monitor, manage and administrate the process
-            - do not overbuild
-                - data lake is meant to be flexible; don't overburden
-                - aim big but evolve gradually - both structre as well as storage
-                - focus more on analytics and insights, relatively less on data quantum
-    - кейсы
-        - Data Lake – от теории к практике. Сказ про то, как мы строим ETL на Hadoop: https://habrahabr.ru/company/tcsbank/blog/259173/
+  - архитектура хранилищ данных https://habr.com/ru/post/441538/
+    - традиционная
+      - Kimball vs Inmon
+        - Kimball - сочетание витрин данных (снизу-вверх)
+        - Inmon - нормализованная модель (сверху-вниз)
+      - модели хранилищ данных
+        - виртуальное - набор БД, которые можно использ. совместно
+        - модель витрины данных
+        - модель корпоративного хранилища
+      - звезда vs снежинка
+      - ETL vs ELT
+      - организационная зрелость
+        - DataSources : Warehouse : Users
+        - DataSources : StagingArea : Warehouse : Users
+        - DataSources : StagingArea : Warehouse : DataMarts : Users
+    - облака
+      - колоночные БД
+        - Amazon Redshift
+        - Google BigQuery
+      - Panoply - самооптимизирующееся управление данными
+  - data lake https://www.youtube.com/watch?v=hsq4s_l9ZDMz
+    - why datalake
+      - increasing data volumes
+      - workload complexity
+      - productivity & agile development
+      - time to value
+      - data collaboration
+    - best practices
+      - focus on architecture of services and APIs
+        - design of Data Lake should be driven by what is available rather what is required; the schema and data requirement are not defined until it is required
+        - design should be guided by disposable components integrated through service APIs
+        - data discovery & ingestion, storage & administration, quality & transformation and visualisation & interaction sould be managed independently
+      - support of native data types and industry
+        - architectural components, their interactions and identified products should naturally support native data types through the entire pipeline
+        - the architecture must be tailored to specific industry, to ensure that capabilities standard and necessary for that domain are inherent part of the design
+      - data servicing and governance
+        - faster onboarding of newly discovered data sources is important
+        - data profiling, data policies, lineage and security are properly enforced
+        - usage monitoring, data tagging, data parsing, data correlation, data workflows are all important aspects of the Data Lake platform
+      - search over data lake is crucial
+        - ability to discover and find data elements being managed with the Lake
+        - finding data insights via identification, unification and correlations across system is equally important
+        - analytics and audit of this search is equally important to understand what are users looking for and how they are utilizing it
+      - metadata management cannot be an after-thought
+        - metadata cataloging should be a must to the design of Data Lake
+        - Automation of metadata extraction, analyze, correlation and tracking
+    - take away
+      - know your sources
+        - data first; schema later
+        - discover and keep discovering for unknown
+      - study them well
+        - analyze them, understand their character, know their ingredients
+        - correlate the properties with the source origin
+        - determine how multiple sources interact and correlate with each other
+      - improved analytics
+        - relationship between various data sets
+        - separate out technical and business types of attrubutes in individual data sets
+      - measure and monitor
+        - track the usage at consumption; based on what is consumed, not what was sourced
+        - new data arrivals/removals/edits
+        - how well you monitor, manage and administrate the process
+      - do not overbuild
+        - data lake is meant to be flexible; don't overburden
+        - aim big but evolve gradually - both structre as well as storage
+        - focus more on analytics and insights, relatively less on data quantum
+  - кейсы
+    - Data Lake – от теории к практике. Сказ про то, как мы строим ETL на Hadoop: https://habrahabr.ru/company/tcsbank/blog/259173/
+<a name="bigdata"></a>
 - big data
-    - hadoop-stack
-        - main tools structure https://www.youtube.com/watch?v=OoEpfb6yga8
-            - load
-                - flume - log aggregation, загрузка данных из источников
-                - sqoop - data transfer between HDFS and RDBMS
-            - data platform
-                - hcatalog
-                - compute&storage nodes
-                - ambari
-            - output
-                - interactive
-                    - hive/sql
-                - batch
-                    - mapreduce
-                    - PIG - for ETL
-                - online
-                    - hbase (i.e. Facebook messages)
-                    - zookeeper - coordination
-            - additional tools
-                - mahout - ML tools
-                - ambari, ganglia, nagios
-                - cascading
-                - oozie
-                - protobuf, avro, thrift - serialization libraries
-                - 
-        - distributives
-            - hortonworks
-            - cloudera CDH
-                - HDFS
-                - MapReduce
-                - YARN - Yet Another Resource Negotiator - вместо(?) MR при переходе от Hadoop1 к Hadoop2
-                - Zookeeper
-                - Hbase
-                - Hive
-                - Oozie
-                - Hue - GUI
-                - Flume
-                - Impala - SQL interface for DHFS and HBase
-                - Sqoop
-                - Solr
-                - Keystore Indexer
-            - MapR
-    - другие варианты кластеров для ml-задач
-        - shared fs+GNU parallel+conda
-        - hyperopt+MongoDB+Docker
-    - шедулинг задач по графам
-        - apache airflow как планировщик etl-процессов (DAGs)
-        - luigi
-        - uber michelangelo - ml-фреймворк
-        - rapid miner
-        - yandex nirvana 
-    - литература
-        - `course` big data for engineers https://www.coursera.org/specializations/big-data-engineering
-        - `course` coursera.org/specializations/big-data-eneineering 5c*6w*8h
-        - `post` hadoop + cloudera + ... https://habrahabr.ru/post/151062/
+  - hadoop-stack
+    - main tools structure https://www.youtube.com/watch?v=OoEpfb6yga8
+      - load
+        - flume - log aggregation, загрузка данных из источников
+        - sqoop - data transfer between HDFS and RDBMS
+      - data platform
+        - hcatalog
+        - compute&storage nodes
+        - ambari
+      - output
+        - interactive
+          - hive/sql
+        - batch
+          - mapreduce
+          - PIG - for ETL
+        - online
+          - hbase (i.e. Facebook messages)
+          - zookeeper - coordination
+      - additional tools
+        - mahout - ML tools
+        - ambari, ganglia, nagios
+        - cascading
+        - oozie
+        - protobuf, avro, thrift - serialization libraries
+        - ... 
+    - distributives
+      - hortonworks
+      - cloudera CDH
+        - HDFS
+        - MapReduce
+        - YARN - Yet Another Resource Negotiator - вместо(?) MR при переходе от Hadoop1 к Hadoop2
+        - Zookeeper
+        - Hbase
+        - Hive
+        - Oozie
+        - Hue - GUI
+        - Flume
+        - Impala - SQL interface for DHFS and HBase
+        - Sqoop
+        - Solr
+        - Keystore Indexer
+      - MapR
+  - другие варианты кластеров для ml-задач
+    - shared fs+GNU parallel+conda
+    - hyperopt+MongoDB+Docker
+  - шедулинг задач по графам
+    - apache airflow как планировщик etl-процессов (DAGs)
+    - luigi
+    - uber michelangelo - ml-фреймворк
+    - rapid miner
+    - yandex nirvana 
+  - литература
+    - `course` big data for engineers https://www.coursera.org/specializations/big-data-engineering
+    - `course` coursera.org/specializations/big-data-eneineering 5c*6w*8h
+    - `post` hadoop + cloudera + ... https://habrahabr.ru/post/151062/
