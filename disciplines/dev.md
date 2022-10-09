@@ -21,7 +21,19 @@
 ### Python
 - Python basis 
   - Python - ЯП общего назначения, ориентированный на повышение производительности разработчика и читаемости кода
-  - principles
+  - basics 
+    - утиная типизация
+      - отличия от (не)строгой
+    - типы-контейнеры
+      - итераторы, генераторы, последовательности
+      - изменяемые, неизменяемые
+    - итерация
+      - `post` [Yong Cui @ TDS - Iter tricks](https://towardsdatascience.com/8-python-iteration-skills-that-data-scientists-shouldnt-miss-out-6b57fb35e00f)
+        - enumerate(), zip(), reversed(), filter(), chain()
+        - iterate dictionaries: keys(), values(), items()
+        - list|dict|set comprehensions
+        - the `else` clause (`for i in it: <...> else: <...>`)
+  - fundamentals
     - User defined attributes 
       - `doc` [docs.python.org: Python Data model](https://docs.python.org/3/reference/datamodel.html)
         - Objects, values and types
@@ -39,13 +51,31 @@
           - Customizing positional arguments in class pattern matching
           - Special method lookup 
         - Coroutines
-      - Пользовательские аттрибуты в Python https://habr.com/ru/post/137415
-    - утиная типизация 
-      - отличия от (не)строгой 
-  - типы-контейнеры 
-    - итераторы, генераторы, последовательности 
-    - изменяемые, неизменяемые 
-- модули и пакеты, создание и публикация на pipy
+      - `post` [Пользовательские аттрибуты в Python @ Habr](https://habr.com/ru/post/137415)
+        - type, object 
+        - object, class, instance 
+        - attributes 
+          - system defined: `__class__`, `__bases__`, `__dict`__`
+          - user defined: items in `__dict__`
+        - поиск аттрибута во время выполнения (attribute resolution order) 
+          - `o.__dict__` - сам объект и его системные аттрибуты
+          - `o.__class__.__dict__` - только `__dict__` класса, не системные атрибуты
+          - `o.__class__.__bases__.__dict__` - классы-предки
+        - дескриптор - объект, доступ к которому через атрибут переопределён методами в дескриптор-протоколе
+          - data descriptor реализует методы `__get__()`, `__set__()`
+          - non-data descriptor реализует метод `__get__()`
+          - приоритет поиска: `data descriptor`, `__dict__`, `non-data descriptor`
+          - `class property` выступает дескриптором данных
+          - встроенные дескрипторы: `staticmethod`, `classmethod`
+        - `__getattr__(), __setattr__(), __delattr__() и __getattribute__()`
+        - как происходит вызов `attrname` (attribute resolution order)
+          - `a.__class__.__getattribute__()`, если есть
+          - системный аттрибут (если `attrname` определён Python'ом: `__class__`, `__doc__`)
+          - если `attrname` в `a.__class__.__dict__` (включая базовые классы), вызывается его `__get__()`
+          - если `attrname` в `a.__dict__` (включая базовые, если `a` - класс), возвращается значение этой записи (`__get__()`, если там дескриптор данных)
+          - если `attrname` - non-data descriptor в `a.__class__.__dict__` (вкл. базовые), вызывается `__get__()` дескриптора или возвращается значение не-дескриптора
+          - вызывается `a.__class__.__getattr__()`, если есть, иначе `AttributeError`
+- модули и пакеты, создание и публикация на `pipy`
   - IBM - Программирование на Python: Часть 5. Модули https://www.ibm.com/developerworks/ru/library/l-python_part_5/index.html
   - Модули и пакеты https://younglinux.info/oopython/module.php
   - Создание python-пакетов https://klen.github.io/create-python-packages.html
@@ -75,6 +105,7 @@
         - facebook hydra
   - DA-libs. Библиотеки для работы с данными
     - numpy, pandas, matplotlib
+      - `post` [Preston Badeer @ TDS - 5 Pandas anti-patterns](https://towardsdatascience.com/please-stop-doing-these-5-things-in-pandas-9fbabea897aa)
     - seaborn, joinplot
     - sklearn 
     - python for db: https://www.coursera.org/learn/python-databases
