@@ -1,1285 +1,1498 @@
 # Machine Learning and Data Science
+
+<a name="prereq"></a>
 ## Based on
-- probability theories
-- math statistics
-- linear algebra
-- numerical optimisation
-- programming
+- [mathematics](./math.md)
+  - probability theories
+  - math statistics
+  - linear algebra
+  - numerical optimisation
+- [programming](./dev.md)
+
+<a name="supervised"></a>
 ## Supervised learning
-- обучение с учителем - на размеченных выборках
-- methods/models for regression&classification
-    - широкие обзоры методов
-        - Example from sklearn with different decision surfaces https://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html
-        - Overview of algorithms and parameters in H2O documentation http://docs.h2o.ai/h2o/latest-stable/h2o-docs/data-science.html
-    - linear regression
-        - Overview of Linear Models (sklearn's documentation) http://scikit-learn.org/stable/modules/linear_model.html
-        - Vowpal Wabbit repository https://github.com/JohnLangford/vowpal_wabbit
-    - logistic regression
-        - L=..., p=...
-        - оптимизировать: градиентным спуском, стохастический градиентный спуск, mini-batch
-        - проблемы локальных оптимумов нет, функционал (логарифм от сигмойды) выпуклый (можно взять производную), линейное преобразование не меняет выпуклости
-        - без регуляризации масштаб признаков влияет на процесс оптимизации и на полученные веса, но не на итоговое качество; с регуляризацией масштаб влияет: на фичи с большей дисперсией регуляризация действует меньше, чем на фичи с меньшей, поэтому стоит нормализовать признаки
-        - переобучение: если выборка меньше, чем число признаков; помогут: регуляризация (L2 и/или L1), отбор признаков (L1 автоматом отберёт признаки, сожмёт полученную модель).
-        - ускоренная оптимизация: метод Ньютона (если признаков мало), L-BFGS (если датасет в памяти)
-    - neighbour-based
-        - kNN
-            - intro/overview
-                - Introduction to k-Nearest Neighbors: A powerful Machine Learning Algorithm https://www.analyticsvidhya.com/blog/2018/03/introduction-k-neighbours-algorithm-clustering/
-                - Overview of k-NN (sklearn's documentation) http://scikit-learn.org/stable/modules/neighbors.html
-            - как используются расстояния, как взвешиваются объекты, как считаются предсказания?
-            - необходимо масштабировать признаки
-            - проблема: нужно хранить все данные
-            - при большом объёме данных предсказания делаются медленно
-        - tSNE - t-distributed stochastic neighbor embedding - внедрение соседей
-            - нелинейное снижение размерности
-            - используется для визуализации, но можно и для фичей
-            - главный параметр: perplexity
-            - read more
-                - Multicore t-SNE implementation https://github.com/DmitryUlyanov/Multicore-TSNE
-                - Comparison of Manifold Learning methods (sklearn) https://scikit-learn.org/stable/auto_examples/manifold/plot_compare_methods.html
-                - How to Use t-SNE Effectively (distill.pub blog) https://distill.pub/2016/misread-tsne/
-                - tSNE homepage (Laurens van der Maaten) https://lvdmaaten.github.io/tsne/
-                - Example: tSNE with different perplexities (sklearn) https://scikit-learn.org/stable/auto_examples/manifold/plot_t_sne_perplexity.html#sphx-glr-auto-examples-manifold-plot-t-sne-perplexity-py
-                - Препарируем t-SNE https://habr.com/ru/post/267041/
-    - tree-based: tree, forest, GBDT
-        - Single Tree
-            - Overview of Decision Trees (sklearn's documentation) https://scikit-learn.org/stable/modules/tree.html
-            - Decision Trees: Gini vs Entropy criteria https://www.garysieling.com/blog/sklearn-gini-vs-entropy-criteria
-        - Random Forest
-            - Random Forests explained intuitively https://www.datasciencecentral.com/profiles/blogs/random-forests-explained-intuitively
-        - GBDT
-            - Gradient Boosting explained http://arogozhnikov.github.io/2016/06/24/gradient_boosting_explained.html
-            - TimeBudget = Iterations * BorderCount * RSM
-        - ExtraTrees
-            - ExtraTrees classifier always tests random splits over fraction of features (in contrast to RandomForest, which tests all possible splits over fraction of features)
-        - RGF - Regularized GreedyForest
-            - baidu/fast_rgf - Regularized Greedy Forest
-                - https://github.com/baidu/fast_rgf
-                - https://arxiv.org/pdf/1109.0887.pdf
-        - общее и сравнения
-            - какие параметры подбирать
-                - random forest: количество деревьев, глубина, тот или иной способ ограничить количество листьев (кол-во объектов в листе, критерий останова деления), сэмплинг по объектам и по факторам для бэггинга.
-                - Gradient Boosting: те же + learning rate/shrinkage
-            - bias и variance у forest и GB
-                - У глубоких деревьев будет маленький bias и большой variance, у неглубоких - наоборот
-                - RandomForest не меняет bias (линейность матожидания) и уменьшает variance
-                - дисперсия среднего n _независимых_ одинаково распределенных случайных величин - в n раз меньше, чем дисперсия одной; для зависимых это неверно
-                - в RandomForest нужны глубокие деревья, чтобы и bias был маленький в итоге, и variance
-                - если неглубокие взять, то bias останется большим, хоть variance и уменьшится
-                - для GB наоборот, bias постепенно уменьшается за счет движения по градиенту, а variance не падает, т.к. деревья зависимы.
-                - нужны относительно неглубокие деревья, чтобы не переобучиться (variance большой будет, если взять глубокие)
-    - neural networks
-        - intro
-            - Основы нейронных сетей by Технострим: https://www.youtube.com/watch?v=Am82yvUSwRE
-            - Interactive demo of simple feed-forward Neural Net http://playground.tensorflow.org/
-            - Frameworks for Neural Nets: Keras, PyTorch, TensorFlow, MXNet, Lasagne
-        - Introduction to Deep Learning https://www.coursera.org/learn/intro-to-deep-learning
-            - типы слоёв
-                - dense полносвязный
-                - сonvolutional свёрточный
-                - pooling
-            - известные архитектуры
-                - MLP - multilayer perceptron
-                - CNN
-                    - LeNet-5
-                        ? ImageNet top5 error 26%
-                    - AlexNet (2012)
-                        - first deep CNN for ImageNet
-                        - ImageNet top5 error 15%
-                        - 11x11, 5x5, 3x3 conv, max pooling, dropout, data augm, ReLu act, SGD with momentum
-                        - 60 mln parameters
-                        - trains on 2 GPU for 6 days
-                    - VGG (2015)
-                        - ImageNet top5 errors 8%
-                        - only 3x3 conv, lots of filters
-                        - additional multi-scale cropping
-                        - 138 mln parameters
-                        - trains on 4 gpu for 2-3 weeks
-                        - VGG-16 - recommended as pretrain network
-                    - GoogLeNet aka Inception V1
-                        - inception block concat 5 parallel chains
-                            - avg.pool + 1x1 conv: 1x1
-                            - 1 conv layer: 1x1
-                            - 3 conv layers: 1x1 + 1x3 + 3x1
-                            - 5 conv layers: 1x1 + 1x3 + 3x1 + 1x3 + 3x1
-                    - Inception V3 (2015)
-                        - ImageNet top5 errors: 5.6% (single model), 3.6% (ensemble)
-                        - uses inception block from Inception V1
-                        - batch normalization, image distortion, RMSprop
-                        - 25 mln(?bln) parameters
-                        - trains on 8 gpu for 2 weeks
-                        - https://ai.googleblog.com/2016/03/train-your-own-image-classifier-with.html
-                    - ResNet (2015) - resudual connections
-                        - ImageNet top5 errors: 4.5% (single model), 3.5% (ensemble)
-                        - 152 layers, few 7x7 conv, the rest are 3x3, batch norm, max and avg pooling
-                        - 60 mln parameters
-                        - trains on 8 GPU 2-3 weeks
-                        - ResNet[-50] - recommended as pretrain network
-                - RNN
-            - activation functions
-                - sigmoid: sigma(x) = 1 / (1 + e^-x) 
-                    - d sigma / dx = sigma(x)(1 - sigma(x))
-                    - dL/dx = dL / d sigma * d sigma / dx
-                    - vanishig gradients
-                    - not zero-centred
-                    - e^x is computationally expensive
-                - TanH: tanh(x) = 2 / 1 + e^-2x - 1
-                    - zero-centred
-                    - but still pretty much like sigmoid
-                - ReLu: f(x) = max(0,x) 
-                    - fast to compute
-                    - gradients do not vanish for x>0
-                    - faster convergence
-                    - not zero-centred
-                    - can die: if not activated, never updates
-                - Leaky ReLu: f(x) = max(ax, a), a!=1
-                    - will not die
-            - weights initialization
-                - zeroes: symmetry problem
-                - Xavier: multiply weights by sqrt(2)/sqrt(n in + n out)
-                - for ReLu: multipy by sqrt(2)/sqrt(n in)
-            - batch normalization
-                - hi = gamma i * (hi - mu i)/sqrt(sigma i ^2) + beta i
-                - estimate mu i and sigma i ^2 having a current train batch
-                - mu i = alpha * mean(batch) + (1-alpha)*mu i
-                - sigma i ^2 = alpha * variance(batch) + (1-alpha)*sigma i ^2
-            - dropout
-            - data augmentation
-    - специализированные модели для CountData
-        - Negative Binomial Regression / Poisson Regression
-            - популярные виды распределений для CountData
-                - Poisson
-                - Negative Binomial
-                - Negative Binomial Zero Inflated (=with extra zero)
-                - Hurdle
-            - Poisson for CountData 
-                - для дискретных таргетов типа запросов и кликов пуассоновская регрессия подходит, для денег нет
-                - используется когда есть фиксированная интенсивность каких-то событий
-                - вероятность, что сколько-то автобусов придёт в ед врем - распределена по пуассону
-                - м.б. сколько времени юзер юзает распределно экспоненциально, а сколько ищет по пуаассону
-            - zero inflated @ wiki https://en.wikipedia.org/wiki/Zero-inflated_model
-            - regression analysis of Count Data https://books.google.ru/books?id=qVEwBQAAQBAJ&printsec=frontcover&hl=ru&cad=0#v=onepage&q&f=false
-            - пример применения https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3238139/
-    - модели для временнЫх рядов
-        - лекция Технострим: Временные ряды (Введение в анализ данных) https://www.youtube.com/watch?v=Qflkzc6Ep78&list=PLrCZzMib1e9p6lpNv-yt6uvHGyBxQncEh&index=8
-        - Data Mining in Action 10: Прогнозирование временных рядов https://www.youtube.com/watch?v=u433nrxdf5k
-        - ML Course: анализ временных рядов https://habr.com/ru/company/ods/blog/327242/ https://www.youtube.com/watch?v=nQjul-5_0_M
-            - rolling window estimations
-            - экспоненциальное сглаживание, модель Хольта-Винтерса
-            - кросс-валидация, подбор параметров
-            - эконометрический подход
-            - избавляемся от нестационарности, строим SARIMA
-            - feature-based модели на временнЫх рядах
-                - линейная регрессия 
-                - XGBoost на временнЫх рядах
-        - популярные методы и библиотеки
-            - Prophet https://habr.com/ru/company/ods/blog/323730/
-            - ARIMA https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average
-            - ARCH https://en.wikipedia.org/wiki/Autoregressive_conditional_heteroskedasticity
-            - STL-decompositions of time-series
-        - приведение к нормальному распределению
-            - преобразование бокса-кокса http://www.machinelearning.ru/wiki/index.php?title=%D0%9C%D0%B5%D1%82%D0%BE%D0%B4_%D0%91%D0%BE%D0%BA%D1%81%D0%B0-%D0%9A%D0%BE%D0%BA%D1%81%D0%B0
-- metrics
-    - classical quality metrics
-        - for classification
-                - Evaluation Metrics for Classification Problems: Quick Examples + References http://queirozf.com/entries/evaluation-metrics-for-classification-quick-examples-references
-            - accuracy
-            - precision, recall
-            - F1
-            - Top-K
-            - TPR (чувствительность), FPR, 1-FPR (специфичность)
-            - AUC ROC (receiver operating characteristic)
-                - Understanding ROC curves http://www.navan.name/roc/
-            - LogLoss
-            - cohen's kappa = 1 - (1-accuracy / 1-baseline)
-            - weighted kappa = 1 - weighted error / weighted baseline error
-            - quadratic weighted cappa
-                - On The Direct Maximization of Quadratic Weighted Kappa https://arxiv.org/abs/1509.07107 (implemented in coursera's ipynb)
-                - used in
-                    - Crowd Flower search results relevance
-                    - Prudential life insurance assessment
-                    - diabetic retinophaty detection
-                    - The Hewlett Foundation automated essay scoring
-        - for regression
-            - MSE, RMSE, R2
-            - MAE
-            - MSPE, MAPE, SMAPE
-            - RMSLE
-        - ranking
-            - precision-family
-                - p@K
-                - ap@K
-                - map@K - mean average precision
-            - nDCG-family
-                - CG@K
-                - DCG@K
-                - nDCG@K - normalized discounted cumulative gain
-            - MRR - mean reciprocal rank
-            - ранговые коэффициенты коррелляции
-                - кендэлла
-                - спирмена
-            - каскадная модель поведения
-                - err - expected reciprocal rank
-                - pfound
-            - read more
-                - Метрики качества ранжирования https://habr.com/ru/company/econtenta/blog/303458/
-                - Learning to Rank using Gradient Descent -- original paper about pairwise method for AUC optimization http://icml.cc/2015/wp-content/uploads/2015/06/icml_ranking.pdf
-                - Overview of further developments of RankNet https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/MSR-TR-2010-82.pdf
-                - RankLib (implemtations for the 2 papers from above) https://sourceforge.net/p/lemur/wiki/RankLib/
-                - Learning to Rank Overview https://wellecks.wordpress.com/2015/01/15/learning-to-rank-overview
-        - clustering
-            - Evaluation metrics for clustering http://nlp.uned.es/docs/amigo2007a.pdf
-                - formal constraints
-                    - cluster homogenity
-                    - cluster completness
-                    - rag bag (introducing disorder into a disordered cluster is less harmful than introducing disorder into a clean cluster)
-                    - size vs quantity
-                - comparison of evaluation metrics
-                    - Evaluation by set matching
-                    - Metrics based on Counting Pairs
-                    - Metrics based on entropy
-                    - Evaluation metrics based on edit distance
-                    - BCubed: a mixed family of metrics
-    - approaches for target metric optimization
-        - just run the right model: mse, logloss
-        - preprocess train and optimize another metric: mspe, mape, rmsle
-        - optimize another metric, postprocess predictions: acuracy, kappa
-        - write custom loss function: any, if you can
-        - optimize another metric, use early stopping
-    - metrics optimization
-        - for regression
-            - sample weights
-                - e.g. mape/mspe <-> oversampling big targets for mae
-            - target transforms
-                - e.g. rlmse <-> log target
-        - for classification
-            - probability calibration
-                    - approach: fit to AUC -> calibrate to LogLoss
-                - Platt scaling
-                    - fit logreg to predictions - like stacking
-                - isotonic regression
-                    - fit isotoic regression to pred - like stacking
-                - stacking
-                    - fit XGBoost or NN to predictions
-            - proxy-losses 
-                - for accuracy (zero-one loss)
-                    - logistic loss
-                    - Hinge loss (using in SVM)
-- concepts
-    - генерализация vs запоминание
-    - bias vs variance - дилемма смещения-дисперсии
-        - bias - ошибочное предположения, пропуск связи между признаками и выводом - недообучение
-        - variance - ошибка чувствительности к малым отклонениям в тренировочном наборе - переобучение
-        - как влиять
-            - снижение размерности и отбор признаков -> упрощение модели -> уменьшить дисперсию
-            - больше тренировочное множество приводит -> уменьшение дисперсии
-            - добавление признаков -> уменьшение смещения, увеличения дисперсии
-    - loss vs metric
-## Techniques and practices
-- Splitting & validation
-    - validation strategies
-        - holdout
-        - K-fold
-        - Leave-one-out
-    - data splitting strategies
-        - random, rowwise
-        - timewise (time-based)
-        - stratisfied validation (test has different entities than the train)
-        - by id
+обучение с учителем = обучение на размеченных выборках = supervised learning
+
+### Methods and models
+methods/models for regression&classification
+- широкие обзоры методов
+  - Example from sklearn with different decision surfaces https://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html
+  - Overview of algorithms and parameters in H2O documentation http://docs.h2o.ai/h2o/latest-stable/h2o-docs/data-science.html
+- linear regression
+  - Overview of Linear Models (sklearn's documentation) http://scikit-learn.org/stable/modules/linear_model.html
+  - Vowpal Wabbit repository https://github.com/JohnLangford/vowpal_wabbit
+- logistic regression
+  - L=..., p=...
+  - оптимизировать: градиентным спуском, стохастический градиентный спуск, mini-batch
+  - проблемы локальных оптимумов нет, функционал (логарифм от сигмойды) выпуклый (можно взять производную), линейное преобразование не меняет выпуклости
+  - без регуляризации масштаб признаков влияет на процесс оптимизации и на полученные веса, но не на итоговое качество; с регуляризацией масштаб влияет: на фичи с большей дисперсией регуляризация действует меньше, чем на фичи с меньшей, поэтому стоит нормализовать признаки
+  - переобучение: если выборка меньше, чем число признаков; помогут: регуляризация (L2 и/или L1), отбор признаков (L1 автоматом отберёт признаки, сожмёт полученную модель).
+  - ускоренная оптимизация: метод Ньютона (если признаков мало), L-BFGS (если датасет в памяти)
+- neighbour-based
+  - kNN
+    - intro/overview
+      - Introduction to k-Nearest Neighbors: A powerful Machine Learning Algorithm https://www.analyticsvidhya.com/blog/2018/03/introduction-k-neighbours-algorithm-clustering/
+      - Overview of k-NN (sklearn's documentation) http://scikit-learn.org/stable/modules/neighbors.html
+    - как используются расстояния, как взвешиваются объекты, как считаются предсказания?
+    - необходимо масштабировать признаки
+    - проблема: нужно хранить все данные
+    - при большом объёме данных предсказания делаются медленно
+  - tSNE - t-distributed stochastic neighbor embedding - внедрение соседей
+    - нелинейное снижение размерности
+    - используется для визуализации, но можно и для фичей
+    - главный параметр: perplexity
     - read more
-        - Validation in Sklearn http://scikit-learn.org/stable/modules/cross_validation.html
-        - Advices on validation in a competition http://www.chioka.in/how-to-select-your-final-models-in-a-kaggle-competitio/
-        - Time Series Nested Cross-Validation https://towardsdatascience.com/time-series-nested-cross-validation-76adba623eb9
-            - пример: Прогнозирование нагрузки колл-центра https://habr.com/ru/company/ods/blog/438212/
-- Features
-    - feature types
-        - numeric
-        - categorial
-        - ordinal
-        - datetime
-        - coordinates
-    - feature preprocessing & generation with respect to model type
-        - for non-trees models
-            - scaling
-                - MinMax: sklearn.preprocessing.MinMaxScale (0..1)
-                - Standard: sklearn.preprocessing.StandardScaler (mean=0, std=1)
-            - scaling-like transforms
-                - log transform: np.log(1+x)
-                - raising to the power<1: np.sqrt(x + 2/3)
-            - rank
-        - for trees and non-trees models
-            - outliers reduction
-                - sqrt, log(1+x)
-                - rank transform
-                - winsorization (clipping) - итеративное выбрасывание 1..5% крайних значений, пока mean и std не перестанут меняться
-            - label encoding
-                - one-hot-encoding: sklearn.preprocessing.OneHotEncoder
-                - alphabetical (sorted): sklearn.preprocessing.LabelEncoder
-                - order of appearance: Pandas.factorize
-                - frequency econding
-        - datetime and coordinates
-            - datetime
-                - periodicity: weekday, month, season, year, second, minute, hour
-                - lags: time since event, difference betweet moments
-                - weighted averaging, expoential smoothing
-                - Kaggle example: Walmart recruitment
-            - coordinates
-                - interesting places from train/test data or additional data
-                - centers of clusters
-                - aggregated stats
-                - rotate
-        - interactions and recommenders
-            - interactions
-                - multiplications
-                - divisions
-                - group-by-features
-                - concatenations
-                - Kaggle example: Homesite
-            - recommendations
-                - features on transactional history
-                - item popularity
-                - frequency of purchase
-                - Kaggle example: Acquire Valued Shoppers
-    - missing values handling
-        - fillNA approaches
-            - -999, -1, etc
-            - mean, median
-            - reconstruct value
-        - IsNull feature
-        - treating values which do not present in train data
-            - threat it randomly
-            - unsupervised encoding
-    - feature extraction from text and images
-        - text
-            - preprocessing
-                - lowercase
-                - lemmatization
-                - stemming
-                - stopwords removal (articles and prepositions)
-                    - NLTK - natural language toolkit library for python
-                    - sklearn.feature_extraction.text.CountVectorizer(max_df=) - threshold for most often words
-            - BOW - bag of words: sklearn.feature_extraction.text.CountVectorizer
-                - TFiDF - term frequency transformation
-                    - TF: tf = 1 / x.sum(axis=1)[:,None]; x=x*tf
-                    - IDF: idf = np.log(x.shape[0]/(x>0).sum(0)); x=x*idf
-                    - sklearn.feature_extraction.text.TfidfVectorizer
-                - N-grams: sklearn.feature_extraction.text.CountVectorizer(Ngram_range=, analyzer=)
-            - embeddings word2vec
-                - for words
-                    - word2vec
-                    - Glove
-                    - FastText
-                - for sentences
-                    - doc2vec
-            - read more
-                - Bag of words
-                    - Feature extraction from text with Sklearn http://scikit-learn.org/stable/modules/feature_extraction.html
-                    - More examples of using Sklearn https://andhint.github.io/machine-learning/nlp/Feature-Extraction-From-Text/
-                - Word2vec
-                    - Tutorial to Word2vec https://www.tensorflow.org/tutorials/word2vec
-                    - Tutorial to word2vec usage https://rare-technologies.com/word2vec-tutorial/
-                    - Text Classification With Word2Vec http://nadbordrozd.github.io/blog/2016/05/20/text-classification-with-word2vec/
-                    - Introduction to Word Embedding Models with Word2Vec http://nadbordrozd.github.io/blog/2016/05/20/text-classification-with-word2vec/
-                - NLP Libraries
-                    - NLTK http://www.nltk.org/
-                    - TextBlob https://github.com/sloria/TextBlob
-            - example of competition
-                - Kaggle: StumbleUponEvergreen Classification
-        - descriptors for images
-            - fine-tuning
-                - pretrained CNN network
-                    - recommended architectures
-                        - VGG[-16]
-                        - ResNet[-50]
-                    - read more
-                        - Using pretrained models in Keras https://keras.io/applications/
-                        - Image classification with a pre-trained deep neural network https://www.kernix.com/blog/image-classification-with-a-pre-trained-deep-neural-network_p11
-                - how to fine-tune
-                        - replace last layer(s)
-                        - дообучиь на релевантных примерах с малым LR (в 1000 раз меньше, чем изначальный)
-                    - read more
-                        - How to Retrain Inception's Final Layer for New Categories in Tensorflow https://www.tensorflow.org/tutorials/image_retraining
-                        - Fine-tuning Deep Learning Models in Keras https://flyyufelix.github.io/2016/10/08/fine-tuning-in-keras-part2.html
-                - how to choise technic
-                    - imagenet domain
-                        - small dataset -> train last MLP layers
-                        - big dataset -> fine-tuning of deeper layers
-                    - not similar to ImageNet
-                        - small dataset -> collect more data
-                        - big dataset -> train from scratch
-            - feature engeneering for images
-                - scaling
-                - shifting
-                - rotations
-        - sound classifications
-            - feature engeneering for sound
-                - fourier
-                - mfcc
-                - specgrams
-                - scaling
-            - example of competition
-                - Kaggle: Tensorflow speech recognition
-    - read more about feature engeneering
-        - Feature preprocessing
-            - Preprocessing in Sklearn http://scikit-learn.org/stable/modules/preprocessing.html
-            - Andrew NG about gradient descent and feature scaling https://www.coursera.org/learn/machine-learning/lecture/xx3Da/gradient-descent-in-practice-i-feature-scaling
-            - Feature Scaling and the effect of standardization for machine learning algorithms https://www.coursera.org/learn/machine-learning/lecture/xx3Da/gradient-descent-in-practice-i-feature-scaling
-        - Feature generation
-            - Discover Feature Engineering, How to Engineer Features and How to Get Good at It https://machinelearningmastery.com/discover-feature-engineering-how-to-engineer-features-and-how-to-get-good-at-it/
-            - Discussion of feature engineering on Quora https://www.quora.com/What-are-some-best-practices-in-Feature-Engineering
-        - Feature Interactions
-            - Facebook Research's paper about extracting categorical features from trees https://research.fb.com/publications/practical-lessons-from-predicting-clicks-on-ads-at-facebook/
-            - Example: Feature transformations with ensembles of trees (sklearn) https://scikit-learn.org/stable/auto_examples/ensemble/plot_feature_transformation.html
-- Encoding and Regularisation
-    - Encodings for categorical features
-        - one-hot-encoding
-        - mean target encoding
-        - more statistics for regression tasks: median, quantiles, bins, min, max, ...
-    - Regulatisation
-        - cross-validation loop inside training data
-        - smoothing
-            - smooth = mean(target)*nrows + globalmean*alpha / nrows + alpha
-        - adding random noize
-        - sorting and calculating expanding mean
-    - Extensions and generalizations
-        - regression
-            - more statistics for regression tasks: median, quantiles, bins, min, max, ...
-        - multiclass
-            - encodings for each class
-        - many-to-many relations
-            - flat table
-        - timeseries
-            - rolling statistics of target variable
-- Hyperparameter optimization
-    - библиотеки
-        - hyperopt
-        - scikit-optimize
-        - spearmint
-        - GPyOpt
-        - RoBo
-        - SMAC3
-    - какие параметры тюнить
-        - GBDT
-            - глубина (XGB: max_depth, LGBM: max_depth/num_leaves)
-            - subsample (XGB: subsample, LGBM: bagging_fraction)
-            - fraction (XGB: colsample_bytree, _bylevel, LGBM: feature_fraction)
-            - regularization (XGB: min_child_weight, lambda, alpha, LGBM: min_data_in_leaf, labmda_l1, lambda_l2)
-            - lr, num_trees (XGB: eta, num_round, LGBM: learning_rate, num_iterations)
-        - RandomForest, ExtraTrees
-            - n_estimators
-            - max_depth
-            - max_features
-            - min_samples_leaf
-            - criterion (for split): Ginny, Entropy
-            - n_jobs
-        - NNs
-            - number of neurons per layer
-            - number of layers
-            - omtimizers
-                - SGD+momentum (slower, but generalize better)
-                - adam/adadelta/adagrad (fast, but lead to more overfitting)
-            - batch size (start by 32-64, 500 leads to overfitting)
-            - learing rate
-            - regularization
-                - L2/L1 for weights
-                - dropout/dropconnect
-                - static dropconnect
-        - linear
-            - regularization parameter: C, alpha, lambda
-            - Vowpal Wabbit: FTRL - follow the regularized leader
-    - read more
-        - Tuning the hyper-parameters of an estimator (sklearn) http://scikit-learn.org/stable/modules/grid_search.html
-        - Optimizing hyperparameters with hyperopt http://fastml.com/optimizing-hyperparams-with-hyperopt/
-        - Complete Guide to Parameter Tuning in Gradient Boosting (GBM) in Python https://www.analyticsvidhya.com/blog/2016/02/complete-guide-parameter-tuning-gradient-boosting-gbm-python/
-- Ensembling
-    - Averaging/blanding
-    - Weighted averaging
-        - (model1*w1 + model2*w2)
-    - Conditional averaging
-        - methods can potentially learn conditional averaging
-            - GBDT
-            - stacking
-    - Bagging
-        - example: random forest
-        - parameters that control bagging 
-            - changing random seed
-            - shuffling train-set
-            - row (sub)sampling or bootstrapping
-            - column (sub)sampling
-            - model-specific parameters
-            - number of models (bags)
-            - (optionally) parallelism
-    - Boosting
-        - weight based
-            - generate weiths for rows for next model
-                - after first model create new column weith = 1+abs_error
-            - parameters
-                - learning rate (shrinkage of eta)
-                    - predictionN = pred0*eta + pred1*eta + ... + predN*eta
-                - number of estimators
-                - input model - anything that accepts weight
-                - sub boosting types
-                    - AdaBoost - SkLearn for Python
-                    - LogitBoost - Weka for Java
-        - residual based
-            - parameters
-                - learning rate (shrinkage of eta)
-                - number of estimators
-                - row (sub)sampling
-                - column (sub)sampling
-                - input model - better be trees
-                - sub busting type
-                    - fully gradient based
-                    - dart - drop-out mechanism to control contribution of the models
-    - Stacking
-        - splitting&validation meta-models coursera.org/learn/competitive-data-science/supplement/JThpg/validation-schemes-for-2-nd-level-models
-            - (a) Simple hold-out scheme (fair)
-                - 1 train -> partA, partB, partC
-                - 2 fit N diverse models on partA, predict for partB, partC, test_data getting meta-features partB_meta, partC_meta and test_meta respectively
-                - 3 fit a metamodel to a partB_meta, validate hyperparameters on partC_meta
-                - 4 fit validated metamodel it to [partB_meta, partC_meta], predict for test_meta
-            - (b) Meta holdout scheme with OOF (out-of-fold) meta-features (leaky!)
-                - 1 train -> K folds
-                    - iterate through each fold: retrain N diverse models on all folds except current fold, predict for the current fold
-                    - we will have N meta-features (OOF predictions) -> train_meta
-                - 2 fit models to whole train, predict for test -> test_meta
-                - 3 train_meta -> train_metaA, train_metaB
-                - 4 fit a meta-model to train_metaA, validate hyperparameters on train_metaB
-                - 5 fit validated meta-model to train_meta, predict for test_meta.
-            - (c) Meta KFold scheme with OOF meta-features (leaky!)
-                - 1 obtain OOF predictions train_meta, test metafeatures test_meta using b1, b2
-                - 2 use KFold on train_meta to validate hyperparameters for meta-model (seed for this KFold = seed for KFold used to get OOF predictions)
-                - 3 fit validated meta-model to train_meta, predict for test_meta
-            - (d) Holdout scheme with OOF meta-features (fair)
-                - 1 train -> partA, partB
-                - 2 partA -> K folds
-                    - iterate through each fold: retrain N diverse models on all folds except current fold, predict for the current fold
-                    - we will have N meta-features (OOF predictions) for each object in partA -> partA_meta
-                - 3 fit models to whole partA; predict for partB, test_data; getting partB_meta, test_meta respectively
-                - 4 fit a meta-model to a partA_meta, validate hyperparameters on partB_meta
-                - 5 When the meta-model is validated basically do d2, d3 w/o dividing train_data into parts, then train a meta-model
-                    - that is, first get OOF predictions train_meta for the train_data using models
-                    - train models on train_data, predict for test_data, getting test_meta
-                    - train meta-model on the train_meta, predict for test_meta
-            - (e) KFold scheme with OOF meta-features (fair)
-                - 1 to validate the model basically do d1-d4 
-                    - but: (train -> partA, partB)*M times using KFold with M folds
-                - 2 when the meta-model is validated do d5
-            - (f) KFold scheme in time series
-                - 1 train -> chunks of duration T; select first M chunks
-                - 2 fit N models on those M chunks, predict for the chunk M+1
-                    - fit those models on first M+1 chunks, predict for chunk M+2 and so on, until you hit the end
-                    - fit models to all train, get predictions for test
-                    - now we will have meta-features for the chunks starting from number M+1 as well as meta-features for the test
-                - 3 use meta-features from first K chunks [M+1,M+2,..,M+K] to fit level 2 models and validate them on chunk M+K+1
-                    - essentially we are back to step f1 with the lesser amount of chunks and meta-features instead of features
-            - (g) KFold scheme in time series with limited amount of data
-                - if not enough history for scheme f
-                - use scheme c with KFold by time component
-                - i.e. in case several years we would treat each year as a fold
-    - StackNet
-        - StackNet github.com/kaz-Anova/StackNet
-        - stacked ensembles from H2O
-        - Xcessiv github.com/reiinkano/xcessiv
-    - read more
-        - Kaggle ensembling guide at MLWave.com (overview of approaches) https://mlwave.com/kaggle-ensembling-guide
-        - Heamy — a set of useful tools for competitive data science (including ensembling) https://github.com/rushter/heamy
-    - способы комбинации моделей by Emely Dral
-        - switching
-        - каскады
-        - feature augmentation
-        - многоступенчатая комбинация
-- Выбор моделей под цели
-    - from KazAnova's competition pipeline
-        - Image classification: CNN (Resnet, VGG, densenet)
-        - Sound classification: CNN (CRNN), LSTM
-        - Text classification: GBMs, Linear, DL, Naive Bayes, KNNs, LibFM, LibFFM
-        - Time series: Autoregressive mocels, ARIMA, linear, GBMs, DL, LSTMs
-        - Categorial features: GBMs, Linear models, DL, LibFM, LibFFM
-        - Numerical features: GBMs, Linear models, DL, SVMs
-        - Interactions: GBMs, Linear models, DL 
-        - Recommedners: CF, DL, LibFM, LibFFM, GBMs
-- Интерпретация
-    - топ инструментов с kaggle: https://habr.com/ru/company/ods/blog/434134
-        - plot predicted vs actual results - сравнение распределения предсказаний с распределением целевой переменной
-        - examine feature importances
-        - examine feature correlations
-        - examine individual model coefficients
-        - dimensionality reduction techniques
-        - plot decision boundaries
-        - print out a decision tree
-        - sensitivity analysis/pertrubation importance
-        - create partial dependence plots
-        - LIME functions
-        - SHAP functions
-        - ELI5 functions
-    - Д.Воротынцев (Oura): ML Interpretability Problems in Tabular Data Tasks (2020) youtu.be/jOfl9_utKx8
-## Специализированные области
-- NLP: тексты
-    - задачи
-        - text classification/regression
-            - safe search (adult content filtering)
-            - detect age/gender/interests by search queries
-            - convert moovie review into stars
-            - SNA, social network analysis - public opinion about new product vs old
-    - text representation / извлечение признаков из текстов
-        - BoW - bag of words
-        - OHE - one-hot-eocoding
-        - TF-IDF
-        - word embeddings: w2vec(cbow, skipgram), glove, fasttext, Sent2Vec, ELMO
-            - word2vec 
-                - approaches
-                    - CBOW, Continuous Bag of Words: autoencoder from OHE to OHE
-                    - skip-gram: learn to predict missing word
-                - side-effed: word algebra
-            - GloVe - global vectors
-            - FastText
-            - sent2vec, doc2vec
-            - ELMO
-            - other embedding methods (not only? for text): 
-                - MDS (multidimensional scaling)
-                - LLE (locally linear embedding)
-                - tSNE (t-distributed Stochastic Neighbor Embedding)
-    - алгоритмы обработки последовательностей
-        - рекурентные сети (GRU, LSTM)
-        - казуальные свертки
-        - attention
-    - регуляризация 
-        - dropout
-        - batchnormalization
-    - функции активации
-        - relu (между слоями)
-        - sigmoid (на выходе)
-        - softmax
-    - обзорные статьи
-        - DataMonsters - 7 types of Artificial Neural Networks for Natural Language Processing https://medium.com/@datamonsters/artificial-neural-networks-for-natural-language-processing-part-1-64ca9ebfa3b2
-        - DataMonsters - Sentiment Analysis Tools Overview, Part 1. Positive and Negative Words Databases https://medium.com/@datamonsters/sentiment-analysis-tools-overview-part-1-positive-and-negative-words-databases-ae35431a470c
-- ComputerVision: изображения
-    - типы задач
-        - images classification
-        - semantic segmentation (of every pixel in image)
-            - need corresponding pairs of downsampling (pooling) and upsampling layers
-        - object classification + localization
-    - как сделать классификацию под конкретные задачи
-        - скачать современную архитектуру: VGG, ResNet, Inception (принцип - свертки, пулинги)
-        - снять верхние слои, доучить под классы, которые нужны в задаче
-        - softmax, sigmoid
-    - fine-tuning
-        - pretrained CNN network
-            - recommended architectures
-                - VGG[-16]
-                - ResNet[-50]
-            - read more
-                - Using pretrained models in Keras https://keras.io/applications/
-                - Image classification with a pre-trained deep neural network https://www.kernix.com/blog/image-classification-with-a-pre-trained-deep-neural-network_p11
-        - how to fine-tune
-                - replace last layer(s)
-                - дообучиь на релевантных примерах с малым LR (в 1000 раз меньше, чем изначальный)
-            - read more
-                - How to Retrain Inception's Final Layer for New Categories in Tensorflow https://www.tensorflow.org/tutorials/image_retraining
-                - Fine-tuning Deep Learning Models in Keras https://flyyufelix.github.io/2016/10/08/fine-tuning-in-keras-part2.html
-        - how to choise technic
-            - imagenet domain
-                - small dataset -> train last MLP layers
-                - big dataset -> fine-tuning of deeper layers
-            - not similar to ImageNet
-                - small dataset -> collect more data
-                - big dataset -> train from scratch
-    - Data augmemntation - getting 5x as large dataset for free is a great deal
-        - https://keras.io/preprocessing/image/
-        - Zoom-in+slice = move
-        - Rotate+zoom(to remove black stripes)
-        - any other perturbations
-        - Simple way to do that (if you have PIL/Image): from scipy.misc import imrotate, imresize ... and a few slicing
-        - Stay realistic. There's usually no point in flipping dogs upside down as that is not the way you usually see them.
-- Unsupervised learning
-    - for
-        - unsupervised pretraining - for large amount of unlabeled data - for NNs
-        - find most relevant features / dimensionality reduction - before XGBoost
-        - explore high-dimensional data / dimensionality reduction - for EDA
-        - compress information
-        - retrieve similar objects
-        - generate new data samples
-        - image morphing
-    - autoencoders
-        - image2image: convolutional
-            - data 3xWxH | conv 16x5x5 pad 2 | pool x3 | dense H=256 | unpool x3 | conv 16x5x5 | data 3xWxH
-        - regularization
-            - L1 - adding sum of weights to loss
-            - dropout/noize - between encoder and decoder
-            - dropout/noize - before encoder
-- Embeddings, dimensionality reduction, matrix factorization
-    - PCA - метод главных компонент (principal component analysis)
-    - SVD-разложение (singular vector decomposition)
-    - tSNE (t-distributed stochastic neighbor embedding)
-        - нелинейное снижение размерности
-        - используется для визуализации, но можно и для фичей
-        - главный параметр: perplexity
-        - read more
-            - Multicore t-SNE implementation https://github.com/DmitryUlyanov/Multicore-TSNE
-            - Comparison of Manifold Learning methods (sklearn) https://scikit-learn.org/stable/auto_examples/manifold/plot_compare_methods.html
-            - How to Use t-SNE Effectively (distill.pub blog) https://distill.pub/2016/misread-tsne/
-            - tSNE homepage (Laurens van der Maaten) https://lvdmaaten.github.io/tsne/
-            - Example: tSNE with different perplexities (sklearn) https://scikit-learn.org/stable/auto_examples/manifold/plot_t_sne_perplexity.html#sphx-glr-auto-examples-manifold-plot-t-sne-perplexity-py
-            - Препарируем t-SNE https://habr.com/ru/post/267041/
-    - NMF (NNMF, Non-negative matrix factorization)
-        - not applicable to features containing negative values, i.e. standartized matrices
-    - read more
-        - Overview of Matrix Decomposition methods (sklearn) https://www.coursera.org/learn/competitive-data-science/supplement/3XpTg/additional-materials-and-links
-- Reinforcement learning
-    - подходы
-        - value-based
-        - policy-based
-        - model-based
-    - методы и модели
-        - q-learning
-        - sarsa
-        - actor-critic
-        - a3c
-        - dqn
-    - трудности
-        - exploration-vs-exploitation
-        - long term credit assignment
-## Libraries and frameworks
-- basic SciPy stack
-    - Numpy - linear algebra library
-    - Pandas - data reading/processing (not algebra)
-        - DataFrame blog about Pandas usage https://tomaugspurger.github.io/
-    - Matplotlib - visualisation
-    - SkLearn 
-- другие общего назначения
-    - H2O.ai на Java от MS http://docs.h2o.ai/h2o/latest-stable/h2o-docs/data-science.html
-    - Spark MLLib
-    - CaReT - Classification And REgression Training для R
-- tree-based
-    - XGBoost (dmlc/xgboost)
-    - MS LightGBM (microsoft/lightgbm)
-    - H2O's GBM - supported cat-features
-    - CatBoost
-        - solving problems
-            - categorical features
-            - parameter tunning
-            - prediction speed
-            - overfitting
-            - training speed
-        - additional features
-            - overfitting detector
-            - evaluating custom metrics during training
-            - catboost viewer
-            - user defined metrics and loss functions
-            - NaN features support
-            - cross-validation
-            - feature importances
-        - speed
-            - options to speedup
-                - rsm=0.1
-                - max_ctr_complexity=1
-                - boosting_type='Plain'
-            - cpu-mode
-                - large-datasets
-                    - same speed as LightGBM
-                - small-datasets
-                    - 2 times faster than XGBoost
-                    - 2 times slower than LightGBM
-            - gpu-mode
-                - 2 times faster than LightGBM
-                - 20 times faster than XGBoost
-        - training parameter
-            - number of trees, learning rate
-            - tree depth
-            - L2 regularization
-            - bagging temperature - how agressive the sampling is
-            - random strength - helps to reduce overfitting
-    - (f)RGF baidu/fast_rgf - Regularized Greedy Forest
-        - https://github.com/baidu/fast_rgf
-        - https://arxiv.org/pdf/1109.0887.pdf
-    - randomforest
-- work with sparse CTR-like data
-    - srendle/libfm
-    - guestwalk/libffm
-- линейные модели
-    - vowpal wabbit
-        - https://habrahabr.ru/company/mlclass/blog/248779/ Когда данных действительно много: Vowpal Wabbit
-        - vowpal wabbit https://github.com/JohnLangford/vowpal_wabbit
-- временнЫе ряды
-    - prophet
-- additional tools
-    - danielfrg/tsne (osdf/py_bh_tsne, lvdmaaten/tsne) - about dimensionality reduction
-    - TFFM - TF implementation of Arbitrary order factorization machines https://github.com/geffy/tffm
-    - kaggletils - framework for Kaggle competitions by Far0n https://github.com/Far0n/kaggletils/blob/master/kaggletils/metrics.py
+      - Multicore t-SNE implementation https://github.com/DmitryUlyanov/Multicore-TSNE
+      - Comparison of Manifold Learning methods (sklearn) https://scikit-learn.org/stable/auto_examples/manifold/plot_compare_methods.html
+      - How to Use t-SNE Effectively (distill.pub blog) https://distill.pub/2016/misread-tsne/
+      - tSNE homepage (Laurens van der Maaten) https://lvdmaaten.github.io/tsne/
+      - Example: tSNE with different perplexities (sklearn) https://scikit-learn.org/stable/auto_examples/manifold/plot_t_sne_perplexity.html#sphx-glr-auto-examples-manifold-plot-t-sne-perplexity-py
+      - Препарируем t-SNE https://habr.com/ru/post/267041/
+- tree-based: tree, forest, GBDT
+  - Single Tree
+    - Overview of Decision Trees (sklearn's documentation) https://scikit-learn.org/stable/modules/tree.html
+    - Decision Trees: Gini vs Entropy criteria https://www.garysieling.com/blog/sklearn-gini-vs-entropy-criteria
+  - Random Forest
+    - Random Forests explained intuitively https://www.datasciencecentral.com/profiles/blogs/random-forests-explained-intuitively
+  - GBDT
+    - Gradient Boosting explained http://arogozhnikov.github.io/2016/06/24/gradient_boosting_explained.html
+    - TimeBudget = Iterations * BorderCount * RSM
+  - ExtraTrees
+    - ExtraTrees classifier always tests random splits over fraction of features (in contrast to RandomForest, which tests all possible splits over fraction of features)
+  - RGF - Regularized GreedyForest
+    - baidu/fast_rgf - Regularized Greedy Forest
+      - https://github.com/baidu/fast_rgf
+      - https://arxiv.org/pdf/1109.0887.pdf
+  - общее и сравнения
+    - какие параметры подбирать
+      - random forest: количество деревьев, глубина, тот или иной способ ограничить количество листьев (кол-во объектов в листе, критерий останова деления), сэмплинг по объектам и по факторам для бэггинга.
+      - Gradient Boosting: те же + learning rate/shrinkage
+    - bias и variance у forest и GB
+      - У глубоких деревьев будет маленький bias и большой variance, у неглубоких - наоборот
+      - RandomForest не меняет bias (линейность матожидания) и уменьшает variance
+      - дисперсия среднего n _независимых_ одинаково распределенных случайных величин - в n раз меньше, чем дисперсия одной; для зависимых это неверно
+      - в RandomForest нужны глубокие деревья, чтобы и bias был маленький в итоге, и variance
+      - если неглубокие взять, то bias останется большим, хоть variance и уменьшится
+      - для GB наоборот, bias постепенно уменьшается за счет движения по градиенту, а variance не падает, т.к. деревья зависимы.
+      - нужны относительно неглубокие деревья, чтобы не переобучиться (variance большой будет, если взять глубокие)
 - neural networks
-    - классификация фреймворков для NN
-        - фиксированные модули: Caffe, Caffe2, CNTK, Kaldi, DL4J, Keras
-        - статический граф вычислений: Theano, TensorFlow, MXNet
-        - динамический граф вычислений: Torch и PyTorch
-    - Tensorflow
-        - https://www.coursera.org/learn/intro-to-deep-learning/lecture/hscFv/what-is-tensorflow
-        - TensorFlow: The Confusing Parts https://jacobbuckman.com/post/tensorflow-the-confusing-parts-1
-        - TensorFlow tutorials: https://www.tensorflow.org/tutorials
-        - TensorFlow documentation: https://www.tensorflow.org/versions/r1.3/api_docs/python
-        - Tensorflow virualenv
-            - https://medium.com/@margaretmz/anaconda-jupyter-notebook-tensorflow-and-keras-b91f381405f8
-            - https://docs.docker.com/toolbox/toolbox_install_windows/
-    - Keras
-        - Guide to using Keras as part of a TensorFlow workflow https://blog.keras.io/keras-as-a-simplified-interface-to-tensorflow-tutorial.html
-    - Caffe
-    - PyTorch от Facebook не похожа на Caffe, Theano, TensofFlow (habr.com/ru/post/334380)
-        - PyTorch — ваш новый фреймворк глубокого обучения https://habr.com/ru/post/334380/
-    - Fast.ai для PyTorch
-    - MXNet - распределённое обучение сеточек
-    - CNTK - CogNitive TookKit от Microsoft Research
-- clouds
-    - Amazon AWS
-        - AWS spot option
-            - Overview of Spot mechanism http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html
-            - Spot Setup Guide http://www.datasciencebowl.com/aws_guide/
-    - MS Azure
-    - Google Cloud
+  - intro
+    - Основы нейронных сетей by Технострим: https://www.youtube.com/watch?v=Am82yvUSwRE
+    - Interactive demo of simple feed-forward Neural Net http://playground.tensorflow.org/
+    - Frameworks for Neural Nets: Keras, PyTorch, TensorFlow, MXNet, Lasagne
+  - Introduction to Deep Learning https://www.coursera.org/learn/intro-to-deep-learning
+    - типы слоёв
+      - dense полносвязный
+      - сonvolutional свёрточный
+      - pooling
+    - известные архитектуры
+      - MLP - multilayer perceptron
+      - CNN
+        - LeNet-5
+          ? ImageNet top5 error 26%
+        - AlexNet (2012)
+          - first deep CNN for ImageNet
+          - ImageNet top5 error 15%
+          - 11x11, 5x5, 3x3 conv, max pooling, dropout, data augm, ReLu act, SGD with momentum
+          - 60 mln parameters
+          - trains on 2 GPU for 6 days
+        - VGG (2015)
+          - ImageNet top5 errors 8%
+          - only 3x3 conv, lots of filters
+          - additional multi-scale cropping
+          - 138 mln parameters
+          - trains on 4 gpu for 2-3 weeks
+          - VGG-16 - recommended as pretrain network
+        - GoogLeNet aka Inception V1
+          - inception block concat 5 parallel chains
+            - avg.pool + 1x1 conv: 1x1
+            - 1 conv layer: 1x1
+            - 3 conv layers: 1x1 + 1x3 + 3x1
+            - 5 conv layers: 1x1 + 1x3 + 3x1 + 1x3 + 3x1
+        - Inception V3 (2015)
+          - ImageNet top5 errors: 5.6% (single model), 3.6% (ensemble)
+          - uses inception block from Inception V1
+          - batch normalization, image distortion, RMSprop
+          - 25 mln(?bln) parameters
+          - trains on 8 gpu for 2 weeks
+          - https://ai.googleblog.com/2016/03/train-your-own-image-classifier-with.html
+        - ResNet (2015) - resudual connections
+          - ImageNet top5 errors: 4.5% (single model), 3.5% (ensemble)
+          - 152 layers, few 7x7 conv, the rest are 3x3, batch norm, max and avg pooling
+          - 60 mln parameters
+          - trains on 8 GPU 2-3 weeks
+          - ResNet[-50] - recommended as pretrain network
+      - RNN
+    - activation functions
+      - sigmoid: sigma(x) = 1 / (1 + e^-x)
+        - d sigma / dx = sigma(x)(1 - sigma(x))
+        - dL/dx = dL / d sigma * d sigma / dx
+        - vanishig gradients
+        - not zero-centred
+        - e^x is computationally expensive
+      - TanH: tanh(x) = 2 / 1 + e^-2x - 1
+        - zero-centred
+        - but still pretty much like sigmoid
+      - ReLu: f(x) = max(0,x)
+        - fast to compute
+        - gradients do not vanish for x>0
+        - faster convergence
+        - not zero-centred
+        - can die: if not activated, never updates
+      - Leaky ReLu: f(x) = max(ax, a), a!=1
+        - will not die
+    - weights initialization
+      - zeroes: symmetry problem
+      - Xavier: multiply weights by sqrt(2)/sqrt(n in + n out)
+      - for ReLu: multipy by sqrt(2)/sqrt(n in)
+    - batch normalization
+      - hi = gamma i * (hi - mu i)/sqrt(sigma i ^2) + beta i
+      - estimate mu i and sigma i ^2 having a current train batch
+      - mu i = alpha * mean(batch) + (1-alpha)*mu i
+      - sigma i ^2 = alpha * variance(batch) + (1-alpha)*sigma i ^2
+    - dropout
+    - data augmentation
+- специализированные модели для CountData
+  - Negative Binomial Regression / Poisson Regression
+    - популярные виды распределений для CountData
+      - Poisson
+      - Negative Binomial
+      - Negative Binomial Zero Inflated (=with extra zero)
+      - Hurdle
+    - Poisson for CountData
+      - для дискретных таргетов типа запросов и кликов пуассоновская регрессия подходит, для денег нет
+      - используется когда есть фиксированная интенсивность каких-то событий
+      - вероятность, что сколько-то автобусов придёт в ед врем - распределена по пуассону
+      - м.б. сколько времени юзер юзает распределно экспоненциально, а сколько ищет по пуаассону
+    - zero inflated @ wiki https://en.wikipedia.org/wiki/Zero-inflated_model
+    - regression analysis of Count Data https://books.google.ru/books?id=qVEwBQAAQBAJ&printsec=frontcover&hl=ru&cad=0#v=onepage&q&f=false
+    - пример применения https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3238139/
+- [модели для временнЫх рядов](./datan.md#series)
+  - `video` [Технострим: Временные ряды (Введение в анализ данных)](https://www.youtube.com/watch?v=Qflkzc6Ep78&list=PLrCZzMib1e9p6lpNv-yt6uvHGyBxQncEh&index=8)
+  - `video` [Data Mining in Action 10: Прогнозирование временных рядов](https://www.youtube.com/watch?v=u433nrxdf5k)
+  - `post` `video` [ODS ML Course: анализ временных рядов](https://habr.com/ru/company/ods/blog/327242/) ([video](https://www.youtube.com/watch?v=nQjul-5_0_M))
+    - rolling window estimations
+    - экспоненциальное сглаживание, модель Хольта-Винтерса
+    - кросс-валидация, подбор параметров
+    - эконометрический подход
+    - избавляемся от нестационарности, строим SARIMA
+    - feature-based модели на временнЫх рядах
+      - линейная регрессия
+      - XGBoost на временнЫх рядах
+  - популярные методы и библиотеки
+    - Prophet `post` [ODS: Предсказываем будущее с помощью библиотеки Facebook Prophet](https://habr.com/ru/company/ods/blog/323730/)
+    - ARIMA `wiki` [Autoregressive integrated moving average](https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average)
+    - ARCH `wiki` [Autoregressive conditional heteroskedasticity](https://en.wikipedia.org/wiki/Autoregressive_conditional_heteroskedasticity)
+    - STL-decompositions of time-series
+  - приведение к нормальному распределению
+    - преобразование бокса-кокса
+      - `wiki` [machinelearning.ru: Метод Бокса-Кокса](http://www.machinelearning.ru/wiki/index.php?title=Метод_Бокса-Кокса)
+
+<a name="metrics"></a>
+### [Metrics](./metrics.md#ml)
+- classical quality metrics
+  - for classification
+    - Evaluation Metrics for Classification Problems: Quick Examples + References http://queirozf.com/entries/evaluation-metrics-for-classification-quick-examples-references
+    - accuracy
+    - precision, recall
+    - F1
+    - Top-K
+    - TPR (чувствительность), FPR, 1-FPR (специфичность)
+    - AUC ROC (receiver operating characteristic)
+      - Understanding ROC curves http://www.navan.name/roc/
+    - LogLoss
+    - cohen's kappa = 1 - (1-accuracy / 1-baseline)
+    - weighted kappa = 1 - weighted error / weighted baseline error
+    - quadratic weighted cappa
+      - On The Direct Maximization of Quadratic Weighted Kappa https://arxiv.org/abs/1509.07107 (implemented in coursera's ipynb)
+      - used in
+        - Crowd Flower search results relevance
+        - Prudential life insurance assessment
+        - diabetic retinophaty detection
+        - The Hewlett Foundation automated essay scoring
+  - for regression
+    - MSE, RMSE, R2
+    - MAE
+    - MSPE, MAPE, SMAPE
+    - RMSLE
+  - ranking
+    - precision-family
+      - p@K
+      - ap@K
+      - map@K - mean average precision
+    - nDCG-family
+      - CG@K
+      - DCG@K
+      - nDCG@K - normalized discounted cumulative gain
+    - MRR - mean reciprocal rank
+    - ранговые коэффициенты коррелляции
+      - кендэлла
+      - спирмена
+    - каскадная модель поведения
+      - err - expected reciprocal rank
+      - pfound
+    - read more
+      - Метрики качества ранжирования https://habr.com/ru/company/econtenta/blog/303458/
+      - Learning to Rank using Gradient Descent -- original paper about pairwise method for AUC optimization http://icml.cc/2015/wp-content/uploads/2015/06/icml_ranking.pdf
+      - Overview of further developments of RankNet https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/MSR-TR-2010-82.pdf
+      - RankLib (implemtations for the 2 papers from above) https://sourceforge.net/p/lemur/wiki/RankLib/
+      - Learning to Rank Overview https://wellecks.wordpress.com/2015/01/15/learning-to-rank-overview
+  - clustering
+    - Evaluation metrics for clustering http://nlp.uned.es/docs/amigo2007a.pdf
+      - formal constraints
+        - cluster homogenity
+        - cluster completness
+        - rag bag (introducing disorder into a disordered cluster is less harmful than introducing disorder into a clean cluster)
+        - size vs quantity
+      - comparison of evaluation metrics
+        - Evaluation by set matching
+        - Metrics based on Counting Pairs
+        - Metrics based on entropy
+        - Evaluation metrics based on edit distance
+        - BCubed: a mixed family of metrics
+- approaches for target metric optimization
+  - just run the right model: mse, logloss
+  - preprocess train and optimize another metric: mspe, mape, rmsle
+  - optimize another metric, postprocess predictions: acuracy, kappa
+  - write custom loss function: any, if you can
+  - optimize another metric, use early stopping
+- metrics optimization
+  - for regression
+    - sample weights
+      - e.g. mape/mspe <-> oversampling big targets for mae
+    - target transforms
+      - e.g. rlmse <-> log target
+  - for classification
+    - probability calibration
+      - approach: fit to AUC -> calibrate to LogLoss
+      - Platt scaling
+        - fit logreg to predictions - like stacking
+      - isotonic regression
+        - fit isotoic regression to pred - like stacking
+      - stacking
+        - fit XGBoost or NN to predictions
+    - proxy-losses
+      - for accuracy (zero-one loss)
+        - logistic loss
+        - Hinge loss (using in SVM)
+
+<a name="concept"></a>
+### Some concepts
+- генерализация vs запоминание
+- bias vs variance - дилемма смещения-дисперсии
+  - bias - ошибочное предположения, пропуск связи между признаками и выводом - недообучение
+  - variance - ошибка чувствительности к малым отклонениям в тренировочном наборе - переобучение
+  - как влиять
+    - снижение размерности и отбор признаков -> упрощение модели -> уменьшить дисперсию
+    - больше тренировочное множество приводит -> уменьшение дисперсии
+    - добавление признаков -> уменьшение смещения, увеличения дисперсии
+- loss vs metric
+
+<a name="tech"></a>
+## Techniques and practices
+
+<a name="validation"></a>
+### Splitting & validation
+- validation strategies
+  - holdout
+  - K-fold
+  - Leave-one-out
+- data splitting strategies
+  - random, rowwise
+  - timewise (time-based)
+  - stratisfied validation (test has different entities than the train)
+  - by id
+- read more
+  - Validation in Sklearn http://scikit-learn.org/stable/modules/cross_validation.html
+  - Advices on validation in a competition http://www.chioka.in/how-to-select-your-final-models-in-a-kaggle-competitio/
+  - Time Series Nested Cross-Validation https://towardsdatascience.com/time-series-nested-cross-validation-76adba623eb9
+    - пример: Прогнозирование нагрузки колл-центра https://habr.com/ru/company/ods/blog/438212/
+
+<a name="feat"></a>
+### Features
+- feature types
+  - numeric
+  - categorical
+  - ordinal
+  - datetime
+  - coordinates
+- feature preprocessing & generation with respect to model type
+  - for non-trees models
+    - scaling
+      - MinMax: sklearn.preprocessing.MinMaxScale (0..1)
+      - Standard (z?): sklearn.preprocessing.StandardScaler (mean=0, std=1)
+    - scaling-like transforms
+      - log transform: np.log(1+x)
+      - raising to the power<1: np.sqrt(x + 2/3)
+      - [Box–Cox power transform](http://www.machinelearning.ru/wiki/index.php?title=Метод_Бокса-Кокса) for non-normal distribution
+    - rank
+  - for trees and non-trees models
+    - outliers reduction
+      - sqrt, log(1+x)
+      - rank transform
+      - winsorization (clipping) - итеративное выбрасывание 1..5% крайних значений, пока mean и std не перестанут меняться
+    - label encoding
+      - one-hot-encoding: sklearn.preprocessing.OneHotEncoder
+      - alphabetical (sorted): sklearn.preprocessing.LabelEncoder
+      - order of appearance: Pandas.factorize
+      - frequency econding
+  - datetime and coordinates
+    - datetime
+      - periodicity: weekday, month, season, year, second, minute, hour
+      - lags: time since event, difference betweet moments
+      - weighted averaging, expoential smoothing
+      - Kaggle example: Walmart recruitment
+    - coordinates
+      - interesting places from train/test data or additional data
+      - centers of clusters
+      - aggregated stats
+      - rotate
+  - interactions and [recommenders](./ds.md#recommenders)
+    - interactions
+      - multiplications
+      - divisions
+      - group-by-features
+      - concatenations
+      - Kaggle example: Homesite
+    - recommendations
+      - features on transactional history
+      - item popularity
+      - frequency of purchase
+      - Kaggle example: Acquire Valued Shoppers
+- missing values handling
+  - fillNA approaches
+    - -999, -1, etc
+    - mean, median
+    - reconstruct value
+  - IsNull feature
+  - treating values which do not present in train data
+    - threat it randomly
+    - unsupervised encoding
+- feature extraction from text and images
+  - text
+    - preprocessing
+      - lowercase
+      - lemmatization
+      - stemming
+      - stopwords removal (articles and prepositions)
+        - NLTK - natural language toolkit library for python
+        - sklearn.feature_extraction.text.CountVectorizer(max_df=) - threshold for most often words
+    - BOW - bag of words: sklearn.feature_extraction.text.CountVectorizer
+      - TFiDF - term frequency transformation
+        - TF: tf = 1 / x.sum(axis=1)[:,None]; x=x*tf
+        - IDF: idf = np.log(x.shape[0]/(x>0).sum(0)); x=x*idf
+        - sklearn.feature_extraction.text.TfidfVectorizer
+      - N-grams: sklearn.feature_extraction.text.CountVectorizer(Ngram_range=, analyzer=)
+    - embeddings word2vec
+      - for words
+        - word2vec
+        - Glove
+        - FastText
+      - for sentences
+        - doc2vec
+    - read more
+      - Bag of words
+        - Feature extraction from text with Sklearn http://scikit-learn.org/stable/modules/feature_extraction.html
+        - More examples of using Sklearn https://andhint.github.io/machine-learning/nlp/Feature-Extraction-From-Text/
+      - Word2vec
+        - Tutorial to Word2vec https://www.tensorflow.org/tutorials/word2vec
+        - Tutorial to word2vec usage https://rare-technologies.com/word2vec-tutorial/
+        - Text Classification With Word2Vec http://nadbordrozd.github.io/blog/2016/05/20/text-classification-with-word2vec/
+        - Introduction to Word Embedding Models with Word2Vec http://nadbordrozd.github.io/blog/2016/05/20/text-classification-with-word2vec/
+      - NLP Libraries
+        - NLTK http://www.nltk.org/
+        - TextBlob https://github.com/sloria/TextBlob
+    - example of competition
+      - Kaggle: StumbleUponEvergreen Classification
+  - descriptors for images
+    - fine-tuning
+      - pretrained CNN network
+        - recommended architectures
+          - VGG[-16]
+          - ResNet[-50]
+        - read more
+          - Using pretrained models in Keras https://keras.io/applications/
+          - Image classification with a pre-trained deep neural network https://www.kernix.com/blog/image-classification-with-a-pre-trained-deep-neural-network_p11
+      - how to fine-tune
+        - replace last layer(s)
+        - дообучиь на релевантных примерах с малым LR (в 1000 раз меньше, чем изначальный)
+        - read more
+          - How to Retrain Inception's Final Layer for New Categories in Tensorflow https://www.tensorflow.org/tutorials/image_retraining
+          - Fine-tuning Deep Learning Models in Keras https://flyyufelix.github.io/2016/10/08/fine-tuning-in-keras-part2.html
+      - how to choise technic
+        - imagenet domain
+          - small dataset -> train last MLP layers
+          - big dataset -> fine-tuning of deeper layers
+        - not similar to ImageNet
+          - small dataset -> collect more data
+          - big dataset -> train from scratch
+    - feature engeneering for images
+      - scaling
+      - shifting
+      - rotations
+  - sound classifications
+    - feature engeneering for sound
+      - fourier
+      - mfcc
+      - specgrams
+      - scaling
+    - example of competition
+      - Kaggle: Tensorflow speech recognition
+- read more about feature engeneering
+  - Feature preprocessing
+    - Preprocessing in Sklearn http://scikit-learn.org/stable/modules/preprocessing.html
+    - Andrew NG about gradient descent and feature scaling https://www.coursera.org/learn/machine-learning/lecture/xx3Da/gradient-descent-in-practice-i-feature-scaling
+    - Feature Scaling and the effect of standardization for machine learning algorithms https://www.coursera.org/learn/machine-learning/lecture/xx3Da/gradient-descent-in-practice-i-feature-scaling
+  - Feature generation
+    - Discover Feature Engineering, How to Engineer Features and How to Get Good at It https://machinelearningmastery.com/discover-feature-engineering-how-to-engineer-features-and-how-to-get-good-at-it/
+    - Discussion of feature engineering on Quora https://www.quora.com/What-are-some-best-practices-in-Feature-Engineering
+  - Feature Interactions
+    - Facebook Research's paper about extracting categorical features from trees https://research.fb.com/publications/practical-lessons-from-predicting-clicks-on-ads-at-facebook/
+    - Example: Feature transformations with ensembles of trees (sklearn) https://scikit-learn.org/stable/auto_examples/ensemble/plot_feature_transformation.html
+
+<a name="encoding"></a><a name="regularisation"></a>
+### Encoding and Regularisation
+- Encodings for categorical features
+  - one-hot-encoding
+  - mean target encoding
+  - more statistics for regression tasks: median, quantiles, bins, min, max, ...
+- Regulatisation
+  - cross-validation loop inside training data
+  - smoothing
+    - smooth = mean(target)*nrows + globalmean*alpha / nrows + alpha
+  - adding random noize
+  - sorting and calculating expanding mean
+- Extensions and generalizations
+  - regression
+    - more statistics for regression tasks: median, quantiles, bins, min, max, ...
+  - multiclass
+    - encodings for each class
+  - many-to-many relations
+    - flat table
+  - timeseries
+    - rolling statistics of target variable
+
+<a name="hyperopt"></a>
+### Hyperparameter optimization
+- библиотеки
+  - hyperopt
+  - scikit-optimize
+  - spearmint
+  - GPyOpt
+  - RoBo
+  - SMAC3
+- какие параметры тюнить
+  - GBDT
+    - глубина (XGB: max_depth, LGBM: max_depth/num_leaves)
+    - subsample (XGB: subsample, LGBM: bagging_fraction)
+    - fraction (XGB: colsample_bytree, _bylevel, LGBM: feature_fraction)
+    - regularization (XGB: min_child_weight, lambda, alpha, LGBM: min_data_in_leaf, labmda_l1, lambda_l2)
+    - lr, num_trees (XGB: eta, num_round, LGBM: learning_rate, num_iterations)
+  - RandomForest, ExtraTrees
+    - n_estimators
+    - max_depth
+    - max_features
+    - min_samples_leaf
+    - criterion (for split): Ginny, Entropy
+    - n_jobs
+  - NNs
+    - number of neurons per layer
+    - number of layers
+    - omtimizers
+      - SGD+momentum (slower, but generalize better)
+      - adam/adadelta/adagrad (fast, but lead to more overfitting)
+    - batch size (start by 32-64, 500 leads to overfitting)
+    - learing rate
+    - regularization
+      - L2/L1 for weights
+      - dropout/dropconnect
+      - static dropconnect
+  - linear
+    - regularization parameter: C, alpha, lambda
+    - Vowpal Wabbit: FTRL - follow the regularized leader
+- read more
+  - Tuning the hyper-parameters of an estimator (sklearn) http://scikit-learn.org/stable/modules/grid_search.html
+  - Optimizing hyperparameters with hyperopt http://fastml.com/optimizing-hyperparams-with-hyperopt/
+  - Complete Guide to Parameter Tuning in Gradient Boosting (GBM) in Python https://www.analyticsvidhya.com/blog/2016/02/complete-guide-parameter-tuning-gradient-boosting-gbm-python/
+
+<a name="ensemble"></a>
+### Ensembling
+- Averaging/blanding
+- Weighted averaging
+  - (model1*w1 + model2*w2)
+- Conditional averaging
+  - methods can potentially learn conditional averaging
+    - GBDT
+    - stacking
+- Bagging
+  - example: random forest
+  - parameters that control bagging
+    - changing random seed
+    - shuffling train-set
+    - row (sub)sampling or bootstrapping
+    - column (sub)sampling
+    - model-specific parameters
+    - number of models (bags)
+    - (optionally) parallelism
+- Boosting
+  - weight based
+    - generate weiths for rows for next model
+      - after first model create new column weith = 1+abs_error
+    - parameters
+      - learning rate (shrinkage of eta)
+        - predictionN = pred0*eta + pred1*eta + ... + predN*eta
+      - number of estimators
+      - input model - anything that accepts weight
+      - sub boosting types
+        - AdaBoost - SkLearn for Python
+        - LogitBoost - Weka for Java
+  - residual based
+    - parameters
+      - learning rate (shrinkage of eta)
+      - number of estimators
+      - row (sub)sampling
+      - column (sub)sampling
+      - input model - better be trees
+      - sub busting type
+        - fully gradient based
+        - dart - drop-out mechanism to control contribution of the models
+- Stacking
+  - splitting&validation meta-models coursera.org/learn/competitive-data-science/supplement/JThpg/validation-schemes-for-2-nd-level-models
+    - (a) Simple hold-out scheme (fair)
+      - 1 train -> partA, partB, partC
+      - 2 fit N diverse models on partA, predict for partB, partC, test_data getting meta-features partB_meta, partC_meta and test_meta respectively
+      - 3 fit a metamodel to a partB_meta, validate hyperparameters on partC_meta
+      - 4 fit validated metamodel it to [partB_meta, partC_meta], predict for test_meta
+    - (b) Meta holdout scheme with OOF (out-of-fold) meta-features (leaky!)
+      - 1 train -> K folds
+        - iterate through each fold: retrain N diverse models on all folds except current fold, predict for the current fold
+        - we will have N meta-features (OOF predictions) -> train_meta
+      - 2 fit models to whole train, predict for test -> test_meta
+      - 3 train_meta -> train_metaA, train_metaB
+      - 4 fit a meta-model to train_metaA, validate hyperparameters on train_metaB
+      - 5 fit validated meta-model to train_meta, predict for test_meta.
+    - (c) Meta KFold scheme with OOF meta-features (leaky!)
+      - 1 obtain OOF predictions train_meta, test metafeatures test_meta using b1, b2
+      - 2 use KFold on train_meta to validate hyperparameters for meta-model (seed for this KFold = seed for KFold used to get OOF predictions)
+      - 3 fit validated meta-model to train_meta, predict for test_meta
+    - (d) Holdout scheme with OOF meta-features (fair)
+      - 1 train -> partA, partB
+      - 2 partA -> K folds
+        - iterate through each fold: retrain N diverse models on all folds except current fold, predict for the current fold
+        - we will have N meta-features (OOF predictions) for each object in partA -> partA_meta
+      - 3 fit models to whole partA; predict for partB, test_data; getting partB_meta, test_meta respectively
+      - 4 fit a meta-model to a partA_meta, validate hyperparameters on partB_meta
+      - 5 When the meta-model is validated basically do d2, d3 w/o dividing train_data into parts, then train a meta-model
+        - that is, first get OOF predictions train_meta for the train_data using models
+        - train models on train_data, predict for test_data, getting test_meta
+        - train meta-model on the train_meta, predict for test_meta
+    - (e) KFold scheme with OOF meta-features (fair)
+      - 1 to validate the model basically do d1-d4
+        - but: (train -> partA, partB)*M times using KFold with M folds
+      - 2 when the meta-model is validated do d5
+    - (f) KFold scheme in time series
+      - 1 train -> chunks of duration T; select first M chunks
+      - 2 fit N models on those M chunks, predict for the chunk M+1
+        - fit those models on first M+1 chunks, predict for chunk M+2 and so on, until you hit the end
+        - fit models to all train, get predictions for test
+        - now we will have meta-features for the chunks starting from number M+1 as well as meta-features for the test
+      - 3 use meta-features from first K chunks [M+1,M+2,..,M+K] to fit level 2 models and validate them on chunk M+K+1
+        - essentially we are back to step f1 with the lesser amount of chunks and meta-features instead of features
+    - (g) KFold scheme in time series with limited amount of data
+      - if not enough history for scheme f
+      - use scheme c with KFold by time component
+      - i.e. in case several years we would treat each year as a fold
+- StackNet
+  - StackNet github.com/kaz-Anova/StackNet
+  - stacked ensembles from H2O
+  - Xcessiv github.com/reiinkano/xcessiv
+- read more
+  - Kaggle ensembling guide at MLWave.com (overview of approaches) https://mlwave.com/kaggle-ensembling-guide
+  - Heamy — a set of useful tools for competitive data science (including ensembling) https://github.com/rushter/heamy
+- способы комбинации моделей by Emely Dral
+  - switching
+  - каскады
+  - feature augmentation
+  - многоступенчатая комбинация
+
+<a name="choosing"></a>
+### Выбор моделей под цели
+- from KazAnova's competition pipeline
+  - Image classification: CNN (Resnet, VGG, densenet)
+  - Sound classification: CNN (CRNN), LSTM
+  - Text classification: GBMs, Linear, DL, Naive Bayes, KNNs, LibFM, LibFFM
+  - Time series: Autoregressive mocels, ARIMA, linear, GBMs, DL, LSTMs
+  - Categorial features: GBMs, Linear models, DL, LibFM, LibFFM
+  - Numerical features: GBMs, Linear models, DL, SVMs
+  - Interactions: GBMs, Linear models, DL
+  - Recommedners: CF, DL, LibFM, LibFFM, GBMs
+
+<a name="interpretation"></a>
+### Интерпретация
+- `compendium` [Causal Inference and Interpretable ML](./datan.md#ci)
+- `post` [Топ инструментов с Kaggle](https://habr.com/ru/company/ods/blog/434134)
+  - plot predicted vs actual results - сравнение распределения предсказаний с распределением целевой переменной
+  - examine feature importances
+  - examine feature correlations
+  - examine individual model coefficients
+  - dimensionality reduction techniques
+  - plot decision boundaries
+  - print out a decision tree
+  - sensitivity analysis/pertrubation importance
+  - create partial dependence plots
+  - LIME functions
+  - SHAP functions
+  - ELI5 functions
+- `video` [Д.Воротынцев (Oura): ML Interpretability Problems in Tabular Data Tasks (2020)](https://youtu.be/jOfl9_utKx8)
+
+<a name="domains"></a>
+## Специализированные области
+
+<a name="nlp"></a>
+### NLP: тексты
+- задачи
+  - text classification/regression
+    - safe search (adult content filtering)
+    - detect age/gender/interests by search queries
+    - convert moovie review into stars
+    - SNA, social network analysis - public opinion about new product vs old
+- text representation / извлечение признаков из текстов
+  - BoW - bag of words
+  - OHE - one-hot-eocoding
+  - TF-IDF
+  - word embeddings: w2vec(cbow, skipgram), glove, fasttext, Sent2Vec, ELMO
+    - word2vec
+      - approaches
+        - CBOW, Continuous Bag of Words: autoencoder from OHE to OHE
+        - skip-gram: learn to predict missing word
+      - side-effed: word algebra
+    - GloVe - global vectors
+    - FastText
+    - sent2vec, doc2vec
+    - ELMO
+    - other embedding methods (not only? for text):
+      - MDS (multidimensional scaling)
+      - LLE (locally linear embedding)
+      - tSNE (t-distributed Stochastic Neighbor Embedding)
+- алгоритмы обработки последовательностей
+  - рекурентные сети (GRU, LSTM)
+  - казуальные свертки
+  - attention
+- регуляризация
+  - dropout
+  - batchnormalization
+- функции активации
+  - relu (между слоями)
+  - sigmoid (на выходе)
+  - softmax
+- обзорные статьи
+  - DataMonsters - 7 types of Artificial Neural Networks for Natural Language Processing https://medium.com/@datamonsters/artificial-neural-networks-for-natural-language-processing-part-1-64ca9ebfa3b2
+  - DataMonsters - Sentiment Analysis Tools Overview, Part 1. Positive and Negative Words Databases https://medium.com/@datamonsters/sentiment-analysis-tools-overview-part-1-positive-and-negative-words-databases-ae35431a470c
+
+<a name="cv"></a>
+### ComputerVision: изображения
+- типы задач
+  - images classification
+  - semantic segmentation (of every pixel in image)
+    - need corresponding pairs of downsampling (pooling) and upsampling layers
+  - object classification + localization
+- как сделать классификацию под конкретные задачи
+  - скачать современную архитектуру: VGG, ResNet, Inception (принцип - свертки, пулинги)
+  - снять верхние слои, доучить под классы, которые нужны в задаче
+  - softmax, sigmoid
+- fine-tuning
+  - pretrained CNN network
+    - recommended architectures
+      - VGG[-16]
+      - ResNet[-50]
+    - read more
+      - Using pretrained models in Keras https://keras.io/applications/
+      - Image classification with a pre-trained deep neural network https://www.kernix.com/blog/image-classification-with-a-pre-trained-deep-neural-network_p11
+  - how to fine-tune
+    - replace last layer(s)
+    - дообучиь на релевантных примерах с малым LR (в 1000 раз меньше, чем изначальный)
+    - read more
+      - How to Retrain Inception's Final Layer for New Categories in Tensorflow https://www.tensorflow.org/tutorials/image_retraining
+      - Fine-tuning Deep Learning Models in Keras https://flyyufelix.github.io/2016/10/08/fine-tuning-in-keras-part2.html
+  - how to choise technic
+    - imagenet domain
+      - small dataset -> train last MLP layers
+      - big dataset -> fine-tuning of deeper layers
+    - not similar to ImageNet
+      - small dataset -> collect more data
+      - big dataset -> train from scratch
+- Data augmemntation - getting 5x as large dataset for free is a great deal
+  - https://keras.io/preprocessing/image/
+  - Zoom-in+slice = move
+  - Rotate+zoom(to remove black stripes)
+  - any other perturbations
+  - Simple way to do that (if you have PIL/Image): from scipy.misc import imrotate, imresize ... and a few slicing
+  - Stay realistic. There's usually no point in flipping dogs upside down as that is not the way you usually see them.
+
+<a name="unsupervised"></a>
+### Unsupervised learning
+- for
+  - unsupervised pretraining - for large amount of unlabeled data - for NNs
+  - find most relevant features / dimensionality reduction - before XGBoost
+  - explore high-dimensional data / dimensionality reduction - for EDA
+  - compress information
+  - retrieve similar objects
+  - generate new data samples
+  - image morphing
+- autoencoders
+  - image2image: convolutional
+    - data 3xWxH | conv 16x5x5 pad 2 | pool x3 | dense H=256 | unpool x3 | conv 16x5x5 | data 3xWxH
+  - regularization
+    - L1 - adding sum of weights to loss
+    - dropout/noize - between encoder and decoder
+    - dropout/noize - before encoder
+
+<a name="embeddings"></a>
+### Embeddings, dimensionality reduction, matrix factorization
+  - PCA - метод главных компонент (principal component analysis)
+  - SVD-разложение (singular vector decomposition)
+  - tSNE (t-distributed stochastic neighbor embedding)
+    - нелинейное снижение размерности
+    - используется для визуализации, но можно и для фичей
+    - главный параметр: perplexity
+    - read more
+      - Multicore t-SNE implementation https://github.com/DmitryUlyanov/Multicore-TSNE
+      - Comparison of Manifold Learning methods (sklearn) https://scikit-learn.org/stable/auto_examples/manifold/plot_compare_methods.html
+      - How to Use t-SNE Effectively (distill.pub blog) https://distill.pub/2016/misread-tsne/
+      - tSNE homepage (Laurens van der Maaten) https://lvdmaaten.github.io/tsne/
+      - Example: tSNE with different perplexities (sklearn) https://scikit-learn.org/stable/auto_examples/manifold/plot_t_sne_perplexity.html#sphx-glr-auto-examples-manifold-plot-t-sne-perplexity-py
+      - Препарируем t-SNE https://habr.com/ru/post/267041/
+  - NMF (NNMF, Non-negative matrix factorization)
+    - not applicable to features containing negative values, i.e. standartized matrices
+  - read more
+    - Overview of Matrix Decomposition methods (sklearn) https://www.coursera.org/learn/competitive-data-science/supplement/3XpTg/additional-materials-and-links
+
+<a name="rl"></a>
+### Reinforcement learning
+- intro
+  - подходы
+    - value-based
+    - policy-based
+    - model-based
+  - методы и модели
+    - q-learning
+    - sarsa
+    - actor-critic
+    - a3c
+    - dqn
+  - трудности
+    - exploration-vs-exploitation
+    - long term credit assignment
+- Литература
+  - `video` [Сергей Колесников (DBrain) - Практический RL: кнуты и пряники](https://youtu.be/pND-YUZNL5Y)
+    - Как начать изучать RL?
+    - Есть ли RL без DL?
+    - Соревнования по RL: полезно ли участвовать?
+    - Практика DRL в проде, есть ли какие успешные кейсы?
+    - RL research малыми силами - возможно ли это?
+    - Быть в курсе современного RL - как за всем успеть?
+
+<a name="libs"></a>
+## Software
+### Libraries, frameworks
+- basic SciPy stack
+  - Numpy - linear algebra library
+  - Pandas - data reading/processing (not algebra)
+    - DataFrame blog about Pandas usage https://tomaugspurger.github.io/
+  - Matplotlib - visualisation
+  - SkLearn
+- другие общего назначения
+  - H2O.ai на Java от MS http://docs.h2o.ai/h2o/latest-stable/h2o-docs/data-science.html
+  - Spark MLLib
+  - CaReT - Classification And REgression Training для [R](./dev.md#r)
+- tree-based
+  - XGBoost (dmlc/xgboost)
+  - MS LightGBM (microsoft/lightgbm)
+  - H2O's GBM - supported cat-features
+  - CatBoost
+    - solving problems
+      - categorical features
+      - parameter tunning
+      - prediction speed
+      - overfitting
+      - training speed
+    - additional features
+      - overfitting detector
+      - evaluating custom metrics during training
+      - catboost viewer
+      - user defined metrics and loss functions
+      - NaN features support
+      - cross-validation
+      - feature importances
+    - speed
+      - options to speedup
+        - rsm=0.1
+        - max_ctr_complexity=1
+        - boosting_type='Plain'
+      - cpu-mode
+        - large-datasets
+          - same speed as LightGBM
+        - small-datasets
+          - 2 times faster than XGBoost
+          - 2 times slower than LightGBM
+      - gpu-mode
+        - 2 times faster than LightGBM
+        - 20 times faster than XGBoost
+    - training parameter
+      - number of trees, learning rate
+      - tree depth
+      - L2 regularization
+      - bagging temperature - how agressive the sampling is
+      - random strength - helps to reduce overfitting
+  - (f)RGF baidu/fast_rgf - Regularized Greedy Forest
+    - https://github.com/baidu/fast_rgf
+    - https://arxiv.org/pdf/1109.0887.pdf
+  - randomforest
+- work with sparse CTR-like data
+  - srendle/libfm
+  - guestwalk/libffm
+- linear models
+  - vowpal wabbit
+    - https://habrahabr.ru/company/mlclass/blog/248779/ Когда данных действительно много: Vowpal Wabbit
+    - vowpal wabbit https://github.com/JohnLangford/vowpal_wabbit
+- временнЫе ряды
+  - prophet
+- additional tools
+  - danielfrg/tsne (osdf/py_bh_tsne, lvdmaaten/tsne) - about dimensionality reduction
+  - TFFM - TF implementation of Arbitrary order factorization machines https://github.com/geffy/tffm
+  - kaggletils - framework for Kaggle competitions by Far0n https://github.com/Far0n/kaggletils/blob/master/kaggletils/metrics.py
+- neural networks
+  - классификация фреймворков для NN
+    - фиксированные модули: Caffe, Caffe2, CNTK, Kaldi, DL4J, Keras
+    - статический граф вычислений: Theano, TensorFlow, MXNet
+    - динамический граф вычислений: Torch и PyTorch
+  - Tensorflow
+    - https://www.coursera.org/learn/intro-to-deep-learning/lecture/hscFv/what-is-tensorflow
+    - TensorFlow: The Confusing Parts https://jacobbuckman.com/post/tensorflow-the-confusing-parts-1
+    - TensorFlow tutorials: https://www.tensorflow.org/tutorials
+    - TensorFlow documentation: https://www.tensorflow.org/versions/r1.3/api_docs/python
+    - Tensorflow virualenv
+      - https://medium.com/@margaretmz/anaconda-jupyter-notebook-tensorflow-and-keras-b91f381405f8
+      - https://docs.docker.com/toolbox/toolbox_install_windows/
+  - Keras
+    - Guide to using Keras as part of a TensorFlow workflow https://blog.keras.io/keras-as-a-simplified-interface-to-tensorflow-tutorial.html
+  - Caffe
+  - PyTorch от Facebook не похожа на Caffe, Theano, TensofFlow (habr.com/ru/post/334380)
+    - PyTorch — ваш новый фреймворк глубокого обучения https://habr.com/ru/post/334380/
+  - Fast.ai для PyTorch
+  - MXNet - распределённое обучение сеточек
+  - CNTK - CogNitive TookKit от Microsoft Research
+
+### Infra
+- languages: [Python](./dev.md#py), ...
+- [environements](./dev.md#env)
+- [devtools](./dev.md#devtools)
+- [big data](./arch.md#data)
+- [clouds](./arch.md#cloud-apps)
+  - Amazon AWS
+    - AWS spot option
+      - Overview of Spot mechanism http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html
+      - Spot Setup Guide http://www.datasciencebowl.com/aws_guide/
+  - MS Azure
+  - Google Cloud
+
+<a name="eda"></a>
 ## EDA - exploratory data analysis
 - tools for features exploration (from pandas stack)
-    - base
-        - df.dtypes
-        - df.info()
-    - explore individual features
-        - histograms
-            - plt.hist(x)
-        - plot
-            - plt.plot(x, '.')
-        - statistics
-            - df.describe()
-            - x.mean()
-            - x.var()
-        - other tools
-            - x.value_counts()
-            - x.isnull()
-    - explore feature relations
-        - scatter plots
-            - pd.scatter_matrix(df)
-        - correlation matrices
-            - df.corr()
-            - plt.matshow()
-    - explore features groups
-        - corrplot+clustering
-        - plot: index vs feature statistics
-            - df.mean().sort_values().plot(style='.')
+  - base
+    - df.dtypes
+    - df.info()
+  - explore individual features
+    - histograms
+      - plt.hist(x)
+    - plot
+      - plt.plot(x, '.')
+    - statistics
+      - df.describe()
+      - x.mean()
+      - x.var()
+    - other tools
+      - x.value_counts()
+      - x.isnull()
+  - explore feature relations
+    - scatter plots
+      - pd.scatter_matrix(df)
+    - correlation matrices
+      - df.corr()
+      - plt.matshow()
+  - explore features groups
+    - corrplot+clustering
+    - plot: index vs feature statistics
+      - df.mean().sort_values().plot(style='.')
 - dataset cleaning and other things to check
-    - duplicated and constant features    
-        - train.nunique(axis=1) == 1
-        - traintest.T.drop_duplicates()
-        - for f in categorical_feats: traintest[f]=traintest[f].factorize() ; traintest.T.drop_duplicates()
+  - duplicated and constant features
+    - train.nunique(axis=1) == 1
+    - traintest.T.drop_duplicates()
+    - for f in categorical_feats: traintest[f]=traintest[f].factorize() ; traintest.T.drop_duplicates()
 - EDA checklist
-    - get domain knowledge
-    - check if data is intuitive
-    - understand how the data was geerated
-    - explore features, pairs, groups
-    - clean features up
-    - check for leaks
+  - get domain knowledge
+  - check if data is intuitive
+  - understand how the data was geerated
+  - explore features, pairs, groups
+  - clean features up
+  - check for leaks
 - Visualization tools https://github.com/az365/compendium/blob/master/disciplines/datavis.md
-    - Seaborn https://seaborn.pydata.org
-    - Plotly https://plot.ly/python/
-    - Bokeh https://github.com/bokeh/bokeh
-    - ggplot http://ggplot.yhathq.com/
-    - Graph visualization with NetworkX https://networkx.github.io/
-    - Biclustering algorithms for sorting corrplots https://scikit-learn.org/stable/auto_examples/bicluster/plot_spectral_biclustering.html
+  - Seaborn https://seaborn.pydata.org
+  - Plotly https://plot.ly/python/
+  - Bokeh https://github.com/bokeh/bokeh
+  - ggplot http://ggplot.yhathq.com/
+  - Graph visualization with NetworkX https://networkx.github.io/
+  - Biclustering algorithms for sorting corrplots https://scikit-learn.org/stable/auto_examples/bicluster/plot_spectral_biclustering.html
+
+<a name="cases"></a>
 ## Кейсы применения
-- Ритейл 
-    - моделирование продаж
-        - x5+Rubbles @ RetailHero: ИИ для предсказания спроса (2020) https://youtu.be/M5NOU9eq-Pw
-            - принудительная элластичность: в GBDT-либах бывают параметры, заставляющие считать некоторые признаки монотонными
-            - проблема Causal Inference: пример с огурцами зимой и летом
-        - x5: прогнозирование спроса (2020) https://youtu.be/6n1Fg8IcHUs
-            - методы: arima, gbdt, --rnn--
-            - горизонт: 4-12 недель 
-            - лосс: MAE, Tweede
-            - метрики качества: (s)WAPE, Bias, Money 
-            - метрики ритейла: трафик, маржа, RTO (retail turnover)
-            - факторы
-                - чеки
-                - погода (прогноз погоды даёт эффект лучше, чем факты погоды) - найти непросто, но полезно
-                - факторы по результатам кластеризации магазинов 
-            - гало/канибализация 
-                - совместная/несовместная покупка 
-                - эмбединги по чекам (word2vec)
-                - регрессия для каждого объекта магазин-товар 
-            - помогают приёмы 
-                - логарифмированиее/экспоненцирование таргета 
-                - кластеризация магазинов 
-                - очистка аномалий 
-                - данные об активности конкурентов 
-                - лояльность 
-                ? реклама (сложно оценить, если реклама идёт постоянно)
-                - сегментация модели по категор иям + обогащение малых категорий данными по большим 
-        - Technostartup: How Retail Stores Can Use ML To Boost Their Sales? (2017) https://medium.com/@technostartup1m/how-retail-stores-can-use-machine-learning-to-boost-their-sales-2c108de7c597
-            - управление запасами
-            - маркетинг 
-            - рекомендация товаров 
-            - ценообразование 
-            - распознавание клиентских паттернов (Uber: константный спрос путём изменений цен)
-            - персонализированные купоны-предложения 
-            - логистика 
-        - Николай Савин (Competera) - AI-powered price optimization (2019) https://bigdata-madesimple.com/ai-powered-price-optimization
-        - 1C Sales Prediction @ Kaggle https://www.kaggle.com/c/competitive-data-science-predict-future-sales
-            - пример работы https://www.kaggle.com/dimitreoliveira/model-stacking-feature-engineering-and-eda
-            - A beginner guide for sale data prediction https://www.kaggle.com/minhtriet/a-beginner-guide-for-sale-data-prediction
-    - геоаналитика 
-        - BST Digital: выбор точек для открытия магазинов (2018, реклама) https://new-retail.ru/persony/bst_organika_kak_uspeshno_upravlyat_otkrytiyami_nayti_luchshie_mesta_i_postroit_optimalnuyu_set_torg1113
-    - CV в ритейле
-        - x5: Face Re-Identication: Try to capture me https://youtu.be/XuWp4OkwYvY
-        - ComputerVision в проде x5 (2020) https://youtu.be/XDEawkpXPVI
-            - анализ доступности товаров на полках 
-            - детектирование очередей на кассах 
-            - табелирование сотрудников 
-        - VisionLabs - CV в ритейле https://visionlabs.ai/ru/industries/retail
-            - трекинг посетителей (объём аудитории, маршруты, время ожидания, точки внимания, эмоции, соцдем, постоянные клиенты)
-            - выявление воровства
-            - распознавание зарегенных клиентов по лицу для отслеживания и анализа опыта, персонализации предположений
-            - контроль доступа, отслеживание посещаемости сотрудников 
-    - CR 
-        - Kaggle example: Acquire Valued Shoppers
-    - колл-центры
-        - ODS: Прогнозирование нагрузки колл-центра (2019) https://habr.com/ru/company/ods/blog/438212/
-        - МТС VoiceTracker: супервайзинг в колл-центре (2020) https://voicetracker.mts.ru
-    - HR 
-        - Лента/Север.AI: Лента ускорила подбор сотрудников с помощью ИИ https://www.cnews.ru/news/line/2020-09-23_lenta_uskorila_podbor https://sever.ai
-- закупки 
-    - Federico Castanedo - Advancing Procurement Analytics (O'Reilly, 2016) https://www.oreilly.com/content/advancing-procurement-analytics/
-    - Naman Shah - Role of data and machine learning in procurement (2019) https://yourstory.com/2019/10/data-machine-learning-procurement-operations
-        - применения данных 
-            - анализ контрактов
-            - оценка вендоров
-            - отношения с поставщиками 
-            - анализ затрат 
-            - прогнозирование спроса 
-        - машинное обучение в закупках 
-            - прогнозирование стока 
-            - автоматизация заказов поставщикам 
-            - прогнозирование цен (для переговоров)
-    - Caterpillar @ Kaggle https://www.kaggle.com/c/caterpillar-tube-pricing
-        - https://www.slideshare.net/KarthikVenkataraman11/kaggle-caterpillar-tube-assembly-pricing
-        - https://github.com/cedar10b/Caterpillar-Tube-Pricing
-        - https://github.com/codebender/kaggle-caterpillar-tube-pricing
-- медицина 
-    - B.L. Mittal - Smarter healthcare (2019) https://yourstory.com/2019/01/smarter-healthcare-ai-machine-learning-wearables-will-pave-path-ahead
+### Retail
+- DS в ритейле
+  - Моделирование продаж
+    - x5+Rubbles @ RetailHero: ИИ для предсказания спроса (2020) https://youtu.be/M5NOU9eq-Pw
+      - принудительная элластичность: в GBDT-либах бывают параметры, заставляющие считать некоторые признаки монотонными
+      - проблема Causal Inference: пример с огурцами зимой и летом
+    - x5: прогнозирование спроса (2020) https://youtu.be/6n1Fg8IcHUs
+      - методы: arima, gbdt, --rnn--
+      - горизонт: 4-12 недель
+      - лосс: MAE, Tweede
+      - метрики качества: (s)WAPE, Bias, Money
+      - метрики ритейла: трафик, маржа, RTO (retail turnover)
+      - факторы
+        - чеки
+        - погода (прогноз погоды даёт эффект лучше, чем факты погоды) - найти непросто, но полезно
+        - факторы по результатам кластеризации магазинов
+      - гало/канибализация
+        - совместная/несовместная покупка
+        - эмбединги по чекам (word2vec)
+        - регрессия для каждого объекта магазин-товар
+      - помогают приёмы
+        - логарифмированиее/экспоненцирование таргета
+        - кластеризация магазинов
+        - очистка аномалий
+        - данные об активности конкурентов
+        - лояльность
+        - `?` реклама (сложно оценить, если реклама идёт постоянно)
+        - сегментация модели по категор иям + обогащение малых категорий данными по большим
+    - Technostartup: How Retail Stores Can Use ML To Boost Their Sales? (2017) https://medium.com/@technostartup1m/how-retail-stores-can-use-machine-learning-to-boost-their-sales-2c108de7c597
+      - управление запасами
+      - маркетинг
+      - рекомендация товаров
+      - ценообразование
+      - распознавание клиентских паттернов (Uber: константный спрос путём изменений цен)
+      - персонализированные купоны-предложения
+      - логистика
+    - Николай Савин (Competera) - AI-powered price optimization (2019) https://bigdata-madesimple.com/ai-powered-price-optimization
+    - 1C Sales Prediction @ Kaggle https://www.kaggle.com/c/competitive-data-science-predict-future-sales
+      - пример работы https://www.kaggle.com/dimitreoliveira/model-stacking-feature-engineering-and-eda
+      - A beginner guide for sale data prediction https://www.kaggle.com/minhtriet/a-beginner-guide-for-sale-data-prediction
+  - [геоаналитика](./datan.md#spacial)
+    - `ads` [BST Digital: выбор точек для открытия магазинов (2018)](https://new-retail.ru/persony/bst_organika_kak_uspeshno_upravlyat_otkrytiyami_nayti_luchshie_mesta_i_postroit_optimalnuyu_set_torg1113)
+  - [CV](./ds.md#cv): [видеоаналитика](./ds.md#video) в ритейле
+    - x5: Face Re-Identication: Try to capture me https://youtu.be/XuWp4OkwYvY
+    - ComputerVision в проде x5 (2020) https://youtu.be/XDEawkpXPVI
+      - анализ доступности товаров на полках
+      - детектирование очередей на кассах
+      - табелирование сотрудников
+    - VisionLabs - CV в ритейле https://visionlabs.ai/ru/industries/retail
+      - трекинг посетителей (объём аудитории, маршруты, время ожидания, точки внимания, эмоции, соцдем, постоянные клиенты)
+      - выявление воровства
+      - распознавание зарегенных клиентов по лицу для отслеживания и анализа опыта, персонализации предположений
+      - контроль доступа, отслеживание посещаемости сотрудников
+  - CR
+    - Kaggle example: Acquire Valued Shoppers
+  - колл-центры
+    - ODS: Прогнозирование нагрузки колл-центра (2019) https://habr.com/ru/company/ods/blog/438212/
+    - МТС VoiceTracker: супервайзинг в колл-центре (2020) https://voicetracker.mts.ru
+  - HR
+    - Лента/Север.AI: Лента ускорила подбор сотрудников с помощью ИИ https://www.cnews.ru/news/line/2020-09-23_lenta_uskorila_podbor https://sever.ai
+- Мероприятия
+  - `folder` [X5 Retail Hero (2020)](https://drive.google.com/drive/folders/1zf8rSVU9bHXTkPDAms5bkV9qDdxVpbdN)
+
+<a name="zakup"></a>
+### Procurements
+- Federico Castanedo - Advancing Procurement Analytics (O'Reilly, 2016) https://www.oreilly.com/content/advancing-procurement-analytics/
+- Naman Shah - Role of data and machine learning in procurement (2019) https://yourstory.com/2019/10/data-machine-learning-procurement-operations
+  - применения данных
+    - анализ контрактов
+    - оценка вендоров
+    - отношения с поставщиками
+    - анализ затрат
+    - прогнозирование спроса
+  - машинное обучение в закупках
+    - прогнозирование стока
+    - автоматизация заказов поставщикам
+    - прогнозирование цен (для переговоров)
+- Caterpillar @ Kaggle https://www.kaggle.com/c/caterpillar-tube-pricing
+  - https://www.slideshare.net/KarthikVenkataraman11/kaggle-caterpillar-tube-assembly-pricing
+  - https://github.com/cedar10b/Caterpillar-Tube-Pricing
+  - https://github.com/codebender/kaggle-caterpillar-tube-pricing
+
+<a name="industry"></a>
+### Промышленность
+- предсказание времени тестирования автомобиля
+  - `video` [Данила Савенков - Kaggle Mercedes-Benz Greener Manufacturing](https://youtu.be/HT3QpRp2ewA)
+
+<a name="transport"></a>
+### Беспилотный транспорт
+- Комбайны-автопилоты (2020) https://habr.com/ru/company/cognitivepilot/blog/496058/ https://cognitivepilot.com/products/cognitive-agro-pilot
+- Starsky Robotics закрылся (2020) https://vc.ru/transport/113897-proekt-bespilotnyh-gruzovikov-starsky-robotics-s-investiciyami-fonda-dmitriya-grishina-zakrylsya-chto-proizoshlo-i-pochemu https://medium.com/starsky-robotics-blog
+- Беспилотное Я.Такси (2019) https://bespilot.com/news/366-yandex-bespilot
+- вертолёты uvr.su (2020) https://youtu.be/vefNgzqJpzc
+
+<a name="fin"></a>
+### Финансы и страхование
+- `video` [Фрэнк Шихалиев (MindSet, Ренессанс) - ML в страховании (2018)](https://youtu.be/5PN83s-5eXw)
+  - какие проекты можно и нужно делать
+  - как избежать классических ошибок
+  - какую пользу проекты приносят или принесут в будущем
+  - как оценивать эффект от внедрений
+- `video` [bd.megafon.ru (2020-06-23)](https://youtu.be/pxoT0bBNhQs)
+  - ModelOps - операционализация модели
+  - target discovery, target hypothesis
+  - research, дающий 90% точность на imagenet стоит $x*10..100млн
+  - норм ИИ начинает работать от $0.5 млн
+  - в ML работает DecisionMakingJourney вместо CustomerJourney
+  - MonkeyScience - а давайте попробуем это ...
+
+<a name="med"></a>
+### Медицина
+- `post` [B.L. Mittal - Smarter healthcare (2019)](https://yourstory.com/2019/01/smarter-healthcare-ai-machine-learning-wearables-will-pave-path-ahead)
+- ...
+
+<a name="recommenders"></a>
+### Рекомендательные системы
+- `post` [М.Ройзнер - Как работают рекомендательные системы](https://habr.com/ru/company/yandex/blog/241455/)
+- `post` [Jonathan Hui - Рекомендательные системы (2020, перевод с TowardsDS)](https://vc.ru/ml/132779-mashinnoe-obuchenie-rekomendatelnye-sistemy)
+- `video` [Андрей Зимовнов (Я.Дзен) - Deep learning в рекомендательных системах (2018)](https://youtu.be/OJ0nJb3LfNo)
+  - Deep learning в рекомендательных системах
+  - Collaborative Filtering (CF) в большой рекомендательной системе
+- Kaggle: предсказание популярности постов на Хабре https://www.kaggle.com/c/howpop-habrahabr-favs-lognorm https://www.kaggle.com/c/howpop-habrahabr-favs
+
+<a name="video"></a>
+### Видеоаналитика
+- камеры в электричах
+  - EORA: Видеоаналитика сына маминой подруги https://www.youtube.com/watch?v=Zsz6yIQZHPU
+- CV в [ритейле](./ds.md#retail)
+  - x5: Face Re-Identication: Try to capture me https://youtu.be/XuWp4OkwYvY
+  - ComputerVision в проде x5 (2020) https://youtu.be/XDEawkpXPVI
+    - кейсы
+      - анализ доступности товаров на полках
+      - детектирование очередей на кассах
+      - табелирование сотрудников
+    - челленджи
+      - инференс на устройствах в магазинах
+      - ограничение по стоимости устройств
+      - работа без человеческих вмешательств
+      - оперативно обнаруживать и исправлять проблемы
+    - рецепты
+      - исключить перекидывание кода через стенку (ds->dev)
+      - определение интерфейсов и окружения модели
+      - разделение на компоненты с интерфейсами
+      - единая платформа и переиспользование компонентов
+      - унификация стека технологий
+      - воспроизводимое окружение (docker+piptools, s3 для моделей)
+      - 3 репозитория: эксперименты и обучение, прод, использующий сервис
+      - автопроверки кода
+      - мониторинг и логирование
+    - правило 60/60
+      - на поддержку идёт 60% затрат проекта
+      - изменение функционала даёт 60% затрат на поддержку
+      - итеративное внедрение
+  - VisionLabs - CV в ритейле https://visionlabs.ai/ru/industries/retail
+    - трекинг посетителей (объём аудитории, маршруты, время ожидания, точки внимания, эмоции, соцдем, постоянные клиенты)
+    - выявление воровства
+    - распознавание зарегенных клиентов по лицу для отслеживания и анализа опыта, персонализации предположений
+    - контроль доступа, отслеживание посещаемости сотрудников
+- CV по спутникам
+  - Сбер: Спутниковы контроль за строительством https://youtu.be/MOWbWHTgnng
+
+<a name="audio"></a>
+### Аудио-аналитика
+- супервайзинг в колл-центре
+  - МТС VoiceTracker (2020) https://voicetracker.mts.ru
+
+<a name="mlart"></a>
+### ML-art
+- `video` [Gleb Sterkin - Representing (almost) anything as MLP](https://youtu.be/iUmrBL62gvw)
+- `blog` [Instagram ALGroznykh](https://instagram.com/algroznykh)
+- `video` [Tanya Zobnina - YouTube channel](https://www.youtube.com/channel/UCshN5kNGo6fgxzTPHiDT_Pg)
+
+<a name="methodology"></a>
+## Организация DS-процесса
+
+<a name="crispdm"></a>
+### Методология CRISP-DM
+Cross-industry standard process for data mining
+- этапы согласно [Wiki](https://en.wikipedia.org/wiki/CRISP-DM)
+  - business understanding
+  - data understanding
+  - data preparation
+  - modeling
+  - evaluation
+  - deployment
+- этапы согласно [ODS @ Habr - DS-проект от исследования до внедрения на примере Говорящей шляпы](https://habr.com/ru/company/ods/blog/430006)
+  - формулировка задачи
+  - методы решения и данные
+    - исследуем возможные подходы к её решению и сформулируем требования к данным
+    - соберём необходимые данные
+  - exploratory research / eda - exploratory data analysis - изучим собранный датасетт
+  - feature engineering - извлечём признаки из сырых данных
+  - обучим модель
+  - model evaluation - сравним полученные результаты, оценим качество полученных решений и при необходимости повторим пункты 2-6
+  - deployment to production - упакуем решение в сервис, который можно будет использовать
+- `video` [От исследований к проду: TDD, CRISP-DM, контроль версий (2018)](https://youtu.be/OMIBG_V4GRo)
+  - Как организовать эффективное взаимодействие бизнеса, разработчиков и DS?
+  - Как версионировать данные и возможно ли это?
+  - Существует ли test driven development в Data Science?
+  - Как (можно) хранить модели и состояния датасетов?
+
+<a name="leands"></a>
+### Методология LeanDS
+LeanDS (с митапов Асхата Уразбаева)
+- для проверки 1 продуктовой гипотезы нужно проверить несколько DS-гипотез
+- декомпозиция гипотез мерседесом
+  - method
+  - data
+  - user-story
+- ICE-score
+  - ice = impact * confidence / effort
+- work items на доске
+  - hypothesis: US user stories, DH data hypothesis, MH method hypothesis, Q questions
+  - C chore (taks) - инфраструктурные / архитектурные работы
+  - B bug: production defects
+- LeanDS доска
+  - колонки
+    - hot queue - приоритетные гипотезы (пополняет AIPO)
+    - analysis - обсуждение и создание приёмочных критериев
+    - experimenting - работа с данными, создание модели, тестирование и верификация
+    - evaluation - приёмка заказчиком, валидация модели
+    - development - подготовка к деполю
+    - prod/abt - валидаци в проде (АБТ)
+  - свимлвйны - отдельные продуктовые гипотезы
+  - на выходе - Findings
+- метрики
+  - бизнес-метрика
+  - прокси-бизнес-метрика
+  - DS-метрика
+  - прокси-DS-метрика
+- чек-лист для продуктовых гипотез и assumptions
+  - цль и метрика
+    - какую проблему пользователя или бизнеса мы решаем?
+    - какую метрику мы оптимизируем?
+    - на какие другие метрики эта метрика влияет?
+    - какие метрики влияют на эту метрику?
+    - какие прокси-метрики использовать?
+    - как доказать связь бизнес-метрики и прокси-метрики на данных?
+  - контекст
+    - как выглядит жц ползьователя?
+    - как работает сейчас?
+    - как буедт работать когда сервис появится?
+    - какие технологические ограничения существуют для сервиса?
+  - заинтересованные лица
+    - кто стейкхолдеры сервиса?
+    - какие системы и команды зависят от сервиса?
+    - как стейкхолдеры оценивают результат появления продукта?
+    - как на них влияет решение?
+  - данные
+    - какие данные доступны?
+    - заражены ли данные предрассудками (biased)?
+    - достаточно ли данных для постреония модели?
+    - как модель будет получать данные в проде?
+    - как сохранить качество данных после выхода в прод?
+    - не отрежем ли мы нужные данные?
+    - есть ли юридические риски использования данных?
+  - метод
+    - есть ли sota?
+    - как эту работу делают sme сейчас?
+  - валидация
+    - как проводить АБТ?
+    - что будет, если сервис откажет?
+    - как часто нужно переобучать модель в проде?
+
+<a name="product"></a>
+### Дата-продукты
+- составляющие дата-продукта
+  - источники данных, обогащение, фичерэкстракшен
+  - ключ примера - гранулярность объектов
+  - целевая переменная, преобразования таргета
+  - лосс-функция, способ обучения
+  - метрика качества, способ измерения качества
+  - прокси-метрика эксперимента, методика эксперимента
+  - бизнес-метрика - kpi, который хотим изменить
+  - интерфейсы: api, gui, bi, витрины
+  - целевые точки встраивания в бизнес-процесс
+    - рекомендации, подсказки, second opinion
+    - вердикт, first opinion
+    - автоматическое применение решения
+- подходы к нахождению продукта
+  - сверху-вниз: заказ-реализация - если есть зрелые заказчики
+  - снизу-вверх: инсайты-продакшенизация - если есть зрелая аналитика
+  - венчурная модель: продукты-гипотезы - если есть запас инвестиций
+- роли
+  - po: ProductOwner
+  - bia: BI-analyst
+  - ada: AdHoc-analyst
+  - de: DataEngineer
+  - dev: FullStackDeveloper
+  - ds: DataScientist
+- конвейер этапов
+  - сбор требвоаний, гипотез - po
+  - исследование данных - ada, bia, de
+  - проверка гипоез - ada, ds
+  - интеграция источников - de
+  - обогащение данных, построение витрин - de, da
+  - построение приборов - de, bia, dev
+  - эдхок-аналитика с приборами - ada, bia
+  - построение модели, эксперименты - ds
+  - анализ результатов модели - ds, ada
+  - индустриализация модели - ds, dev
+  - приборы по модели - da, dev, bi
+  - натурный эксперимент - po, da
+  - распространение результатов - po, bia, ada
+  - внедрение в бизнес-процесс - po, bia
+  - защита методики - po, ds
+  - разбор запросов - po, bia, ada
+
+### Сравнение методологий
+- CRISP-DM: Cross-industry Process of Data Mining
+  - что призван решать
+    - цикл нахождения и разработки продукта с обратной связью
+    - фиксирует определения стадий работы над продуктом
+  - что не решает
+    - как ускорить цикл
+    - описывает лишь очевидные (для датера) этапы процесса
+    - не предписывает, как их правильно делать
+    - ничего не говорит про продуктовую составляющую
+- Agile для Дата-продукта
+  - что призван решать
+    - fail fast - проверка продуктовых гипотез
+    - инкремент продукта в каждом спринте
+  - проблемы применения в DS
+    - дольше идти до MVP, способного проверить продуктовую гипотезу
+    - трудно оценимые риски помимо продуктовых гипотез
+    - единица инкремента - не фича
+- Lean DS
+  - адаптация Agile-практик к DS
+    - единица инкремента - гипотеза
+    - ICE-score = impact * confidence / effort
+  - классы задач/гипотез
+    - product hypothesis
+    - method hypothesis
+    - data hypothesis
+    - question
+    - chorn - архитектура, инфраструктура, оптимизация кода, техдолг, дешборды, логи и мониторинги
+- Венчурная модель (Акселератор)
+  - как работает
+    - воркшоп с бизнесом - нащупываем идеи, где применить дату
+    - скоринг идей/гипотез: ICE-score = impact * confidence / effort
+    - делаем N продуктов: N-2 из них пофейлятся, 2 взлетят и окупят все N
+  - почему не всегда работает
+    - предполагает, что представители от бизнеса уже подкованы в дате
+    - нужен запас времени и компетентных ресурсов на старте
+    - может пофейлиться больше, чем N-2
+- `video` [Microsoft: Data Architecture for Business](https://www.youtube.com/watch?v=ArzohefZLE4)
+  - The data science hierarchy of needs (pyramide)
+    - AI, DL
+    - Learn/optimize: ABT, experimentations, simple ML algorythms
+    - Aggregate/label: Analytics, metrics, segments, aggregates, features, training data
+    - Explore/transform: Cleaning, anomaly detection, prep
+    - Move/store: Reliable data flow, infrastructure, pipelines, ETL, structured and unstructured data storage
+    - Collect: instrumentation, logging, sensors, exteral data, UGC
+  - Timeline
+    - Start of a product
+    - Looking for a weekly reports and a KPI dashboard
+    - Anomaly detection to see issues right away
+    - Want to make decisions based on information
+    - Want a platform for a forensic analytics to speed up product development
     - ...
-- рекомендательные системы 
-    - М.Ройзнер - Как работают рекомендательные системы https://habr.com/ru/company/yandex/blog/241455/
-    - Jonathan Hui - Рекомендательные системы (2020, перевод с TowardsDS) https://vc.ru/ml/132779-mashinnoe-obuchenie-rekomendatelnye-sistemy
-- предсказание популярности 
-    - предсказание популярности постов на хабре https://www.kaggle.com/c/howpop-habrahabr-favs-lognorm https://www.kaggle.com/c/howpop-habrahabr-favs
-    - ...
-- беспилотный транспорт 
-    - Комбайны-автопилоты (2020) https://habr.com/ru/company/cognitivepilot/blog/496058/ https://cognitivepilot.com/products/cognitive-agro-pilot
-    - Starsky Robotics закрылся (2020) https://vc.ru/transport/113897-proekt-bespilotnyh-gruzovikov-starsky-robotics-s-investiciyami-fonda-dmitriya-grishina-zakrylsya-chto-proizoshlo-i-pochemu https://medium.com/starsky-robotics-blog
-    - Беспилотное Я.Такси (2019) https://bespilot.com/news/366-yandex-bespilot
-    - вертолёты uvr.su (2020) https://youtu.be/vefNgzqJpzc
-- CouputerVision
-    - камеры в электричах
-        - EORA: Видеоаналитика сына маминой подруги https://www.youtube.com/watch?v=Zsz6yIQZHPU
-    - CV в ритейле
-        - x5: Face Re-Identication: Try to capture me https://youtu.be/XuWp4OkwYvY
-        - ComputerVision в проде x5 (2020) https://youtu.be/XDEawkpXPVI
-            - кейсы 
-                - анализ доступности товаров на полках 
-                - детектирование очередей на кассах 
-                - табелирование сотрудников 
-            - челленджи 
-                - инференс на устройствах в магазинах 
-                - ограничение по стоимости устройств 
-                - работа без человеческих вмешательств
-                - оперативно обнаруживать и исправлять проблемы 
-            - рецепты 
-                - исключить перекидывание кода через стенку (ds->dev)
-                - определение интерфейсов и окружения модели 
-                - разделение на компоненты с интерфейсами
-                - единая платформа и переиспользование компонентов 
-                - унификация стека технологий 
-                - воспроизводимое окружение (docker+piptools, s3 для моделей)
-                - 3 репозитория: эксперименты и обучение, прод, использующий сервис
-                - автопроверки кода 
-                - мониторинг и логирование
-            - правило 60/60 
-                - на поддержку идёт 60% затрат проекта 
-                - изменение функционала даёт 60% затрат на поддержку 
-                - итеративное внедрение 
-        - VisionLabs - CV в ритейле https://visionlabs.ai/ru/industries/retail
-            - трекинг посетителей (объём аудитории, маршруты, время ожидания, точки внимания, эмоции, соцдем, постоянные клиенты)
-            - выявление воровства
-            - распознавание зарегенных клиентов по лицу для отслеживания и анализа опыта, персонализации предположений
-            - контроль доступа, отслеживание посещаемости сотрудников 
-    - CV по спутникам 
-        - Сбер: Спутниковы контроль за строительством https://youtu.be/MOWbWHTgnng
-- Аудио-аналитика
-    - супервайзинг в колл-центре
-        - МТС VoiceTracker (2020) https://voicetracker.mts.ru
-## Организация DS-процесса 
-- методология CRISP-DM
-    - этапы согласно wikipedia.org/wiki/CRISP-DM
-        - business understanding
-        - data understanding
-        - data preparation
-        - modeling
-        - evaluation
-        - deployment
-    - этапы согласно habr.com/ru/company/ods/blog/430006
-        - формулировка задачи
-        - методы решения и данные
-            - исследуем возможные подходы к её решению и сформулируем требования к данным
-            - соберём необходимые данные
-        - exploratory research / eda - exploratory data analysis - изучим собранный датасетт
-        - feature engineering - извлечём признаки из сырых данных
-        - обучим модель
-        - model evaluation - сравним полученные результаты, оценим качество полученных решений и при необходимости повторим пункты 2-6
-        - deployment to production - упакуем решение в сервис, который можно будет использовать
-- LeanDS (с митапов Асхата Уразбаева)
-    - для проверки 1 продуктовой гипотезы нужно проверить несколько DS-гипотез 
-    - декомпозиция гипотез мерседесом 
-        - method 
-        - data 
-        - user-story 
-    - ICE-score 
-        - ice = impact * confidence / effort 
-    - work items на доске 
-        - hypothesis: US user stories, DH data hypothesis, MH method hypothesis, Q questions 
-        - C chore (taks) - инфраструктурные / архитектурные работы 
-        - B bug: production defects 
-    - LeanDS доска 
-        - колонки
-            - hot queue - приоритетные гипотезы (пополняет AIPO)
-            - analysis - обсуждение и создание приёмочных критериев 
-            - experimenting - работа с данными, создание модели, тестирование и верификация 
-            - evaluation - приёмка заказчиком, валидация модели 
-            - development - подготовка к деполю 
-            - prod/abt - валидаци в проде (АБТ)
-        - свимлвйны - отдельные продуктовые гипотезы 
-        - на выходе - Findings 
-    - метрики 
-        - бизнес-метрика
-        - прокси-бизнес-метрика
-        - DS-метрика 
-        - прокси-DS-метрика 
-    - чек-лист для продуктовых гипотез и assumptions 
-        - цль и метрика 
-            - какую проблему пользователя или бизнеса мы решаем?
-            - какую метрику мы оптимизируем?
-            - на какие другие метрики эта метрика влияет?
-            - какие метрики влияют на эту метрику?
-            - какие прокси-метрики использовать?
-            - как доказать связь бизнес-метрики и прокси-метрики на данных?
-        - контекст 
-            - как выглядит жц ползьователя?
-            - как работает сейчас?
-            - как буедт работать когда сервис появится?
-            - какие технологические ограничения существуют для сервиса?
-        - заинтересованные лица 
-            - кто стейкхолдеры сервиса?
-            - какие системы и команды зависят от сервиса?
-            - как стейкхолдеры оценивают результат появления продукта?
-            - как на них влияет решение?
-        - данные 
-            - какие данные доступны?
-            - заражены ли данные предрассудками (biased)?
-            - достаточно ли данных для постреония модели?
-            - как модель будет получать данные в проде?
-            - как сохранить качество данных после выхода в прод?
-            - не отрежем ли мы нужные данные?
-            - есть ли юридические риски использования данных?
-        - метод 
-            - есть ли sota?
-            - как эту работу делают sme сейчас?
-        - валидация 
-            - как проводить АБТ?
-            - что будет, если сервис откажет?
-            - как часто нужно переобучать модель в проде? 
-- дата-продукты 
-    - составляющие дата-продукта 
-        - источники данных, обогащение, фичерэкстракшен 
-        - ключ примера - гранулярность объектов 
-        - целевая переменная, преобразования таргета 
-        - лосс-функция, способ обучения 
-        - метрика качества, способ измерения качества 
-        - прокси-метрика эксперимента, методика эксперимента
-        - бизнес-метрика - kpi, который хотим изменить 
-        - интерфейсы: api, gui, bi, витрины 
-        - целевые точки встраивания в бизнес-процесс 
-            - рекомендации, подсказки, second opinion 
-            - вердикт, first opinion 
-            - автоматическое применение решения 
-    - подходы к нахождению продукта 
-        - сверху-вниз: заказ-реализация - если есть зрелые заказчики
-        - снизу-вверх: инсайты-продакшенизация - если есть зрелая аналитика 
-        - венчурная модель: продукты-гипотезы - если есть запас инвестиций
-    - роли 
-        - po: ProductOwner
-        - bia: BI-analyst
-        - ada: AdHoc-analyst
-        - de: DataEngineer
-        - dev: FullStackDeveloper
-        - ds: DataScientist
-    - конвейер этапов 
-        - сбор требвоаний, гипотез - po
-        - исследование данных - ada, bia, de
-        - проверка гипоез - ada, ds 
-        - интеграция источников - de 
-        - обогащение данных, построение витрин - de, da 
-        - построение приборов - de, bia, dev 
-        - эдхок-аналитика с приборами - ada, bia
-        - построение модели, эксперименты - ds
-        - анализ результатов модели - ds, ada 
-        - индустриализация модели - ds, dev 
-        - приборы по модели - da, dev, bi 
-        - натурный эксперимент - po, da 
-        - распространение результатов - po, bia, ada
-        - внедрение в бизнес-процесс - po, bia 
-        - защита методики - po, ds 
-        - разбор запросов - po, bia, ada 
-- Методологии
-    - CRISP-DM: Cross-industry Process of Data Mining
-        - что призван решать
-            - цикл нахождения и разработки продукта с обратной связью 
-            - фиксирует определения стадий работы над продуктом
-        - что не решает
-            - как ускорить цикл 
-            - описывает лишь очевидные (для датера) этапы процесса
-            - не предписывает, как их правильно делать
-            - ничего не говорит про продуктовую составляющую
-    - Agile для Дата-продукта
-        - что призван решать
-            - fail fast - проверка продуктовых гипотез 
-            - инкремент продукта в каждом спринте
-        - проблемы применения в DS
-            - дольше идти до MVP, способного проверить продуктовую гипотезу
-            - трудно оценимые риски помимо продуктовых гипотез
-            - единица инкремента - не фича 
-    - Lean DS
-        - адаптация Agile-практик к DS
-            - единица инкремента - гипотеза 
-            - ICE-score = impact * confidence / effort
-        - классы задач/гипотез
-            - product hypothesis
-            - method hypothesis
-            - data hypothesis
-            - question
-            - chorn - архитектура, инфраструктура, оптимизация кода, техдолг, дешборды, логи и мониторинги
-    - Венчурная модель (Акселератор)
-        - как работает
-            - воркшоп с бизнесом - нащупываем идеи, где применить дату
-            - скоринг идей/гипотез: ICE-score = impact * confidence / effort
-            - делаем N продуктов: N-2 из них пофейлятся, 2 взлетят и окупят все N
-        - почему не всегда работает
-            - предполагает, что представители от бизнеса уже подкованы в дате
-            - нужен запас времени и компетентных ресурсов на старте 
-            - может пофейлиться больше, чем N-2
-    - Data Architecture for Business 
-        - https://www.youtube.com/watch?v=ArzohefZLE4
-        - The data science hierarchy of needs (pyramide)
-            - AI, DL
-            - Learn/optimize: ABT, experimentations, simple ML algorythms
-            - Aggregate/label: Analytics, metrics, segments, aggregates, features, training data
-            - Explore/transform: Cleaning, anomaly detection, prep
-            - Move/store: Reliable data flow, infrastructure, pipelines, ETL, structured and unstructured data storage
-            - Collect: instrumentation, logging, sensors, exteral data, UGC
-        - Timeline
-            - Start of a product
-            - Looking for a weekly reports and a KPI dashboard
-            - Anomaly detection to see issues right away
-            - Want to make decisions based on information
-            - Want a platform for a forensic analytics to speed up product development
-            - ...
-            - You are road-blocked by your current setup and looking for new opportunities/improvements
-            - Recognize you want to use your data more excessively
-            - Transition into a data-driven company
-    - Последовательный рост зрелости
-        - как работает
-            - начинаем с базовых приборов и AdHoc-аналитики
-            - Дата постепенно осознаёт Бизнес, Бизнес привыкает к Дата-культуре
-            - со временем находятся наилучшие точки внедрения ML и дата-продуктов
-            - профит на всех промежуточных этапах
-        - возможные препятствия
-            - предполагает inhouse-разработку
-            - требует взаимного вовлечения на всех стадиях
-            - на старте не нарисуем образ будущего результата
-            - не так вкусно упакуеся (на хайпе куш не сорвём)
+    - You are road-blocked by your current setup and looking for new opportunities/improvements
+    - Recognize you want to use your data more excessively
+    - Transition into a data-driven company
+- Последовательный рост зрелости
+  - как работает
+    - начинаем с базовых приборов и AdHoc-аналитики
+    - Дата постепенно осознаёт Бизнес, Бизнес привыкает к Дата-культуре
+    - со временем находятся наилучшие точки внедрения ML и дата-продуктов
+    - профит на всех промежуточных этапах
+  - возможные препятствия
+    - предполагает inhouse-разработку
+    - требует взаимного вовлечения на всех стадиях
+    - на старте не нарисуем образ будущего результата
+    - не так вкусно упакуеся (на хайпе куш не сорвём)
+
+### Fail
 - Топ10 ошибок data-science (AI community @ Avito, 24.04.2018) https://www.youtube.com/watch?v=QbISiKZRDLg
-    - на этапе бизнес-анализа
-        - 1 проблема не валидирована заказчиком
-        - 2 заказчик и спонсор неверно определены
-        - 3 решение не валидировано с заказчиком
-        - 4 потенциальное решение не продано заказчику
-            - рецепт: написать будущий пресс-релиз на 1 стр (каким он был бы, если бы цель была достигнута сегодня)
-        - заведомо сложное решение
-            - если есть проблемы с базовой отчётностью - бесполезно делать data science
-    - на этапе анализа данных
-        - 5 анализ без чётко сформулированных гипотез
-        - 6 слушаем данные, мало слушаем экспертов
-    - ошибки при подготовке данных
-        - 7 создание слишком сложной инфраструктуры с начала VS создание одноразовых скритпов над локальными выгрузками
-        - отсутствие документации по всем шагам выгрузки и подготовки
-        - смещение данных при подготовке
-    - ошибки на этапе моделирования
-        - 8 фокус 
-            - фокус на алгоритме, а не на доступных данных (сигнале)
-            - фокус на алгоритме, а не на подготовке данных
-            - фокус на алгоритме, а не на знаниях предметной области
-        - использование слишком сложных моделей
-        - переобучение моделей
-    - ошибки на этапе внедрения
-        - 9 отсутствие эксперимента с боевым тестированием
-        - дефицит коммуникации по продаже фактических результатов
-        - 10 отсутствие мониторинга качества модели
-        - отсутствие процесса переобучения/неверная частота переобучения
+  - на этапе бизнес-анализа
+    - 1 проблема не валидирована заказчиком
+    - 2 заказчик и спонсор неверно определены
+    - 3 решение не валидировано с заказчиком
+    - 4 потенциальное решение не продано заказчику
+      - рецепт: написать будущий пресс-релиз на 1 стр (каким он был бы, если бы цель была достигнута сегодня)
+    - заведомо сложное решение
+      - если есть проблемы с базовой отчётностью - бесполезно делать data science
+  - на этапе анализа данных
+    - 5 анализ без чётко сформулированных гипотез
+    - 6 слушаем данные, мало слушаем экспертов
+  - ошибки при подготовке данных
+    - 7 создание слишком сложной инфраструктуры с начала VS создание одноразовых скритпов над локальными выгрузками
+    - отсутствие документации по всем шагам выгрузки и подготовки
+    - смещение данных при подготовке
+  - ошибки на этапе моделирования
+    - 8 фокус
+      - фокус на алгоритме, а не на доступных данных (сигнале)
+      - фокус на алгоритме, а не на подготовке данных
+      - фокус на алгоритме, а не на знаниях предметной области
+    - использование слишком сложных моделей
+    - переобучение моделей
+  - ошибки на этапе внедрения
+    - 9 отсутствие эксперимента с боевым тестированием
+    - дефицит коммуникации по продаже фактических результатов
+    - 10 отсутствие мониторинга качества модели
+    - отсутствие процесса переобучения/неверная частота переобучения
 - В.Бабушкин: Как мы не сделали рекомендательную систему в банке https://youtu.be/hCLI7a74lFs
+
+<a name="lib"></a>
 ## Литература, курсы
-- Coursera
-    - базовый набор
-        - ВШЭ - Курс «Введение в машинное обучение»: Константин Воронцов, Евгений Соколов, Анна Козлова 
-            - https://www.coursera.org/learn/vvedenie-mashinnoe-obuchenie
-            - самый компактный и ёмкий курс по ML
-            - требует знания Python и математики 
-        - МФТИ - Специализация «Машинное обучение и анализ данных»: Константин Воронцов, Евгений Соколов, Антон Слесарев, Эмели Драль, Виктор Кантор 
-            - https://www.coursera.org/specializations/machine-learning-data-analysis
-            - более простой и подробный курс
-            - включает введение в Python и необходимые разделы математики
-            - рекомендуется проходить по порядку и целиком 
-        - ВШЭ - Advanced machine learning 
-            - https://www.coursera.org/specializations/aml
-            - желательно проходить после вышеприведённых курсов 
-            - краткий курс про нейросети - рекомендуется в любом случае
-                - Deep learning Intro https://www.coursera.org/learn/intro-to-deep-learning?specialization=aml
-            - остальные курсы можно проходить выборочно под свои цели 
-                - AML How to win in data science competitions
-                    - https://www.coursera.org/learn/competitive-data-science
-                    - полезно не только для Kaggle, но и для бизнес-кейсов 
-                - AML Cumputer vision 
-                    - https://www.coursera.org/learn/deep-learning-in-computer-vision
-                - AML Natural Language Processing 
-                    - https://www.coursera.org/learn/language-processing
-        - Andrew NG - Deep Learning Specialization 
-            - https://www.coursera.org/specializations/deep-learning
-            - более подробный аналог вышеприведённого AML Deep Learnig Intro от ВШЭ
-        - Stanford - CS231n: Convolutional Neural Networks for Visual Recognition 
-            - http://cs231n.stanford.edu/
-            - более подробный аналог вышеприведённого AML Cumputer vision от ВШЭ
-    - рекомендовано DS Игорем Слинько
-        - Pattern Discovery in Data Mining - Coursera.org, University of Illinois at Urbana-Champaign
-        - Text Retrieval and Search Engines - Coursera.org, University of Illinois at Urbana-Champaign
-        - Cluster Analysis in Data Mining - Coursera.org, University of Illinois at Urbana-Champaign
-        - Text Mining and Analytics - Coursera.org, University of Illinois at Urbana-Champaign
-        - Data Visualization - Coursera.org, University of Illinois at Urbana-Champaign
-        - Data Mining Capstone - Coursera.org, University of Illinois at Urbana-Champaign
-        - Machine Learning - Coursera.org, Stanford University
-        - Hadoop. Система для обработки больших объемов данных - Stepik.org, Mail.ru Group
-        - Deep Learning - Udacity.com, Google
-- Read more
-    - для знающих
-        - https://events.yandex.ru/events/mltr
-    - где батлиться
-        - https://kaggle.com
-        - https://boosters.pro
-    - сообщества
-        - https://ods.ai
-    - книги, обзоры
-        - Andrew Ng - Страсть к машинному обучению https://habr.com/ru/post/419757/
-        - ...
-    - сообщества, новостные ленты, агрегаторы
-        - DS topics @ O'Reilly https://www.oreilly.com/content/topics/data-science/
-        - ...
+
+<a name="coursera"></a>
+### Курсы
+- базовый набор
+  - ВШЭ - Курс «Введение в машинное обучение»: Константин Воронцов, Евгений Соколов, Анна Козлова
+    - https://www.coursera.org/learn/vvedenie-mashinnoe-obuchenie
+    - самый компактный и ёмкий курс по ML
+    - требует знания Python и математики
+  - МФТИ - Специализация «Машинное обучение и анализ данных»: Константин Воронцов, Евгений Соколов, Антон Слесарев, Эмели Драль, Виктор Кантор
+    - https://www.coursera.org/specializations/machine-learning-data-analysis
+    - более простой и подробный курс
+    - включает введение в Python и необходимые разделы математики
+    - рекомендуется проходить по порядку и целиком
+  - ВШЭ - Advanced machine learning
+    - https://www.coursera.org/specializations/aml
+    - желательно проходить после вышеприведённых курсов
+    - краткий курс про нейросети - рекомендуется в любом случае
+      - Deep learning Intro https://www.coursera.org/learn/intro-to-deep-learning?specialization=aml
+    - остальные курсы можно проходить выборочно под свои цели
+      - AML How to win in data science competitions
+        - https://www.coursera.org/learn/competitive-data-science
+        - полезно не только для Kaggle, но и для бизнес-кейсов
+      - AML Cumputer vision
+        - https://www.coursera.org/learn/deep-learning-in-computer-vision
+      - AML Natural Language Processing
+        - https://www.coursera.org/learn/language-processing
+  - Andrew NG - Deep Learning Specialization
+    - https://www.coursera.org/specializations/deep-learning
+    - более подробный аналог вышеприведённого AML Deep Learnig Intro от ВШЭ
+  - Stanford - CS231n: Convolutional Neural Networks for Visual Recognition
+    - http://cs231n.stanford.edu/
+    - более подробный аналог вышеприведённого AML Cumputer vision от ВШЭ
+- рекомендовано DS Игорем Слинько
+  - Pattern Discovery in Data Mining - Coursera.org, University of Illinois at Urbana-Champaign
+  - Text Retrieval and Search Engines - Coursera.org, University of Illinois at Urbana-Champaign
+  - Cluster Analysis in Data Mining - Coursera.org, University of Illinois at Urbana-Champaign
+  - Text Mining and Analytics - Coursera.org, University of Illinois at Urbana-Champaign
+  - Data Visualization - Coursera.org, University of Illinois at Urbana-Champaign
+  - Data Mining Capstone - Coursera.org, University of Illinois at Urbana-Champaign
+  - Machine Learning - Coursera.org, Stanford University
+  - Hadoop. Система для обработки больших объемов данных - Stepik.org, Mail.ru Group
+  - Deep Learning - Udacity.com, Google
+
+<a name="more"></a>
+### Read more
+- платформы соревнований
+  - https://kaggle.com
+  - https://boosters.pro
+- книги, обзоры
+  - `list` [stackoverflow: Книги и учебные ресурсы по машинному обучению](https://ru.stackoverflow.com/questions/678970)
+  - `book` `post` [Andrew Ng - Страсть к машинному обучению (RU Habr)](https://habr.com/ru/post/419757/)
+  - ...
+- сообщества, новостные ленты, агрегаторы
+  - [Open Data Science (ods.ai)](https://ods.ai)
+  - [DS topics @ O'Reilly](https://www.oreilly.com/content/topics/data-science/)
+  - [Towards Data Science](https://towardsdatascience.com)
+  - ...
+
+<a name="events"></a>
+### Мероприятия
+- `event` [ODS: DataFest](https://ods.ai/events)
+  - `track` [ODS: Causal and Interpretable ML @ DataFest 2021] (https://ods.ai/tracks/interpretable-ml-df2021)
+    - `compendium` [Causal inference](./datan.md#ci)
+    - `paper` [Chicken, Eggs, and Causality, or Which Came First](http://www.econ.uiuc.edu/~econ508/Papers/eggs.pdf)
+    - `paper` [Microsoft - Split-door criterion: identification of causal effects through auxiliary outcomes](https://arxiv.org/pdf/1611.09414.pdf)
+  - `form` [Простые вопросы по ML](https://docs.google.com/forms/d/e/1FAIpQLSeKEaMGW7qgNo3fYxWOq8ieDvwiAUL-YE9pRTWjRkQPNUEhXQ/viewform)
+    - При какой функции потерь каждое следующее дерево в градиентном бустинге обучается на разность правильного ответа и прогноза предыдущих деревьев?
+      - при любой, градиентный бустинг всегда так работает
+    - Выберите правильные Х и Y в следующем утверждении: В X во избежание переобучения нужно брать не слишком высокие деревья, а вот в Y можно не ограничивать глубину деревьев, т.к. модель обычно не переобучается по глубине деревьев
+      - X – Random Forest, Y – GBDT
+      - X – GBDT, Y – Random Forest
+      - X – Random Forest, Y – решающее дерево
+    - ROC-AUC константного ответа 0 на выборке из 99000 объектов класса 0 и 1000 объектов класса 1 будет равен
+      - 0; 0.01; 0.49; 0.5; 0.51; 0.99; 1
+    - Какое значение метрики качества ROC-AUC на тестовой выборке в задаче бинарной классификации соответствует наименее применимой на практике модели
+      - 0; 0.01; 0.49; 0.5; 0.51; 0.99; 1
+    - Известно, что для оптимизации MAPE иногда прибегают к оптимизации MAE с предварительным логарифмированием таргета. Первое объяснение этого трюка в том, что <...> (по формуле Тейлора для логарифма). Второе объяснение выглядит так: <...>. Какое более строгое?
+      - первое, т.к. второе не сводит MAPE к MAE на логарифмированном таргете
+      - второе, т.к. первое не сводит MAPE к MAE на логарифмированном таргете 
+      - второе, т.к. не использует приближенные равенства
+  - `miro` [В.Кантор - Внутренняя кухня DS в большой компании (2020)](https://miro.com/app/board/o9J_kki7xOo=/)
+    - что интересно в большой компании
+      - много проектов
+      - финансовая стабильность
+      - данные и железо 
+      - профессиональная команда
+      - выстроенные процессы
+      - бренд
+      - бабушке понятно
+    - 30 DS @ MTS Big Data
+      - [рекомендашки](./ds.md#recommenders)
+      - [geo](./datan.md#geo) и [unsupervised](./ds.md#unsupervised)
+      - скоринги
+      - традиционный Business ML
+      - DL
+    - популярные задачи
+      - ранжирование
+      - [рекомендации](./ds.md#recommenders)
+      - look-alike
+      - [гео](./datan.md#geo)
+      - [видеоаналитика](./ds.md#video)
+    - интересности для DS 
+      - постановка задачи
+      - разнообразие задач
+      - применение проекта в жизни
+      - команда 
+    - когда стоит идти в большую компанию 
+      - желаешь повлиять на жизнь большого количества разных людей
+      - хочешь большой кругозор в DS
+      - поработать с опытными специалистами
+      - когда не хочешь идти в маленькую
+- `event` [ODS: программа по заявкам (2018-10-21)](https://events.yandex.ru/events/ds/21-oct-2018/)
+  - `video` [Алексей Натёкин (ODS) - Отличия DA/DS/DE (2018)](https://youtu.be/lDkTNURDIaY)
+    - Как войти в сообщество data science?
+    - О различиях data scientist, data analyst, data engineer, кто из них чем занимается?
+    - В чём отличия между Machine Learning и Data Science? 
+    - Что у них общего и чем их работа отличается?
+  - `video` [Дискуссия: Тренды DS (2018)](https://youtu.be/sMuY2CQM1CA)
+    - Кто и как диктует моду в data science?
+    - Какие прикладные задачи из области machine learning на данный момент самые актуальные? Какие не получается решить? 
+    - Какие популярные тренды в data science сейчас? 
+    - В какой сфере деятельности data science в этой стране развивается лучше всего? Будущее DS в Poccии?
+  - `video` [От исследований к проду: TDD, CRISP-DM, контроль версий (2018)](https://youtu.be/OMIBG_V4GRo)
+    - Как организовать эффективное взаимодействие бизнеса, разработчиков и DS?
+    - Как версионировать данные и возможно ли это?
+    - Существует ли test driven development в Data Science?
+    - Как (можно) хранить модели и состояния датасетов?
+  - `video` [Фрэнк Шихалиев (MindSet, Ренессанс) - ML в страховании (2018)](https://youtu.be/5PN83s-5eXw)
+    - какие проекты можно и нужно делать
+    - как избежать классических ошибок
+    - какую пользу проекты приносят или принесут в будущем
+    - как оценивать эффект от внедрений
+  - `video` [Андрей Зимовнов (Я.Дзен) - Deep learning в рекомендательных системах (2018)](https://youtu.be/OJ0nJb3LfNo)
+    - Deep learning в рекомендательных системах
+    - Collaborative Filtering (CF) в большой рекомендательной системе
+  - `video` [Сергей Колесников (DBrain) - Практический RL: кнуты и пряники](https://youtu.be/pND-YUZNL5Y)
+    - Как начать изучать RL?
+    - Есть ли RL без DL?
+    - Соревнования по RL: полезно ли участвовать?
+    - Практика DRL в проде, есть ли какие успешные кейсы?
+    - RL research малыми силами - возможно ли это?
+    - Быть в курсе современного RL - как за всем успеть?
