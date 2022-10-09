@@ -40,6 +40,12 @@
   - [технические](./dev.md)
   - [математические](./math.md)
   - аналитические
+- Смежные профессии
+  - `video` [Алексей Натёкин (ODS) - Отличия DA/DS/DE (2018)](https://youtu.be/lDkTNURDIaY)
+    - Как войти в сообщество data science?
+    - О различиях data scientist, data analyst, data engineer, кто из них чем занимается?
+    - В чём отличия между Machine Learning и Data Science?
+    - Что у них общего и чем их работа отличается?
 - [Литература](#lib)
   - `post` [Я.Академия: Чем занимаются аналитики данных и как начать? (2019)](https://academy.yandex.ru/posts/chem-zanimayutsya-analitiki-dannykh-i-kak-nachat-rabotat-v-etoy-oblasti)
   - `post` [ProductStar@vc: Почему все помешались на профессии аналитика (2020)](https://vc.ru/s/productstar/169600-pochemu-vse-pomeshalis-na-professii-analitik)
@@ -155,12 +161,13 @@
       - VCS: Git, SVN
       - IDE: PyCharm, VSCode, Jupyter
     - [алгоритмы и структуры данных](./algo.md)
+    - [архитектура](./arch.md)
   - технологии
-    - хранилища/базы данных
+    - [хранилища/базы данных](./arch.md#data)
     - BI: PowerBI, Tableau, Qlik, SuperSet, DataLens
     - [визуализация данных](./datavis.md)
     - [основы машинного обучения](./ds.md)
-    - распределённые вычисления
+    - [распределённые вычисления](./arch.md#bigdata)
   - менеджмент
     - [продуктовый](./prodman.md)
     - проектный
@@ -204,6 +211,7 @@
     - поиск источников и получение данных
     - понимание природы источников
     - чистка и формализация данных
+    - [разведочный анализ данных](./ds.md#eda)
   - происхождение источников
     - внутренняя статистика
     - внешняя публичная статистика
@@ -226,7 +234,7 @@
     - панельные данные - когда 1 объект трекается очень долго (не куки, не случайные опросы)
     - парсинг внешних сайтов
 - проведение исследования 
-  - выявление структуры
+  - выявление структуры ([EDA](./ds.md#eda))
   - построение гипотез
   - проверка гипотез 
   - построение выводов на данных
@@ -255,7 +263,7 @@
   - бизнес-проблема
   - синопсис / что известно 
   - формулировка гипотез/вопросов/подходов 
-  - EDA, поиск сигнала 
+  - [EDA](./ds.md#eda), поиск сигнала 
   - отчёт 
   - деш/инструмент
   - мониторинг
@@ -290,6 +298,7 @@
     - обучим модель
     - model evaluation - сравним полученные результаты, оценим качество полученных решений и при необходимости повторим пункты 2-6
     - deployment to production - упакуем решение в сервис, который можно будет использовать
+- [Data Science Frameworks](./ds.md#frameworks)
 
 <a name="maturity"></a>
 ### Методы для разных стадий зрелости Даты в Бизнесе 
@@ -493,6 +502,7 @@
   - Prophet `post` [ODS: Предсказываем будущее с помощью библиотеки Facebook Prophet](https://habr.com/ru/company/ods/blog/323730/)
   - ARIMA `wiki` [Autoregressive integrated moving average](https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average)
   - ARCH `wiki` [Autoregressive conditional heteroskedasticity](https://en.wikipedia.org/wiki/Autoregressive_conditional_heteroskedasticity)
+  - STL-decompositions of time-series
 - приведение к нормальному распределению
   - преобразование бокса-кокса
     - `wiki` [machinelearning.ru: Метод Бокса-Кокса](http://www.machinelearning.ru/wiki/index.php?title=Метод_Бокса-Кокса)
@@ -506,7 +516,7 @@
   - литература
     - `post` [GoPractice: О.Якубенков - Когортный анализ (2014)](https://gopractice.ru/cohort_analysis/)
     - `post` [GoPractice: О.Якубенков - Длинный и короткий ретеншен (2020)](https://gopractice.ru/why-long-term-retention-is-key-to-growth/)
-    - `article` [В.Голубев - Оценка LifeTime через ретеншен (2010)](http://kxk.ru/matriarhat/v1_693889__.php)
+    - `paper` [В.Голубев - Оценка LifeTime через ретеншен (2010)](http://kxk.ru/matriarhat/v1_693889__.php)
 
 <a name="segm"></a>
 ### Segmentation
@@ -535,8 +545,8 @@
 - AB-testing
   - основы 
     - литература 
-      - [ProductStar @ vc: АБ тесты - что это такое и как проводить?](https://vc.ru/s/productstar/425821-a-b-testy-chto-eto-takoe-i-kak-provodit)
-      - [Валерий Белокуров (Яндекс) @ vc: AБ-тесты - что это такое и как использовать?](https://vc.ru/s/productstar/132981-a-b-testy-chto-eto-takoe-i-kak-ispolzovat)
+      - `post` [ProductStar @ vc: АБ тесты - что это такое и как проводить?](https://vc.ru/s/productstar/425821-a-b-testy-chto-eto-takoe-i-kak-provodit)
+      - `post` [Валерий Белокуров (Яндекс) @ vc: AБ-тесты - что это такое и как использовать?](https://vc.ru/s/productstar/132981-a-b-testy-chto-eto-takoe-i-kak-ispolzovat)
         - Что такое АБ-тест
         - Кому и для чего нужны АБ-тесты 
         - Когда нужны АБ-тесты
@@ -571,8 +581,16 @@
         - Анализ результатов: оценить значимость, инструменты
       - `post` [Я.Академия, Lisa Xu: Как провести АБТ, 6 простых шагов (2019)](https://academy.yandex.ru/posts/kak-provesti-a-b-testirovanie-6-prostykh-shagov)
       - `post` [Яндекс @ Habr: Как у нас устроено АБТ (2017)](https://habr.com/ru/company/yandex/blog/342704)
+      - `video` [И.Кацев (Яндекс): Как повысить чувствительность метрик](https://youtu.be/z8CqaOQgYcI)
+        - почему нужен АБТ и не нельзя делать выводы по корреляциям
+          - если ладонь у человека меньше - он проживёт дольше
+          - Microsoft: кто видит больше ошибок - те чаще пользуются сервисом
+        - чувствительность - свойство метрики часто выдавать статистически значимые вердикты
+        - как быть с метриками типа отношения
+          - бутстрэп
+          - перевзвешивание на A*sqrt(N) - повышает чувствительность на 20%-30%
       - `doc` [Uber Experimentation Platform (2018)](https://eng.uber.com/xp)
-      - `article` `pdf` [Bing: Five Puzzling Outcomes Explained (2012)](http://www.exp-platform.com/Documents/puzzlingOutcomesInControlledExperiments.pdf)
+      - `paper` `pdf` [Bing: Five Puzzling Outcomes Explained (2012)](http://www.exp-platform.com/Documents/puzzlingOutcomesInControlledExperiments.pdf)
       - `post` [AdOneTech @ Habr: 70 ресурсов про АБТ для начинающих (2014)](https://habr.com/ru/post/242701)
       - `post` [SkillFactory: Лучшие экспериментальные протоколы для исследования реального мира](https://habr.com/ru/company/skillfactory/blog/553220/)
       - `app` [Калькулятор времени АБТ](https://vwo.com/tools/ab-test-duration-calculator) 
@@ -628,11 +646,35 @@
               - mSPRT (mixture Sequential Probability Ratio test)
       - Expfest x Я.Практикум 2020 
         - `video` [001 А.Карпов: Методы сокращения дсперсии (2020)](https://youtu.be/KvIJ8FCJzr4)
-        - `video` 002 В.Бабушкн: Cruped для увеличения чувствительности АБТ (2020)
+          - работать с другой метрикой
+          - увеличить выборку
+          - снизить дисперсию выборочных средних
+            - стратификация
+            - постстратификация
+            - зависимые выборки и paired-тесты
+          - трансформировать переменные
+        - `video` `post` 002 В.Бабушкин: Cruped для увеличения чувствительности АБТ (2020) [habr](https://habr.com/ru/company/yandex/blog/497804) [video](https://youtu.be/pZpUM08mv-E)
+          - стратификация снижает дисперсию, но в хороших экспериментах не сильно - для дискретных величин
+            - в x5 это не работает
+            - альтернатива - линеаризация, переводит метрику в новое признаковое пространство (про это есть отдельный доклад)
+          - CUPED ковариаты используют пред-экспериментальные данные - для непрерывных величин
+            - статьи uber и booking.com
+            - у x5 дисперсия снизилась на 45%, на оффлайн - в 4 раза, максимум - в 19 раз 
+            - можно брать ковариаты по часам и дням недели 
+          - в x5 единица оффлайн-АБТ - магазин, их 16к
+        - `video` [003 С.Гафаров: Как мы готовим АБТ (2020)](https://youtu.be/TpUflOQo1kI)
+        - `video` [006 Д.Леньков (Авито): Статистика в АБ мифы и реальность (2020)](https://youtu.be/IFAaTKVKH1A)
 - Observational studies
   - применение 
-    - может проводиться до АБ-тестинга - для формирования или первичной проверки гипотез
-    - может рассматриваться как альтернативап АБ-тестингу, когда он затруднён 
+    - CI по отношению к АБТ 
+      - может проводиться до АБ-тестинга - для формирования или первичной проверки гипотез
+      - может рассматриваться как альтернативап АБ-тестингу, когда он затруднён
+    - где (не)нужен CI
+      - если мы на таргет НЕ влияем, то нам НЕ нужен Causal Inference 
+        - пример: прогноз погоды
+      - (возможно) обратная задача: анализ динамики и разложение на влияющие факторы
+        - `?` чтобы расследовать - мы ищем корреляции и используем формулы, выражающие связи
+        - пример: если мы за год выросли - повлияли менеджеры, если упали - повлияли внешние факторы
   - AB-testing vs Observational Studies
     - АБ-тест
       - иногда проблематично задизайнить или дорого провести
@@ -650,144 +692,223 @@
     - тесты причинности
       - Granger causality test https://ru.wikipedia.org/wiki/Причинность_по_Грэнджеру
       - g-метод https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6074945/
+  - примеры эффектов
+    - `?` кофе 3мес, анти-эластичный спрос 
+    - примеры из экономики (5 методов, см. книгу про метрики из видео-доклада)
+      - пример с кризисом 2008(?2018) в РФ
+        - тогда не знали, надо ли в кризис накачивать ликвидностью экономику
+        - пример США, где в одном штате кризис был, в другом нет
+      - дисконтьюнити дизайн 
+        - Uber измерял эластичность через округление цен с учётом динамического ценообразования
+          - в итоге у Uber спрос оказался не очень эластичным 
+    - примеры из социологии 
+      - из советского общества: дети и зефирка
+        - эксперимент: дети, которые сдержались и не съели зефирку - потом лучше приуспели в жизни
+        - недавно вышло опровержение: сделражться от зефирки было легче детям из обеспеченных семей, привыкшим к зефирке
+      - алкоголь в США с 21 года 
+        - измерить фактор "в семье не очень" тяжело
+      - мы склонны переоценивать роль образования 
+        - в наукоградах (в Подмосковном Троице и Новосибирском Академгородке) вероятность поступления в топовый ВУЗ на 2 порядка выше среднего
+        - похожий пример с университетом Лиги Плюща в США
+    - примеры обратных корреляций
+      - смертность в большнице выше, лучше туда не ходить
   - литература
+    - `git` [DoWhy/PyWhy](https://github.com/py-why/dowhy) ([doc](https://py-why.github.io/dowhy/v0.8/))
     - `video` [Causal Inference: Если бы да кабы (2020)](https://youtu.be/V4ONp9PZrvk)
-    - `doc` `tutorial` [KDD-tutorial - Causal Inference and Counterfactual Reasoning (2018)](https://causalinference.gitlab.io/kdd-tutorial/intro.html)
+    - `doc` `tutorial` [Microsoft: Causal inference, counterfactual frameworks (2018)](https://causalinference.gitlab.io/kdd-tutorial/intro.html)
+      - Introduction to causal inference, counterfactual frameworks and intuition
+        - Patterns and predictions are not enough
+        - Counterfactual framework for reasoning about causality
+        - Brief introduction to causal graphs and potential outcomes
+        - Randomized experiments: The gold standard for causal inference
+      - Methods for causal inference
+        - Conditioning-based methods
+          - Conditioning effect on confounders
+          - Matching and stratification
+          - Regression
+          - Doubly robust estimator
+          - Synthetic control method
+        - Natural experiments
+          - Simple natural experiment
+          - Instrumental Variables
+          - Regression discontinuity
+        - Sensitivity Analysis
+      - Large-scale and network data
+        - Special considerations when dealing with large-scale and network data
+      - Broader landscape in causal reasoning
+        - References: books, papers
     - `book` [M.Hernan - Causal Inference (2020)](https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book)
-    - `article` [A.Naimi - An introduction to g methods (2017)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6074945)
+    - `paper` [A.Naimi - An introduction to g methods (2017)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6074945)
     - `review` `pdf` [J.Pearl - Causal inference in statistics (2009)](http://ftp.cs.ucla.edu/pub/stat_ser/r350.pdf)
     - `video` [P.Tennant](https://www.youtube.com/watch?v=SbrX3YEMj_0)
     - `video` `code` `tutorial` [A.Sharma - Causal Inference in Online Systems (2016)](https://github.com/amit-sharma/causal-inference-tutorial)
-- Simple modeling
-  - Causal Impact python library
-- Counterfactual learning
-  - `pres` [Microsoft: Causal inference, counterfactual frameworks](https://causalinference.gitlab.io/kdd-tutorial/intro.html)
-  - `article` `pdf` [Facebook: Large-scale Validation of CounterfactualLearning Methods: A Test-Bed](http://www.cs.cornell.edu/~adith/Criteo/NIPS16_Benchmark.pdf)
-- `track` [ODS: Causal and Interpretable ML @ DataFest 2021] (https://ods.ai/tracks/interpretable-ml-df2021)
-  - `video` [Ольга Филиппова (Открытие) - Causality and Shapley values](https://www.youtube.com/watch?v=rrreuktS0gk)
-    - зачем shapleey values 
-      - Shapley values нужны чтобы понять
-        - как модель принимает решения
-        - как устроен мир 
-        - за какие рычаги дёргать, чтобы менять мир 
-      - From colitional game theory to ML model outputs explanation 
-        - arxiv.org/pdf/2006.01272.pdf
-        - arxiv.org/pdf/1910.30413.pdf
-    - виды Shapley Values
-        - Marginal Shapley values 
-          - свойства Shapley values
-            - Efficiency: сумма shapley values входящих фичей для конкретного примера равна отклонению от среднего предсказания модели 
-            - Symmetry: фичи, которые одинаково влияют на отклонение предсказания модели, имеют одинаковые Shapley Values
-            - Linearity: если у нас есть линейный ансамбль моделей, Shapley values описываются аналогичной линейной комбинацией 
-            - Nullity: если фича не влияет на предсказание модели, её Shapley value равно нулю 
-        - Asymmetric Shapley values 
-          - в Asymmetric SV из свойств Shapley Values выпадает Symmetry 
-          - arxiv.org/pdf/1910.06358.pdf 
-          - youtube.com/watch?v=7d13f4UaAn0&t=3061s
-          - приложения 
-            - casual-based model explanations 
-              - пример: предсказание зарплаты сотрудникам (1994 US Census)
-            - causal explanation of unfair discrimination
-            - data types with intrinsic ordering 
-          - ShapFlex - реализация Asymmetric Shapley Values на R: github.com/nredell/shapFlex 
-        - Causal Shapley values 
-          - терминология bradyneal.com/causal-inference-course
-            - causal graph - инструмент опесания причинно-следственной модели данных 
-            - pearl's do-calculus - методика перевода causal estimate в statistical estimate 
-          - partial causal ordering arxiv.org/pdf/2011.01625.pdf 
-          - total_effect = direct_effect + indirect effect 
+    - `paper` `pdf` [Facebook: Large-scale Validation of CounterfactualLearning Methods: A Test-Bed](http://www.cs.cornell.edu/~adith/Criteo/NIPS16_Benchmark.pdf)
+    - `book` `online` [Causal Reasoning: Fundamentals and Machine Learning Applications](https://causalinference.gitlab.io/Causal-Reasoning-Fundamentals-and-Machine-Learning-Applications/)
+      - PART I. Introduction to Causal Reasoning
+        - Chapter 1: Causal Reasoning Book
+        - Chapter 2: Models and Assumptions
+        - Chapter 3: Identification
+        - Chapter 4: Estimation
+        - Chapter 5: Refutation and Sensitivity Analysis
+      - Part II. Causal Machine Learning
+        - Chapter 6. Connections between Causality and Machine Learning
+        - Chapter 7. Experimentation and Reinforcement Learning
+        - Chapter 8. Learning from Logged Data
+        - Chapter 9. Generalization in Classification and Prediction
+        - Chapter 10. Machine Learning Explanations and Bias
+    - `book` [Pearl - The Book of Why: The New Science of Cause and Effect](https://www.amazon.com/Book-Why-Science-Cause-Effect/dp/046509760X/ref=sr_1_1)
+      - For a casual introduction to causality
+      - recommended in `book` [Causal Reasoning: Fundamentals and Machine Learning Applications](https://causalinference.gitlab.io/Causal-Reasoning-Fundamentals-and-Machine-Learning-Applications/)
+    - `book` [Morgan, Winship - Counterfactuals and Causal Inference: Methods and Principles for Social Research](https://www.amazon.com/Counterfactuals-Causal-Inference-Principles-Analytical/dp/0521671930)
+      - For a general introduction that covers both potential outcome and graphical model frameworks
+      - recommended in `book` [Causal Reasoning: Fundamentals and Machine Learning Applications](https://causalinference.gitlab.io/Causal-Reasoning-Fundamentals-and-Machine-Learning-Applications/)
+    - `book` [Pearl, Glymour, Jewell - Causal Inference in Statistics: A Primer](https://www.amazon.com/Causal-Inference-Statistics-Judea-Pearl/dp/1119186846/ref=pd_bxgy_img_2)
+      - For a technical introduction, accessible to most
+      - recommended in `book` [Causal Reasoning: Fundamentals and Machine Learning Applications](https://causalinference.gitlab.io/Causal-Reasoning-Fundamentals-and-Machine-Learning-Applications/)
+    - `book` [Angrist, Pischke - Mastering Metrics: The Path from Cause to Effect](https://www.amazon.com/Mastering-Metrics-Path-Cause-Effect/dp/0691152845)
+      - For an econometric view, with a focus on local identification
+      - recommended in `book` [Causal Reasoning: Fundamentals and Machine Learning Applications](https://causalinference.gitlab.io/Causal-Reasoning-Fundamentals-and-Machine-Learning-Applications/)
+    - `book` [Rosenbaum - Design of Observational Studies](https://www.amazon.com/Design-Observational-Studies-Springer-Statistics/dp/1441912126/ref=sr_1_2)
+      - For statistical estimation and design of analysis
+      - recommended in `book` [Causal Reasoning: Fundamentals and Machine Learning Applications](https://causalinference.gitlab.io/Causal-Reasoning-Fundamentals-and-Machine-Learning-Applications/)
+    - `book` [Peters, Janzing, Schoelkopf - Elements of Causal Inference: Foundations and Learning Algorithms](https://www.amazon.com/Elements-Causal-Inference-Foundations-Computation-ebook)
+      - For connections to machine learning
+      - recommended in `book` [Causal Reasoning: Fundamentals and Machine Learning Applications](https://causalinference.gitlab.io/Causal-Reasoning-Fundamentals-and-Machine-Learning-Applications/)
+    - `track` [ODS: Causal and Interpretable ML @ DataFest 2021] (https://ods.ai/tracks/interpretable-ml-df2021)
+      - `video` [Ольга Филиппова (Открытие) - Causality and Shapley values](https://www.youtube.com/watch?v=rrreuktS0gk)
+        - зачем shapleey values
+          - Shapley values нужны чтобы понять
+            - как модель принимает решения
+            - как устроен мир
+            - за какие рычаги дёргать, чтобы менять мир
+          - From colitional game theory to ML model outputs explanation
+            - arxiv.org/pdf/2006.01272.pdf
+            - arxiv.org/pdf/1910.30413.pdf
+        - виды Shapley Values
+          - Marginal Shapley values
+            - свойства Shapley values
+              - Efficiency: сумма shapley values входящих фичей для конкретного примера равна отклонению от среднего предсказания модели
+              - Symmetry: фичи, которые одинаково влияют на отклонение предсказания модели, имеют одинаковые Shapley Values
+              - Linearity: если у нас есть линейный ансамбль моделей, Shapley values описываются аналогичной линейной комбинацией
+              - Nullity: если фича не влияет на предсказание модели, её Shapley value равно нулю
+          - Asymmetric Shapley values
+            - в Asymmetric SV из свойств Shapley Values выпадает Symmetry
+            - arxiv.org/pdf/1910.06358.pdf
+            - youtube.com/watch?v=7d13f4UaAn0&t=3061s
+            - приложения
+              - casual-based model explanations
+                - пример: предсказание зарплаты сотрудникам (1994 US Census)
+              - causal explanation of unfair discrimination
+              - data types with intrinsic ordering
+            - ShapFlex - реализация Asymmetric Shapley Values на R: github.com/nredell/shapFlex
+          - Causal Shapley values
+            - терминология bradyneal.com/causal-inference-course
+              - causal graph - инструмент опесания причинно-следственной модели данных
+              - pearl's do-calculus - методика перевода causal estimate в statistical estimate
+            - partial causal ordering arxiv.org/pdf/2011.01625.pdf
+            - total_effect = direct_effect + indirect effect
+            - Caushapley - реализация Causal Shapley Values на R: gitlab.science.ru.nl/gbucur/caushapley
+        - реализации Shapley Values
+          - ShapFlex - реализация Asymmetric Shapley Values на R: github.com/nredell/shapFlex
           - Caushapley - реализация Causal Shapley Values на R: gitlab.science.ru.nl/gbucur/caushapley
-    - реализации Shapley Values 
-      - ShapFlex - реализация Asymmetric Shapley Values на R: github.com/nredell/shapFlex 
-      - Caushapley - реализация Causal Shapley Values на R: gitlab.science.ru.nl/gbucur/caushapley
-    - общие соображения по Shapley Values 
-      - методы causal inference пока не работают из коробки 
-        - определение причинно-следственных связей - это творчество и труд 
-        - необходимо чётко понимать цель, с которой эта работа проводится 
-      - не пренебрегать обычными методами исследования надёжности модели 
-        - рисовать качество по основным сегментам 
-        - смотреть примеры, на которых ошибка больше 
-        - строить зависимость точности от времени 
-      - управлять поведением модели на этапе построения 
-        - GBDT умеет накладывать условия на зависимость переменных от таргета 
-          - XGBoost Monotonic Constraints 
-          - есть аналогичная опция в CatBoost
-  - `video` [Наталья Тоганова (GlowByte) Обзор библиотеки EconML: идеи и реализация](https://www.youtube.com/watch?v=oCJI5tKi3AU)
-    - типичный кейс: изменение выручки в окресности даты изменения в продукте 
-    - эксперимент: зависимость успеваемости школьников от наличия горячих завтраков 
-    - 2 подхода к оценке эффекта воздействия 
-      - Causality Judea Pearl 
-      - Эконометрика 
-    - библиотека EconML от Microsoft 
-      - работает как обёртка для методов Sklearn 
-      - `doc` econml.azurewebsites.net/index.html 
-      - `repo` github.com/microsoft/EconML 
-      - пример `ipynb` [Microsoft EconML - Customer Segmentation: Estimate Individualized Responces to Incentives](https://github.com/microsoft/EconML/tree/master/notebooks/CustomerScenarios) 
-      - реализация эконометрических статей, на которых базируются: 
-        - orthogonal/double machine learning 
-        - doubly robust learning 
-        - meta-learners 
-        - estimation methods and instruments 
-      - реализация НЕэконометрических статей, на которых базируются:
-        - forest based estimators 
-        - inference (в основном bootstrap)
-    - что происходит в эконометрике 
-      - cofounders/controls 
-        - зафиксировать значимые переменные при регрессии, которые влияют и на X, и на Y, чтобы чётко выделить влияние T на Y 
-      - инструментальные переменные 
-        - если влияющие на X и Y переменные нельзя измерить или они неизвестны 
-        - Филипп Картаев - За пределами контролируемых экспериментов: инструментальные переменные: youtu.be/Qrz04qUMgVc 
-      - Difference in Difference 
-        - изменение относительно контрольной группы и относительно прошлой динамике 
-        - Дмитрий Архангельский - Causal Inference in panel data: youtu.be/sFJ4tNVc5Kw 
-    - как мы смотрим на данные 
-      - ML: `X -> y`
-      - эконометрика: `T X W -> Y` 
-      - `T` - воздействие 
-    - методы тестируются на искусственно сгенерированных датасетах, в которых взаимосвязь и взаимовлияние между переменными известно 
-    - методы Doubled Machine Learning 
-      - DML 
-        - Chervonozhukov V. et al. (2016) Double/Debiased Machine Learning for Treatment and Causal Parameters
-      - LinearDML 
-      - SparceLinearDML 
-        - Buhlmann P, Geer van de S. (2011) Statistics for High-Dimensional Data
-        - Geer van de S. et al (2013) On asymptotically optimal confidence regions and tests or high-dimensional models 
-      - KernelDML 
-        - нелинейный tretment
-        - Nie X., Wager St. (2017) Quasi-Oracle Estimation of Heterogeneous Treatment Effects 
-      - NonParamDML 
-        - бинарный treatment type
-      - CausalForestDML 
-      - DRLearner
-      - LinearDRLearner 
-      - SparceLinearDRLearner 
-      - ForestDRLearner 
-      - DRPolicyForest 
-      - DRPolicyTree 
-    - связь EconML с DoWhy 
-      - способ визуализации 
-      - обёртка над EconML 
-      - способы проверки 
-        - замена тритмента 
-        - добавление переменных, которые влияют на тритмент и на целевую переменную
-        - уменьшение датасета 
-      - вебинар от MS: note.microsoft.com/MSR-Webinar-DoWhy-Library-Registration-On-Demand.html
-  - `video` [Татьяна Шаврина (SberDevices) Все способы измерить слона: заглянуть внутрь трансформерных моделей](https://www.youtube.com/watch?v=29KJ-EOIXC0)
-  - `video` [Кирилл Быков (TU Berlin) Explaining Hidden Representations](https://www.youtube.com/watch?v=ounFVE-kxGs)
-  - `video` [Инсаф Ашрапов (Сбер) Интерпретация банковских моделей](https://www.youtube.com/watch?v=49QMdM4oZkQ)
-  - `video` [Дмитрий Павлов (МФТИ/Тинькофф) Causal Inference в анализе временных рядов](https://www.youtube.com/watch?v=Yr6b8Rpy7Ds)
+        - общие соображения по Shapley Values
+          - методы causal inference пока не работают из коробки
+            - определение причинно-следственных связей - это творчество и труд
+            - необходимо чётко понимать цель, с которой эта работа проводится
+          - не пренебрегать обычными методами исследования надёжности модели
+            - рисовать качество по основным сегментам
+            - смотреть примеры, на которых ошибка больше
+            - строить зависимость точности от времени
+          - управлять поведением модели на этапе построения
+            - GBDT умеет накладывать условия на зависимость переменных от таргета
+              - XGBoost Monotonic Constraints
+              - есть аналогичная опция в CatBoost
+      - `video` [Наталья Тоганова (GlowByte) Обзор библиотеки EconML: идеи и реализация](https://www.youtube.com/watch?v=oCJI5tKi3AU)
+        - типичный кейс: изменение выручки в окресности даты изменения в продукте
+        - эксперимент: зависимость успеваемости школьников от наличия горячих завтраков
+        - 2 подхода к оценке эффекта воздействия
+          - Causality Judea Pearl
+          - Эконометрика
+        - библиотека EconML от Microsoft
+          - работает как обёртка для методов Sklearn
+          - `doc` econml.azurewebsites.net/index.html
+          - `repo` github.com/microsoft/EconML
+          - пример `ipynb` [Microsoft EconML - Customer Segmentation: Estimate Individualized Responces to Incentives](https://github.com/microsoft/EconML/tree/master/notebooks/CustomerScenarios)
+          - реализация эконометрических статей, на которых базируются:
+            - orthogonal/double machine learning
+            - doubly robust learning
+            - meta-learners
+            - estimation methods and instruments
+          - реализация НЕэконометрических статей, на которых базируются:
+            - forest based estimators
+            - inference (в основном bootstrap)
+        - что происходит в эконометрике
+          - cofounders/controls
+            - зафиксировать значимые переменные при регрессии, которые влияют и на X, и на Y, чтобы чётко выделить влияние T на Y
+          - инструментальные переменные
+            - если влияющие на X и Y переменные нельзя измерить или они неизвестны
+            - Филипп Картаев - За пределами контролируемых экспериментов: инструментальные переменные: youtu.be/Qrz04qUMgVc
+          - Difference in Difference
+            - изменение относительно контрольной группы и относительно прошлой динамике
+            - Дмитрий Архангельский - Causal Inference in panel data: youtu.be/sFJ4tNVc5Kw
+        - как мы смотрим на данные
+          - ML: `X -> y`
+          - эконометрика: `T X W -> Y`
+          - `T` - воздействие
+        - методы тестируются на искусственно сгенерированных датасетах, в которых взаимосвязь и взаимовлияние между переменными известно
+        - методы Doubled Machine Learning
+          - DML
+            - Chervonozhukov V. et al. (2016) Double/Debiased Machine Learning for Treatment and Causal Parameters
+          - LinearDML
+          - SparceLinearDML
+            - Buhlmann P, Geer van de S. (2011) Statistics for High-Dimensional Data
+            - Geer van de S. et al (2013) On asymptotically optimal confidence regions and tests or high-dimensional models
+          - KernelDML
+            - нелинейный tretment
+            - Nie X., Wager St. (2017) Quasi-Oracle Estimation of Heterogeneous Treatment Effects
+          - NonParamDML
+            - бинарный treatment type
+          - CausalForestDML
+          - DRLearner
+          - LinearDRLearner
+          - SparceLinearDRLearner
+          - ForestDRLearner
+          - DRPolicyForest
+          - DRPolicyTree
+        - связь EconML с DoWhy
+          - способ визуализации
+          - обёртка над EconML
+          - способы проверки
+            - замена тритмента
+            - добавление переменных, которые влияют на тритмент и на целевую переменную
+            - уменьшение датасета
+          - вебинар от MS: note.microsoft.com/MSR-Webinar-DoWhy-Library-Registration-On-Demand.html
+      - `video` [Татьяна Шаврина (SberDevices) Все способы измерить слона: заглянуть внутрь трансформерных моделей](https://www.youtube.com/watch?v=29KJ-EOIXC0)
+      - `video` [Кирилл Быков (TU Berlin) Explaining Hidden Representations](https://www.youtube.com/watch?v=ounFVE-kxGs)
+      - `video` [Инсаф Ашрапов (Сбер) Интерпретация банковских моделей](https://www.youtube.com/watch?v=49QMdM4oZkQ)
+      - `video` [Дмитрий Павлов (МФТИ/Тинькофф) Causal Inference в анализе временных рядов](https://www.youtube.com/watch?v=Yr6b8Rpy7Ds)
+- Simple modeling
+  - Causal Impact
+    - based on: Bayesian structural time-series models
+    - [R package CausalImpact](https://github.com/google/CausalImpact)
+    - Python port
+      - `doc` [Jamal Senouci](https://nbviewer.org/github/jamalsenouci/causalimpact/blob/master/GettingStarted.ipynb) [GettingStarted.ipynb](https://github.com/jamalsenouci/causalimpact/blob/master/GettingStarted.ipynb)
+      - how to install
+        - `download` [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/ru/visual-cpp-build-tools)
+        - `pip install causalimpact`
 
 <a name="graph"></a>
 ### Анализ графов
 - ...
 
-<a name="spatial"></a>
-### Геоаналитика
-- Spatial / Геоаналитика
-  - конспект лекций про spatial analysis: http://www.seas.upenn.edu/~ese502/#notebook
-  - Spatial Data Science and Applications https://www.coursera.org/lecture/spatial-data-science/spatial-data-analysis-zT39o
-  - пример задачи: выбор точек для открытия магазинов
-    - https://new-retail.ru/persony/bst_organika_kak_uspeshno_upravlyat_otkrytiyami_nayti_luchshie_mesta_i_postroit_optimalnuyu_set_torg1113
+<a name="geo"></a><a name="spatial"></a>
+### Spatial / Геоаналитика
+- intro
+  - `video` [Spatial Data Science and Applications](https://www.coursera.org/lecture/spatial-data-science/spatial-data-analysis-zT39o)
+  - `ipynb` [конспект лекций про spatial analysis](http://www.seas.upenn.edu/~ese502/#notebook)
+- cases 
+  - выбор точек для открытия магазинов
+    - `ads` [BST Digital: выбор точек для открытия магазинов (2018)](https://new-retail.ru/persony/bst_organika_kak_uspeshno_upravlyat_otkrytiyami_nayti_luchshie_mesta_i_postroit_optimalnuyu_set_torg1113)
 
 ## Роли, специальности, скиллы, процесс и культура
 - Виды аналитиков 
@@ -865,6 +986,8 @@
 - блоги
   - [Олег Якубенков @ GoPractice](http://gopractice.ru)
   - [ProductStar @ vc](https://vc.ru/productstar)
+  - [ProductStar @ youtube](https://www.youtube.com/channel/UCN97-wQgHScYUhnz31_NdeA/videos)
+  - [Towards Data Science](https://towardsdatascience.com)
 - посты
   - [Я.Академия: Чем занимаются аналитики данных и как начать? (2019)](https://academy.yandex.ru/posts/chem-zanimayutsya-analitiki-dannykh-i-kak-nachat-rabotat-v-etoy-oblasti)
   - [ProductStar@vc: Почему все помешались на профессии аналитика (2020)](https://vc.ru/s/productstar/169600-pochemu-vse-pomeshalis-na-professii-analitik)
@@ -875,7 +998,7 @@
     - специалисты по анализу данных
       - BI-аналитик - решает срочные задачи, работает с БД, готовит дешборды, отвечает за визуализацю
       - аналитик - знает предметную область, анализирует метрики, проводит эксперименты, составляет прогнозы, закапывается в данные
-      - DS, data scientist - структурирует и анализирует большие объёмы данных, применяет машинное обучение для предсказания событий и обнаружения неочевидных закономерностей
+      - [DS, data scientist](./ds.md) - структурирует и анализирует большие объёмы данных, применяет машинное обучение для предсказания событий и обнаружения неочевидных закономерностей
     - рекомендуемые книги по [Python](./dev.md#python)
       - Learning Python (O'Reilly)
       - Python for Data Analysis
@@ -1306,7 +1429,7 @@
             - Что такое BI-инструменты
             - Подход к выбору BI-инструмента
             - Ключевые возможности современных BI-инструментов
-          - Решение бизнес-задач с помощью инструментов data science
+          - Решение бизнес-задач с помощью инструментов [data science](./ds.md)
             - Что такое машинное обучение
             - Как устроено машинное обучение
             - Какие роли нужны для запуска DS-проектов
