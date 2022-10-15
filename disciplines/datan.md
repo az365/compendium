@@ -352,7 +352,9 @@
     - Data model
     - SDKs with persistent layer
 
-## [Метрики](https://github.com/az365/compendium/blob/master/disciplines/metrics.md)
+<a name="metrics"></a>
+## Метрики
+- `compendium` [Метрики](https://github.com/az365/compendium/blob/master/disciplines/metrics.md)
 - классификации метрик 
   - из [Lean Analytics](http://leananalyticsbook.com/)
     - qualitative vs quantitative
@@ -592,7 +594,6 @@
       - `doc` [Uber Experimentation Platform (2018)](https://eng.uber.com/xp)
       - `paper` `pdf` [Bing: Five Puzzling Outcomes Explained (2012)](http://www.exp-platform.com/Documents/puzzlingOutcomesInControlledExperiments.pdf)
       - `post` [AdOneTech @ Habr: 70 ресурсов про АБТ для начинающих (2014)](https://habr.com/ru/post/242701)
-      - `post` [SkillFactory: Лучшие экспериментальные протоколы для исследования реального мира](https://habr.com/ru/company/skillfactory/blog/553220/)
       - `app` [Калькулятор времени АБТ](https://vwo.com/tools/ab-test-duration-calculator) 
   - выбор приёмочных метрик
     - процесс
@@ -641,6 +642,7 @@
           - решения Peeking problem 
             - уменьшим уровень значимости (плохой путь)
             - байесовское АБТ 
+              - `post` [TDS - Простой гид по Байесовскому АБТ на Python](https://academy.yandex.com/journal/prostoy-gid-po-bayesovskomu-a-b-testirovaniyu-na-python)
             - многорукие бандиты 
             - последовательное тестироване 
               - mSPRT (mixture Sequential Probability Ratio test)
@@ -664,6 +666,9 @@
           - в x5 единица оффлайн-АБТ - магазин, их 16к
         - `video` [003 С.Гафаров: Как мы готовим АБТ (2020)](https://youtu.be/TpUflOQo1kI)
         - `video` [006 Д.Леньков (Авито): Статистика в АБ мифы и реальность (2020)](https://youtu.be/IFAaTKVKH1A)
+    - посты, статьи 
+      - `post` [SkillFactory: Лучшие экспериментальные протоколы для исследования реального мира](https://habr.com/ru/company/skillfactory/blog/553220/)
+      - `post` [TDS - Простой гид по Байесовскому АБТ на Python](https://academy.yandex.com/journal/prostoy-gid-po-bayesovskomu-a-b-testirovaniyu-na-python)
 - Observational studies
   - применение 
     - CI по отношению к АБТ 
@@ -975,6 +980,8 @@
     - можно принимать все решения только на метриках 
     - твоя работа всегда должна влиять на какую-то метрику 
     - есть ложь, есть наглая ложь, есть статистика
+  - примеры фейлов
+    - [Literate computing and computational](http://blog.fperez.org/2013/04/literate-computing-and-computational.html): у американских экономистов была глупая ошибка в расчётах на Excel, которая на несколько лет изменила политику правительства США
 
 <a name="lib"></a>
 ## Литература, ссылки, курсы
@@ -988,6 +995,7 @@
   - [ProductStar @ vc](https://vc.ru/productstar)
   - [ProductStar @ youtube](https://www.youtube.com/channel/UCN97-wQgHScYUhnz31_NdeA/videos)
   - [Towards Data Science](https://towardsdatascience.com)
+  - [altsoph@ medium](https://medium.com/altsoph), [youtube](https://www.youtube.com/user/altsoph)
 - посты
   - [Я.Академия: Чем занимаются аналитики данных и как начать? (2019)](https://academy.yandex.ru/posts/chem-zanimayutsya-analitiki-dannykh-i-kak-nachat-rabotat-v-etoy-oblasti)
   - [ProductStar@vc: Почему все помешались на профессии аналитика (2020)](https://vc.ru/s/productstar/169600-pochemu-vse-pomeshalis-na-professii-analitik)
