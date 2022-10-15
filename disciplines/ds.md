@@ -949,10 +949,10 @@ methods/models for regression&classification
 ### Retail
 - DS в ритейле
   - Моделирование продаж
-    - x5+Rubbles @ RetailHero: ИИ для предсказания спроса (2020) https://youtu.be/M5NOU9eq-Pw
+    - `video` [x5+Rubbles @ RetailHero: ИИ для предсказания спроса (2020)](https://youtu.be/M5NOU9eq-Pw)
       - принудительная элластичность: в GBDT-либах бывают параметры, заставляющие считать некоторые признаки монотонными
       - проблема Causal Inference: пример с огурцами зимой и летом
-    - x5: прогнозирование спроса (2020) https://youtu.be/6n1Fg8IcHUs
+    - `video` [x5: прогнозирование спроса (2020)](https://youtu.be/6n1Fg8IcHUs)
       - методы: arima, gbdt, --rnn--
       - горизонт: 4-12 недель
       - лосс: MAE, Tweede
@@ -974,7 +974,7 @@ methods/models for regression&classification
         - лояльность
         - `?` реклама (сложно оценить, если реклама идёт постоянно)
         - сегментация модели по категор иям + обогащение малых категорий данными по большим
-    - Technostartup: How Retail Stores Can Use ML To Boost Their Sales? (2017) https://medium.com/@technostartup1m/how-retail-stores-can-use-machine-learning-to-boost-their-sales-2c108de7c597
+    - `post` [Technostartup: How Retail Stores Can Use ML To Boost Their Sales? (2017)](https://medium.com/@technostartup1m/how-retail-stores-can-use-machine-learning-to-boost-their-sales-2c108de7c597)
       - управление запасами
       - маркетинг
       - рекомендация товаров
@@ -982,10 +982,13 @@ methods/models for regression&classification
       - распознавание клиентских паттернов (Uber: константный спрос путём изменений цен)
       - персонализированные купоны-предложения
       - логистика
-    - Николай Савин (Competera) - AI-powered price optimization (2019) https://bigdata-madesimple.com/ai-powered-price-optimization
-    - 1C Sales Prediction @ Kaggle https://www.kaggle.com/c/competitive-data-science-predict-future-sales
-      - пример работы https://www.kaggle.com/dimitreoliveira/model-stacking-feature-engineering-and-eda
-      - A beginner guide for sale data prediction https://www.kaggle.com/minhtriet/a-beginner-guide-for-sale-data-prediction
+    - `video` [Georgia Tech - The New Frontier of Data-Driven Price Optimization](https://youtu.be/9QDOTtRxfbg)
+      - Thompson Sampling
+        - `post` [Conor Mc. - Эпсилон-жадная стратегия vs Томпсоновское семплирование](https://habr.com/ru/post/425619/)
+    - `promo` [Николай Савин (Competera) - AI-powered price optimization (2019)](https://bigdata-madesimple.com/ai-powered-price-optimization)
+    - `competition` [1C Sales Prediction @ Kaggle](https://www.kaggle.com/c/competitive-data-science-predict-future-sales)
+      - `ipynb` [пример работы](https://www.kaggle.com/dimitreoliveira/model-stacking-feature-engineering-and-eda)
+      - `doc` [A beginner guide for sale data prediction](https://www.kaggle.com/minhtriet/a-beginner-guide-for-sale-data-prediction)
   - [геоаналитика](./datan.md#spacial)
     - `ads` [BST Digital: выбор точек для открытия магазинов (2018)](https://new-retail.ru/persony/bst_organika_kak_uspeshno_upravlyat_otkrytiyami_nayti_luchshie_mesta_i_postroit_optimalnuyu_set_torg1113)
   - [CV](./ds.md#cv): [видеоаналитика](./ds.md#video) в ритейле
@@ -1005,7 +1008,8 @@ methods/models for regression&classification
     - ODS: Прогнозирование нагрузки колл-центра (2019) https://habr.com/ru/company/ods/blog/438212/
     - МТС VoiceTracker: супервайзинг в колл-центре (2020) https://voicetracker.mts.ru
   - HR
-    - Лента/Север.AI: Лента ускорила подбор сотрудников с помощью ИИ https://www.cnews.ru/news/line/2020-09-23_lenta_uskorila_podbor https://sever.ai
+    - `promo` [Север.AI](https://sever.ai): [Лента ускорила подбор сотрудников с помощью ИИ](https://www.cnews.ru/news/line/2020-09-23_lenta_uskorila_podbor)
+    - `promo` [yva.ai - аналитика выгорания и неформального лидерства](https://www.yva.ai)
 - Мероприятия
   - `folder` [X5 Retail Hero (2020)](https://drive.google.com/drive/folders/1zf8rSVU9bHXTkPDAms5bkV9qDdxVpbdN)
 
@@ -1061,13 +1065,17 @@ methods/models for regression&classification
 - ...
 
 <a name="recommenders"></a>
-### Рекомендательные системы
-- `post` [М.Ройзнер - Как работают рекомендательные системы](https://habr.com/ru/company/yandex/blog/241455/)
-- `post` [Jonathan Hui - Рекомендательные системы (2020, перевод с TowardsDS)](https://vc.ru/ml/132779-mashinnoe-obuchenie-rekomendatelnye-sistemy)
-- `video` [Андрей Зимовнов (Я.Дзен) - Deep learning в рекомендательных системах (2018)](https://youtu.be/OJ0nJb3LfNo)
-  - Deep learning в рекомендательных системах
-  - Collaborative Filtering (CF) в большой рекомендательной системе
-- Kaggle: предсказание популярности постов на Хабре https://www.kaggle.com/c/howpop-habrahabr-favs-lognorm https://www.kaggle.com/c/howpop-habrahabr-favs
+### Веб-сервисы и приложения
+- Рекомендательные системы
+  - `post` [М.Ройзнер - Как работают рекомендательные системы](https://habr.com/ru/company/yandex/blog/241455/)
+  - `post` [Jonathan Hui - Рекомендательные системы (2020, перевод с TowardsDS)](https://vc.ru/ml/132779-mashinnoe-obuchenie-rekomendatelnye-sistemy)
+  - `video` [Андрей Зимовнов (Я.Дзен) - Deep learning в рекомендательных системах (2018)](https://youtu.be/OJ0nJb3LfNo)
+    - Deep learning в рекомендательных системах
+    - Collaborative Filtering (CF) в большой рекомендательной системе
+- Предсказание популярности
+  - `competition` [Kaggle: предсказание популярности постов на Хабре](https://www.kaggle.com/c/howpop-habrahabr-favs-lognorm https://www.kaggle.com/c/howpop-habrahabr-favs)
+- Опечаточники
+  - `post` [Как обучть мдль пнмть упртые скрщня (2018)](https://habr.com/ru/post/346578/)
 
 <a name="video"></a>
 ### Видеоаналитика
@@ -1210,6 +1218,11 @@ LeanDS (с митапов Асхата Уразбаева)
     - что будет, если сервис откажет?
     - как часто нужно переобучать модель в проде?
 
+### TDSP
+- The Team Data Science Process lifecycle
+  - `doc` [Microsoft - The Team Data Science Process lifecycle](https://learn.microsoft.com/en-us/azure/architecture/data-science-process/lifecycle)
+  - `git` [Microsoft - The Team Data Science Process lifecycle](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md)
+
 <a name="product"></a>
 ### Дата-продукты
 - составляющие дата-продукта
@@ -1322,7 +1335,8 @@ LeanDS (с митапов Асхата Уразбаева)
     - не так вкусно упакуеся (на хайпе куш не сорвём)
 
 ### Fail
-- Топ10 ошибок data-science (AI community @ Avito, 24.04.2018) https://www.youtube.com/watch?v=QbISiKZRDLg
+- 87% DS-проектов никогда не выходят в прод
+- [Топ10 ошибок data-science (AI community @ Avito, 24.04.2018)](https://www.youtube.com/watch?v=QbISiKZRDLg)
   - на этапе бизнес-анализа
     - 1 проблема не валидирована заказчиком
     - 2 заказчик и спонсор неверно определены
@@ -1350,7 +1364,7 @@ LeanDS (с митапов Асхата Уразбаева)
     - дефицит коммуникации по продаже фактических результатов
     - 10 отсутствие мониторинга качества модели
     - отсутствие процесса переобучения/неверная частота переобучения
-- В.Бабушкин: Как мы не сделали рекомендательную систему в банке https://youtu.be/hCLI7a74lFs
+- [В.Бабушкин: Как мы не сделали рекомендательную систему в банке](https://youtu.be/hCLI7a74lFs)
 
 <a name="lib"></a>
 ## Литература, курсы
