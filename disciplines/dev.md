@@ -131,9 +131,18 @@
   - рекомендуемые книги по Python
     - Learning Python (O'Reilly)
     - Python for Data Analysis
+    - [Swaroop Chitlur - A Byte of Python](https://python.swaroopch.com/) (+видео-уроки) [`PDF` RU](https://wombat.org.ua/AByteOfPython/AByteofPythonRussian-2.02.pdf)
 
+### SQL
+- [Упрражнения по SQL](https://sql-ex.ru/)
+
+<a name="cpp"></a>
 ### C++
-- Курс «Основы разработки на C++: белый пояс»: Илья Шишков, Антон Полднев, Евгений Парамонов, Иван Лежанкин
+- `course` «Основы разработки на C++: белый пояс»: Илья Шишков, Антон Полднев, Евгений Парамонов, Иван Лежанкин
+
+<a name="html"></a><a name="css"></a>
+### HTML, CSS
+- `course` [Stepik](https://stepik.org) - [Веб-разработка](https://stepik.org/catalog/181): [HTML и CSS](https://stepik.org/course/38218/promo)
 
 <a name="testing"></a>
 ## Тестирование
@@ -204,6 +213,7 @@
 # devtools
 - GIT, SVN
     - Ежедневная работа с Git https://habr.com/ru/post/174467
+    - GitFlow - правила жизни в гите 
 - CI/CD
 - IDE
   - JetBrains
@@ -254,6 +264,9 @@
           - `$ ^b: set-option mouse off`
   - Windows
     - tips and tricks 
+      - Windows Terminal
+        - [get from Windows Store](https://www.microsoft.com/ru-ru/p/windows-terminal/9n0dx20hk701)
+        - [download from GitHub](https://github.com/microsoft/terminal/releases)
       - сетевая диагностика в Windows
         - `C:\Users\%username%> ipconfig /all`
         - `C:\Users\%username%> route print`
