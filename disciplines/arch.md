@@ -302,6 +302,12 @@
   - architectural
 
 ### Уровни протоколов/архитектур
+- архитектура предприятия 
+  - `post` [А.Радзишевский @ Habr - Архитектура ИТ решений. Часть 1. Архитектура предприятия](https://habr.com/ru/post/347204/)
+    - 1 EIA - Enterprise Information Architecture
+    - 2 ESA - Enterprise Solution Architecture
+    - 3 ETA - Enterprise Technical Architecture
+    - 4 EBA - Enterprise Business Architecture
 - архитектуры
   - CORBA - Common Object Request Broker Architecture
   - ...
@@ -350,173 +356,179 @@
 
 <a name="data"></a>
 ## Data
-- базы данных
-  - RDBMS/реляционные
-    - нормальные формы
-      - 1NF
-      - 2NF
-      - 3NF+
-    - популярные СУБД 
-      - PostgreSQL - свободная объектно-реляционная СУБД 
-      - GreenPlum - распределённый PostgreSQL 
-      - ClickHouse - не тормозит 
-    - 12 правил реляционных субд: https://ru.wikipedia.org/wiki/12_%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB_%D0%9A%D0%BE%D0%B4%D0%B4%D0%B0
-    - python for db: https://www.coursera.org/learn/python-databases
-  - аналитические
-    - просто и доступно об аналитических БД https://habrahabr.ru/post/149641/
-    - Массово-параллельная архитектура: https://ru.wikipedia.org/wiki/%D0%9C%D0%B0%D1%81%D1%81%D0%BE%D0%B2%D0%BE-%D0%BF%D0%B0%D1%80%D0%B0%D0%BB%D0%BB%D0%B5%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F_%D0%B0%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0
-    - ...
-  - NoSQL
-    - MongoDB - документоориентированная СУБД с открытым кодом, не требующая описания схемы таблиц
-      - использует JSON-подобные документы и схему базы данных
-      - написана на C++
-      - применяется в веб-разработке
-    - Hadoop - технология/фреймворк/экосистема распределённых вычислений на кластерах из сотен и тысяч узлов
-  - БД для логов
-    - CH vs ELK https://habr.com/ru/company/ua-hosting/blog/483112
-  - схемы данных
-    - логическах схема - модель БД, выраженная в терминах модели данных
-      - 3 аспекта
-        - аспект структуры: методы описания типов и логических структур данных в базе данных
-        - аспект манипуляции: способы извлечения и модификации данных
-        - аспект целостности: методы описания и поддержки целостности базы данных.
-      - модели баз данных (каждый по-своему отвечает на эти 3 аспекта)
-        - реляционная
-        - иерархическая
-        - ER-модель - entity-relationship model - описывает концептуальные схемы предметной области
-        - объектная модель
-    - физическая схема
-      - описывает 
-        - типы, идентификаторы и разрядность полей
-        - размещение данных на машинных носителях, то есть, какой файл, какие объекты, с какими атрибутами содержит
-      - Онлайн генератор схем баз данных https://habr.com/ru/post/111754/
+
+<a name="db"></a>
+### Базы данных
+- RDBMS/реляционные
+  - нормальные формы
+    - 1NF
+    - 2NF
+    - 3NF+
+  - популярные СУБД 
+    - PostgreSQL - свободная объектно-реляционная СУБД 
+    - GreenPlum - распределённый PostgreSQL 
+    - ClickHouse - не тормозит 
+  - 12 правил реляционных субд: https://ru.wikipedia.org/wiki/12_%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB_%D0%9A%D0%BE%D0%B4%D0%B4%D0%B0
+  - python for db: https://www.coursera.org/learn/python-databases
+- аналитические
+  - просто и доступно об аналитических БД https://habrahabr.ru/post/149641/
+  - Массово-параллельная архитектура: https://ru.wikipedia.org/wiki/%D0%9C%D0%B0%D1%81%D1%81%D0%BE%D0%B2%D0%BE-%D0%BF%D0%B0%D1%80%D0%B0%D0%BB%D0%BB%D0%B5%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F_%D0%B0%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0
+  - ...
+- NoSQL
+  - MongoDB - документоориентированная СУБД с открытым кодом, не требующая описания схемы таблиц
+    - использует JSON-подобные документы и схему базы данных
+    - написана на C++
+    - применяется в веб-разработке
+  - Hadoop - технология/фреймворк/экосистема распределённых вычислений на кластерах из сотен и тысяч узлов
+- БД для логов
+  - CH vs ELK https://habr.com/ru/company/ua-hosting/blog/483112
+- схемы данных
+  - логическах схема - модель БД, выраженная в терминах модели данных
+    - 3 аспекта
+      - аспект структуры: методы описания типов и логических структур данных в базе данных
+      - аспект манипуляции: способы извлечения и модификации данных
+      - аспект целостности: методы описания и поддержки целостности базы данных.
+    - модели баз данных (каждый по-своему отвечает на эти 3 аспекта)
+      - реляционная
+      - иерархическая
+      - ER-модель - entity-relationship model - описывает концептуальные схемы предметной области
+      - объектная модель
+  - физическая схема
+    - описывает 
+      - типы, идентификаторы и разрядность полей
+      - размещение данных на машинных носителях, то есть, какой файл, какие объекты, с какими атрибутами содержит
+    - Онлайн генератор схем баз данных https://habr.com/ru/post/111754/
+
+### Data architecture
+- архитектура хранилищ данных https://habr.com/ru/post/441538/
+  - традиционная
+    - Kimball vs Inmon
+      - Kimball - сочетание витрин данных (снизу-вверх)
+      - Inmon - нормализованная модель (сверху-вниз)
+    - модели хранилищ данных
+      - виртуальное - набор БД, которые можно использ. совместно
+      - модель витрины данных
+      - модель корпоративного хранилища
+    - звезда vs снежинка
+    - ETL vs ELT
+    - организационная зрелость
+      - DataSources : Warehouse : Users
+      - DataSources : StagingArea : Warehouse : Users
+      - DataSources : StagingArea : Warehouse : DataMarts : Users
+  - облака
+    - колоночные БД
+      - Amazon Redshift
+      - Google BigQuery
+    - Panoply - самооптимизирующееся управление данными
+- data lake https://www.youtube.com/watch?v=hsq4s_l9ZDMz
+  - why datalake
+    - increasing data volumes
+    - workload complexity
+    - productivity & agile development
+    - time to value
+    - data collaboration
+  - best practices
+    - focus on architecture of services and APIs
+      - design of Data Lake should be driven by what is available rather what is required; the schema and data requirement are not defined until it is required
+      - design should be guided by disposable components integrated through service APIs
+      - data discovery & ingestion, storage & administration, quality & transformation and visualisation & interaction sould be managed independently
+    - support of native data types and industry
+      - architectural components, their interactions and identified products should naturally support native data types through the entire pipeline
+      - the architecture must be tailored to specific industry, to ensure that capabilities standard and necessary for that domain are inherent part of the design
+    - data servicing and governance
+      - faster onboarding of newly discovered data sources is important
+      - data profiling, data policies, lineage and security are properly enforced
+      - usage monitoring, data tagging, data parsing, data correlation, data workflows are all important aspects of the Data Lake platform
+    - search over data lake is crucial
+      - ability to discover and find data elements being managed with the Lake
+      - finding data insights via identification, unification and correlations across system is equally important
+      - analytics and audit of this search is equally important to understand what are users looking for and how they are utilizing it
+    - metadata management cannot be an after-thought
+      - metadata cataloging should be a must to the design of Data Lake
+      - Automation of metadata extraction, analyze, correlation and tracking
+  - take away
+    - know your sources
+      - data first; schema later
+      - discover and keep discovering for unknown
+    - study them well
+      - analyze them, understand their character, know their ingredients
+      - correlate the properties with the source origin
+      - determine how multiple sources interact and correlate with each other
+    - improved analytics
+      - relationship between various data sets
+      - separate out technical and business types of attrubutes in individual data sets
+    - measure and monitor
+      - track the usage at consumption; based on what is consumed, not what was sourced
+      - new data arrivals/removals/edits
+      - how well you monitor, manage and administrate the process
+    - do not overbuild
+      - data lake is meant to be flexible; don't overburden
+      - aim big but evolve gradually - both structre as well as storage
+      - focus more on analytics and insights, relatively less on data quantum
 - etl/elt and data management
   - https://www.youtube.com/channel/UCrR22MmDd5-cKP2jTVKpBcQ Intricity101
   - etl-инструменты, работающие с hadoop: Informatica, IBM Datastage, SAS и Pentaho Data Integration
   - NiFi умеет работать с HDFS, Hive, HBase, Solr, Cassandra, MongoDB, ElastcSearch, Kafka, RabbitMQ, Syslog, HTTPS, SFTP
   - другие ETL-средства: OWB, DTS/SSIS, DataStage, ODI/Sunopsis
-- data lake, data warehouse, API management
-  - архитектура хранилищ данных https://habr.com/ru/post/441538/
-    - традиционная
-      - Kimball vs Inmon
-        - Kimball - сочетание витрин данных (снизу-вверх)
-        - Inmon - нормализованная модель (сверху-вниз)
-      - модели хранилищ данных
-        - виртуальное - набор БД, которые можно использ. совместно
-        - модель витрины данных
-        - модель корпоративного хранилища
-      - звезда vs снежинка
-      - ETL vs ELT
-      - организационная зрелость
-        - DataSources : Warehouse : Users
-        - DataSources : StagingArea : Warehouse : Users
-        - DataSources : StagingArea : Warehouse : DataMarts : Users
-    - облака
-      - колоночные БД
-        - Amazon Redshift
-        - Google BigQuery
-      - Panoply - самооптимизирующееся управление данными
-  - data lake https://www.youtube.com/watch?v=hsq4s_l9ZDMz
-    - why datalake
-      - increasing data volumes
-      - workload complexity
-      - productivity & agile development
-      - time to value
-      - data collaboration
-    - best practices
-      - focus on architecture of services and APIs
-        - design of Data Lake should be driven by what is available rather what is required; the schema and data requirement are not defined until it is required
-        - design should be guided by disposable components integrated through service APIs
-        - data discovery & ingestion, storage & administration, quality & transformation and visualisation & interaction sould be managed independently
-      - support of native data types and industry
-        - architectural components, their interactions and identified products should naturally support native data types through the entire pipeline
-        - the architecture must be tailored to specific industry, to ensure that capabilities standard and necessary for that domain are inherent part of the design
-      - data servicing and governance
-        - faster onboarding of newly discovered data sources is important
-        - data profiling, data policies, lineage and security are properly enforced
-        - usage monitoring, data tagging, data parsing, data correlation, data workflows are all important aspects of the Data Lake platform
-      - search over data lake is crucial
-        - ability to discover and find data elements being managed with the Lake
-        - finding data insights via identification, unification and correlations across system is equally important
-        - analytics and audit of this search is equally important to understand what are users looking for and how they are utilizing it
-      - metadata management cannot be an after-thought
-        - metadata cataloging should be a must to the design of Data Lake
-        - Automation of metadata extraction, analyze, correlation and tracking
-    - take away
-      - know your sources
-        - data first; schema later
-        - discover and keep discovering for unknown
-      - study them well
-        - analyze them, understand their character, know their ingredients
-        - correlate the properties with the source origin
-        - determine how multiple sources interact and correlate with each other
-      - improved analytics
-        - relationship between various data sets
-        - separate out technical and business types of attrubutes in individual data sets
-      - measure and monitor
-        - track the usage at consumption; based on what is consumed, not what was sourced
-        - new data arrivals/removals/edits
-        - how well you monitor, manage and administrate the process
-      - do not overbuild
-        - data lake is meant to be flexible; don't overburden
-        - aim big but evolve gradually - both structre as well as storage
-        - focus more on analytics and insights, relatively less on data quantum
-  - кейсы
-    - Data Lake – от теории к практике. Сказ про то, как мы строим ETL на Hadoop: https://habrahabr.ru/company/tcsbank/blog/259173/
+- data modeling and design 
+  - `doc` [PowerBI - Data modeling](powerbi.microsoft.com/ru-ru/what-is-data-modeling)
+- кейсы
+  - `post` [Тинькофф @ Habr: Data Lake от теории к практике. Сказ про то, как мы строим ETL на Hadoop](https://habrahabr.ru/company/tcsbank/blog/259173/)
+
 <a name="bigdata"></a>
-- big data
-  - hadoop-stack
-    - main tools structure https://www.youtube.com/watch?v=OoEpfb6yga8
-      - load
-        - flume - log aggregation, загрузка данных из источников
-        - sqoop - data transfer between HDFS and RDBMS
-      - data platform
-        - hcatalog
-        - compute&storage nodes
-        - ambari
-      - output
-        - interactive
-          - hive/sql
-        - batch
-          - mapreduce
-          - PIG - for ETL
-        - online
-          - hbase (i.e. Facebook messages)
-          - zookeeper - coordination
-      - additional tools
-        - mahout - ML tools
-        - ambari, ganglia, nagios
-        - cascading
-        - oozie
-        - protobuf, avro, thrift - serialization libraries
-        - ... 
-    - distributives
-      - hortonworks
-      - cloudera CDH
-        - HDFS
-        - MapReduce
-        - YARN - Yet Another Resource Negotiator - вместо(?) MR при переходе от Hadoop1 к Hadoop2
-        - Zookeeper
-        - Hbase
-        - Hive
-        - Oozie
-        - Hue - GUI
-        - Flume
-        - Impala - SQL interface for DHFS and HBase
-        - Sqoop
-        - Solr
-        - Keystore Indexer
-      - MapR
-  - другие варианты кластеров для ml-задач
-    - shared fs+GNU parallel+conda
-    - hyperopt+MongoDB+Docker
-  - шедулинг задач по графам
-    - apache airflow как планировщик etl-процессов (DAGs)
-    - luigi
-    - uber michelangelo - ml-фреймворк
-    - rapid miner
-    - yandex nirvana 
-  - литература
-    - `course` big data for engineers https://www.coursera.org/specializations/big-data-engineering
-    - `course` coursera.org/specializations/big-data-eneineering 5c*6w*8h
-    - `post` hadoop + cloudera + ... https://habrahabr.ru/post/151062/
+### Big Data
+- hadoop-stack
+  - main tools structure https://www.youtube.com/watch?v=OoEpfb6yga8
+    - load
+      - flume - log aggregation, загрузка данных из источников
+      - sqoop - data transfer between HDFS and RDBMS
+    - data platform
+      - hcatalog
+      - compute&storage nodes
+      - ambari
+    - output
+      - interactive
+        - hive/sql
+      - batch
+        - mapreduce
+        - PIG - for ETL
+      - online
+        - hbase (i.e. Facebook messages)
+        - zookeeper - coordination
+    - additional tools
+      - mahout - ML tools
+      - ambari, ganglia, nagios
+      - cascading
+      - oozie
+      - protobuf, avro, thrift - serialization libraries
+      - ... 
+  - distributives
+    - hortonworks
+    - cloudera CDH
+      - HDFS
+      - MapReduce
+      - YARN - Yet Another Resource Negotiator - вместо(?) MR при переходе от Hadoop1 к Hadoop2
+      - Zookeeper
+      - Hbase
+      - Hive
+      - Oozie
+      - Hue - GUI
+      - Flume
+      - Impala - SQL interface for DHFS and HBase
+      - Sqoop
+      - Solr
+      - Keystore Indexer
+    - MapR
+- другие варианты кластеров для ml-задач
+  - shared fs+GNU parallel+conda
+  - hyperopt+MongoDB+Docker
+- шедулинг задач по графам
+  - apache airflow как планировщик etl-процессов (DAGs)
+  - luigi
+  - uber michelangelo - ml-фреймворк
+  - rapid miner
+  - yandex nirvana 
+- литература
+  - `course` big data for engineers https://www.coursera.org/specializations/big-data-engineering
+  - `course` coursera.org/specializations/big-data-eneineering 5c*6w*8h
+  - `post` hadoop + cloudera + ... https://habrahabr.ru/post/151062/
