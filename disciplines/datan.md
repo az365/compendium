@@ -519,6 +519,7 @@
     - `post` [GoPractice: О.Якубенков - Когортный анализ (2014)](https://gopractice.ru/cohort_analysis/)
     - `post` [GoPractice: О.Якубенков - Длинный и короткий ретеншен (2020)](https://gopractice.ru/why-long-term-retention-is-key-to-growth/)
     - `paper` [В.Голубев - Оценка LifeTime через ретеншен (2010)](http://kxk.ru/matriarhat/v1_693889__.php)
+    - `video` `webinar` [Лаврентий Данилов - Применение анализа выживаемости для оценки оттока клиентов](https://youtu.be/vaFTwxjdLGQ)
 
 <a name="segm"></a>
 ### Segmentation
@@ -589,8 +590,9 @@
           - Microsoft: кто видит больше ошибок - те чаще пользуются сервисом
         - чувствительность - свойство метрики часто выдавать статистически значимые вердикты
         - как быть с метриками типа отношения
-          - бутстрэп
+          - [бутстрэп](#bootstrap)
           - перевзвешивание на A*sqrt(N) - повышает чувствительность на 20%-30%
+      - `video` `webinar` [karpov.courses @ YouTube - АБТ с метриками-отношениями и при чём здесь внутрипользовательские корреляции](https://www.youtube.com/watch?v=ObzlKVCiBqI)
       - `doc` [Uber Experimentation Platform (2018)](https://eng.uber.com/xp)
       - `paper` `pdf` [Bing: Five Puzzling Outcomes Explained (2012)](http://www.exp-platform.com/Documents/puzzlingOutcomesInControlledExperiments.pdf)
       - `post` [AdOneTech @ Habr: 70 ресурсов про АБТ для начинающих (2014)](https://habr.com/ru/post/242701)
@@ -605,6 +607,13 @@
       - не красить контроли (АА-тест)
       - чувствительность (красить лучше других)
       - применимость (некоторые метрики не совместимы с некоторыми типами экспериментов)
+  - <a name="bootstrap"></a>бутстрэп
+    - `video` [Карта статистических методов: bootstrap VS t-test](https://www.youtube.com/watch?v=-zps6hm0nX8)
+    - `video` [И.Кацев (Яндекс): Как повысить чувствительность метрик](https://youtu.be/z8CqaOQgYcI)
+      - [бутстрэп](#bootstrap)
+      - перевзвешивание на A*sqrt(N) - повышает чувствительность на 20%-30%
+    - используется в EconML
+      - `video` [Наталья Тоганова (GlowByte) Обзор библиотеки EconML: идеи и реализация](https://www.youtube.com/watch?v=oCJI5tKi3AU)
   - АБ-тесты на малых выборках 
     - `video` [МТС: АБТ на регионах (2020)](https://youtu.be/e9kSPMjpLL8)
       - https://engineering.nordeus.com/
@@ -914,6 +923,8 @@
 - cases 
   - выбор точек для открытия магазинов
     - `ads` [BST Digital: выбор точек для открытия магазинов (2018)](https://new-retail.ru/persony/bst_organika_kak_uspeshno_upravlyat_otkrytiyami_nayti_luchshie_mesta_i_postroit_optimalnuyu_set_torg1113)
+  - маршрутизация в логистике
+    - `video` [Д.Тарарухин (Я.Карты b2b geo) Я.Маршрутизация: как IT-технологии улучшают логистические сервисы](https://youtu.be/8yDh9Q7shag)
 
 ## Роли, специальности, скиллы, процесс и культура
 - Виды аналитиков 
@@ -989,19 +1000,21 @@
   - [Alistair Croll - Lean Analytics, Lean UX, Lean Startup](http://leananalyticsbook.com) ([GoPractice](https://gopractice.ru/lean_analytics/))
   - Аналитическая культура (O'Reilly)
   - Билл Фрэнкс - Революция в Аналитике 
-  - ...
+  - `book` [Уилан Чарльз - Голая статистика. Самая интересная книга о самой скучной науке](https://www.ozon.ru/search/?product_id=135537331)
+  - `book` [Intercom on Product Management](https://www.intercom.com/resources/books/intercom-product-management)
 - блоги
-  - [Олег Якубенков @ GoPractice](http://gopractice.ru)
-  - [ProductStar @ vc](https://vc.ru/productstar)
-  - [ProductStar @ youtube](https://www.youtube.com/channel/UCN97-wQgHScYUhnz31_NdeA/videos)
-  - [Towards Data Science](https://towardsdatascience.com)
-  - [altsoph@ medium](https://medium.com/altsoph), [youtube](https://www.youtube.com/user/altsoph)
+  - `blog` [Олег Якубенков @ GoPractice](http://gopractice.ru)
+  - `blog` [ProductStar @ vc](https://vc.ru/productstar)
+  - `video` [ProductStar @ youtube](https://www.youtube.com/channel/UCN97-wQgHScYUhnz31_NdeA/videos)
+  - `blog` [Towards Data Science](https://towardsdatascience.com)
+  - `blog` [altsoph@ medium](https://medium.com/altsoph), [youtube](https://www.youtube.com/user/altsoph)
+  - `list` [список тг-каналов для изучения продуктовой аналитики](https://drive.google.com/drive/folders/13G8yRpYX2vuvpYSVWqdsS9Zrcq-Loi0o)
 - посты
-  - [Я.Академия: Чем занимаются аналитики данных и как начать? (2019)](https://academy.yandex.ru/posts/chem-zanimayutsya-analitiki-dannykh-i-kak-nachat-rabotat-v-etoy-oblasti)
-  - [ProductStar@vc: Почему все помешались на профессии аналитика (2020)](https://vc.ru/s/productstar/169600-pochemu-vse-pomeshalis-na-professii-analitik)
-  - [Cassie Kozyrkov - 10 Differences Between Amateurs and Professional Analysts (2022)](https://towardsdatascience.com/10-differences-between-amateurs-and-professional-analysts-3a1be1a06a4d)
+  - `post` [Я.Академия: Чем занимаются аналитики данных и как начать? (2019)](https://academy.yandex.ru/posts/chem-zanimayutsya-analitiki-dannykh-i-kak-nachat-rabotat-v-etoy-oblasti)
+  - `post` [ProductStar@vc: Почему все помешались на профессии аналитика (2020)](https://vc.ru/s/productstar/169600-pochemu-vse-pomeshalis-na-professii-analitik)
+  - `post` [Cassie Kozyrkov - 10 Differences Between Amateurs and Professional Analysts (2022)](https://towardsdatascience.com/10-differences-between-amateurs-and-professional-analysts-3a1be1a06a4d)
 - видео-курсы
-  - [YouTube: Технострим - Введение в анализ данных (2019)](https://www.youtube.com/watch?v=5Yl6_2d0CN0&list=PLrCZzMib1e9p6lpNv-yt6uvHGyBxQncEh)
+  - `video` [YouTube: Технострим - Введение в анализ данных (2019)](https://www.youtube.com/watch?v=5Yl6_2d0CN0&list=PLrCZzMib1e9p6lpNv-yt6uvHGyBxQncEh)
     - Анализ данных - процесс исследования, фильтрации, преобразования и моделирования данных с целью извлечения полезной информации и приняия решений
     - специалисты по анализу данных
       - BI-аналитик - решает срочные задачи, работает с БД, готовит дешборды, отвечает за визуализацю
@@ -1010,7 +1023,7 @@
     - рекомендуемые книги по [Python](./dev.md#python)
       - Learning Python (O'Reilly)
       - Python for Data Analysis
-  - [Технострим - Введение в анализ данных (2016)](https://www.youtube.com/playlist?list=PLrCZzMib1e9p5F99rIOzugNgQP5KHHfK8)
+  - `video` [Технострим - Введение в анализ данных (2016)](https://www.youtube.com/playlist?list=PLrCZzMib1e9p5F99rIOzugNgQP5KHHfK8)
 - онлайн-курсы
   - большие вводные курсы по аналитике
     - https://practicum.yandex.ru/data-analyst

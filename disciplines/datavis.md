@@ -132,6 +132,12 @@
         - какие бывают: PowerBI, Tableau, Qlik
         - сравнение: gartner quadrant http://www.tadviser.ru/images/f/f6/Forrester_Wave_data_visualization_2012.png
         - рекомендую начать с Tableau - помогает привыкнуть с управлению межерами и дименшенами
+          - `video` [Под капотом Tableau](https://www.youtube.com/watch?v=WU8vSVBB7O4)
+              - VizQL - технология преобразования визуальных пилюль в SQL-код, запатентованная Tableau 
+              - литература 
+                  - Tableau Underhood by Roman Bunin https://public.tableau.com/app/profile/roman4734/viz/TableauUnderhood/VizQL 
+                  - Где учить основы по дизайну https://revealthedata.com/blog/all/navyki-dlya-vizualizacii-dannyh-i-dataviz-inzhenerov/ 
+                  - Матрица компетенций BI-аналитика https://t.me/revealthedata/601
     - Python и Jupyter 
         - чем хорош: python можно в прод, гибкие преобразования и аггрегации, легко кастомизировать и стандартизировать, много бибиотек 
         - чем плох: погружения в код

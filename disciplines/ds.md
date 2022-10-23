@@ -180,7 +180,9 @@ methods/models for regression&classification
       - линейная регрессия
       - XGBoost на временнЫх рядах
   - популярные методы и библиотеки
-    - Prophet `post` [ODS: Предсказываем будущее с помощью библиотеки Facebook Prophet](https://habr.com/ru/company/ods/blog/323730/)
+    - Facebook Prophet 
+      - `post` [ODS: Предсказываем будущее с помощью библиотеки Facebook Prophet](https://habr.com/ru/company/ods/blog/323730/)
+      - `video` [Всё, что вы хотели знать о Facebook Prophet](https://www.youtube.com/watch?v=1xsRaClzMzU)
     - ARIMA `wiki` [Autoregressive integrated moving average](https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average)
     - ARCH `wiki` [Autoregressive conditional heteroskedasticity](https://en.wikipedia.org/wiki/Autoregressive_conditional_heteroskedasticity)
     - STL-decompositions of time-series
@@ -855,8 +857,8 @@ methods/models for regression&classification
   - vowpal wabbit
     - https://habrahabr.ru/company/mlclass/blog/248779/ Когда данных действительно много: Vowpal Wabbit
     - vowpal wabbit https://github.com/JohnLangford/vowpal_wabbit
-- временнЫе ряды
-  - prophet
+- [временнЫе ряды](./datan.md#series)
+  - prophet by facebook 
 - additional tools
   - danielfrg/tsne (osdf/py_bh_tsne, lvdmaaten/tsne) - about dimensionality reduction
   - TFFM - TF implementation of Arbitrary order factorization machines https://github.com/geffy/tffm
@@ -989,8 +991,13 @@ methods/models for regression&classification
     - `competition` [1C Sales Prediction @ Kaggle](https://www.kaggle.com/c/competitive-data-science-predict-future-sales)
       - `ipynb` [пример работы](https://www.kaggle.com/dimitreoliveira/model-stacking-feature-engineering-and-eda)
       - `doc` [A beginner guide for sale data prediction](https://www.kaggle.com/minhtriet/a-beginner-guide-for-sale-data-prediction)
+  - ценообразование
+    - `video` [Как построить ML-ценообразование на маркетплейсе](https://www.youtube.com/watch?v=cC1Z7r2WO9E)
+      - `miro` [Dynamic Pricing ML System Design](https://miro.com/app/board/uXjVODg5odE=)
+    - `post` [Technostartup: How Retail Stores Can Use ML To Boost Their Sales? (2017)](https://medium.com/@technostartup1m/how-retail-stores-can-use-machine-learning-to-boost-their-sales-2c108de7c597)
   - [геоаналитика](./datan.md#spacial)
     - `ads` [BST Digital: выбор точек для открытия магазинов (2018)](https://new-retail.ru/persony/bst_organika_kak_uspeshno_upravlyat_otkrytiyami_nayti_luchshie_mesta_i_postroit_optimalnuyu_set_torg1113)
+    - `video` [Д.Тарарухин (Я.Карты b2b geo) Я.Маршрутизация: как IT-технологии улучшают логистические сервисы](https://youtu.be/8yDh9Q7shag)
   - [CV](./ds.md#cv): [видеоаналитика](./ds.md#video) в ритейле
     - x5: Face Re-Identication: Try to capture me https://youtu.be/XuWp4OkwYvY
     - ComputerVision в проде x5 (2020) https://youtu.be/XDEawkpXPVI
@@ -1372,33 +1379,24 @@ LeanDS (с митапов Асхата Уразбаева)
 <a name="coursera"></a>
 ### Курсы
 - базовый набор
-  - ВШЭ - Курс «Введение в машинное обучение»: Константин Воронцов, Евгений Соколов, Анна Козлова
-    - https://www.coursera.org/learn/vvedenie-mashinnoe-obuchenie
+  - `course` [ВШЭ @ Coursera - Курс «Введение в машинное обучение»: Константин Воронцов, Евгений Соколов, Анна Козлова](https://www.coursera.org/learn/vvedenie-mashinnoe-obuchenie)
     - самый компактный и ёмкий курс по ML
     - требует знания Python и математики
-  - МФТИ - Специализация «Машинное обучение и анализ данных»: Константин Воронцов, Евгений Соколов, Антон Слесарев, Эмели Драль, Виктор Кантор
-    - https://www.coursera.org/specializations/machine-learning-data-analysis
+  - `course` [МФТИ @ Coursera - Специализация «Машинное обучение и анализ данных»: Константин Воронцов, Евгений Соколов, Антон Слесарев, Эмели Драль, Виктор Кантор](https://www.coursera.org/specializations/machine-learning-data-analysis)
     - более простой и подробный курс
     - включает введение в Python и необходимые разделы математики
     - рекомендуется проходить по порядку и целиком
-  - ВШЭ - Advanced machine learning
-    - https://www.coursera.org/specializations/aml
+  - `track` [ВШЭ @ Coursera - Advanced machine learning](https://www.coursera.org/specializations/aml)
     - желательно проходить после вышеприведённых курсов
     - краткий курс про нейросети - рекомендуется в любом случае
-      - Deep learning Intro https://www.coursera.org/learn/intro-to-deep-learning?specialization=aml
+      - `course` [Deep learning Intro](https://www.coursera.org/learn/intro-to-deep-learning?specialization=aml)
     - остальные курсы можно проходить выборочно под свои цели
-      - AML How to win in data science competitions
-        - https://www.coursera.org/learn/competitive-data-science
-        - полезно не только для Kaggle, но и для бизнес-кейсов
-      - AML Cumputer vision
-        - https://www.coursera.org/learn/deep-learning-in-computer-vision
-      - AML Natural Language Processing
-        - https://www.coursera.org/learn/language-processing
-  - Andrew NG - Deep Learning Specialization
-    - https://www.coursera.org/specializations/deep-learning
+      - `course` [AML How to win in data science competitions](https://www.coursera.org/learn/competitive-data-science) - полезно не только для Kaggle, но и для бизнес-кейсов
+      - `course` [AML Cumputer vision](https://www.coursera.org/learn/deep-learning-in-computer-vision)
+      - `course` [AML Natural Language Processing](https://www.coursera.org/learn/language-processing)
+  - `track` [Andrew NG @ Coursera - Deep Learning Specialization](https://www.coursera.org/specializations/deep-learning)
     - более подробный аналог вышеприведённого AML Deep Learnig Intro от ВШЭ
-  - Stanford - CS231n: Convolutional Neural Networks for Visual Recognition
-    - http://cs231n.stanford.edu/
+  - `course` [Stanford - CS231n: Convolutional Neural Networks for Visual Recognition](http://cs231n.stanford.edu/)
     - более подробный аналог вышеприведённого AML Cumputer vision от ВШЭ
 - рекомендовано DS Игорем Слинько
   - Pattern Discovery in Data Mining - Coursera.org, University of Illinois at Urbana-Champaign
@@ -1410,6 +1408,14 @@ LeanDS (с митапов Асхата Уразбаева)
   - Machine Learning - Coursera.org, Stanford University
   - Hadoop. Система для обработки больших объемов данных - Stepik.org, Mail.ru Group
   - Deep Learning - Udacity.com, Google
+- альтернативный набор
+  - `free` `course` [Bioinformatics Institute @ Stepik - Введение в DS и ML](https://stepik.org/4852)
+    - введение: pandas
+    - решающие деревья: (недо|пере)обучение, кросс-валидация, sklearn (практика - автокорректор ошибок правописания)
+    - random forest, нейронные сети 
+  - `track` [Jeff Leek (John Hopkins University) @ Coursera - Специализация Наука о данных](https://www.coursera.org/specializations/jhu-data-science)
+  - `track` [Emily Fox (University of Washington) @ Coursera - Специализация Машинное обучение](https://www.coursera.org/specializations/machine-learning)
+  - `track` [Ilkay Altintas (University of California San Diego) @ Coursera - Специализация Большие данные](https://www.coursera.org/specializations/big-data)
 
 <a name="more"></a>
 ### Read more
@@ -1419,6 +1425,7 @@ LeanDS (с митапов Асхата Уразбаева)
 - книги, обзоры
   - `list` [stackoverflow: Книги и учебные ресурсы по машинному обучению](https://ru.stackoverflow.com/questions/678970)
   - `book` `post` [Andrew Ng - Страсть к машинному обучению (RU Habr)](https://habr.com/ru/post/419757/)
+  - `book` [Андрей Бурков - The hundred-page machine learning book](https://themlbook.com/)
   - ...
 - сообщества, новостные ленты, агрегаторы
   - [Open Data Science (ods.ai)](https://ods.ai)
