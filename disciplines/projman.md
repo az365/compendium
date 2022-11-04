@@ -1,7 +1,9 @@
 # Project management
 
+## Intro
+
 <a name="role"></a>
-## Roles
+### Roles
 - роли в проекте
   - [po: ProductOwner](./prodman.md#role)
   - [pm: ProjectManager](./projman.md#role)
@@ -17,8 +19,42 @@
   - Investor — provides financial support and top-management level decisions.
   - [Manager](./prodman.md) — operates in a project sense of the [Product development](./prodman.md) process.
   - [Developer](./dev.md) — fully engaged in the Product development process.
-  
-## Frameworks
+- лидерские роли (согласно `wiki` [TeamLead RoadMap (tlroadmap.io)](https://tlroadmap.io/))
+  - administrator
+  - integrator
+  - people manager
+  - product owner
+  - technical lead
+
+### Skills
+- from `wiki` [TeamLead RoadMap (tlroadmap.io)](https://tlroadmap.io/)
+  - Коммуникации
+    - Коучинг
+    - Управление конфликтами
+    - Сотрудничество
+    - [Фасилитация (Управление групповой дискуссией)](#facilitation)
+    - Дача и получение обратной связи
+    - Нетворкинг
+    - Личный бренд
+    - [публичные выступления](#public)
+    - [работа с текстом](#text)
+  - Стили менеджмента
+  - Отношения
+    - Понимание ценности различий
+    - [Эмоциональный интеллект](#emo)
+  - Развитие себя
+    - [Работа с привычками](#habbit)
+    - Умение учиться
+    - Рефлексия
+  - Мышление 
+    - [Принятие решений](#decision)
+    - Стратегическое видение
+  - Тайм-менеджмент
+    - Постановка личных целей
+    - Управление приоритетами
+    - [Управление временем](#tm)
+
+## Методологии, фреймворки
 
 ### Cynefin 
 - определяем, в какой системе существует продукт/компания и выбрать верную модель управления, коррелирующую с компетенцией команды
@@ -29,10 +65,13 @@
 
 ### Agile 
 - зонтик agile
-  - lean
-  - kanban
-  - xp
-  - scrum
+  - Lean
+  - KanBan
+  - XP
+  - Scrum
+    - `wiki` [ScrumGuide](https://scrumguides.org/)
+    - `pdf` [`RU` ScrumGuide](https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Russian.pdf)
+    - `post` [PMI - PMBOK guide vs Scrum mastery](https://www.pmi.org/learning/library/pmbok-guide-scrum-convergence-divergence-8089)
   - dsdm - Dynamic Systems Development Method
     - основан на Rapid Application Development, RAD
 - Agile для [DS-проектов](./ds.md)/[дата-продуктов](./ds.md#product)
@@ -41,49 +80,89 @@
   - [CRISPDM](./ds.md#crispdm)
   - [TDSP](./ds.md#tdsp)
 
+<a name="pmbok"></a>
+### Проектное управление
+- PMBoK
+  - `wiki` [Teamlead Roadmap: PMBoK](https://tlroadmap.io/roles/administrator/project-manager/pmbok.html)
+  - `paper` [PMBOK, пятое издание, краткое изложение](https://pmjournal.ru/articles/obzory/pmbok-pyatoe-izdanie-kratkoe-izlozhenie/)
+  - `book` [PMI - PMBoK Guide](https://www.pmi.org/pmbok-guide-standards/foundational/pmbok)
+  - `post` [PMI - PMBOK guide vs Scrum mastery](https://www.pmi.org/learning/library/pmbok-guide-scrum-convergence-divergence-8089)
+
+### Конструирование методологии
+- `wiki` [Teamlead Roadmap: Конструирование методологии](https://tlroadmap.io/roles/administrator/development-cycle/development/methodology.html)
+- `video` [Филипп Дельгядо (lekton.io) - Методология как конструктор: инструкция по сборке](https://youtu.be/Jt2C4ta1rEo)
+
 ## Process
+### Intro
+- процесс vs проект
+  - Процесс - это инструмент управления жизненным циклом проекта
 - бизнес-процессы vs кейс-менеджмент
   - [Адаптивное управление кейсами (adaptive case management)](http://ailev.livejournal.com/946134.html)
-- Встречи, ритуалы
-  - daily standup
-    - `webinar` [Евгений Лабунский (Scrum Ukraine): Сила Daily Scrum: как улучшить динамику своей команды за 15 минут (2020)](https://youtu.be/xWKIHdOj80k)
-      - Daily - самая короткая встреча в Scrum и самая недооцененная из всех. Крутой Daily scrum может в корне изменить динамику внутри команды.
-    - разрабы о созвонах
-      - `post` [Philipp Ranzhin @ Habr - Созвоны не решают никаких проблем](https://habr.com/ru/post/510014/)
-  - 1:1 встречи с сотрудниками
-    - `doc` [TeamLead RoadMap - 1:1](https://tlroadmap.io/roles/people-manager/people-management/one-to-one.html)
-    - `doc` [1:1 meeting questions](https://github.com/VGraupera/1on1-questions)
-    - `post` [10 ошибок при встречах 1:1](http://blog.stratoplan.ru/10-errors/)
-      - не проводить 1:1
-      - неправильная «продажа» идеи встречи
-      - начинать со своих вопросов и не слышать проблем
-      - недостаточное внимание человеку на встрече
-      - вспоминаем о договоренностях непосредственно перед встречей 1:1 (или прямо на встрече)
-      - не ставим встречи 1:1 в календарь, надеясь на собственную память
-      - попытка встретиться со всеми 70 людьми в подразделении
-      - не встречаются 1:1 со своим руководителем
-      - не готовятся к встрече
-      - не учитывают тип человека
-    - `post` [10 причин проводить 1:1](http://tvoyplan.com/2013/05/25/zachem-provodit-regularnye-lichnye-vstrechi-s-sotrudnikami)
-      - вовлеченность
-      - доверительные отношения
-      - обратная связь
-      - наставничество
-      - форум для вопросов, волнующих сотрудника
-      - совместное решение сложных задач
-      - ориентация на общие цели
-      - перечень задач
-      - ранняя диагностика проблем
-      - работа без отвлечения
+- 5 групп процессов согласно [PMBoK](#pmbok)
+  - инициация
+  - планирование
+  - выполнение
+  - контроль выполнения
+  - завершение
+- 10 областей знаний согласно [PMBoK](#pmbok)
+  - управление интеграцией проекта
+  - управление содержанием проекта
+  - управление сроками проекта
+  - управление стоимостью проекта
+  - управление качеством проекта
+  - управление человеческими ресурсами проекта
+  - управление коммуникациями проекта
+  - управление рисками проекта
+  - управление закупками проекта
+  - управление заинтересованными сторонами проекта
+
+### Встречи, ритуалы
+- daily standup
+  - `webinar` [Евгений Лабунский (Scrum Ukraine): Сила Daily Scrum: как улучшить динамику своей команды за 15 минут (2020)](https://youtu.be/xWKIHdOj80k)
+    - Daily - самая короткая встреча в Scrum и самая недооцененная из всех. Крутой Daily scrum может в корне изменить динамику внутри команды.
+  - разрабы о созвонах
+    - `post` [Philipp Ranzhin @ Habr - Созвоны не решают никаких проблем](https://habr.com/ru/post/510014/)
+- 1:1 встречи с сотрудниками
+  - `doc` [TeamLead RoadMap - 1:1](https://tlroadmap.io/roles/people-manager/people-management/one-to-one.html)
+  - `doc` [1:1 meeting questions](https://github.com/VGraupera/1on1-questions)
+  - `post` [10 ошибок при встречах 1:1](http://blog.stratoplan.ru/10-errors/)
+    - не проводить 1:1
+    - неправильная «продажа» идеи встречи
+    - начинать со своих вопросов и не слышать проблем
+    - недостаточное внимание человеку на встрече
+    - вспоминаем о договоренностях непосредственно перед встречей 1:1 (или прямо на встрече)
+    - не ставим встречи 1:1 в календарь, надеясь на собственную память
+    - попытка встретиться со всеми 70 людьми в подразделении
+    - не встречаются 1:1 со своим руководителем
+    - не готовятся к встрече
+    - не учитывают тип человека
+  - `post` [10 причин проводить 1:1](http://tvoyplan.com/2013/05/25/zachem-provodit-regularnye-lichnye-vstrechi-s-sotrudnikami)
+    - вовлеченность
+    - доверительные отношения
+    - обратная связь
+    - наставничество
+    - форум для вопросов, волнующих сотрудника
+    - совместное решение сложных задач
+    - ориентация на общие цели
+    - перечень задач
+    - ранняя диагностика проблем
+    - работа без отвлечения
 
 ## Управление людьми
 
 <a name="emo"></a>
 ### Эмоциональный интеллект
-- самоосознание: собственные эмоции и мотивы
-- управление собой, самоконтроль
-- социальная чуткость
-- социальное влияние
+- что это (согласно `wiki` [tlroadmap.io - Эмоциональный интеллект](https://tlroadmap.io/self-skills/relationship/emotional-intelligence.html))
+  - способность осознавать, правильно различать свои и чужие эмоции
+  - умение сдерживать, стимулировать и выражать их подходящим способом
+  - навык использования эмоций для корректировки поведения, мотивации, мыслительного процесса
+- из чего состоит
+  - самоосознание: собственные эмоции и мотивы
+  - управление собой, самоконтроль
+  - социальная чуткость
+  - социальное влияние
+- Литература
+  - `book` [Daniel Goleman - Emotional Intelligence (2006)](https://www.amazon.com/Emotional-Intelligence-10th-Anniversary-Matter/dp/055380491X/)
 
 <a name="decision"></a>
 ### Принятие решений
@@ -95,7 +174,8 @@
   - единогласия - в экстремальных условиях
   - большинства - в ситуациях с выраженными коалициями
   - консенсуса - когда требуется высокое `П`
-- фасилитация
+- [фасилитация](#facilitation) - обеспечение группового принятие решений
+- `wiki` [tlroadmap.io - Принятие решений](https://tlroadmap.io/self-skills/thinking/decision-making.html)
 
 <a name="change"></a>
 ### Управление изменениями
@@ -382,6 +462,8 @@
     - письмо-закрепление договорённостей
     - убеждающие и мотивирующие письма клиентам и партнерам
     - трудные письма (ситуация нарушения интересов)
+  - Литература
+    - `wiki` [tlroadmap.io - Работа с текстом](https://tlroadmap.io/self-skills/communications/text.html)
 
 <a name="conflict"></a>
 ### Конфликтология
@@ -406,6 +488,7 @@
 <a name="public"></a>
 ### Публичные коммуникации
 - публичные выступления
+  - `wiki` [tlroadmap.io: Публичные выступления](https://tlroadmap.io/self-skills/communications/public-speaking.html)
   - `video` [Андрей Скворцов: публичные выступления по Станиславскому](https://www.youtube.com/watch?v=4DX5zS_6gvw)
   - `app` [calculator888: Случайное словов](https://calculator888.ru/random-generator/sluchaynoe-slovo)
   - `video` [Конференция про коммуникации «Без воды»](https://www.instagram.com/p/CAqNWySnRaF/?igshid=zmzrhnlf53wj): собрали сторителлеров, дизайнеров презентаций и тренеров по риторике, чтобы показать, а какими еще бывают онлайн-выступления.
@@ -460,7 +543,9 @@
   - `app` `list` [Ali Mese @ Habr - 400 потрясающих бесплатных сервисов](https://habr.com/ru/post/271279/): фотобанки, иконки, палитры, графика
     - [PixelBuddha](https://pixelbuddha.net/) ([Pixelbuddha Freebie License](https://pixelbuddha.net/storage/Pixelbuddha-Freebie-License.pdf))
     - [FreeBiesBug](https://freebiesbug.com/) аггрегатор
-- к текстам
+<a name="text"></a>
+- работа с текстом
+  - `wiki` [tlroadmap.io - Работа с текстом](https://tlroadmap.io/self-skills/communications/text.html)
   - `doc` [Рекомендации для авторов Хабра](https://habr.com/ru/docs/authors/)
     - `doc` [О чём писать и в каких форматах](https://habr.com/ru/docs/companies/topics/)
     - `doc` [Как сделать публикацию полезной](https://habr.com/ru/docs/companies/profit/)
@@ -490,8 +575,11 @@
     - колонки
 
 <a name="gtd"></a>
-### Продуктивность 
+## Личная продуктивность 
+<a name="tm"></a>
 - Time management
+  - `wiki` [tlroadmap.io: Управление временем](https://tlroadmap.io/self-skills/time-management/time-management.html)
+<a name="gtd"></a>
 - Getting Things Done
   - сущности gtd
     - проекты - любой желаемый результат, а не только большие и серьёзные
@@ -589,8 +677,10 @@
           - ?нужны более решительные меры
             - идти вниз по шкале еп
               - например уточнить конкретные следующие шаги
+<a name="habbit"></a>
 - Привычки
   - `post` [Иван Лукьянов (Aori) @ Habr - Избавление от привычек. Миф или вымысел?](https://habr.com/ru/company/aori/blog/211568/)
+  - `wiki` [tlroadmap.io - Работа с привычками](https://tlroadmap.io/self-skills/self-development/habits.html)
 - Дзен
   - `post` [Кристиан Глобмайер @ Habr - 10 правил дзен-программиста](https://habr.com/ru/post/208172/)
     - 1 Сфокусируйтесь (Focus)
@@ -607,10 +697,11 @@
 
 <a name="lib"></a>
 ## Литература
-- `compendium` [TeamLead RoadMap (tlroadmap.io)](https://tlroadmap.io/)
+- `wiki` [TeamLead RoadMap (tlroadmap.io)](https://tlroadmap.io/)
 - `post` [Из разработчика в руководители за 90 дней](https://firstround.com/review/this-90-day-plan-turns-engineers-into-remarkable-managers/)
 - `post` [Yandex @ Habr: Как развиваться руководителю разработки](https://habr.com/ru/company/yandex/blog/430826/)
 - `book` Дэвид Майстер, Патрик Маккенна - Первый среди равных. Как руководить группой профессионалов
 - `book` Игорь Добротворский - Как стать первоклассным руководителем
 - `book` Канеман Даниэль - Думай медленно, решай быстро (2011)
   - [Понимание регрессии к среднему](https://psy.wikireading.ru/48058)
+- `video` [YouTube: Management Channel](https://www.youtube.com/c/ManagementChannel/playlists)
