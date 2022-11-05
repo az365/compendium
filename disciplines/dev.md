@@ -1,11 +1,51 @@
 # Разработка
 
-## Основы
-- [математика](./math.md)
+## Intro
+
+<a name="basics"></a>
+### Основы
+- [математика](./math.md): [логика](#logic), [множества](#set), [дискретная](#discrete), [численные методы](#numeric)
 - [алгоритмы и структуры данных](./algo.md)
-- [архитектура](./algo.md)
-  - парадигмы
-  - паттерны
+- [архитектура](./algo.md): [парадигмы](#paradigm), [паттерны](#pattern)
+
+<a name="science"></a>
+### Computer science
+- `video` [Domain of Science @ YouTube](https://www.youtube.com/c/DomainofScience) - [The map of computer science](https://youtu.be/SzJ46YA_RaA)
+  - theoretical computer science
+    - information theory
+    - [logic](./math.md#logic)
+    - computability theory
+    - computational complexity
+    - [algorithms](./algo.md)
+    - [data structures](./algo.md#struct)
+    - [graph theory](./math.md#graph)
+  - computer engineering
+    - computer architecture
+    - scheduling
+    - compilers
+    - [software and programming languages](#langs)
+    - [operating systems](#os)
+    - networking
+    - performance
+    - [software engineering](./arch.md#dev)
+  - applications
+    - boolean satisfiability
+    - [computational science](./math.md#numeric)
+    - [big data](./arch.md#bigdata)
+    - [optimization](./math.md#numeric)
+    - [machine learning](./ds.md) 
+    - [computer vision](./ds.md#cv)
+    - [natural language processing](./ds.md#nlp)
+    - [artificial intelligence](./ds.md)
+    - robotics
+    - supercomputing
+    - computer graphics
+    - virtual reality
+    - augmented reality
+    - telepresence
+    - human computer interactions
+    - internet of things
+    - hacking
 
 <a name="langs"></a>
 ## Языки
