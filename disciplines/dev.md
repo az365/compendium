@@ -14,13 +14,15 @@
   - R - среда вычислений, разработанная учёными для обработки данных, математического моделирования, работы с графикой
   - Java
   - JavaScript
-  - SQL - для создания, модификации и управления данными в реляционной БД, управляемой соответствующей СУБД 
+  - [HTML](#html)
+  - [SQL](#sql) - для создания, модификации и управления данными в реляционной БД, управляемой соответствующей СУБД 
   - C++
 
 <a name="py"></a>
 ### Python
 - Python basis 
   - Python - ЯП общего назначения, ориентированный на повышение производительности разработчика и читаемости кода
+  - [roadmap.sh: Python Developer](https://roadmap.sh/python)
   - basics 
     - утиная типизация
       - отличия от (не)строгой
@@ -123,11 +125,39 @@
     - `(Pdb) l - list кода: где находишься`
     - `(Pdb) q - плохо выйти`
     - `(Pdb) c - хорошо выйти, продолжить`
-- стиль
+- стиль, стандарты
+  - PEP8
+    - `doc` [pep8.org](https://pep8.org/)
+      - Code lay-out
+      - String Quotes
+      - Whitespace in Expressions and Statements
+      - When to use trailing commas
+      - Comments
+      - Naming Conventions
+      - Programming Recommendations
   - Google Python Style Guide
-    - https://google.github.io/styleguide/pyguide.html
-    - https://github.com/google/styleguide/blob/gh-pages/pyguide.md
+    - `doc` [Google @ github.io: PyGuide](https://google.github.io/styleguide/pyguide.html)
+    - `doc` `md` [Google @ GitHub: PyGuide](https://github.com/google/styleguide/blob/gh-pages/pyguide.md)
+      - 2.1 Lint
+      - 2.2 Imports
+      - 2.3 Packages
+      - 2.4 Exceptions
+      - 2.5 Global variables
+      - 2.6 Nested/Local/Inner Classes and Functions
+      - 2.7 Comprehensions & Generator Expressions
+      - 2.8 Default Iterators and Operators
+      - 2.9 Generators
+      - 2.10 Lambda Functions
+      - 2.11 Conditional Expressions
+      - 2.12 Default Argument Values
+      - 2.13 Properties
+      - 2.14 True/False Evaluations
+      - 2.16 Lexical Scoping
+      - 2.17 Function and Method Decorators
+      - 2.19 Power Features
+      - 2.21 Type Annotated Code
 - Литература
+  - [roadmap.sh: Python Developer](https://roadmap.sh/python)
   - рекомендуемые книги по Python
     - Learning Python (O'Reilly)
     - Python for Data Analysis
@@ -169,8 +199,15 @@
 ### HTML, CSS
 - `course` [Stepik](https://stepik.org) - [Веб-разработка](https://stepik.org/catalog/181): [HTML и CSS](https://stepik.org/course/38218/promo)
 
+<a name="cpp"></a>
+### C++
+- `course` «Основы разработки на C++: белый пояс»: Илья Шишков, Антон Полднев, Евгений Парамонов, Иван Лежанкин
+
+<a name="practice"></a>
+## Практики
+
 <a name="testing"></a>
-## Тестирование
+### Тестирование
 - уровни
   - тестирование компонентов (юнит-тесты)
   - интеграционное тестирование
@@ -223,19 +260,19 @@
     - logs/events
     - chaos testing
     - monitoring
-    - AB-tests
+    - [AB-tests](./datan.md#abt)
     - tracing
     - dynamic exploration
     - real user monitoring
     - auditing
     - oncall experience
-- ml-тесты
+- [ml-тесты](./ds.md#validation)
   - бэк-тестирование на исторических данных
-    - Time Series Nested Cross-Validation https://towardsdatascience.com/time-series-nested-cross-validation-76adba623eb9
-    - пример: Прогнозирование нагрузки колл-центра https://habr.com/ru/company/ods/blog/438212/
-        
+    - [Courtney Cochrane @ TDS: Time Series Nested Cross-Validation](https://towardsdatascience.com/time-series-nested-cross-validation-76adba623eb9)
+    - пример: `post` [ODS @ Habr: Прогнозирование нагрузки колл-центра (2019)](https://habr.com/ru/company/ods/blog/438212/)
+
 <a name="devtools"></a>
-# devtools
+### devtools
 - GIT, SVN
     - Ежедневная работа с Git https://habr.com/ru/post/174467
     - GitFlow - правила жизни в гите 
@@ -262,7 +299,7 @@
     - SuperSet - веб-клиент
 
 <a name="env"></a>
-# Среда и окружение
+### Среда и окружение
 - виртуалки, окружения, настройка
   - Python VurtualEnv
     - рекомендуемые окружения для DA/DS
@@ -270,6 +307,7 @@
         - https://medium.com/@margaretmz/anaconda-jupyter-notebook-tensorflow-and-keras-b91f381405f8
         - https://docs.docker.com/toolbox/toolbox_install_windows/
   - Docker - ПО для автоматизации развёртывания и управления приложениями в среде виртуализации на уровне ОС
+<a name="os"></a>
 - ОС
   - Ubuntu Linux
     - tips and tricks 
