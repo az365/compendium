@@ -189,11 +189,92 @@
     - 800р `course` [stepil - Практикум по Pandas](https://stepik.org/111629) (2ч/нед)
 
 ### SQL
-- [Упрражнения по SQL](https://sql-ex.ru/)
-
-<a name="cpp"></a>
-### C++
-- `course` «Основы разработки на C++: белый пояс»: Илья Шишков, Антон Полднев, Евгений Парамонов, Иван Лежанкин
+- Intro 
+  - декларативный язык для управления [данными](./arch.md#data) в [БД](./arch.md#db)
+  - основан на реляционной алгебре
+    - приложение [теории множеств](./math.md#set) и [логики первого порядка](./math.md#logic)
+    - операции: переименование, объединение, пересечение, вычитание, присваивание, декартово произведение, выборка, проекция, соединение, деление
+- SQL core
+  - entities
+    - data: table/view, field/column, record/fow, null
+    - constraints: NOT NULL, DEFAULT, UNIQUE, PRIMARY KEY, FOREIGN KEY, CHECK, INDEX
+    - integrity: entity, domain, referential, user-defined integrity
+  - types
+    - точные числовые: (big|small|tiny)int, decimal, numeric, (small)money
+    - приблизительные числовые: float, real
+    - дата и время: date, time, (small)datetime
+    - строковые символьные: (n)(var)char, text
+    - бинарные: (var)binary, image
+    - смешанные: timestamp, uniqueidentifier, cursor, table
+  - operations
+    - DDL (data definition language): CREATE, ALTER, DROP
+    - DML (data manipulation language): SELECT, INSERT, DELETE, UPDATE
+    - DCL (data control language): GRANT, REVOKE, DENY
+    - TCL (transaction control language): COMMIT, ROLLBACK, SAVEPOINT
+    - additional: UNION, MERGE, TRUNCATE, ...
+  - sections
+    - SELECT, FROM, WHERE, GROUP BY, HAVING, ORDER BY
+    - JOIN: INNER, OUTER (LEFT, RIGHT, FULL), CROSS
+  - operators
+    - арифметические
+    - сравнения
+    - логические: ALL/ANY/EXISTS, AND/OR/NOT, IN/BETWEEN/LIKE, IS NULL, UNIQUE
+    - математические: SUM/AVG, MIN/MAX, COUNT
+    - числовые: ROUND/TRUNCATE/CEILING/FLOOR, POWER/SQRT, RAND
+    - строковые: CONCAT, LENGHT, TRIM, SUBSTRING, REPLACE, LOWER, UPPER
+    - даты: NOW()=CURRENT_TIMESTAMP(), CURDATE()=CURRENT_DATE(), CURTIME()=CURRENT_TIME(), (DATE|TIME)_FORMAT
+    - разбор даты/времени: DAY_OF_(MONTH|WEEK|YEAR), YEAR/MONTH/LAST_DAY/HOUR/MINUTE/SECOND
+    - манипуляции с датами: DATE_(ADD|SUB), DATEDIFF, TO_DAYS(), TIME_TO_SEC
+- extensions
+  - window functions (OVER)
+    - 4 класса
+      - агрегирующие (Aggregate): AVG/SUM, MIN/MAX, COUNT 
+      - ранжирующие (Ranking): (DENSE_)RANK, ROW_NUMBER, NTILE, CUME_DIST 
+      - функции смещения (Value): (FIRST|LAST|NTH)_VALUE(), LAG/LEAD
+      - аналитические функции: CUME_DIST, PERCENT_RANK, PERCENTILE_(CONT|DISC)
+    - syntax: `FUNCTION_NAME(column_name) [FILTER(WHERE filter_clause)] OVER (PARTITION BY (column_names) ORDER BY (column_names) [frame_clause])`
+    - где прописать оконную функцию - 2 варианта
+      - в секциях SELECT, ORDER BY
+      - в отдельной секции WINDOW, где окну дается псевдоним (alias), к которому можно обращаться в SELECT выборке
+    - источник: `post` [Даниил Джепаров (EPAM) @ Habr - Оконные функции SQL простым языком с примерами](https://habr.com/ru/post/664000/)
+    - терминология MS: `doc` [SELECT — предложение OVER (Transact-SQL)](https://learn.microsoft.com/ru-ru/sql/t-sql/queries/select-over-clause-transact-sql)
+  - stored procedures
+    - расширения для хранимых процедур
+      - Oracle Database, DB2: PL/SQL
+      - Microsoft SQL Server, Adaptive Server Enterprise: Transact-SQL
+      - PostgreSQL: PL/pgSQL
+- optimization
+  - `book` [Г.Домбровская, Б.Новиков, А.Бейликова - Оптимизация запросов в PostgreSQL](https://www.ozon.ru/product/optimizatsiya-zaprosov-v-postgresql-novikov-boris-dombrovskaya-g-r-335588361)
+    - Полный и окончательный алгоритм оптимизации
+      - короткий или инкрементальный запрос
+        - наиболее ограничительный фильтр
+        - проверить индексы
+        - добавить избыточные критерии отбора
+        - построить остальную часть запроса
+      - длинный запрос
+        - найти наиболее ограничительное соединение
+        - убедиться, что оно применяется первым
+        - убедиться, что полное сканирование выполняется один раз 
+        - найти лучший способ группировки
+    - другие методы
+      - параметры
+      - динамический SQL
+      - функции
+      - изменения в структуре базы данных
+      - взаимодействие с приложением
+- Литература
+  - посты, статьи 
+    - `post` [Я.Практикум - Как устроен язык SQL и почему он так востребован](https://practicum.yandex.ru/blog/chto-takoe-sql/)
+    - `post` [Игорь Агапов @ Habr - Памятка/шпаргалка по SQL](https://habr.com/ru/post/564390/)
+    - `post` [Даниил Джепаров (EPAM) @ Habr - Оконные функции SQL простым языком с примерами](https://habr.com/ru/post/664000/)
+  - книги
+    - `post` [Selectel @ vc.ru - 7 полезных книг по PostgreSQL для старта и развития навыков](https://vc.ru/dev/478765-7-poleznyh-knig-po-postgresql-dlya-starta-i-razvitiya-navykov)
+    - `book` [Г.Домбровская, Б.Новиков, А.Бейликова - Оптимизация запросов в PostgreSQL](https://www.ozon.ru/product/optimizatsiya-zaprosov-v-postgresql-novikov-boris-dombrovskaya-g-r-335588361)
+  - онлайн-курсы
+    - `course` [Нетология: Введение в SQL и работу с базой данных](https://netology.ru/programs/vvedenie-v-sql-i-rabotu-s-bazoi-dannih)
+    - `course` [Productstar: SQL c 0 для DA](https://productstar.ru/analytics-mini-course-sql-2)
+  - практика
+    - `site` [Упражнения по SQL](https://sql-ex.ru/)
 
 <a name="html"></a><a name="css"></a>
 ### HTML, CSS
