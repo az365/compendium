@@ -3,7 +3,9 @@
 ## System architecture
 
 ### Basics 
-- https://www.youtube.com/watch?v=xpDnVSmNFX0&list=PLMCXHnjXnTnvo6alSjVkgxV-VH6EPyvoX&index=2
+- [roadmap.sh: Software Architect](https://roadmap.sh/software-architect)
+- [roadmap.sh: Software Design and Architecture](https://roadmap.sh/software-design-architecture)
+- `video` [Gaurav Sen: System Design Basics: Horizontal vs. Vertical Scaling](https://www.youtube.com/watch?v=xpDnVSmNFX0&list=PLMCXHnjXnTnvo6alSjVkgxV-VH6EPyvoX&index=2)
   - vertical vs horizontal scaling
     - vertical: buy bigger machine
     - horizontal: buy more machines
@@ -14,7 +16,7 @@
       - data may be inconsistent vs consistency
       - scales well vs hardware limit
   - load balancing
-    - cosistent hashing
+    - consistent hashing
   - message queue
     - like pizza shop
     - database
@@ -43,12 +45,13 @@
     - more nodes
     - master/slave
     - multiple regions 
-  - sql vs nosql
+  - [sql](./dev.md#sql) vs [nosql](#nosql)
     - cassandra - key/value
       - load balancing
       - redundance/replication
       - ...
 
+<a name="api"></a>
 ### APIs 
 - API Gateway https://www.youtube.com/watch?v=vHQqQBYJtLI
   - features
@@ -167,7 +170,7 @@
   - ...
 
 <a name="cloud"></a>
-## Cloud apps 
+### Cloud apps 
 - cloud native concept
   - `site` [CNCF Cloud Native Interactive Landscape](https://landscape.cncf.io/)		
 - cloud platforms
@@ -229,13 +232,17 @@
   - Yandex Cloud
 
 <a name="dev"></a>
-## Development
+## Software engineering
 
+<a name="paradigm"></a>
 ### Парадигмы
-- структурная парадигма
-- функциональная парадигма
-- объектно-ориентированная парадигма
+- императивная парадигма - последовательное выполнение инструкций
+- декларативная парадигма - описывается ожидаемый результат, а не способ его получения
+- структурная парадигма - иерархическая структура блоков (последовательность, ветвление, цикл)
+- функциональная парадигма - вычисление значений функций в их математическом понимании
+- объектно-ориентированная парадигма - абстрация, инкапсуляция, наследование, полиморфизм
 
+<a name="pattern"></a>
 ### Паттерны проектирования
 - зачем: для описания API и соглашений между компонентами
 - классификация паттернов
@@ -301,6 +308,7 @@
     - cooperative pattern - безопасная остановка потоков общим флагом 
   - architectural
 
+<a name="level"></a>
 ### Уровни протоколов/архитектур
 - архитектура предприятия 
   - `post` [А.Радзишевский @ Habr - Архитектура ИТ решений. Часть 1. Архитектура предприятия](https://habr.com/ru/post/347204/)
@@ -369,11 +377,13 @@
     - GreenPlum - распределённый PostgreSQL 
     - ClickHouse - не тормозит 
   - 12 правил реляционных субд: https://ru.wikipedia.org/wiki/12_%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB_%D0%9A%D0%BE%D0%B4%D0%B4%D0%B0
-  - python for db: https://www.coursera.org/learn/python-databases
+  - `course` [Charles Russell Severance (University of Michigan) @ Coursera: Using Databases with Python](https://www.coursera.org/learn/python-databases)
+  - [roadmap.sh: PostgreSQL DBA (2022)](https://roadmap.sh/postgresql-dba)
 - аналитические
   - просто и доступно об аналитических БД https://habrahabr.ru/post/149641/
   - Массово-параллельная архитектура: https://ru.wikipedia.org/wiki/%D0%9C%D0%B0%D1%81%D1%81%D0%BE%D0%B2%D0%BE-%D0%BF%D0%B0%D1%80%D0%B0%D0%BB%D0%BB%D0%B5%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F_%D0%B0%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0
   - ...
+<a name="nosql"></.a>
 - NoSQL
   - MongoDB - документоориентированная СУБД с открытым кодом, не требующая описания схемы таблиц
     - использует JSON-подобные документы и схему базы данных
