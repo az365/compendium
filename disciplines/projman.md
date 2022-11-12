@@ -574,6 +574,65 @@
     - текстовый пример
     - колонки
 
+<a name="meetings"></a>
+### Командные встречи
+- как перезнакомить новую команду в онлайне
+  - шаблон мини-анкеты для заполнения в Miro за 5мин 
+    - profile: name, team, photo
+    - private: age, family, chiilds, city, spare time 
+    - professionally: educations, in our company since, role
+    - strengths: especially important to me is..., I am particulary troing in...
+    - sliders: dog/cat, coffe..tea, mountains/ocean, bike/car, tactics/strategy, barefoot/patent_shoes, office/home_office, cinema/theatre, hunter/gatherer, wine_gum/chocolate, beer/schnapss, family/career, pocket_book/kindle
+- ретроспективы
+  - вариант сценария
+    - главное правило / main retrospective setup
+      - en: regardless of what we find, we understand and we are confident that everyone tried to work as best as he could, according to what he knew at that time, to the best of his abilities and skills, in accordance with the available resources and the current situation
+      - ru: вне зависимости от того, что мы обнаружим, мы понимаем и мы уверены в том, что каждый старался работать как мог, в меру того что ему на тот момент было известно, в меру своих способностей и умений, сообразно имевшимся ресурсам и сложившейся ситуации
+    - intro 
+      - если ретро впервые 
+        - мотивация
+          - are you too busy to improve?
+        - цели->результат ретро 
+          - цели
+            - проинспектировать нашу работу за последние 1.5мес
+            - дать возможность выпустить пар
+          - результат
+            - принятые решения: кто, что и как будет изменять в процессе 
+            - эмоциональное напряжение снято, каждый высказался
+        - цель ретро: выявить проблемы текущего процесса и сформировать шаги по улучшению
+      - если ретро очередное 
+        - итоги прошлого ретро 
+    - чек-ин
+      - вариант: spotify health check 
+      - вариант: чек настроений и ожиданий от ретро 
+      - вариант: насколько довольны работой за период: 1..10 +почему
+      - вариант колонок: goals, risks, help, ideas
+        - вариант колонок: спасибо, уважуха, я от тебя ожидаю, самая большая сложностьй
+      - вариант колонок: радовало, печалило, бесило
+      - вариант колонок: start, stop, continue, solutions 
+        - start: what should the team start doing 
+        - stop: what should the team stop doing 
+        - continue: what should the team continue going 
+        - solutions 
+      - вариант игры: круглый стол 
+        - опишите самочувствие своего соседа против часовой стрелки в период этой итерации
+        - соседи подтверждают или опровергают догадки участников 
+    - анализ->решения 
+      - вариант: проблема, варики что делать, выбираем решение, конкретные шаги
+      - вариант: анализ проблемы, принятие решений, кто что предпримет 
+      - вариант: 4 раунда
+        - наблюдения каждого 
+          - что меня порадовало в этой итерации
+          - какую важную проблему в команде хочу сегодня решить 
+        - свои мысли с учётом того, что только что услышал 
+        - какие действия имеют смысл 
+        - принятие решений
+    - закрытие
+      - вариант: голосование 
+      - вариант с круглым столом: 
+        - что ваш сосед по часовой стрелке думает про сегодняшнюю ретроспективу, была ли она полезна и почему
+        - соседи подтверждают или опровергают догадки участников
+
 <a name="facilitation"></a>
 ### Фасилитация
 - миссия фасилитатора
