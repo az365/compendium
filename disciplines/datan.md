@@ -505,7 +505,7 @@
   - rolling window estimations
   - экспоненциальное сглаживание, модель Хольта-Винтерса
   - кросс-валидация, подбор параметров
-  - эконометрический подход
+  - [эконометрический подход](#econ)
   - избавляемся от нестационарности, строим SARIMA
   - feature-based модели на временнЫх рядах
     - линейная регрессия 
@@ -520,6 +520,87 @@
 - приведение к нормальному распределению
   - преобразование бокса-кокса
     - `wiki` [machinelearning.ru: Метод Бокса-Кокса](http://www.machinelearning.ru/wiki/index.php?title=Метод_Бокса-Кокса)
+
+<a name="econ"></a>
+### Эконометрика
+- эконометрические методы (согласно `wiki`)
+  - [регрессионный анализ](./math.md#models)
+  - [анализ временных рядов](#series)
+    - эконометрический и другие подходы к анализу временнЫх рядов
+      - `post` `video` [ODS ML Course: анализ временных рядов](https://habr.com/ru/company/ods/blog/327242/) ([video](https://www.youtube.com/watch?v=nQjul-5_0_M))
+  - Панельный анализ
+- навыки в построении эконометрических моделей
+  - популярные примеры 
+    - OLS
+    - LgR
+    - FE/RE
+- виды [статистических](./math.md#models) и эконометрических моделей
+  - Линейная (OLS)
+  - Авторегрессионная модель
+  - Система одновременных уравнений (SEM)
+  - Модель линейной вероятности (LPM)
+  - Логит модель (Logit)
+    - прогнозирует вероятность события по значениям множества признаков
+    - путём подгонки данных к логистической кривой
+    - дифур: `dP/dt = tau P*(1-P/K)`
+      - `P` - популяция
+      - `t` - время
+      - `K` - ёмкость среды
+    - логистическая кривая: `P(t) = K P0 e^(tau*t) / (K + P0 (e^(tau*t) - 1))`
+    - сигмоида = логит-функция: `1 / (1+e^-z)`
+    - функция распределения - Бернулли: `P{y|x} = p^y * (1-p)^(1-y)`, где параметр `p = f(teta^T * x)`
+  - Пробит модель (Probit)
+    - probit = probability unit
+    - основана на нормальном распределении
+    - частный случай модели бинарного выбора
+    - probit-функция
+      - обратна к интегральной функции (CDF) стандартного нормального распределения
+      - определяет квантиль стандартного нормального распределения для заданной вероятности x q = Ф^−1(q)
+    - пробит-модель: `p(x) = P(Y=1|X=x) = Ф(x^T*b)`
+      - Ф - интегральная функция распределения (CDF) стандартного нормального распределения
+      - b - неизвестные параметры, которые требуется оценить
+    - оценка качества пробит-регрессии (или любой модели бинарного выбора)
+      - статистика отношения правдоподобия LR
+      - псевдо-коэффициент детерминации R2pseudo
+      - коэффициент детерминации МакФаддена (индекс отношения правдоподобия) R2mcfadden, LRI 
+      - информационные критерии Акаике, Шварца, Ханнана-Куинна AIC, BIC(SC), HQ
+      - ...
+- библиотека EconML
+  - `repo` [Microsoft @ GitHub: EconML](https://github.com/microsoft/EconML)
+  - `doc` [Microsoft Research: EconML](https://www.microsoft.com/en-us/research/project/econml/)
+  - `video` [Наталья Тоганова (GlowByte) Обзор библиотеки EconML: идеи и реализация](https://www.youtube.com/watch?v=oCJI5tKi3AU)
+    - кейсы
+      - типичный кейс: изменение выручки в окрестности даты изменения в продукте
+      - эксперимент: зависимость успеваемости школьников от наличия горячих завтраков
+    - 2 подхода к оценке эффекта воздействия
+      - Causality Judea Pearl
+      - [Эконометрика](#econ)
+    - библиотека EconML от Microsoft
+      - работает как обёртка для методов Sklearn
+      - `doc` econml.azurewebsites.net/index.html
+      - `repo` github.com/microsoft/EconML
+      - пример `ipynb` [Microsoft EconML - Customer Segmentation: Estimate Individualized Responces to Incentives](https://github.com/microsoft/EconML/tree/master/notebooks/CustomerScenarios)
+      - реализация [эконометрических](#econ) статей, на которых базируются:
+        - orthogonal/double machine learning
+        - doubly robust learning
+        - meta-learners
+        - estimation methods and instruments
+      - реализация НЕэконометрических статей, на которых базируются:
+        - forest based estimators
+        - inference (в основном [bootstrap](#bootstrap))
+    - что происходит в эконометрике
+      - cofounders/controls
+        - зафиксировать значимые переменные при регрессии, которые влияют и на X, и на Y, чтобы чётко выделить влияние T на Y
+      - инструментальные переменные
+        - если влияющие на X и Y переменные нельзя измерить или они неизвестны
+        - Филипп Картаев - За пределами контролируемых экспериментов: инструментальные переменные: youtu.be/Qrz04qUMgVc
+      - Difference in Difference
+        - изменение относительно контрольной группы и относительно прошлой динамике
+        - `video` [Дмитрий Архангельский - Causal Inference in panel data](https://youtu.be/sFJ4tNVc5Kw)
+    - как мы смотрим на данные
+      - ML: `X -> y`
+      - эконометрика: `T X W -> Y`
+      - `T` - воздействие
 
 <a name="product"></a>
 ### Продуктовая аналитика
@@ -742,9 +823,10 @@
 <a name="ci"></a>
 ### Causal inference
 - Intro
+  - `post` [karpov.courses @ Habr - Causal Inference: DAG](https://habr.com/ru/post/693532/)
   - курсы 
-    - https://www.bradyneal.com/causal-inference-course
-    - https://www.coursera.org/learn/crash-course-in-causality/home/welcome 
+    - `course` [Brady Neal: Introduction to Causal Inference (2020)](https://www.bradyneal.com/causal-inference-course)
+    - `course` [Penn @ Coursera: A Crash Course in Causality: Inferring Causal Effects from Observational Data (2017)](https://www.coursera.org/learn/crash-course-in-causality/home/welcome) 
   - некоторые понятия 
     - causality по Грейнджеру - предшествуют ли изменения одной переменной другой 
     - shapley values - тоже разновидность корреляции, просто не квадратная 
@@ -799,6 +881,7 @@
     - примеры обратных корреляций
       - смертность в большнице выше, лучше туда не ходить
   - литература
+    - `post` [karpov.courses @ Habr - Causal Inference: DAG](https://habr.com/ru/post/693532/)
     - `git` [DoWhy/PyWhy](https://github.com/py-why/dowhy) ([doc](https://py-why.github.io/dowhy/v0.8/))
     - `video` [Causal Inference: Если бы да кабы (2020)](https://youtu.be/V4ONp9PZrvk)
     - `doc` `tutorial` [Microsoft: Causal inference, counterfactual frameworks (2018)](https://causalinference.gitlab.io/kdd-tutorial/intro.html)
@@ -914,13 +997,13 @@
         - эксперимент: зависимость успеваемости школьников от наличия горячих завтраков
         - 2 подхода к оценке эффекта воздействия
           - Causality Judea Pearl
-          - Эконометрика
+          - [Эконометрика](#econ)
         - библиотека EconML от Microsoft
           - работает как обёртка для методов Sklearn
           - `doc` econml.azurewebsites.net/index.html
           - `repo` github.com/microsoft/EconML
           - пример `ipynb` [Microsoft EconML - Customer Segmentation: Estimate Individualized Responces to Incentives](https://github.com/microsoft/EconML/tree/master/notebooks/CustomerScenarios)
-          - реализация эконометрических статей, на которых базируются:
+          - реализация [эконометрических](#econ) статей, на которых базируются:
             - orthogonal/double machine learning
             - doubly robust learning
             - meta-learners
@@ -928,7 +1011,7 @@
           - реализация НЕэконометрических статей, на которых базируются:
             - forest based estimators
             - inference (в основном [bootstrap](#bootstrap))
-        - что происходит в эконометрике
+        - что происходит в [эконометрике](#econ)
           - cofounders/controls
             - зафиксировать значимые переменные при регрессии, которые влияют и на X, и на Y, чтобы чётко выделить влияние T на Y
           - инструментальные переменные
@@ -939,7 +1022,7 @@
             - Дмитрий Архангельский - Causal Inference in panel data: youtu.be/sFJ4tNVc5Kw
         - как мы смотрим на данные
           - ML: `X -> y`
-          - эконометрика: `T X W -> Y`
+          - [эконометрика](#econ): `T X W -> Y`
           - `T` - воздействие
         - методы тестируются на искусственно сгенерированных датасетах, в которых взаимосвязь и взаимовлияние между переменными известно
         - методы Doubled Machine Learning
@@ -997,6 +1080,20 @@
     - `ads` [BST Digital: выбор точек для открытия магазинов (2018)](https://new-retail.ru/persony/bst_organika_kak_uspeshno_upravlyat_otkrytiyami_nayti_luchshie_mesta_i_postroit_optimalnuyu_set_torg1113)
   - маршрутизация в логистике
     - `video` [Д.Тарарухин (Я.Карты b2b geo) Я.Маршрутизация: как IT-технологии улучшают логистические сервисы](https://youtu.be/8yDh9Q7shag)
+
+<a name="inference"></a>
+### Inference / Вывод
+- что это 
+  - получение суждения
+- синонимы 
+  - inference, вывод
+  - induction, индукция
+  - применение
+- виды инференса
+  - [логический](./math.md#logic)
+  - [статистический](./math.md#induct)
+  - [причинно-следственный](#ci)
+  - [машинный](./ds.md) - применение моделей машинного обучения
 
 ## Роли, специальности, скиллы, процесс и культура
 - Виды аналитиков 
@@ -1205,7 +1302,7 @@
         - оконные функции
         - API ВКонтакте, Яндекс.Метрики, Google Documents, Telegram
       - Git
-      - SQL
+      - [SQL](./dev.md#sql)
         - Clickhouse
         - операторы
         - группировка и агрегатные функции
@@ -1213,7 +1310,7 @@
         - типы данных: булевы, числовые, строковые, временные, Nullable, массивы и геокоординаты
         - Подзапросы, представления, создание таблиц
         - Python+SQL: подключение Python к ClickHouse через pandahouse
-        - [Prophet](#timeseries) для временных рядов
+        - [Prophet](#timeseries) для [временных рядов](#series)
         - Графики, дашборды и мониторинги
         - SQL: оконные функции
         - ClickHouse+Redash, Linux-терминал
