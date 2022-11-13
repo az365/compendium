@@ -948,6 +948,8 @@ methods/models for regression&classification
 
 <a name="cases"></a>
 ## Кейсы применения
+
+<a name="sales"></a><a name="logistics"></a>
 ### Retail
 - DS в ритейле
   - Моделирование продаж
@@ -978,7 +980,7 @@ methods/models for regression&classification
         - сегментация модели по категор иям + обогащение малых категорий данными по большим
     - `post` [Technostartup: How Retail Stores Can Use ML To Boost Their Sales? (2017)](https://medium.com/@technostartup1m/how-retail-stores-can-use-machine-learning-to-boost-their-sales-2c108de7c597)
       - управление запасами
-      - маркетинг
+      - [маркетинг](./datan.md#mark)
       - рекомендация товаров
       - ценообразование
       - распознавание клиентских паттернов (Uber: константный спрос путём изменений цен)
@@ -999,12 +1001,12 @@ methods/models for regression&classification
     - `ads` [BST Digital: выбор точек для открытия магазинов (2018)](https://new-retail.ru/persony/bst_organika_kak_uspeshno_upravlyat_otkrytiyami_nayti_luchshie_mesta_i_postroit_optimalnuyu_set_torg1113)
     - `video` [Д.Тарарухин (Я.Карты b2b geo) Я.Маршрутизация: как IT-технологии улучшают логистические сервисы](https://youtu.be/8yDh9Q7shag)
   - [CV](./ds.md#cv): [видеоаналитика](./ds.md#video) в ритейле
-    - x5: Face Re-Identication: Try to capture me https://youtu.be/XuWp4OkwYvY
-    - ComputerVision в проде x5 (2020) https://youtu.be/XDEawkpXPVI
+    - `video` [x5: Face Re-Identication: Try to capture me](https://youtu.be/XuWp4OkwYvY)
+    - `video` [ComputerVision в проде x5 (2020)](https://youtu.be/XDEawkpXPVI)
       - анализ доступности товаров на полках
       - детектирование очередей на кассах
       - табелирование сотрудников
-    - VisionLabs - CV в ритейле https://visionlabs.ai/ru/industries/retail
+    - `promo` [VisionLabs - CV в ритейле](https://visionlabs.ai/ru/industries/retail)
       - трекинг посетителей (объём аудитории, маршруты, время ожидания, точки внимания, эмоции, соцдем, постоянные клиенты)
       - выявление воровства
       - распознавание зарегенных клиентов по лицу для отслеживания и анализа опыта, персонализации предположений
@@ -1012,8 +1014,8 @@ methods/models for regression&classification
   - CR
     - Kaggle example: Acquire Valued Shoppers
   - колл-центры
-    - ODS: Прогнозирование нагрузки колл-центра (2019) https://habr.com/ru/company/ods/blog/438212/
-    - МТС VoiceTracker: супервайзинг в колл-центре (2020) https://voicetracker.mts.ru
+    - `post` [ODS: Прогнозирование нагрузки колл-центра (2019)](https://habr.com/ru/company/ods/blog/438212/)
+    - `promo` [МТС VoiceTracker: супервайзинг в колл-центре (2020)](https://voicetracker.mts.ru)
   - HR
     - `promo` [Север.AI](https://sever.ai): [Лента ускорила подбор сотрудников с помощью ИИ](https://www.cnews.ru/news/line/2020-09-23_lenta_uskorila_podbor)
     - `promo` [yva.ai - аналитика выгорания и неформального лидерства](https://www.yva.ai)
@@ -1250,12 +1252,12 @@ LeanDS (с митапов Асхата Уразбаева)
   - снизу-вверх: инсайты-продакшенизация - если есть зрелая аналитика
   - венчурная модель: продукты-гипотезы - если есть запас инвестиций
 - роли
-  - po: ProductOwner
-  - bia: BI-analyst
-  - ada: AdHoc-analyst
-  - de: DataEngineer
-  - dev: FullStackDeveloper
-  - ds: DataScientist
+  - [po: ProductOwner](./prodman.md)
+  - [bi: BI-analyst](./datavis.md)
+  - [da: AdHoc-analyst](./datan.md)
+  - [de: DataEngineer](./arch.md#data)
+  - [dev: FullStackDeveloper](./dev.md)
+  - [ds: DataScientist](./ds.md)
 - конвейер этапов
   - сбор требвоаний, гипотез - po
   - исследование данных - ada, bia, de
