@@ -145,6 +145,7 @@
         - argparse
         - fire 
         - facebook hydra
+  <a name="da-libs"></a><a name="pandas"></a>
   - DA-libs. Библиотеки для работы с данными
     - numpy, pandas, matplotlib
       - `post` [Preston Badeer @ TDS - 5 Pandas anti-patterns](https://towardsdatascience.com/please-stop-doing-these-5-things-in-pandas-9fbabea897aa)
@@ -394,7 +395,7 @@
 
 <a name="devtools"></a>
 ### devtools
-- GIT, SVN
+- VCS: GIT, SVN
     - Ежедневная работа с Git https://habr.com/ru/post/174467
     - GitFlow - правила жизни в гите 
 - CI/CD
@@ -418,6 +419,47 @@
   - клиенты БД
     - DBeaver - бесплатный универсальный инструмент для управления БД
     - SuperSet - веб-клиент
+<a name="dag"></a>
+- graph/DAG-based programming 
+  - Low-code GUI aka Программирование мышкой 
+    - MatLab SimuLink 
+      - `video` [Nikolai K. @ YouTube: Simulink Control Systems and PID, Matlab R2020b](https://youtu.be/PRFCBVTFy90)
+    - Knime 
+      - `home` [KNIME Analytics Platform](https://www.knime.com/knime-analytics-platform)
+      - `pdf` [KNIME Analytics Platform: Creating Data Science](https://www.knime.com/sites/default/files/2020-12/KNIME-Analytics-Platform-ProductSheet-122020.pdf)
+      - `video` [KNIME Tutorials @ YouTube: KNIME Tutorials](https://youtu.be/Pom9AuI9yg4)
+      - `post` [yvaldm @ Habr: Обзор Knime Analytics Platform — open source системы для анализа данных](https://habr.com/ru/post/320500/)
+      - `post` [STC @ Habr: Оперативная аналитика данных](https://habr.com/ru/company/stc_spb/blog/594483/)
+    - Rapid Miner
+      - `home` [RapidMiner: Visual Analytics Workflows](https://rapidminer.com/platform/visual-analytics-workflow/)
+      - `git` https://github.com/rapidminer
+      - `vido` [RapidMiner YouTube channel](https://www.youtube.com/channel/UCxneJBWWNLs-A6ckls1Rrug)
+      - `video` [TechnologyAdvice: RapidMiner Studio Review. Product Overview, Pros And Cons](https://youtu.be/ZfWlzBNEzR0)
+      - `post` [Ю.Субачев @ НаучныеПереводы: RapidMiner — платформа для статистической обработки данных (2022)](https://научныепереводы.рф/rapidminer-platforma/)
+      - `post` [Владислав Крахалёв @ Habr: Введение в RapidMiner (2015)](https://habr.com/ru/post/269427/)
+    - Orange
+      - `home` https://orangedatamining.com/ ([screenshots](https://orangedatamining.com/screenshots/))
+      - `wiki` https://en.wikipedia.org/wiki/Orange_(software)
+    - Elki: Environment for Developing KDD-Applications Supported by Index-Structures
+      - `home` https://elki-project.github.io/
+    - Alteryx
+      - `home` https://www.alteryx.com/
+      - `post` [АналитикаПлюс: KNIME VS Alteryx](https://analytikaplus.ru/knime-vs-alteryx/)
+    - Nirvana 
+      - `post` [Елена Трускова (Яндекс) @ Habr: Познаём Нирвану – универсальную вычислительную платформу Яндекса](https://habr.com/ru/company/yandex/blog/351016/)
+      - `video` [Александр Щекалёв (Яндекс) @ YouTube: Нирвана - вычислительная платформа для произвольных процессов](https://youtu.be/pOi9YWz__g0)
+      - `video` [Анна Вероника Дорогуш (Яндекс) @ YouTube: Машинное обучение в Поиске: инфраструктура и алгоритмы](https://youtu.be/g-bPnhKU0P8)
+  - High-code (code-described DAGs) 
+    - Spotify Luigi - фреймворк на языке Python для построения сложных последовательностей по выполнению зависимых задач
+      - `git` https://github.com/spotify/luigi
+      - `post` [OTUS @ Habr: Обзор фреймворка Luigi для построения последовательностей выполнения задач (2017)](https://habr.com/ru/company/otus/blog/339904/)
+    - Apache Airflow - набор библиотек) для разработки, планирования и мониторинга рабочих процессов
+      - `post` [Юрий Емельянов (VK) @ Habr: Airflow — инструмент, чтобы удобно и быстро разрабатывать и поддерживать batch-процессы обработки данных](https://habr.com/ru/company/vk/blog/339392/)
+      - `post` [Astrononer @ Habr: Все, что вам нужно знать об Airflow DAGs](https://habr.com/ru/post/682384/)
+    - Apache Oozie - Workflow Scheduler for Hadoop
+      - `home` https://oozie.apache.org/
+    - Pinterest Pinball 
+      - `git` https://github.com/pinterest/pinball
 
 <a name="env"></a>
 ### Среда и окружение
