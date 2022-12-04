@@ -147,11 +147,37 @@
         - facebook hydra
   <a name="da-libs"></a><a name="pandas"></a>
   - DA-libs. Библиотеки для работы с данными
-    - numpy, pandas, matplotlib
+    - basic DA-stack: numpy, pandas, matplotlib
       - `post` [Preston Badeer @ TDS - 5 Pandas anti-patterns](https://towardsdatascience.com/please-stop-doing-these-5-things-in-pandas-9fbabea897aa)
-    - seaborn, joinplot
-    - sklearn 
+    - [visualization](./datavis.md)
+      - MatPlotLib
+      - Seaborn
+        - Seaborn basics: `home` https://seaborn.pydata.org
+        - JoinPlot: `doc` [seaborn.jointplot](https://seaborn.pydata.org/generated/seaborn.jointplot.html)
+      - Plotly 
+        - basics
+          - `home` https://plotly.com/
+          - `doc` https://plot.ly/python/
+          - `git` https://github.com/plotly/plotly.py
+        - Plotly/Dash 
+          - `home` https://dash.plotly.com/
+          - `git` https://github.com/plotly/dash
+      - Bokeh
+        - `git` https://github.com/bokeh/bokeh
+      - ggplot
+        - `doc` http://ggplot.yhathq.com/
+      - NetworkX
+        - Graph visualization with NetworkX https://networkx.github.io/
+      - sklearn visuakizations
+        - Biclustering algorithms for sorting corrplots https://scikit-learn.org/stable/auto_examples/bicluster/plot_spectral_biclustering.html
+    - [statistic](./math.md#stat), [modeling](./datan.md#modeling)
+      - statsmodels
+      - sklearn 
     - python for db: https://www.coursera.org/learn/python-databases
+  - distributed computing py-libs
+    - Dask
+    - PySpark
+    - ...
   - Py web frameworks
     - Flask 
     - Django 
