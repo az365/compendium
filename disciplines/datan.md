@@ -429,7 +429,7 @@
   - по близости к прикладным целям продукта
     - оффлайн: оценка качества модели (на тест-сетах)
       - оффлайновая метрика строится на модели продукта и пользователя и приближает онлайновую, но считается дешевле и без рисков на живой аудитории
-    - онлайн: измеримые пользовательские (на АБТ)
+    - онлайн: измеримые пользовательские (на [АБТ](#abt))
     - абстрактные: счастье пользователя (то, что в идеале хотим померить, но не можем)
   - по назначению
     - бизнесовые: оцифровка бизнес-модели 
@@ -596,8 +596,8 @@
       - обратна к интегральной функции (CDF) стандартного нормального распределения
       - определяет квантиль стандартного нормального распределения для заданной вероятности x q = Ф^−1(q)
     - пробит-модель: `p(x) = P(Y=1|X=x) = Ф(x^T*b)`
-      - Ф - интегральная функция распределения (CDF) стандартного нормального распределения
-      - b - неизвестные параметры, которые требуется оценить
+      - `Ф` - интегральная функция распределения (CDF) стандартного нормального распределения
+      - `b` - неизвестные параметры, которые требуется оценить
     - оценка качества пробит-регрессии (или любой модели бинарного выбора)
       - статистика отношения правдоподобия LR
       - псевдо-коэффициент детерминации R2pseudo
@@ -693,17 +693,17 @@
       - `book` [Уилан Чарльз - Голая статистика. Самая интересная книга о самой скучной науке](https://www.ozon.ru/search/?product_id=135537331)
       - `book` [Intercom on Product Management](https://www.intercom.com/resources/books/intercom-product-management)
 
-<a name="mark"></a><a name="marketing"></a>
+<a name="mark"></a><a name="marketing"></a><a name="cjm"></a>
 ### Маркетинговая аналитика
 - темы
   - сквозная аналитика
-  - воронки продаж
+  - воронки продаж, CJM 
   - конверсии, LTV, RFM ([юнит-экономика](#unit))
   - оценка РК
     - [АБТ](./datan.md#abt)
     - Causal Impact
     - [Causal Inference](./datan.md#ci) 
-  - аттрибуция
+  - атрибуция
     - `post` [DS Reda Affane @ Medium: Marketing Attribution. Step Up Your Marketing Attribution with Game Theory](https://medium.com/data-from-the-trenches/marketing-attribution-e7fa7ae9e919)
       - варианты атрибуции
         - эвристическая
@@ -1140,7 +1140,32 @@
 
 <a name="graph"></a>
 ### Анализ графов
-- ...
+- intro
+  - [теория графов](./math.md#graph)
+  - [графовые вероятностные модели](./math.md#models)
+- `post` [GlowByte @ Habr: Графовый анализ — обзор и области применения (2021)](https://habr.com/ru/company/glowbyte/blog/594221/)
+  - Графовый анализ эффективен, когда мы рассматриваем объекты в контексте связей с другими объектами
+    - Обнаружение сообществ (community detection)
+    - Алгоритмы центральности (centrality algorithms)
+    - Предсказание связей (link prediction)
+    - Алгоритмы сходства (similarity algorithms)
+    - Поиск путей (path detection)
+  - бизнес-области 
+    - алгоритмы на графах
+      - рекомендательные системы ([Одноклассники](https://habr.com/ru/company/glowbyte/blog/594221/))
+      - customer 360 ([Cabridge Intelligence](https://cambridge-intelligence.com/achieve-customer-360-with-graph-visualization/))
+      - оптимизация маршрутов ([TigerGraph](https://www.tigergraph.com/blog/improving-route-management-with-advanced-analytics-powered-by-graph-analytics/))
+      - IT-инфраструктура, Predictive Maintenance and Quality ([PdM](https://techbeacon.com/enterprise-it/3-ways-put-predictive-analytics-work-it-ops), [use-cases](https://neo4j.com/blog/enterprise-network-it-operations/))
+      - кибербезопасность ([графы атак](https://www.xmcyber.com/attack-graphs/))
+    - графовые признаки для ML
+      - кредитный скоринг ([intro](https://www.raexpert.ru/press/articles/bo_belikov_jan2019/), [Газпромбанк](https://futurebanking.ru/post/3678))
+      - anti-fraud ([BD Scool](https://www.bigdataschool.ru/blog/antifraud-cases.html)) 
+      - anti-laundering ([McKinsey](https://www.mckinsey.com/industries/financial-services/our-insights/banking-matters/network-analytics-and-the-fight-against-money-laundering))
+      - churn prediction ([telecom](https://neo4j.com/news/0227-reducing-telecom-churn/))
+    - хранение и структурирование информации
+      - data lineage ([BD Scool](https://www.bigdataschool.ru/blog/data-lineage-and-provenance.html), [UBS](https://neo4j.com/blog/top-10-use-cases-data-lineage/))
+      - bill of materials в ERP/MRP ([Locad](https://www.lokad.com/ru/ведомость-материалов), [US Army](https://neo4j.com/blog/top-10-use-cases-bill-of-materials/))
+      - [knowledge graph](./arch.md#kb) ([eBay](https://neo4j.com/case-studies/ebay/))
 
 <a name="geo"></a><a name="spatial"></a>
 ### Spatial / Геоаналитика

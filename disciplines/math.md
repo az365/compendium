@@ -620,14 +620,16 @@
     - теория случайных графов
 - применения
   - примеры графовых моделей
+    - [граф вычислений](./dev.md#dag)
     - [сематническая сеть](./arch.md#semantic) (семантический веб) - ориентированный граф, выражающий [онтологию](./arch.md#onto)
+    - [байесовские и марковские сети](#bayes) ([статистика](#stat))
+    - [CJM](./datan.md#cjm) ([маркетинг](./datan.md#mark))
+    - граф навигации (картография, логистика)
+    - социограмма (социология и экономика)
     - структура (гражданское строительство)
     - сеть (электротехника)
-    - социограмма (социология и экономика)
-    - молекулярная структура (химия)
-    - навигационная карта (картография)
     - распределительная сеть (энергетика)
-    - [граф вычислений](./dev.md#dag)
+    - молекулярная структура (химия)
   - классификация применений ([wiki](https://ru.wikipedia.org/wiki/Теория_графов#Применения_теории_графов))
     - по отношению к математике
       - математические области: теория групп, теория матриц, [численный анализ](#numeric), [теория вероятностей](#stat), топология, [комбинаторика](#comb)
@@ -643,6 +645,30 @@
       - управление воздушным движением
       - естественные науки, археология, социология 
       - экономика и [исследование операций](./arch.md#or)
+  - графовый анализ
+    - `post` [GlowByte @ Habr: Графовый анализ — обзор и области применения (2021)](https://habr.com/ru/company/glowbyte/blog/594221/)
+      - Графовый анализ эффективен, когда мы рассматриваем объекты в контексте связей с другими объектами
+        - Обнаружение сообществ (community detection)
+        - Алгоритмы центральности (centrality algorithms)
+        - Предсказание связей (link prediction)
+        - Алгоритмы сходства (similarity algorithms)
+        - Поиск путей (path detection)
+      - бизнес-области 
+        - алгоритмы на графах
+          - рекомендательные системы ([Одноклассники](https://habr.com/ru/company/glowbyte/blog/594221/))
+          - customer 360 ([Cabridge Intelligence](https://cambridge-intelligence.com/achieve-customer-360-with-graph-visualization/))
+          - оптимизация маршрутов ([TigerGraph](https://www.tigergraph.com/blog/improving-route-management-with-advanced-analytics-powered-by-graph-analytics/))
+          - IT-инфраструктура, Predictive Maintenance and Quality ([PdM](https://techbeacon.com/enterprise-it/3-ways-put-predictive-analytics-work-it-ops), [use-cases](https://neo4j.com/blog/enterprise-network-it-operations/))
+          - кибербезопасность ([графы атак](https://www.xmcyber.com/attack-graphs/))
+        - графовые признаки для ML
+          - кредитный скоринг ([intro](https://www.raexpert.ru/press/articles/bo_belikov_jan2019/), [Газпромбанк](https://futurebanking.ru/post/3678))
+          - anti-fraud ([BD Scool](https://www.bigdataschool.ru/blog/antifraud-cases.html)) 
+          - anti-laundering ([McKinsey](https://www.mckinsey.com/industries/financial-services/our-insights/banking-matters/network-analytics-and-the-fight-against-money-laundering))
+          - churn prediction ([telecom](https://neo4j.com/news/0227-reducing-telecom-churn/))
+        - хранение и структурирование информации
+          - data lineage ([BD Scool](https://www.bigdataschool.ru/blog/data-lineage-and-provenance.html), [UBS](https://neo4j.com/blog/top-10-use-cases-data-lineage/))
+          - bill of materials в ERP/MRP ([Locad](https://www.lokad.com/ru/ведомость-материалов), [US Army](https://neo4j.com/blog/top-10-use-cases-bill-of-materials/))
+          - [knowledge graph](./arch.md#kb) ([eBay](https://neo4j.com/case-studies/ebay/))
 
 <a name="decision"></a>
 <a name="numeric"></a>
