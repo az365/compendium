@@ -835,3 +835,46 @@
   - игры с бесконечным числом шагов 
   - дискретные и непрерывные игры 
   - метаигры
+
+<a name="ml"></a>
+### Математика для [ML](./ds.md)
+- Литература
+  - [Ian Goodfellow (MIT, Apple) - Deep Learning](https://www.deeplearningbook.org/)
+    - 1 Introduction
+    - Part I: Applied Math and Machine Learning Basics 
+      - 2 Linear Algebra 
+      - 3 Probability and Information Theory 
+      - 4 Numerical Computation 
+      - 5 Machine Learning Basics
+    - Part II: Modern Practical Deep Networks
+      - 6 Deep Feedforward Networks
+      - 7 Regularization for Deep Learning
+      - 8 Optimization for Training Deep Models
+      - 9 Convolutional Networks
+      - 10 Sequence Modeling: Recurrent and Recursive Nets
+      - 11 Practical Methodology
+      - 12 Applications
+    - Part III: Deep Learning Research
+      - 13 Linear Factor Models
+      - 14 Autoencoders
+      - 15 Representation Learning
+      - 16 Structured Probabilistic Models for Deep Learning
+      - 17 Monte Carlo Methods
+      - 18 Confronting the Partition Function
+      - 19 Approximate Inference
+      - 20 Deep Generative Models
+  - [MML-book: Marc Peter Deisenroth, A. Aldo Faisal, Cheng Soon Ong - Mathematics for Machine Learning (2020)](https://mml-book.github.io/)
+    - Part I: Mathematical Foundations
+      - 1 Introduction and Motivation
+      - 2 Linear Algebra
+      - 3 Analytic Geometry
+      - 4 Matrix Decompositions
+      - 5 Vector Calculus
+      - 6 Probability and Distribution
+      - 7 Continuous Optimization
+    - Part II: Central Machine Learning Problems
+      - 8 When Models Meet Data
+      - 9 Linear Regression
+      - 10 Dimensionality Reduction with Principal Component Analysis
+      - 11 Density Estimation with Gaussian Mixture Models
+      - 12 Classification with Support Vector Machines
