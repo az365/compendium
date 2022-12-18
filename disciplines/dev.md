@@ -229,6 +229,13 @@
     - Learning Python (O'Reilly)
     - Python for Data Analysis
     - [Swaroop Chitlur - A Byte of Python](https://python.swaroopch.com/) (+видео-уроки) [`PDF` RU](https://wombat.org.ua/AByteOfPython/AByteofPythonRussian-2.02.pdf)
+  - видео
+    - `track` [VK Технострим - Введение в анализ данных (2019)](https://www.youtube.com/playlist?list=PLrCZzMib1e9p6lpNv-yt6uvHGyBxQncEh)
+      - `video` `course` [VK Технострим - Введение в анализ данных на Python](https://youtu.be/5Yl6_2d0CN0)
+      - `video` `course` [VK Технострим - Библиотека Numpy](https://youtu.be/alvNcKgMuA8)
+      - `video` `course` [VK Технострим - Библиотека Pandas](https://youtu.be/lUS-0Tdsf5c)
+      - `video` `course` [VK Технострим - Визуализация данных](https://youtu.be/uUchPKmxfQ0)
+      - `video` `course` VK Технострим - Углубленный Python: [Часть 1](https://youtu.be/uRTCONRghKg), [Часть 2](https://youtu.be/TEAv3PPXNYc)
   - курсы
     - `free` `course` [Stepik - Программирование на Python](https://stepik.org/67) (3-6ч/нед)
       - операторы, переменные, типы данных: ipython, установка, целые, вещественные, тыпы, переменные, stdin/stdout, логические операции, сравнения, условия, блоки/отступы, строки
@@ -337,6 +344,8 @@
   - книги
     - `post` [Selectel @ vc.ru - 7 полезных книг по PostgreSQL для старта и развития навыков](https://vc.ru/dev/478765-7-poleznyh-knig-po-postgresql-dlya-starta-i-razvitiya-navykov)
     - `book` [Г.Домбровская, Б.Новиков, А.Бейликова - Оптимизация запросов в PostgreSQL](https://www.ozon.ru/product/optimizatsiya-zaprosov-v-postgresql-novikov-boris-dombrovskaya-g-r-335588361)
+  - видео
+    - `video` `course` [VK Технострим - Введение в SQL](https://youtu.be/fit-ZAWexZ0)
   - онлайн-курсы
     - `course` [Нетология: Введение в SQL и работу с базой данных](https://netology.ru/programs/vvedenie-v-sql-i-rabotu-s-bazoi-dannih)
     - `course` [Productstar: SQL c 0 для DA](https://productstar.ru/analytics-mini-course-sql-2)
