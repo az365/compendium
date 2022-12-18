@@ -601,6 +601,11 @@
     - библиотеки визуализации (для .NET)
       - GraphX
       - MSAGL
+    - графовые БД ([Merion Academy @ Dzen: Что такое графовая база данных?](http://dzen.ru/a/YpkEqzXSHmgFjZ59))
+      - JanusGraph
+      - Neo4j
+      - DGraph
+      - DataStax Enterprise Graph
 - классификация теории графов 
   - общая теория графов
     - абстрактные (обычные) графы
