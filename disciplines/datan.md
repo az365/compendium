@@ -1040,6 +1040,46 @@
     - тесты причинности
       - Granger causality test https://ru.wikipedia.org/wiki/Причинность_по_Грэнджеру
       - g-метод https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6074945/
+  - shapley values
+    - shapley values - тоже разновидность корреляции, просто не квадратная 
+    - Shapley values нужны, чтобы понять ([О.Филиппова](https://www.youtube.com/watch?v=rrreuktS0gk))
+      - как модель принимает решения
+      - как устроен мир
+      - за какие рычаги дёргать, чтобы менять мир
+    - виды Shapley Values ([О.Филиппова](https://www.youtube.com/watch?v=rrreuktS0gk))
+      - Marginal Shapley values
+        - свойства Shapley values
+          - Efficiency: сумма shapley values входящих фичей для конкретного примера равна отклонению от среднего предсказания модели
+          - Symmetry: фичи, которые одинаково влияют на отклонение предсказания модели, имеют одинаковые Shapley Values
+          - Linearity: если у нас есть линейный ансамбль моделей, Shapley values описываются аналогичной линейной комбинацией
+          - Nullity: если фича не влияет на предсказание модели, её Shapley value равно нулю
+      - Asymmetric Shapley values
+        - в Asymmetric SV из свойств Shapley Values выпадает Symmetry
+        - arxiv.org/pdf/1910.06358.pdf
+        - youtube.com/watch?v=7d13f4UaAn0&t=3061s
+        - приложения
+          - casual-based model explanations
+            - пример: предсказание зарплаты сотрудникам (1994 US Census)
+          - causal explanation of unfair discrimination
+          - data types with intrinsic ordering
+        - ShapFlex - реализация Asymmetric Shapley Values на R: github.com/nredell/shapFlex
+      - Causal Shapley values
+        - терминология bradyneal.com/causal-inference-course
+          - causal graph - инструмент опесания причинно-следственной модели данных
+          - pearl's do-calculus - методика перевода causal estimate в statistical estimate
+        - partial causal ordering arxiv.org/pdf/2011.01625.pdf
+        - total_effect = direct_effect + indirect effect
+        - Caushapley - реализация Causal Shapley Values на R: gitlab.science.ru.nl/gbucur/caushapley
+    - инструменты
+      - [raiwingets](https://pypi.org/project/raiwidgets/) - MS недавно выкатила инструмент для анализа пространства ошибок
+    - методы
+      - adversarial validation 
+        - приведение распределение ошибок тестового и валидационного набора
+        - часто используют на Kaggle 
+        - [MTS @ Habr: Как метод подмены задачи борется с несовершенством данных (и мира)](https://habr.com/ru/company/ru_mts/blog/648063/)
+    - кейсы
+      - кейс: гллюк и в колл-центре на стыке трёх систем 
+        - обучили модельку предсказывающую коллизии, посмотрели shapley values, определили какие сочетания обдейтов определяют глюки
   - примеры эффектов
     - `?` кофе 3мес, анти-эластичный спрос 
     - примеры из экономики (5 методов, см. книгу про метрики из видео-доклада)
@@ -1123,7 +1163,23 @@
     - `book` [Peters, Janzing, Schoelkopf - Elements of Causal Inference: Foundations and Learning Algorithms](https://www.amazon.com/Elements-Causal-Inference-Foundations-Computation-ebook)
       - For connections to machine learning
       - recommended in `book` [Causal Reasoning: Fundamentals and Machine Learning Applications](https://causalinference.gitlab.io/Causal-Reasoning-Fundamentals-and-Machine-Learning-Applications/)
-    - `track` [ODS: Causal and Interpretable ML @ DataFest 2021] (https://ods.ai/tracks/interpretable-ml-df2021)
+    - `track` [ODS: Causal Inference in ML @ DataFest 2020](https://ods.ai/tracks/causal-inference-in-ml-df2020)
+      - CausalInference: если бы да кабы
+      - Mastering Causal 
+      - Не хотите чашечку LATE: за пределами контролируемых экспериментов 
+      - Causal inference with panel data 
+      - Решение задач дискретной оптимизации линейными методами 
+      - Причинно-следственный анализ для увеличения производства стального...
+      - Как нацелить Uplift-модель на прибыль
+    - `track` [ODS: Interpretable ML @ DataFest 2020](https://ods.ai/tracks/interpretable-ml-df2020)
+      - Проблемы интерпретации ML-моделей в табличных задачах
+      - Тематическое моделирование текстов из социальных медиа: проблема оценки качества 
+      - Что можно визуализировать в обработке текстов 
+      - Интерпретация моделей в обучении на графах 
+      - Explanable AI for Deep Learning 
+      - Интерпретируемость моделей: реальность против теории 
+      - Интерпретируемая модель для оценки эффектвности промо-акций 
+    - `track` [ODS: Causal and Interpretable ML @ DataFest 2021](https://ods.ai/tracks/interpretable-ml-df2021)
       - `video` [Ольга Филиппова (Открытие) - Causality and Shapley values](https://www.youtube.com/watch?v=rrreuktS0gk)
         - зачем shapleey values
           - Shapley values нужны чтобы понять
@@ -1131,7 +1187,7 @@
             - как устроен мир
             - за какие рычаги дёргать, чтобы менять мир
           - From colitional game theory to ML model outputs explanation
-            - arxiv.org/pdf/2006.01272.pdf
+            - arxiv.org/pdf/2006.01272.pdf Shapley Explainability on the Data Manifold
             - arxiv.org/pdf/1910.30413.pdf
         - виды Shapley Values
           - Marginal Shapley values
@@ -1233,9 +1289,52 @@
             - уменьшение датасета
           - вебинар от MS: note.microsoft.com/MSR-Webinar-DoWhy-Library-Registration-On-Demand.html
       - `video` [Татьяна Шаврина (SberDevices) Все способы измерить слона: заглянуть внутрь трансформерных моделей](https://www.youtube.com/watch?v=29KJ-EOIXC0)
+        - NLP-модели растут 
+          - 2018
+            - AI2 - ELMo (94)
+            - OpenAI - GPT (110)
+            - GoogleAI - BERT-Large (340)
+          - 2019
+            - AI2 - Transformer ELMO (465)
+            - OpenAI - GPT-2 (1500)
+            - MS - MT-DNN (330)
+            - Carnegie Mellon Univercity - XLNET (340)
+            - FB - XLM (665)
+            - University of Washington - Grover-Mega (1500)
+            - FB- RoBERTa (355)
+            - DistilBERT (66)
+            - nVidia - MegatronLM (8300)
+        - model zoo 
+          - BERT, GPT-3, ...
+          - pretrained models 
+          - universal abilities to recreate human skills 
+        - 3 большие проблемы в NLP 
+          - популярные сложные бенчмарки побиты, а чуда не произошло 
+          - всегда оценивается модель+корпус, а не модель (большой корпус - чёрный ящик, иногда с мусором)
+          - параметров для интерпретации стало больше, а в single vector по-прежнему положишь не всё
+        - GLUE - General Language Understanding Evaluation benchmark
+          - collection of resources for training, evaluating, and analysing natural language understanding systems 
+          - consists of  
+            - A benchmark of 9 sentence- or sentence-pair language understanding tasks 
+            - A diagnostic dataset designed to evaluate and analyze model performance with respect to a wide range of linguistic phenomena found in natural language
+            - A public leaderboard for tracking performance on the benchmark 
+          - см. GLUE/SuperGLUE leaderbord 
+        - What does Bertology do?
+          - accessing all the hidden-states of BERT/GPT/GPT-2
+          - accessing all the attention ewights for each head of BERT/GPT/GPT-2,3...
+          - retreiveng heads output values and gradients to be able to compute head importance core 
+          - probing evaluate layer representations 
       - `video` [Кирилл Быков (TU Berlin) Explaining Hidden Representations](https://www.youtube.com/watch?v=ounFVE-kxGs)
       - `video` [Инсаф Ашрапов (Сбер) Интерпретация банковских моделей](https://www.youtube.com/watch?v=49QMdM4oZkQ)
       - `video` [Дмитрий Павлов (МФТИ/Тинькофф) Causal Inference в анализе временных рядов](https://www.youtube.com/watch?v=Yr6b8Rpy7Ds)
+    - `track` [ODS/Megafon: Causal Inference. Recommendations. Encoding](https://ods.ai/tracks/df21-megafon)
+      - `video` [Иван Горбань, Денис Пятых (МегаФон): Casual methods in dynamic pricing (2021)](https://www.youtube.com/watch?v=XPPCTawaRVU)
+      - `video` Advanced categorical encodings
+      - `vidoe` Как оптимизировать ресурсы команды - кейс: акселератор для стажёров
+      - `video` MegaFon Uplift Competition
+      - `video` Серия Voice Chats и подкаст: Данные люди
+    - `course` [Brady Neal - Introduction to Causal Inference (2020)](https://www.bradyneal.com/causal-inference-course)
+    - `course` [Penn @ Coursera - Crash Course In Causality](https://www.coursera.org/learn/crash-course-in-causality)
 - Simple modeling
   - Causal Impact
     - based on: Bayesian structural time-series models
