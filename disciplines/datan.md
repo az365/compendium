@@ -364,13 +364,13 @@
     - hypothesis testing
   - What decisions are needed? (Detect, alerting)
     - anomaly detection 
-    - timeseries decomposition 
+    - [timeseries](#timeseries) decomposition 
     - funnel analysis
   - Why did this happen? (Statistic analysis)
     - AB-testing
     - causal inference
   - What will happen next? (Extrapolations)
-    - timeseries forecasting 
+    - [timeseries](#timeseries) forecasting 
     - ML-forecasting 
   - What if...? (Modeling)
     - ML-prediction 
@@ -536,19 +536,80 @@
 <a name="domains"></a><a name="methods"></a>
 ## Области и методы
 
-<a name="series"></a>
+<a name="series"></a><a name="timeseries"></a><a name="ts"></a>
 ### Timeseries
-- `video` [Технострим: Временные ряды (Введение в анализ данных)](https://www.youtube.com/watch?v=Qflkzc6Ep78&list=PLrCZzMib1e9p6lpNv-yt6uvHGyBxQncEh&index=8)
-- `video` [Data Mining in Action 10: Прогнозирование временных рядов](https://www.youtube.com/watch?v=u433nrxdf5k)
-- `post` `video` [ODS ML Course: анализ временных рядов](https://habr.com/ru/company/ods/blog/327242/) ([video](https://www.youtube.com/watch?v=nQjul-5_0_M))
-  - rolling window estimations
-  - экспоненциальное сглаживание, модель Хольта-Винтерса
-  - кросс-валидация, подбор параметров
-  - [эконометрический подход](#econ)
-  - избавляемся от нестационарности, строим SARIMA
-  - feature-based модели на временнЫх рядах
-    - линейная регрессия 
-    - XGBoost на временнЫх рядах
+- что это ([wiki](https://ru.wikipedia.org/wiki/Временной_ряд))
+  - временной ряд - собранный в разные моменты времени статистический материал о значении каких-либо параметров исследуемого процесса
+  - анализ временнЫх рядов - совокупность [математико](./math.md)-[статистических](./math.md#stat) методов анализа, предназначенных для выявления структуры временных рядов и для их прогнозирования
+  - классификация
+    - абсолютные/относительные
+    - одномерные/многомерные
+    - моментные/интервальные (характер измерения)
+    - (не)равноотстоящие (равномерность таймстемпов)
+    - (не)полные (наличие пропусков)
+    - (не)стационарные (наличие тренда)
+- литература/видео/курсы
+  - `video` [Технострим: Временные ряды (Введение в анализ данных)](https://www.youtube.com/watch?v=Qflkzc6Ep78&list=PLrCZzMib1e9p6lpNv-yt6uvHGyBxQncEh&index=8)
+    - датасеты
+      - [AEP @ Kaggle: ежечасное потребление электроэнергии за 10 лет](https://kaggle.com/robikscube/hourly-energy-consumption#AEP_hourly.csv)
+    - разложение временного ряда на компоненты
+      - тренд - систематическая (не)линейная компонента, изменяющаяся во времени
+      - сезонность - периодические колебания уровней временнОго ряда внутри года/недели
+      - цикл - периодические колебания, как правило, больше, чем 1 сезонный период, не имеют определённой продолжительности
+      - ошибка (остатки) - непрогнозируемая компонента
+      - уровень - среднее значение временнОго ряда
+    - процесс декомпозиции ряда
+      - модели временного ряда: no|additive|multiplicative trend|seasonality
+      - плавающее среднее
+      - нормализация
+    - предсказание по временнОму ряду 
+      - наивный подход
+      - плавающее среднее 
+      - взвешенное среднее
+      - экспоненциальное сглаживание (`video` [Smoothing 4: Simple exponential smoothing (SES)](https://youtu.be/Fqge2HDH2Co))
+      - двойное экспоненциальное сглаживание
+      - тройное экспоненциальное сглаживание
+    - валидация для времннОго ряда
+    - эконометрический подход 
+      - стационарность
+      - корреляция (Пирсона)
+      - автокорреляция
+      - ARIMA = AR (авторегрессия) + I (интегрирование) + MA (скользящее сренее)
+      - SARIMA учитывает сезонность ряда ([1:14:50](https://youtu.be/Qflkzc6Ep78?t=4490))
+        - интегрирование
+        - авторегрессия
+        - скользящее среднее
+        - построение прогноза 
+    - линейные модели
+      - лаговые фичи
+      - статистики по лаговым фичам
+      - час, день, минута
+      - праздники, выходные
+  - `video` [Data Mining in Action 10: Прогнозирование временных рядов](https://www.youtube.com/watch?v=u433nrxdf5k)
+    - регрессия на время
+    - разложение на компоненты
+    - автокорреляция, коррелограммы (Q-критерий Льюнга-Бокса)
+    - стационарность
+      - критерий KPSS: Kwiatkowski-Philips-Schmidt-Shin
+      - критерий Дики-Фуллера
+      - стабилизация дисперсии
+      - дифференцирование - ряд попарных разностей (в т.ч. убивает тренд)
+    - авторегрессия 
+    - скользящее среднее
+    - (S)AR(I)MA(X)
+    - информационные критерии
+    - прогноз: несмещённость, стационарность остатков, неавтокоррелированность
+    - регрессия
+    - `git` [репозиторий курса DMiA](https://github.com/vkantor/MIPT_Data_Mining_In_Action_2016)
+  - `post` `video` [ODS ML Course: анализ временных рядов](https://habr.com/ru/company/ods/blog/327242/) ([video](https://www.youtube.com/watch?v=nQjul-5_0_M))
+    - rolling window estimations
+    - экспоненциальное сглаживание, модель Хольта-Винтерса
+    - кросс-валидация, подбор параметров
+    - [эконометрический подход](#econ)
+    - избавляемся от нестационарности, строим SARIMA
+    - feature-based модели на временнЫх рядах
+      - линейная регрессия 
+      - XGBoost на временнЫх рядах
 - популярные методы и библиотеки
   - Facebook Prophet 
     - `post` [ODS: Предсказываем будущее с помощью библиотеки Facebook Prophet](https://habr.com/ru/company/ods/blog/323730/)
