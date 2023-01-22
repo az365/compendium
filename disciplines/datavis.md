@@ -1,11 +1,11 @@
 # Data visualisation
 ## Литература 
-- Visualization and Visual Communication https://eagereyes.org
-- Observable https://observablehq.com/explore
-- A Tour through the Visualization Zoo https://queue.acm.org/detail.cfm?id=1805128
-- 20 инструментов https://freelance.today/poleznoe/20-luchshih-instrumentov-dlya-vizualizacii-dannyh.html
-- 21 инструмент https://yagla.ru/blog/marketing/21-instrument-vizualizacii-dannyh-dlya-marketologov-i-analitikov/
-- репы по DS и визуализации https://habr.com/ru/company/mailru/blog/437940/
+- `site` [eagereyes.org: Visualization and Visual Communication](https://eagereyes.org)
+- `site` [Observable: Explore and be inspired with examples](https://observablehq.com/explore)
+- `post` [ACM Queue: A Tour through the Visualization Zoo (2010)](https://queue.acm.org/detail.cfm?id=1805128)
+- `post` [Диана Сиддикви @ freelance.today - 20 инструментов для визуализации данных](https://freelance.today/poleznoe/20-luchshih-instrumentov-dlya-vizualizacii-dannyh.html)
+- `post` [Yagla: 21 инструмент визуализации данных для маркетологов и аналитиков](https://yagla.ru/blog/marketing/21-instrument-vizualizacii-dannyh-dlya-marketologov-i-analitikov/)
+- `post` [Barrayar (VK) @ Habr: Другой GitHub: репозитории по Data Science, визуализации данных и глубокому обучению](https://habr.com/ru/company/mailru/blog/437940/)
     - data science
         - The Open-Source Data Science Masters https://github.com/datasciencemasters/go#readme
         - Awesome Data Science https://github.com/academic/awesome-datascience#readme
@@ -22,7 +22,11 @@
         - DC.js https://github.com/dc-js/dc.js#readme
         - Epoch https://github.com/epochjs/epoch#readme
         - data-science-ipython-notebooks https://github.com/donnemartin/data-science-ipython-notebooks#matplotlib
-- Как писать истории на данных http://www.unece.org/fileadmin/DAM/stats/documents/writing/MDM_Part1_English.pdf
+- `book` Джин Желязны - Говори на языке диаграмм
+- `book` Дэн Роэм - Визуальное мышление
+- `book` Дэн Роэм - Практика визуального мышления
+- `pdf` Как писать истории на данных: [UNECE: Making Data Meaningful. A guide to writing stories about numbers](http://www.unece.org/fileadmin/DAM/stats/documents/writing/MDM_Part1_English.pdf)
+
 ## Зачем визуализировать 
 - кейсы    
     - сравнить разные показатели
@@ -348,7 +352,7 @@
     - позвать коллегу посмотреть на картинки вместе 
     - разбить исходную цель на список вопросов/гипотез, ответить по пунктам
     - отрисовать по-другому
-- если сегнала не видно
+- если сигнала не видно
     - побить на (другие) дименшены, детализировать
     - найти/придумать более подходящие метрики 
     - пересмотреть постановку задачи
