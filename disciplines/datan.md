@@ -147,22 +147,34 @@
     - способность видеть или находить все возможные: взаимосвязи, причины, пути
     - умение декомпозировать сложную задачу на ряд более простых
     - развитая логика
+    - учёт когнитивных искажений ([wiki](https://ru.wikipedia.org/wiki/Список_когнитивных_искажений))
   - Скиллы по этапам задачи
-    - предварительный анализ
+    - pre-analysis / business analysis / предварительный анализ
       - выявление прикладной потребности
-      - исследование предметной области
-      - исследование проблемы
-      - сбор синопсиса (что известно о проблеме)
-      - декомпозиция задачи
-    - работа с гипотезами
-      - генерация пула гипотез
-        - методы сбора гипотез
-          - фантазия 
-          - чтение данных 
-          - опрос экспертов предметной области 
-          - [мозговой штурм](./projman.md#brainstorm) 
-          - внешнее исследование
-      - классификация гипотез
+      - domain discovery / исследование предметной области
+      - problem discovery / исследование проблемы
+      - synopsys collection / сбор синопсиса (что известно о проблеме)
+      - task decomposition / декомпозиция задачи
+    - hypothesis workflow / работа с гипотезами
+      - hypothesis generating / генерация пула гипотез
+        - hypothesis collecting methods / методы сбора гипотез
+          - fantasy / фантазия 
+          - data reading / чтение данных 
+          - experts interviewing / опрос экспертов предметной области 
+          - [brainstorm / мозговой штурм](./projman.md#brainstorm) 
+          - external research / внешнее исследование
+        - typology типы гипотез 
+          - business hypothesis 
+          - product hypothesis 
+          - data hypothesis 
+          - method hypothesis 
+      - hypothesis scoring/classification / классификация/скоринг гипотез
+        - группировка идентичных, схожих, проверяемых совместно
+        - по источникам данных 
+        - по методам проверки 
+        - по сложности проверки
+        - по силе/риску (предварительно оценённый вероятности)
+        - по влиянию на последующие шаги
       - проверка гипотез
         - смысловая
         - качественная 
@@ -178,10 +190,10 @@
         - очистка данных
         - агрегация данных
     - [работа с метриками](./metrics.md)
-      - дизайн измерений
-      - анализ метрик
-      - прогнозирование
-      - построение иерархии метрик
+      - measurement design / дизайн измерений
+      - metrics analysis / анализ метрик
+      - forecasting / прогнозирование
+      - [building of hierarchy / построение иерархии метрик](./metrics.md#sys)
     - интерпретация
       - извлечение инсайтов из данных
       - фиксация наблюдений 
@@ -191,7 +203,7 @@
     - [маркетинг](#mark) и [юнит-экономика](#unit)
     - KPIи [продукта](./product) и бизнеса
     - поиск инсайтов, точек роста
-    - [веб-аналитика](#web) и программные продукты 
+    - [app/web-аналитика](#web) и программные продукты 
 - Хард-скиллы
   - [математические скиллы](./math.md)
     - [тервер, матстат](./math.md#stat)
@@ -238,10 +250,24 @@
       - публикации
       - публичные выступления
       - стори-теллинг
-    - взаимодействия
-      - командная работа
-      - конструктивное решение разногласий
-      - обратная связь
+    - взаимодействия, взаимозависимость
+      - personal interactions 
+        - feedbacks / обратная связь (giving and receiving)
+        - constructive disagreements solving / конструктивное решение разногласий
+      - team work / командная работа
+        - leadership: professional, team 
+        - po/pm's functions 
+        - [facilitation](./projman.md#facilitation)
+        - task queue management
+      - domain work
+        - interviewing 
+        - presenting 
+        - documentation 
+      - community work 
+        - documentation, [knowledge management](./arch.md#knowledge)
+        - professional speech/language 
+        - public speeches/presentations 
+        - external discovery 
   - развитие себя и обучение других
     - обучение себя
       - учёт обратной связи
@@ -254,6 +280,16 @@
       - построение базы знаний
 - [Литература](#lib)
   - `post` [Cassie Kozyrkov - 10 Differences Between Amateurs and Professional Analysts (2022)](https://towardsdatascience.com/10-differences-between-amateurs-and-professional-analysts-3a1be1a06a4d)
+    - Software skills
+    - Handling lots of data with ease
+    - Immunity to data science bias
+    - Understanding the career
+    - Refusing to be a data charlatan
+    - Resistance to confirmation bias
+    - Realistic expectations of data
+    - Knowing how to add value
+    - Thinking differently about time
+    - Nuanced view of excellence
 
 ## Аспекты
 - источники данных
@@ -319,8 +355,72 @@
   - мониторинг
   - преза 
   - внешняя публикация
+- data_work / workflows 
+  - eda
+  - insights finding
+  - hypothesis checking/testing
+  - da-inference/interpretation
+  - kpi-support/analysis
+  - dq-cross-verification
+  - default da-task workflow 
+    - pre-research
+      - business-analysis
+        - applied goals refinement
+        - business-process description 
+      - synopsis
+        - data
+        - researches
+        - instruments (bi, code, methods)
+        - expertise (inner, outer)
+      - task volume estimation 
+    - decomposition 
+      - data/method hypothesis 
+      - design-review 
+    - negotiations 
+      - goals 
+      - methods
+      - scope
+      - task volume estimations
+      - managing customer expectations 
+    - actual work
+      - data preparing
+      - dq/cross-verification
+      - eda
+      - hypothesis testing 
+      - interpretation 
+      - conclusions
+      - adhoc-report building
+      - commits 
+      - review(s)
+      - result presentation 
 - Reproducible Research
   - `course` [Johns Hopkins University - Reproducible Research](https://www.coursera.org/learn/reproducible-research)
+    - goals
+      - Organize data analysis to help make it more reproducible 
+      - Write up a reproducible data analysis using knitr 
+      - Determine the reproducibility of analysis project 
+      - Publish reproducible web documents using Markdown
+    - contents
+      - Week 1: Concepts, Ideas, & Structure
+        - What is Reproducible Research About? 
+        - Reproducible Research: Concepts and Ideas 
+        - Scripting Your Analysis 
+        - Structure of a Data Analysis
+        - Organizing Your Analysis
+      - Week 2: Markdown & knitr
+        - Coding Standards in R
+        - Markdown 
+        - knitr
+      - Week 3: Reproducible Research Checklist & Evidence-based Data Analysis
+        - Communicating Results
+        - RPubs
+        - Reproducible Research Checklist
+        - Evidence-based Data Analysis
+      - Week 4: Case Studies & Commentaries
+        - Caching Computations
+        - Case Study: Air Pollution
+        - Case Study: High Throughput Biology
+        - Commentaries on Data Analysis
 
 ### Frameworks
 - Lean analytics 
