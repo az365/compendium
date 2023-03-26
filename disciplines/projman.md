@@ -116,12 +116,23 @@
   - управление закупками проекта
   - управление заинтересованными сторонами проекта
 
+<a name="rituals"></a>
 ### Встречи, ритуалы
-- daily standup
-  - `webinar` [Евгений Лабунский (Scrum Ukraine): Сила Daily Scrum: как улучшить динамику своей команды за 15 минут (2020)](https://youtu.be/xWKIHdOj80k)
-    - Daily - самая короткая встреча в Scrum и самая недооцененная из всех. Крутой Daily scrum может в корне изменить динамику внутри команды.
-  - разрабы о созвонах
-    - `post` [Philipp Ranzhin @ Habr - Созвоны не решают никаких проблем](https://habr.com/ru/post/510014/)
+- командные встречи 
+  - scrum rituals
+    - daily standup
+      - `webinar` [Евгений Лабунский (Scrum Ukraine): Сила Daily Scrum: как улучшить динамику своей команды за 15 минут (2020)](https://youtu.be/xWKIHdOj80k)
+        - Daily - самая короткая встреча в Scrum и самая недооцененная из всех. Крутой Daily scrum может в корне изменить динамику внутри команды.
+      - разрабы о созвонах
+        - `post` [Philipp Ranzhin @ Habr - Созвоны не решают никаких проблем](https://habr.com/ru/post/510014/)
+    - sprint demo 
+    - sprint retrospectives 
+    - sprint planning 
+  - problem solving 
+    - post-mortem / LSR
+    - brainstorm 
+  - high-level planning
+    - PI-planning / GLR 
 - 1:1 встречи с сотрудниками
   - `doc` [TeamLead RoadMap - 1:1](https://tlroadmap.io/roles/people-manager/people-management/one-to-one.html)
   - `doc` [1:1 meeting questions](https://github.com/VGraupera/1on1-questions)
@@ -185,7 +196,7 @@
 - `post` [8 шагов и 8 ошибок управления изменениями](http://ibcm.biz/8-шагов-управления-изменениями/)
   - 8 шагов
     - 1 Уверенно принять обоснованное решение
-    - 2 Назначить реформаторов. способных принимать непопулярные решения
+    - 2 Назначить реформаторов, способных принимать непопулярные решения
     - 3 Предоставить реформаторам убедительные гарантии
     - 4 Сформулировать конкретные требования относительно ближайших шагов
     - 5 Вывести из зоны комфорта ключевых в процессе изменений сотрудников
@@ -863,8 +874,13 @@
   - `book` [Майкл Вилкинсон - Секреты Фасилитации. Smart-руководство по работе с группами](https://alpinabook.ru/catalog/book-sekrety-fasilitatsii)
     - `pdf` [краткое изложение: Майкл Вилкинсон - Секреты Фасилитации](https://gotraining.ru/upload/iblock/96b/Секреты%D0фасилитации.pdf)
 
-<a name="gtd"></a>
-## Личная продуктивность 
+## Productivity
+- [personal](#personal)
+- team/corp командная/корпоративная
+- [learning and development]
+
+<a name="personal"></a>
+### Личная продуктивность 
 <a name="tm"></a>
 - Time management
   - `wiki` [tlroadmap.io: Управление временем](https://tlroadmap.io/self-skills/time-management/time-management.html)
@@ -1002,6 +1018,21 @@
     - 9 Делайте что-нибудь другое (Do Something Else)
     - 10 Нет ничего особенного (There Is Nothing Special)
   - `post` [Анатолий Ализар @ Habr - Никогда не отвлекай программиста](https://habr.com/ru/users/alizar/)
+
+### Командная продуктивность
+- [rituals](#rituals)
+- [change-maangement](#change)
+
+<a name="learning"></a>
+### Обучение и развитие
+- learning 
+  - onboarding
+  - trainings
+  - content: knowledge base
+- development
+  - onboarding/teaching/mentorship
+  - mentorship 
+  - feedback 
 
 <a name="lib"></a>
 ## Литература
