@@ -239,7 +239,8 @@ methods/models for regression&classification
       - Overview of further developments of RankNet https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/MSR-TR-2010-82.pdf
       - RankLib (implemtations for the 2 papers from above) https://sourceforge.net/p/lemur/wiki/RankLib/
       - Learning to Rank Overview https://wellecks.wordpress.com/2015/01/15/learning-to-rank-overview
-  - clustering
+  <a name="clustering_metrics"></a>
+  - [clustering](#clustering)
     - Evaluation metrics for clustering http://nlp.uned.es/docs/amigo2007a.pdf
       - formal constraints
         - cluster homogenity
@@ -736,7 +737,7 @@ methods/models for regression&classification
 - for
   - unsupervised pretraining - for large amount of unlabeled data - for NNs
   - find most relevant features / dimensionality reduction - before XGBoost
-  - explore high-dimensional data / dimensionality reduction - for EDA
+  - explore high-dimensional data / dimensionality reduction - for [EDA](#eda)
   - compress information
   - retrieve similar objects
   - generate new data samples
@@ -748,6 +749,13 @@ methods/models for regression&classification
     - L1 - adding sum of weights to loss
     - dropout/noize - between encoder and decoder
     - dropout/noize - before encoder
+<a name="clustering"></a>
+- clustering
+  - `compendium` `chapter` [clustering metrics](#clustering_metrics)
+    - how to choose cluster count
+      - `post` [Инфосистемы Джет @ Habr - Кластеризуем лучше, чем «метод локтя»](https://habr.com/ru/companies/jetinfosystems/articles/467745/)
+        - `book` `chapter` [Clustering metrics - alternatives to the elbow method](https://github.com/tirthajyoti/Machine-Learning-with-Python/blob/master/Clustering-Dimensionality-Reduction/Clustering_metrics.ipynb)
+      - metrics: elbow method, silhouette, bic 
 
 <a name="embeddings"></a>
 ### Embeddings, dimensionality reduction, matrix factorization
@@ -938,7 +946,7 @@ methods/models for regression&classification
   - explore features, pairs, groups
   - clean features up
   - check for leaks
-- Visualization tools https://github.com/az365/compendium/blob/master/disciplines/datavis.md
+- `compendium` [Visualization tools](./datavis.md)
   - Seaborn https://seaborn.pydata.org
   - Plotly https://plot.ly/python/
   - Bokeh https://github.com/bokeh/bokeh
