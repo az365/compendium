@@ -262,8 +262,11 @@
 - школы: частотный и байесовский вывод
   - частотный вывод
     - natural frequencies – частоты, которые не были нормализованы относительно базовых показателей рассматриваемого события
+  <a name="bayes"></a>
   - байесовский вывод
     - `p(X|Y) = p(Y|X)*p(X)/p(Y)`
+    - `book` [Cameron Davidson-Pilon - Bayesian Methods for Hackers (2013..2022, using PyMC)](https://github.com/CamDavidsonPilon/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers)
+    - `paper` [Bayesian Workflow (2020)](https://arxiv.org/abs/2011.01808) - проблемы, с которыми вы столкнётесь в Байесовском подходе
   - информация и вычислительная сложность
 - разделы
   - проверка стат-гипотез

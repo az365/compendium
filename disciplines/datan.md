@@ -421,6 +421,7 @@
         - Case Study: Air Pollution
         - Case Study: High Throughput Biology
         - Commentaries on Data Analysis
+- [Design Doc](./ds.md#designdoc)
 
 ### Frameworks
 - Lean analytics 
@@ -467,8 +468,8 @@
     - [timeseries](#timeseries) decomposition 
     - funnel analysis
   - Why did this happen? (Statistic analysis)
-    - AB-testing
-    - causal inference
+    - [AB-testing](#abt)
+    - [causal inference](#ci)
   - What will happen next? (Extrapolations)
     - [timeseries](#timeseries) forecasting 
     - ML-forecasting 
@@ -933,6 +934,8 @@
     - RFM-анализ клиентской базы
     - Бизнес-цели для RFM, когортного и децильного анализа
     - Стратегия работы с полученными сегментами клиентской базы
+- литература
+  - `book` [Илья Кацов - Машинное обучение для бизнеса и маркетинга (2019)](https://www.labirint.ru/books/704923/)
 
 <a name="unit"></a><a name="churn"></a>
 ### Когортный анализ и юнит-экономика
@@ -1034,6 +1037,7 @@
     - перевзвешивание на A*sqrt(N) - повышает чувствительность на 20%-30%
   - используется в EconML
     - `video` [Наталья Тоганова (GlowByte) Обзор библиотеки EconML: идеи и реализация](https://www.youtube.com/watch?v=oCJI5tKi3AU)
+  - `paper` [Питер Бюльман @ Квантиль - Бутстрап-схемы для временных рядов (2007-09)](http://quantile.ru/03/03-PB.pdf)
 - АБ-тесты на малых выборках 
   - `video` [МТС: АБТ на регионах (2020)](https://youtu.be/e9kSPMjpLL8)
     - https://engineering.nordeus.com/
@@ -1070,8 +1074,12 @@
       - `video` [Н.Багинян (Райфайзен): Peeking at A/B tests / Последовательное тестирование (2020)](https://youtu.be/BJwNdethKwQ) 
         - решения Peeking problem 
           - уменьшим уровень значимости (плохой путь)
-          - байесовское АБТ 
+          - [байесовское](./math.md#bayes) АБТ 
             - `post` [TDS - Простой гид по Байесовскому АБТ на Python](https://academy.yandex.com/journal/prostoy-gid-po-bayesovskomu-a-b-testirovaniyu-na-python)
+            - `course` [Максим Кочуров - State of Bayes Lecture Series: Session 5 AB testing](https://www.meetup.com/pymc-labs-online-meetup/events/293841718)
+            - `git` [GrowthBook](https://github.com/growthbook) - Python-библиотека для Байесовского АБТ
+            - `insight` байесовский подход привносит в задачу предположения о структуре генерации данных
+            - `insight` главная магия (повышающая чувствительность) байесовского АБТ - хорошо выбранный prior
           - многорукие бандиты 
           - последовательное тестироване 
             - mSPRT (mixture Sequential Probability Ratio test)
@@ -1089,6 +1097,7 @@
           - в x5 это не работает
           - альтернатива - линеаризация, переводит метрику в новое признаковое пространство (про это есть отдельный доклад)
         - CUPED ковариаты используют пред-экспериментальные данные - для непрерывных величин
+          - CUPED убирает внутригрупповую дисперсию, чтобы межгрупповая стала более явной 
           - статьи uber и booking.com
           - у x5 дисперсия снизилась на 45%, на оффлайн - в 4 раза, максимум - в 19 раз 
           - можно брать ковариаты по часам и дням недели 
@@ -1162,14 +1171,14 @@
             - пример: предсказание зарплаты сотрудникам (1994 US Census)
           - causal explanation of unfair discrimination
           - data types with intrinsic ordering
-        - ShapFlex - реализация Asymmetric Shapley Values на R: github.com/nredell/shapFlex
+        - `git` [ShapFlex](https://github.com/nredell/shapFlex) - реализация Asymmetric Shapley Values на R
       - Causal Shapley values
-        - терминология bradyneal.com/causal-inference-course
-          - causal graph - инструмент опесания причинно-следственной модели данных
+        - терминология [Brady Neal - Introduction to Causal Inference (2020)](https://bradyneal.com/causal-inference-course)
+          - causal graph - инструмент описания причинно-следственной модели данных
           - pearl's do-calculus - методика перевода causal estimate в statistical estimate
-        - partial causal ordering arxiv.org/pdf/2011.01625.pdf
+        - partial causal ordering: `paper` [Causal Shapley Values: Exploiting Causal Knowledge to Explain Individual Predictions of Complex Models](https://arxiv.org/pdf/2011.01625.pdf)
         - total_effect = direct_effect + indirect effect
-        - Caushapley - реализация Causal Shapley Values на R: gitlab.science.ru.nl/gbucur/caushapley
+        - `git` [Caushapley](https://gitlab.science.ru.nl/gbucur/caushapley) - реализация Causal Shapley Values на R
     - инструменты
       - [raiwingets](https://pypi.org/project/raiwidgets/) - MS недавно выкатила инструмент для анализа пространства ошибок
     - методы
@@ -1201,6 +1210,8 @@
     - примеры обратных корреляций
       - смертность в больнице выше, лучше туда не ходить
   - литература
+    - `compendium` [Reliable ML](./ds.md#rml)
+    - `post` [Ирина Голощапова @ Habr - Причинно-следственный анализ в машинном обучении (2022-04-26)](https://habr.com/ru/companies/ods/articles/544208)
     - `post` [karpov.courses @ Habr - Causal Inference: DAG](https://habr.com/ru/post/693532/)
     - `git` [DoWhy/PyWhy](https://github.com/py-why/dowhy) ([doc](https://py-why.github.io/dowhy/v0.8/))
     - `video` [Causal Inference: Если бы да кабы (2020)](https://youtu.be/V4ONp9PZrvk)
@@ -1227,6 +1238,7 @@
       - Broader landscape in causal reasoning
         - References: books, papers
     - `book` [M.Hernan - Causal Inference (2020)](https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book)
+    - `book` [Causal Inference for The Brave and True (2022, Python)](https://matheusfacure.github.io/python-causality-handbook)
     - `paper` [A.Naimi - An introduction to g methods (2017)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6074945)
     - `review` `pdf` [J.Pearl - Causal inference in statistics (2009)](http://ftp.cs.ucla.edu/pub/stat_ser/r350.pdf)
     - `video` [P.Tennant](https://www.youtube.com/watch?v=SbrX3YEMj_0)
@@ -1435,6 +1447,7 @@
       - `video` Серия Voice Chats и подкаст: Данные люди
     - `course` [Brady Neal - Introduction to Causal Inference (2020)](https://www.bradyneal.com/causal-inference-course)
     - `course` [Penn @ Coursera - Crash Course In Causality](https://www.coursera.org/learn/crash-course-in-causality)
+    - `track` [МГУ @ YouTube - Вводный курс про квази-экспериментальные методы](https://www.youtube.com/watch?v=Re62IvoWBvU&list=PLjCtgsu37IBLZV1mEZICTTVz5mNBihyPJ)
 - Simple modeling
   - Causal Impact
     - based on: Bayesian structural time-series models
@@ -1444,6 +1457,9 @@
       - how to install
         - `download` [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/ru/visual-cpp-build-tools)
         - `pip install causalimpact`
+    - `video` [Дмитрий Торшин (Лента) @ ODS YouTube - Causal Impact и как его готовить](https://youtu.be/0_bl0A-cXcY) 2022-12-17
+      - Как устроен Causal Impact и в каких случаях его стоит применять.
+      - Как используется Causal Impact в Ленте и какие доработки потребовались, чтобы получать устойчивые результаты и эффективно оценивать нововведения.
 
 <a name="graph"></a>
 ### Анализ графов
@@ -2060,4 +2076,5 @@
             - Управление данными в условиях реальной жизни
 - примеры данных для тренировки
   - [ClickHouse: Примеры датасетов для Clickhouse](https://clickhouse.tech/docs/ru/getting-started/example-datasets)
+  - [Ya.Cloud Marketplace datasets](https://cloud.yandex.com/en-ru/marketplace?tab=datalens&categories=dataset)
   - [Kaggle: datasets](https://www.kaggle.com/datasets)
