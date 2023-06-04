@@ -633,6 +633,7 @@ methods/models for regression&classification
 <a name="interpretation"></a>
 ### Интерпретация
 - `compendium` [Causal Inference and Interpretable ML](./datan.md#ci)
+- `compendium` [Reliable ML](./ds.md#rml)
 - `post` [Топ инструментов с Kaggle](https://habr.com/ru/company/ods/blog/434134)
   - plot predicted vs actual results - сравнение распределения предсказаний с распределением целевой переменной
   - examine feature importances
@@ -647,6 +648,9 @@ methods/models for regression&classification
   - SHAP functions
   - ELI5 functions
 - `video` [Д.Воротынцев (Oura): ML Interpretability Problems in Tabular Data Tasks (2020)](https://youtu.be/jOfl9_utKx8)
+- self-explainable models 
+  - `paper` [LTI, CMU - A Self-Explaining Architecture for Neural Text Classifiers](https://arxiv.org/pdf/2103.12279.pdf)
+  - `paper` [MIT - Towards Robust Interpretability with Self-Explaining Neural Networks](https://papers.nips.cc/paper_files/paper/2018/file/3e9f0fc9b2f89e043bc6233994dfcf76-Paper.pdf)
 
 <a name="domains"></a>
 ## Специализированные области
@@ -801,6 +805,35 @@ methods/models for regression&classification
     - Практика DRL в проде, есть ли какие успешные кейсы?
     - RL research малыми силами - возможно ли это?
     - Быть в курсе современного RL - как за всем успеть?
+
+<a name="rml"></a>
+### Reliable ML
+- `compendium` [ML interpretation](./ds.md#interpretation)
+- `compendium` [Causal Inrefence](./datan.md#ci)
+- `tg` `channel` [tg-channel: reliable_ml](https:/t.me/reliable_ml)
+- `meetup` Reliable ML @ Data Fest 
+  - `video` `stream` [Reliable ML @ Datafest - stream @ YouTube](https://youtu.be/oaRIDDBVDuc) 2023-06-03
+    - Любава Ткаченко - Опыт составления дизайн документа при проектировании МЛ системы. Сервис кластеризации магазинов
+    - Андрей Денисенко - Как построить real-time ML на криптобирже
+    - Максим Берёзов - Алгоритм маршрутизации между качеством и скоростью
+    - Павел Филонов - Паттерны инференса ML-моделей
+    - [14:30](https://www.youtube.com/live/oaRIDDBVDuc?t=16500) Павел Филонов - ML System Design Interview: Обнаружение провалов в [продажах](#sales)
+    - [16:15](https://www.youtube.com/live/oaRIDDBVDuc?t=22503) Дмитрий Колодезев - Reliable ML: Устойчивость моделей после выкатки в прод ([pdf](https://kolodezev.ru/download/model_sustainability_2023.pdf))
+    - [17:00](https://www.youtube.com/live/oaRIDDBVDuc?t=25533) Валерий Бабушкин - Метрики и функции потерь при дизайне систем машинного обучения 
+      - `book` [А.Кравченко, В.Бабушкин - ML System Design](https://www.manning.com/books/machine-learning-system-design), promo-code `au35vbab`
+    - [17:45](https://www.youtube.com/live/oaRIDDBVDuc?t=28255) Даниил Дранга - Дебаты: Fullstack Data Scientist или DS & ML Engineer – стоит ли разделять роли?
+      - закон Конвея: Структура сложной системы обречена повторить структуру компании, которая её разрабатывает
+    - [18:30](https://www.youtube.com/live/oaRIDDBVDuc?t=32036) Дмитрий Раевский - FailConf DS: почему бывает так больно
+      - система динамического [ценообразования](#pricing) для новостроек
+      - оценка коммерческой недвижимости 
+      - оценка загородной недвижимости
+      - распределение задач по экспертам 
+      - оценка легковых автомобилей 
+- `meetup` ODS Reliable ML - [AB-testing](./datan.md#abt) & [Causal Inference](./datan.md#ci) 2023-01-17
+  - `video` [Валерий Бабушкин - Метрики: от офлайна до иерархии](https://youtu.be/RxQWOTlGv2M)
+  - `video` [Александр Сахнов - Парный, пуассоновский и дикий бутстреп](https://youtu.be/N1_iN1oO3UU)
+  - `video` [Григорий Чернов (ВШЭ) - Про что не расскажут АБ-тесты: Causal Discovery Methods for Experimental Design](https://youtu.be/kMkIndQvLr8)
+  - `video` [Аслан Байрамкулов (MTS) - Abmrosia: open-source библиотека для быстрой и удобной работы с АБТ](https://youtu.be/W8u-4zt1RSM)
 
 <a name="libs"></a>
 ## Software
@@ -990,7 +1023,7 @@ methods/models for regression&classification
       - управление запасами
       - [маркетинг](./datan.md#mark)
       - рекомендация товаров
-      - ценообразование
+      - [ценообразование](#pricing)
       - распознавание клиентских паттернов (Uber: константный спрос путём изменений цен)
       - персонализированные купоны-предложения
       - логистика
@@ -1001,10 +1034,16 @@ methods/models for regression&classification
     - `competition` [1C Sales Prediction @ Kaggle](https://www.kaggle.com/c/competitive-data-science-predict-future-sales)
       - `ipynb` [пример работы](https://www.kaggle.com/dimitreoliveira/model-stacking-feature-engineering-and-eda)
       - `doc` [A beginner guide for sale data prediction](https://www.kaggle.com/minhtriet/a-beginner-guide-for-sale-data-prediction)
+  <a name="pricing"></a>
   - ценообразование
-    - `video` [Как построить ML-ценообразование на маркетплейсе](https://www.youtube.com/watch?v=cC1Z7r2WO9E)
+    - `video` [Богдан Печёнкин (carpov.cources) @ YouTube - Как построить ML-ценообразование на маркетплейсе](https://www.youtube.com/watch?v=cC1Z7r2WO9E)
       - `miro` [Dynamic Pricing ML System Design](https://miro.com/app/board/uXjVODg5odE=)
+      - `tg` `blog` [Богдан Печёнкин - телеграм-канал автора](https://t.me/bogdanisssimo)
+    - `post` [Артем Ворожцов @ Habr - ML для оптимизации цен на основе эластичности по цене (2022)](https://habr.com/ru/articles/673740/)
     - `post` [Technostartup: How Retail Stores Can Use ML To Boost Their Sales? (2017)](https://medium.com/@technostartup1m/how-retail-stores-can-use-machine-learning-to-boost-their-sales-2c108de7c597)
+    - система динамического ценообразования для новостроек: `video` [DataFest/ReliableML/FailConf](#rml): [Дмитрий Раевский - почему бывает так больно](https://www.youtube.com/live/oaRIDDBVDuc?t=32036) 
+  - детекция перебоев/руптюров/out-of-stock
+    - `video` [Павел Филонов - ML System Design Interview @ DataFest 2023: Обнаружение провалов в продажах](https://www.youtube.com/live/oaRIDDBVDuc?t=16500)
   - [геоаналитика](./datan.md#spacial)
     - `ads` [BST Digital: выбор точек для открытия магазинов (2018)](https://new-retail.ru/persony/bst_organika_kak_uspeshno_upravlyat_otkrytiyami_nayti_luchshie_mesta_i_postroit_optimalnuyu_set_torg1113)
     - `video` [Д.Тарарухин (Я.Карты b2b geo) Я.Маршрутизация: как IT-технологии улучшают логистические сервисы](https://youtu.be/8yDh9Q7shag)
@@ -1161,7 +1200,7 @@ Cross-industry standard process for data mining
   - методы решения и данные
     - исследуем возможные подходы к её решению и сформулируем требования к данным
     - соберём необходимые данные
-  - exploratory research / eda - exploratory data analysis - изучим собранный датасетт
+  - exploratory research / [eda - exploratory data analysis](#eda) - изучим собранный датасет
   - feature engineering - извлечём признаки из сырых данных
   - обучим модель
   - model evaluation - сравним полученные результаты, оценим качество полученных решений и при необходимости повторим пункты 2-6
@@ -1283,6 +1322,14 @@ LeanDS (с митапов Асхата Уразбаева)
   - внедрение в бизнес-процесс - po, bia
   - защита методики - po, ds
   - разбор запросов - po, bia, ada
+
+### ML System design
+<a name="designdoc"></a>
+- Reliable ML: System Design Doc
+  - `git` `doc` `md` [IrinaGoloshchapova/ml_system_design_doc_ru](https://github.com/IrinaGoloshchapova/ml_system_design_doc_ru)
+  - `git` `exapmle` [Дизайн ML системы – Прогнозирование выручки в магазинах](https://github.com/Chuguevskij/ml_system_design_doc_Revenue_in_shops)
+  - `video` [ai.itmo.ru@YouTube: DesignDoc (лекция)](https://youtu.be/HmdKhI2_6Os) 2023-04-27
+  - `pptx` [DesignDoc (презентация)](https://drive.google.com/drive/folders/1sfPg8M4MAjPL4xsOlcBb7t8L-FI1nrqW)
 
 ### Сравнение методологий
 - CRISP-DM: Cross-industry Process of Data Mining
