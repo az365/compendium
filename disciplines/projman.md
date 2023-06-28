@@ -174,6 +174,7 @@
   - социальное влияние
 - Литература
   - `book` [Daniel Goleman - Emotional Intelligence (2006)](https://www.amazon.com/Emotional-Intelligence-10th-Anniversary-Matter/dp/055380491X/)
+  - `wiki` [tlroadmap.io - Эмоциональный интеллект](https://tlroadmap.io/self-skills/relationship/emotional-intelligence.html)
 
 <a name="decision"></a>
 ### Принятие решений
@@ -186,7 +187,9 @@
   - большинства - в ситуациях с выраженными коалициями
   - консенсуса - когда требуется высокое `П`
 - [фасилитация](#facilitation) - обеспечение группового принятие решений
-- `wiki` [tlroadmap.io - Принятие решений](https://tlroadmap.io/self-skills/thinking/decision-making.html)
+- предпочтительность принципов/способов принятия решений определяется [корпоративной культурой](#culture) 
+- литература
+  - `wiki` [tlroadmap.io - Принятие решений](https://tlroadmap.io/self-skills/thinking/decision-making.html)
 
 <a name="change"></a>
 ### Управление изменениями
@@ -267,6 +270,8 @@
       - 2 измерения стимула: уровень стимуляции, гедонический тон (субъективное восприятие удовольствия)
     - условных рефлексов
       - на основе условных рефлексов формируется стереотип мышления и поведения - психофизиологическая основа установки
+  - литература 
+    - `wiki` [tlroadmap.io - Мотивация](https://tlroadmap.io/roles/people-manager/people-management/motivation.html)
 <a name="assignment"></a>
 - [обучение и развитие](#learn)
 - делегирование
@@ -304,26 +309,38 @@
 <a name="people"></a>
 ### People-management
 <a name="team"></a>
-- Формирование команды
+- Построение команды
+  - Формирование команды
+    - дизайн команды 
+      - `wiki` [tlroadmap.io: Дизайн команды](https://tlroadmap.io/roles/people-manager/team-management/team-design.html)
+      - `wiki` [tlroadmap.io: Понимание ценности различий](https://tlroadmap.io/self-skills/relationship/diversity.html)
+    - найм и увольнение
+      - `wiki` [tlroadmap.io: Увольнение](https://tlroadmap.io/roles/people-manager/people-management/firing.html)
+    - управление компетенциями
+      - `chapter` [управление компетенциями](#skillman)
+    - запуск команды
+      - `wiki` [tlroadmap.io: Запуск команды](https://tlroadmap.io/roles/people-manager/team-management/team-launch.html)
   - формирование командного духа
-  - методика оценки психологической атмосферы в коллективе (по А.Ф. Фидлеру)
-    - `post` [Диана - Оцениваем психологическую атмосферу в коллективе](https://dzen.ru/media/id/5dc997479f1ed62dfcea1ba8/ocenivaem-psihologicheskuiu-atmosferu-v-kollektive-60ffe89e45ab48084444ed59)
-    - `book` [Workplace stress: A collective challenge](https://www.ilo.org/wcmsp5/groups/public/---europe/---ro-geneva/---sro-moscow/documents/genericdocument/wcms_472308.pdf)
-    - анонимный (или не очень) опрос: поставить от 1 до 8 баллов по 10 пунктам
-      - дружелюбие - враждебность
-      - согласие - несогласие
-      - удовлетворенность - неудовлетворенность
-      - продуктивность - непродуктивность
-      - теплота - холодность
-      - сотрудничество - несогласованность
-      - взаимная поддержка - недоброжелательность
-      - увлеченность - равнодушие
-      - занимательность - скука
-      - успешность - безуспешность
-  - оценка состояния команды (Колесо баланса)
-  - `post` [Н.Самоукина @ TopPersonal - Сплоченная команда: когда это хорошо и когда это плохо?](https://www.top-personal.ru/issue.html?367)
-  - 5 стадий принятия изменений: отрицание, гнев, торг, депрессия, принятие
-  - `post` [Сергей Архипенков - Повышать или не повышать — вот в чем вопрос (2013)](https://habr.com/ru/post/191120/) - про цену замены сотрудника в коллективе
+    - климат в команде
+      - `wiki` [tlroadmap.io: Климат в команде](https://tlroadmap.io/roles/people-manager/team-management/team-climate.html)
+    - методика оценки психологической атмосферы в коллективе (по А.Ф. Фидлеру)
+      - `post` [Диана - Оцениваем психологическую атмосферу в коллективе](https://dzen.ru/media/id/5dc997479f1ed62dfcea1ba8/ocenivaem-psihologicheskuiu-atmosferu-v-kollektive-60ffe89e45ab48084444ed59)
+      - `book` [Workplace stress: A collective challenge](https://www.ilo.org/wcmsp5/groups/public/---europe/---ro-geneva/---sro-moscow/documents/genericdocument/wcms_472308.pdf)
+      - анонимный (или не очень) опрос: поставить от 1 до 8 баллов по 10 пунктам
+        - дружелюбие - враждебность
+        - согласие - несогласие
+        - удовлетворенность - неудовлетворенность
+        - продуктивность - непродуктивность
+        - теплота - холодность
+        - сотрудничество - несогласованность
+        - взаимная поддержка - недоброжелательность
+        - увлеченность - равнодушие
+        - занимательность - скука
+        - успешность - безуспешность
+    - оценка состояния команды (Колесо баланса)
+    - `post` [Н.Самоукина @ TopPersonal - Сплоченная команда: когда это хорошо и когда это плохо?](https://www.top-personal.ru/issue.html?367)
+    - 5 стадий принятия изменений: отрицание, гнев, торг, депрессия, принятие
+    - `post` [Сергей Архипенков - Повышать или не повышать — вот в чем вопрос (2013)](https://habr.com/ru/post/191120/) - про цену замены сотрудника в коллективе
 <a name="learn"></a>
 - Обучение, развитие, оценка
   - обучение
@@ -455,6 +472,9 @@
           - сохранение изменений
         - большие камни
         - grow
+      - литература
+        - `wiki` [tlroadmap.io: Коучинг](https://tlroadmap.io/self-skills/communications/coaching.html)
+        - `post` [И.Клюев @ hr-media: 7 инструментов , чтобы сделать тренинг работающим через месяц и год спустя?](https://hr-media.ru/7-instrumentov-chtoby-sdelat-trening-rabotayushhim-cherez-mesyac-i-god-spustya/)
     - [оценка компетенций](#assessment)
     - развивающая обратная связь 
       - виды: поддерживающая, корректирующая
@@ -466,11 +486,34 @@
     - планирование развития
   <a name="assessment"></a>
   - оценка
-    - `chapter` [Performance review](#review)
-    - `post` [MarkCC - Вещи, которые должен делать каждый: Code Review (2014)](https://habr.com/ru/post/215119/)
-    - `post` [Mike Hadlow @ Habr - Ваши программисты работают в поте лица или просто ленятся? (2013)](https://habr.com/ru/post/206540/)
-    - `post` [Сергей Архипенков @ Habr - Повышать или не повышать — вот в чем вопрос (2013)](https://habr.com/ru/post/191120/) - про цену замены сотрудника в коллективе
-    - `post` [Страсть к программированию @ Habr: Глава 22. Помни, на кого работаешь (2014)](https://habr.com/ru/post/212019/) - объясняет сотруднику важность работы руководителя
+    - литература
+      - `chapter` [Performance review](#review)
+      - `wiki` [tlroadmap.io - Ассессмент](https://tlroadmap.io/roles/people-manager/people-management/promo/assessment.html)
+      - `post` [MarkCC - Вещи, которые должен делать каждый: Code Review (2014)](https://habr.com/ru/post/215119/)
+      - `post` [Mike Hadlow @ Habr - Ваши программисты работают в поте лица или просто ленятся? (2013)](https://habr.com/ru/post/206540/)
+      - `post` [Сергей Архипенков @ Habr - Повышать или не повышать — вот в чем вопрос (2013)](https://habr.com/ru/post/191120/) - про цену замены сотрудника в коллективе
+      - `post` [Страсть к программированию @ Habr: Глава 22. Помни, на кого работаешь (2014)](https://habr.com/ru/post/212019/) - объясняет сотруднику важность работы руководителя
+      - `video` [В.Бабушкин @ YouTube - О карьере, Machine learning и построении эффективных команд](https://www.youtube.com/live/JufD2ljAKMc)
+    - см. также
+      - `chapter` [performance review](#review)
+      - `chapter` [обратная связь](#feedback)
+
+<a name="skillman></a>
+### Skill-management / Управление компетенциями
+- intro
+  - литература
+    - `post` [Светлана Новикова @ Habr - Тут живут драконы: матрица компетенций как инструмент тимлида](https://habr.com/ru/companies/oleg-bunin/articles/437772/)
+    - `wiki` [tlroadmap.io: Управление компетенциями](https://tlroadmap.io/roles/people-manager/team-management/competency-management.html)
+    - `wiki` [tlroadmap.io: Распространение знаний](https://tlroadmap.io/roles/technical-lead/knowledge-management/knowledge-management.html)
+    - `compendium` [arch: Knowledge management](./arch.md#km)
+<a name="matrix"></a>
+- матрицы компетенций
+  - примеры 
+    - `post` [Е.Корчагина @ vc.ru - Как оценивать работу программистов: примеры системы грейдов в компаниях](https://vc.ru/dev/76538-kak-ocenivat-rabotu-programmistov-primery-sistemy-greydov-v-kompaniyah)
+    - `doc` [Sijin Joseph: Programmer Competency Matrix](https://www.sijinjoseph.com/programmer-competency-matrix/)
+  - литература
+    - `post` [Светлана Новикова @ Habr - Тут живут драконы: матрица компетенций как инструмент тимлида](https://habr.com/ru/companies/oleg-bunin/articles/437772/)
+    - `chapter` [Грейды](#grades)
 
 <a name="review"></a>
 ### Performance-review
@@ -484,6 +527,15 @@
         - well being
         - feedback between staff and company 
     - part 2 https://vc.ru/hr/358809-gayd-po-performance-review-chast-2
+  - `wiki` [tlroadmap.io: Ассессмент](https://tlroadmap.io/roles/people-manager/people-management/promo/assessment.html)
+  - `wiki` [tlroadmap.io: Карьерная линейка](https://tlroadmap.io/roles/people-manager/people-management/promo/career.html)
+<a name="grades"></a>
+- Грейды
+  - `wiki` [tlroadmap.io: Карьерная линейка](https://tlroadmap.io/roles/people-manager/people-management/promo/career.html)
+  - `post` [Е.Корчагина @ vc.ru: Как оценивать работу программистов: примеры системы грейдов в компаниях](https://vc.ru/dev/76538-kak-ocenivat-rabotu-programmistov-primery-sistemy-greydov-v-kompaniyah)
+  - `site` [Engineering Ladders](https://www.engineeringladders.com/)
+  - `site` [Career Ladders](https://career-ladders.dev/)
+  - `chapter` [Матрицы компетенций](#matrix)
 - Примеры из компаний
   - Facebook
     - нет техлидов, есть менеджеры, смотрят число коммитов
@@ -545,10 +597,20 @@
     - Это анкета с цифровыми значениями от -2 до +2 и комментариями, обязательными для крайних оценок.
 
 ### Культура компаний
-- Facebook 
-  - `post` [GoPractice: О.Якубенков - Продуктовая культура Facebook](https://gopractice.ru/fb-product-culture/)
-- Valve
-  - Valve обходит по эффективности Google как Google обходит IBM
+- литература 
+  - `wiki` [tlroadmap.io: Корпоративная культура](https://tlroadmap.io/roles/integrator/corporate-culture.html)
+  - `book` [Powerful: Building a Culture of Freedom and Responsibility](https://www.amazon.com/Powerful-Building-Culture-Freedom-Responsibility/dp/1939714095)
+  - `book` [Лидер и племя. Пять уровней корпоративной культуры](https://www.mann-ivanov-ferber.ru/books/lider-i-plemya/)
+  - `book` [The Culture Map: Breaking Through the Invisible Boundaries of Global Business](https://www.goodreads.com/book/show/22085568-the-culture-map)
+- примеры компаний
+  - Facebook 
+    - `post` [О.Якубенков @ GoPractice - Продуктовая культура Facebook](https://gopractice.ru/fb-product-culture/)
+  - Spotify
+    - `video` [Spotify Engineering Culture](https://www.youtube.com/watch?v=fj5y-6AoYfM)
+  - GitLab
+    - `post` [Southbridge @ Habr: Ценности GitLab](https://habr.com/ru/companies/southbridge/articles/328786/)
+  - Valve
+    - Valve обходит по эффективности Google как Google обходит IBM
 
 ## Коммуникации
 - командная работа
@@ -604,7 +666,22 @@
     - убеждающие и мотивирующие письма клиентам и партнерам
     - трудные письма (ситуация нарушения интересов)
   - Литература
-    - `wiki` [tlroadmap.io - Работа с текстом](https://tlroadmap.io/self-skills/communications/text.html)
+    - `wiki` [tlroadmap.io: Работа с текстом](https://tlroadmap.io/self-skills/communications/text.html)
+- нетворкинг 
+  - `wiki` [tlroadmap.io: Нетворкинг](https://tlroadmap.io/self-skills/communications/networking.html)
+
+<a name="feedback"></a>
+### Обратная связь
+- intro
+  - формула ОС
+    - описать ситуацию и наблюдаемое поведение
+    - сообщить о последствиях и влиянии на задачи, коллег, продукт, компанию, руководителя, самого
+    - поведение в будущем
+  - `hint` если фидбек на результаты работы - то сначала попросить самому оценить и что улучшить
+- литература
+  - `wiki` [tlroadmap.io: Обратная связь](https://tlroadmap.io/roles/people-manager/people-management/feedback.html)
+  - `wiki` [tlroadmap.io: Дача и получение обратной связи](https://tlroadmap.io/self-skills/communications/feedback.html)
+  - `book` [Игорь Манн, Елена Золина: Фидбэк. Получите обратную связь!](https://www.livelib.ru/book/1001127521-fidbek-poluchite-obratnuyu-svyaz-igor-mann)
 
 <a name="conflict"></a>
 ### Конфликтология
@@ -625,6 +702,8 @@
   - Проверка устойчивости
   - Контроль
 - медиация конфликтов
+- литература 
+  - `wiki` [tlroadmap.io: Управление конфликтами](https://tlroadmap.io/self-skills/communications/conflicts.html)
 
 <a name="public"></a>
 ### Публичные коммуникации
