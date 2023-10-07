@@ -278,6 +278,13 @@
     - развитие сообщества
       - шаринг экспертизы
       - построение базы знаний
+<a name="matrix"></a>
+- модели компетенций
+  - Avito
+    - `git` `doc` `md` [Авито: Уровни аналитиков](https://github.com/avito-tech/playbook/blob/master/analytics-levels.md)
+    - `promo` [Дата аналитик Авито (+грейды)](https://avito.tech/analytics)
+  - BI-матрица
+    - Матрица компетенций [BI-аналитика](#bi) https://t.me/revealthedata/601
 - [Литература](#lib)
   - `post` [Cassie Kozyrkov - 10 Differences Between Amateurs and Professional Analysts (2022)](https://towardsdatascience.com/10-differences-between-amateurs-and-professional-analysts-3a1be1a06a4d)
     - Software skills
@@ -1546,7 +1553,7 @@
     - анализ и визуализации данных без программирования
   - bi-аналитик/разработчик
     - решает срочные задачи, работает с БД, готовит дешборды, отвечает за визуализацю
-    - матрица компетенций BI-аналитика https://t.me/revealthedata/601
+    - [матрица компетенций](#matrix) BI-аналитика https://t.me/revealthedata/601
 - instruments
   - популярные BI-инструменты
     - PowerBI
@@ -1566,7 +1573,7 @@
         - литература 
           - Tableau Underhood by Roman Bunin https://public.tableau.com/app/profile/roman4734/viz/TableauUnderhood/VizQL 
           - Где учить основы по дизайну https://revealthedata.com/blog/all/navyki-dlya-vizualizacii-dannyh-i-dataviz-inzhenerov/ 
-          - Матрица компетенций BI-аналитика https://t.me/revealthedata/601
+          - [Матрица компетенций](#matrix) BI-аналитика https://t.me/revealthedata/601
 
 ## Роли, специальности, скиллы, процесс и культура
 - Виды аналитиков 

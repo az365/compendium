@@ -597,6 +597,10 @@
     - источник: [комментарий](https://habr.com/ru/company/badoo/blog/331570/#comment_10288306) к `post` [Badoo @ Habr](https://habr.com/ru/company/badoo/blog/331570)
     - Ежегодно проводится оценка сотрудника коллегами, руководителем, подчиненными и сотрудниками другого отдела, с кем он работал в течение года.
     - Это анкета с цифровыми значениями от -2 до +2 и комментариями, обязательными для крайних оценок.
+  - Avito 
+    - `post` [Авито: Как понять, что мидл стал синьором: процесс performance review аналитиков в Авито](https://vc.ru/avito/751697-kak-ponyat-chto-midl-stal-sinorom-process-performance-review-analitikov-v-avito)
+    - `git` `doc` `md` [Авито: Уровни аналитиков](https://github.com/avito-tech/playbook/blob/master/analytics-levels.md)
+    - `promo` [Дата аналитик Авито (+грейды)](https://avito.tech/analytics)
 
 <a name="culture"></a>
 ### Культура компаний
@@ -950,6 +954,9 @@
       - техники приведения к согласию 
         - определиться, как будет приниматься решение
         - шкала согласия: 3/5/8 степеней согласия
+      - понятие "консент"
+        - `post` [Александр Шемякин @ Дзен: Консент или консенсус? Как внедрять нововведения в компании](https://dzen.ru/a/YD-QHq_ADkxlBwFx)
+        - [neoinnovators.ru: Принятие решений методом Консента (Consent decision making)](https://about.neoinnovators.ru/library/s3/pattenry-socikokratii-3.0-s3/1.4-prinyatie-reshenii-metodom-konsenta-consent-decision-making)
     - поддержание энергии (задайте темп, боритесь с сонливостью участников)
 - Литература
   - `wiki` [tlroadmap.io - Фасилитация](https://tlroadmap.io/self-skills/communications/facilitation.html)
