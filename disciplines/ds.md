@@ -755,6 +755,40 @@ methods/models for regression&classification
     - dropout/noize - before encoder
 <a name="clustering"></a>
 - clustering
+  - clustering algorithms
+    - `post` [Андрей Часовских @ Habr: Обзор алгоритмов кластеризации данных](https://habr.com/ru/articles/101338/)
+      - меры расстояний
+        - Евклидово расстояние
+        - Квадрат евклидова расстояния
+        - Расстояние городских кварталов (манхэттенское расстояние)
+        - Расстояние Чебышева
+        - Степенное расстояние
+      - классификация алгоритмов
+        - Иерархические и плоские
+        - Четкие и нечеткие
+      - объединение кластеров в иерархических алгоритмах 
+        - Объединение кластеров
+          - Одиночная связь (расстояния ближайшего соседа)
+          - Полная связь (расстояние наиболее удаленных соседей)
+          - Невзвешенное попарное среднее
+          - Взвешенное попарное среднее
+          - Невзвешенный центроидный метод
+          - Взвешенный центроидный метод (медиана)
+      - обзор алгоритмов
+        - Алгоритмы иерархической кластеризации
+        - Алгоритмы квадратичной ошибки
+          - k-means
+          - c-means 
+        - Нечеткие алгоритмы
+        - Алгоритмы, основанные на [теории графов](./math.md#graph)
+        - Алгоритм выделения связных компонент
+        - Алгоритм минимального покрывающего дерева
+        - Послойная кластеризация
+    - ещё алгоритмы 
+      - Forel 
+    - ещё применения
+      - [визуализация](./datavis.md)
+        - Biclustering algorithms for sorting corrplots https://scikit-learn.org/stable/auto_examples/bicluster/plot_spectral_biclustering.html
   - `compendium` `chapter` [clustering metrics](#clustering_metrics)
     - how to choose cluster count
       - `post` [Инфосистемы Джет @ Habr - Кластеризуем лучше, чем «метод локтя»](https://habr.com/ru/companies/jetinfosystems/articles/467745/)
@@ -1330,6 +1364,8 @@ LeanDS (с митапов Асхата Уразбаева)
   - `git` `exapmle` [Дизайн ML системы – Прогнозирование выручки в магазинах](https://github.com/Chuguevskij/ml_system_design_doc_Revenue_in_shops)
   - `video` [ai.itmo.ru@YouTube: DesignDoc (лекция)](https://youtu.be/HmdKhI2_6Os) 2023-04-27
   - `pptx` [DesignDoc (презентация)](https://drive.google.com/drive/folders/1sfPg8M4MAjPL4xsOlcBb7t8L-FI1nrqW)
+  - `video` [ML System Design Course 2022](https://www.youtube.com/watch?v=fUFzkQUCPC0&list=PLTlO6nV_TaGDu_HYG8cm7iUFZ_4qEJAYF)
+  - `video` [ML System Design Course 2023](https://www.youtube.com/watch?v=6KFev6BJbeg&list=PLTlO6nV_TaGDHG3jHrXH2FQU5koe6UoyZ)
 
 ### Сравнение методологий
 - CRISP-DM: Cross-industry Process of Data Mining
