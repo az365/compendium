@@ -464,7 +464,7 @@
         - Overview of further developments of RankNet https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/MSR-TR-2010-82.pdf
         - RankLib (implemtations for the 2 papers from above) https://sourceforge.net/p/lemur/wiki/RankLib/
         - Learning to Rank Overview https://wellecks.wordpress.com/2015/01/15/learning-to-rank-overview
-- для задач кластеризации
+- для [задач кластеризации](./ds.md#clustering)
     - Evaluation metrics for clustering http://nlp.uned.es/docs/amigo2007a.pdf
         - formal constraints
             - cluster homogenity
