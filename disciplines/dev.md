@@ -148,6 +148,7 @@
   <a name="da-libs"></a><a name="pandas"></a>
   - DA-libs. Библиотеки для работы с данными
     - basic DA-stack: numpy, pandas, matplotlib
+      - `course` [Дмитрий Федоров (Positive Technologies) - Анализ данных на языке Python](http://dfedorov.spb.ru/pandas/)
       - `post` [Preston Badeer @ TDS - 5 Pandas anti-patterns](https://towardsdatascience.com/please-stop-doing-these-5-things-in-pandas-9fbabea897aa)
     - [visualization](./datavis.md)
       - MatPlotLib
@@ -192,7 +193,8 @@
     - `(Pdb) l - list кода: где находишься`
     - `(Pdb) q - плохо выйти`
     - `(Pdb) c - хорошо выйти, продолжить`
-- стиль, стандарты
+- [стиль, стандарты](#style)
+  <a name="pep8"></a>
   - PEP8
     - `doc` [pep8.org](https://pep8.org/)
       - Code lay-out
@@ -243,7 +245,7 @@
       - функции, словари, интерпретатор, файлы, модули, numpy, matplotlib 
     - `free` `course` [Stepik - Python: основы и применение](https://stepik.org/512) (3-6ч/нед)
       - базовые принципы: модель данных - объекты, функции и стек вызовов, пространства имён и области видимости, введение в классы, наследование
-      - стандартные средства: ошибки и исключения, работа с кодом - модули и импорт, итераторы и генераторы, файловая система, functool и лямбда-функции, стиль pep8 и доки
+      - стандартные средства: ошибки и исключения, работа с кодом - модули и импорт, итераторы и генераторы, файловая система, functool и лямбда-функции, [стиль](#style) [pep8](#pep8) и доки
       - анализ текста: стандартные методы и функции для строк, регулярные выражения, http/html/requests, csv/json, api, XML/ElementTree/lxml
     - `free` `course` [Stepik - Введение в DS и ML](https://stepik.org/4852)
       - введение: pandas
@@ -428,11 +430,35 @@
     - [Courtney Cochrane @ TDS: Time Series Nested Cross-Validation](https://towardsdatascience.com/time-series-nested-cross-validation-76adba623eb9)
     - пример: `post` [ODS @ Habr: Прогнозирование нагрузки колл-центра (2019)](https://habr.com/ru/company/ods/blog/438212/)
 
+<a name="codereview"></a>
+### Code-review
+- `wiki` [tlroadmap.io: Code review](https://tlroadmap.io/roles/technical-lead/product-quality/code-review.html)
+
+<a name="style"></a>
+### Стиль, стандарты
+- Code Style 
+  - motivation 
+    - `doc` https://github.com/nibekasov/Algoritms_Ranepa_2022/tree/main/Week01
+      - чтобы коллегам по проекту было проще разобраться в вашем коде, он должен быть не только свободным от костылей, но ещё читабельным и единообразным
+      - в этом помогает кодстайл - общие правила написания кода
+- стандарты 
+  - по языкам 
+    - [pytnon](#py): [pep8](#pep8), google
+  - Чистый код
+    - `book` [Роберт Мартин: Чистый Код](https://www.ozon.ru/category/chistyy-kod-robert-martin/)
+    - `wiki` [tlroadmap.io: Чистый код](https://tlroadmap.io/roles/technical-lead/tech-quality/clean-code.html)
+- Центр компетенций
+  - отвечает за внедрение стандартов и [моделей компетенций](./datan.md#matrix)
+  - `post` [RndSoft: Внедрение Центра Компетенции в отдел разработки](https://blog.rnds.pro/039-competence-center)
+
 <a name="devtools"></a>
-### devtools
+### Dev-tools
 - VCS: GIT, SVN
     - Ежедневная работа с Git https://habr.com/ru/post/174467
     - GitFlow - правила жизни в гите 
+    - GitHub code search
+      - `video` [GitHub code search - Universe 2022](https://youtu.be/ujVY8xqkflQ)
+      - example: `repo:my-repo from:foo in:/root blah-blah-.*`
 - CI/CD
 - IDE
   - JetBrains
