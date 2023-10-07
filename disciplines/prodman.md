@@ -38,7 +38,7 @@
   - Roles (not titles):
     - User — an operationist or a leader of such, who actually is the part of the Product.
     - Customer / a consumer — the one, who gets the results/outcomes of the Product.
-    - Investor — provides financial support and top-management level decisions.
+    - Investor — provides financial support and top-management level [decisions](./arch.md#decision).
     - [Manager](./projman.md) — operates in a [project sense](./projman.md) of the Product development process.
     - [Developer](./dev.md) — fully engaged in the Product development process.
 - Литература
@@ -47,7 +47,7 @@
   - `paper` [PMBoK - Project Stakeholder Management](https://www.projectengineer.net/project-stakeholder-management-according-to-the-pmbok/)
   - `post` [Николай Ашанин @ Medium - Stakeholders in Software Architecture](https://medium.com/@nvashanin/stakeholders-in-software-architecture-6d18f36250f9)
 
-<a name="role"</a>
+<a name="role"></a>
 ## Роль продакта
 - [источник](#lib): `book` [Marty Cagan - Inspired / На Крючке. Как создавать продукты-хиты](https://www.ozon.ru/context/detail/id/30696453/)
 - Основные роли и обязанности

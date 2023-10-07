@@ -190,6 +190,7 @@
 - предпочтительность принципов/способов принятия решений определяется [корпоративной культурой](#culture) 
 - литература
   - `wiki` [tlroadmap.io - Принятие решений](https://tlroadmap.io/self-skills/thinking/decision-making.html)
+  - `compendium` [Decision science](./arch.md#decision)
 
 <a name="change"></a>
 ### Управление изменениями

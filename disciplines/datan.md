@@ -9,7 +9,7 @@
   - итеративные задачи с заранее неизвестным результатом 
   - нестандартные, некорректные, неполные, нечёткие задачи
   - подкрепление/замена экспертного мнения измеримыми фактами
-  - поддержка принятия решений на данных (продуктовых, бизнесовых, управленческих)
+  - [поддержка принятия решений](./arch.md#decision) на данных (продуктовых, бизнесовых, управленческих)
 - Популярные определения
   - Анализ данных - процесс исследования, фильтрации, преобразования и [моделирования](#modeling) данных с целью извлечения полезной информации и приняия решений
     - источник: [YouTube: Технострим - Введение в анализ данных (2019)](https://www.youtube.com/watch?v=5Yl6_2d0CN0&list=PLrCZzMib1e9p6lpNv-yt6uvHGyBxQncEh)
@@ -79,7 +79,7 @@
     - What happens? (Standard reporting)
     - What, where, when? (AdHoc reports)
     - Where is the problem? (Investigations)
-    - What decisions are needed? (Detect, alerting)
+    - What [decisions](./arch.md#decision) are needed? (Detect, alerting)
     - Why did this happen? (Statistic analysis)
     - What will happen next? (Extrapolations)
     - What if...? (Modeling)
@@ -470,9 +470,9 @@
     - factor decomposition 
     - exploratory data analysis 
     - correlation analysis
-    - hypothesis testing
-  - What decisions are needed? (Detect, alerting)
-    - anomaly detection 
+    - [hypothesis testing](./ds.md#hypothesis)
+  - What [decisions](./arch.md#decision) are needed? (Detect, alerting)
+    - [anomaly detection](#anomaly) 
     - [timeseries](#timeseries) decomposition 
     - funnel analysis
   - Why did this happen? (Statistic analysis)
@@ -496,8 +496,8 @@
   - Timeline
     - Start of a product
     - Looking for a weekly reports and a [KPI](./metrics.md#kpi) [dashboard](#dash)
-    - Anomaly detection to see issues right away
-    - Want to make decisions based on information
+    - [Anomaly detection](#anomaly) to see issues right away
+    - Want to make [decisions](./arch.md#decision) based on information
     - Want a platform for a forensic analytics to speed up product development
     - ...
     - You are road-blocked by your current setup and looking for new opportunities/improvements
@@ -1742,7 +1742,7 @@
             - программы-клиенты
             - библиотеки для [Python](./dev.md#python)
             - Проект: Python и SQL, метрики сервис-системы вопросов и ответов о программировании
-          - Принятие решений в бизнесе на основе данных
+          - [Принятие решений в бизнесе](./arch.md#decision) на основе данных
             - Введение в принятие решений в бизнесе на основе данных
             - Основы проверки гипотез в бизнесе
             - Выбор метода проведения эксперимента
@@ -2037,7 +2037,7 @@
         - Стратегия перехода к data‑driven
           - Data-driven менеджмент
             - Уровни использования данных
-            - Уровни опоры на данные при принятии решений
+            - Уровни опоры на данные при [принятии решений](./arch.md#decision)
             - Области знания и их связь с аналитикой
             - Виды анализа
             - Что мешает принимать правильные решения

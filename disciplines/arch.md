@@ -680,6 +680,8 @@
     - барьеры к внедрению часто выступает 
       - отсутствие организационной культуры, которая обеспечивала бы совместное использование знаний
       - недостаток у работников информации об этой технологии
+  - литература
+    - `wiki` [tlroadmap.io: Распространение знаний](https://tlroadmap.io/roles/technical-lead/knowledge-management/knowledge-management.html)
 
 <a name="kb"></a>
 ### Knowledge bases
@@ -915,3 +917,7 @@
 - ошибки первого/второго рода
   - первая - упущенная выгода
   - вторая - прямые потери
+- литература
+  - `post` [Harvard: What is Decision Science?](https://chds.hsph.harvard.edu/approaches/what-is-decision-science/)
+  - `wiki` [Decision theory](https://en.wikipedia.org/wiki/Decision_theory), [Теория принятия решений](https://ru.wikipedia.org/wiki/Теория_принятия_решений)
+  - [Павел Горский - Введение в дисциплину "Поддержка принятия решений" (2000)](https://www.cfin.ru/management/decision_science.shtml)
