@@ -189,6 +189,7 @@
         - преобразование данных 
         - очистка данных
         - агрегация данных
+      - [исследовательский анализ данных (EDA)](./ds.md#eda)
     - [работа с метриками](./metrics.md)
       - measurement design / дизайн измерений
       - metrics analysis / анализ метрик
@@ -466,9 +467,9 @@
   - What, where, when? (AdHoc reports)
     - adhoc reporting 
   - Where is the problem? (Investigations)
-    - anomaly investigation 
+    - [anomaly investigation](./metrics.md#anomaly) 
     - factor decomposition 
-    - exploratory data analysis 
+    - [exploratory data analysis](./ds.md#eda) 
     - correlation analysis
     - [hypothesis testing](./ds.md#hypothesis)
   - What [decisions](./arch.md#decision) are needed? (Detect, alerting)
@@ -490,7 +491,7 @@
     - AI, DL
     - Learn/optimize: [ABT](#abt), experimentation, simple ML algorithms
     - Aggregate/label: Analytics, metrics, segments, aggregates, features, training data
-    - Explore/transform: Cleaning, anomaly detection, prep
+    - Explore/transform: Cleaning, [anomaly detection](#anomaly), prep
     - Move/store: Reliable data flow, infrastructure, pipelines, ETL, structured and unstructured data storage
     - Collect: instrumentation, logging, sensors, external data, UGC
   - Timeline
@@ -594,7 +595,7 @@
     - гипотезы и трактовки
     - выписывать допущения и ограничения 
   - как расследовать 
-    - формулировать увиденную аномалию KPI
+    - формулировать увиденную [аномалию KPI](./metrics.md#anomaly)
     - симптомы: локализация до среза, сопутствующие факты со ссылками
     - гипотезы и проверки 
   - как доносить/формулировать 
@@ -729,6 +730,16 @@
 - приведение к нормальному распределению
   - преобразование бокса-кокса
     - `wiki` [machinelearning.ru: Метод Бокса-Кокса](http://www.machinelearning.ru/wiki/index.php?title=Метод_Бокса-Кокса)
+
+<a name="anomaly"></a>
+### Аномалии 
+<a name="detection"></a>
+- anomaly detection 
+  - `video` [Microsoft: Data Architecture for Business](https://www.youtube.com/watch?v=ArzohefZLE4)
+  - methods 
+    - Shauvenet's criterion
+- anomaly investigation 
+  - `chapter` [analysis of KPI-dynamic and anomaly investigation](./metrics.md#dynamic) 
 
 <a name="econ"></a>
 ### Эконометрика

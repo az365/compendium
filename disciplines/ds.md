@@ -1373,13 +1373,13 @@ LeanDS (с митапов Асхата Уразбаева)
     - AI, DL
     - Learn/optimize: ABT, experimentations, simple ML algorythms
     - Aggregate/label: Analytics, metrics, segments, aggregates, features, training data
-    - Explore/transform: Cleaning, anomaly detection, prep
+    - Explore/transform: Cleaning, [anomaly detection](./datan.md#anomaly), prep
     - Move/store: Reliable data flow, infrastructure, pipelines, ETL, structured and unstructured data storage
     - Collect: instrumentation, logging, sensors, exteral data, UGC
   - Timeline
     - Start of a product
     - Looking for a weekly reports and a KPI dashboard
-    - Anomaly detection to see issues right away
+    - [Anomaly detection](./datan.md#anomaly) to see issues right away
     - Want to make decisions based on information
     - Want a platform for a forensic analytics to speed up product development
     - ...
