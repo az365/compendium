@@ -445,7 +445,132 @@
         - очистка данных
         - агрегация данных
       - [исследовательский анализ данных (EDA)](./ds.md#eda)
-- Reproducible Research
+### DA-docs
+<a name="docs"></a>
+- [Design Doc](./ds.md#designdoc)
+- DA-docs / Документирование DA-работы
+  <a name="stakeholders"></a>
+  - stakeholders / заинтересованные стороны - на кого влияет работа DA, потребители [документации](#docs)
+    - direct customer of DA-task / непосредственный заказчик 
+      - goal: [decision making / принятие решения](./arch.md#decision)
+    - manager / менеджер, руководитель 
+      - goal: process monitoring: queue, resources, results / отслеживание статуса и результатов задач/проектов 
+    - DA-acceptor / аналитик принимающей стороны 
+      - goal: продолжить направление работы, начатое другим аналитиком
+      - use cases
+        - ротация/увольнение/смена_роли DA
+        - передача задачи/проекта между командами
+        - передача результатов проекта от консалтинга 
+    - parallel DA / смежник - DA, решающий похожую/пересекающуюся задачу в той же или другой команде 
+      - goals
+        - получить сопоставимые, совместимые, непротиворечивые результаты
+        - сэкономить время на задачу, используя готовыые артефакты, где возможно 
+        - сэкономить время на сбивку/сверку результатов между несколькими DA/командами
+      - use cases
+        - artifacts reusage / переиспользование методик, наработок, артефактов, результатов
+    - community / профессиональное сообщество - DA и смежные профессии в компании 
+      - goal: experience sharing / [распространение знаний](./arch.md#km), опыта, экспертизы 
+      - use cases
+        - найти примеры решений задач, похожих на мою, чтобы использовать эти знания/опыт
+        - наращивать знания/экспертизу, обучаясь не только на собственном опыте 
+    - reviewers, experts / эксперты, ревьюёры: центр компетенций, валидационный комитет
+      - goal: иметь уверенность в качестве получаемых результатов, принимаемых на них решений 
+      - use cases
+        - получить аппрув/отзыв экспертов по качеству методики и реализации DA-задачи для заказчика 
+        - асессмент DA-сотрудника или команды (по запросу или в рамках performance review)
+    - future you (DA) / завтрашний ты 
+      - as DA-acceptor / как DA, возвращающийся к задаче/проекту после перерыва на другие задачи/проекты
+      - as DA-reviewer / (пере)оценить свежим взглядом логику и текущие результаты по своей задаче
+      - as DA-nominee / как оцениваемый DA на performance review иметь калибровочный пакет из примеров работ, подтверждающих компетенции и достижения
+      - motivation by outcomes / само-мотивация за счёт наглядных осязаемых результатов 
+    - current you (DA-executor) / сегодняшний ты (DA-исполнитель)
+      - use cases 
+        - notes / документация в качестве персональных заметок по задаче/проекту
+        - self-review/validation/duck-debugging / самопроверка, само-помощь в валидации методики, структурировании знаний, артефактов, контента
+        - [GTD/GettingThingsDone](./projman.md#gtd) / самоорганизация, разгрузка оперативной памяти, за счёт фиксации информации по задаче/проекту на внешнем носителе, порядок снаружи - порнядок внутри
+    - robots, parsers, search engines, [object knowledge base](./arch.md#kb) 
+  - use cases / варианты применения
+    - [decision making / принятие решения](./arch.md#decision)
+      - [stakeholder](#stakeholderds): direct customer of DA-task / непосредственный заказчик 
+    - process monitoring: queue, resources, results / отслеживание статуса и результатов задач/проектов
+      - stakeholder: manager / менеджер, руководитель
+    - project transfer / передача задачи/проекта другому DA/команде
+      - stakeholder: DA-accepotor / аналитик принимающей стороны
+    - artifacts reusage / переиспользование наработок/результатов 
+      - stakeholder: parallel DA / смежник - DA, решающий похожую/пересекающуюся задачу в той же или другой команде
+    - experience sharing, [knowledge management](./arch.md#km) / распространение знаний, опыта, экспертизы 
+      - stakeholder: community / профессиональное сообщество - DA и смежные профессии в компании
+      - найти примеры решений задач, похожих на мою, чтобы использовать эти знания/опыт
+      - наращивать знания/экспертизу, обучаясь не только на собственном опыте 
+    - assessment, quality control, review / ассессмент, контроль качества, экспертиза решения, оценка сотрудника/команды
+      - stakeholder: reviewers, experts / эксперты, ревьюёры: центр компетенций, валидационный комитиет
+    - portfolio, calibration package / портфолио работ сотрудника, калибровочный пакет к performance review 
+      - stakeholders: DA-executor, reviewers, participants of calibration process 
+    - [GTD/GettingThingsDone](./projman.md#gtd) / самоорганизация, разгрузка оперативной памяти, за счёт фиксации информации по задаче/проекту на внешнем носителе, порядок снаружи - порнядок внутри
+      - stakeholders: DA-executor
+  - misconceptions / заблуждения, антипаттерны 
+    - docs is a task (no, it's process) 
+    - docs is expensive as additional work (no, it's easy and cheap)
+    - docs/reports is a goal (no, it's an instrument)
+  - principles and values 
+    - reusage for efficiency 
+    - transparency 
+    - searchability
+    - connectivity
+    - clearness 
+    - lean, cheap, side 
+  - ideas ans life-hacks 
+    - documentation is not a task but a process 
+      - post drafts, not necessary final docs 
+    - make it easy/cheaply 
+      - create it as a side-effect of other activities
+      - post what you have: artifacts, ideas, questions, ToDo's
+      - post you answers for questions
+      - answer here for questions 
+      - think aloud, blind typing
+    - write doc instead of:
+      - a personal notepad 
+      - presentations 
+      - long letters/messages 
+    - don't afraid:
+      - give free edit access to all colleagues
+      - actualize/extend pages of others
+      - provide links to your pages/results in other pages/contents
+      - update/extend existing docs instead of write new versions from scratch if possible 
+    - make it friendly to others
+      - imagine some persons as readers 
+      - use it as your default work place
+      - divide as-is/to-be concepts
+      - divide facts, observations, conclusions, [hypothesis](#hypothesis)
+      - use visual means/languages instead of more words 
+      - make accents on important things/objects
+    - use links 
+      - let links between docs and other artifacts -> intranet connectivity 
+      - let links to docs in letters/messages 
+    - form and struct
+      - content is primary, the form and the structure are secondary 
+      - content is expensive, the struct is easily changeable/mutable 
+      - doc-form outflows from process 
+      - don't generate struct before/without content
+      - create non-zero pages, empty templates confusing users 
+  - what to save/publish (recommendations, not an obligatory standard)
+    - customer, primary request 
+    - stakeholders, context
+    - relevant product(s), business processes
+    - anamnesis, past/existing artifacts 
+    - applied problem refinement, specified goal (its current vision)
+    - expectations about result 
+    - current result, status, next steps 
+    - methodics, design 
+    - logic, thesis, assumptions 
+    - [hypothesis](#hypothesis) and its status 
+    - used data-sources, instruments, artifacts
+    - current artifacts, links
+  - specific DA-docs types 
+    - [Hypothesis pool](#hypothesis)
+    - [KPI-dynamic analysis, anomaly investigation](./metrics.md#dynamic)
+    - [Model system design / Design-Doc](./ds.md#designdoc)
+- Reproducible Research concept
   - `course` [Johns Hopkins University - Reproducible Research](https://www.coursera.org/learn/reproducible-research)
     - goals
       - Organize data analysis to help make it more reproducible 
@@ -473,7 +598,6 @@
         - Case Study: Air Pollution
         - Case Study: High Throughput Biology
         - Commentaries on Data Analysis
-- [Design Doc](./ds.md#designdoc)
 
 ### Frameworks
 - Lean analytics 
@@ -504,57 +628,58 @@
 - [Data Science Frameworks](./ds.md#frameworks)
 
 <a name="maturity"></a>
-### Методы для разных стадий зрелости Даты в Бизнесе 
-- 7 вопросов к аналитикам (согласно [AI community @ Avito 2018-04-24](https://www.youtube.com/watch?v=QbISiKZRDLg))
-  - What happens? (Standard reporting)
-    - [BI-reporting](#bi)
-  - What, where, when? (AdHoc reports)
-    - adhoc reporting 
-  - Where is the problem? (Investigations)
-    - [anomaly investigation](./metrics.md#anomaly) 
-    - factor decomposition 
-    - [exploratory data analysis](./ds.md#eda) 
-    - correlation analysis
-    - [hypothesis testing](./ds.md#hypothesis)
-  - What [decisions](./arch.md#decision) are needed? (Detect, alerting)
-    - [anomaly detection](#anomaly) 
-    - [timeseries](#timeseries) decomposition 
-    - funnel analysis
-  - Why did this happen? (Statistic analysis)
-    - [AB-testing](#abt)
-    - [causal inference](#ci)
-  - What will happen next? (Extrapolations)
-    - [timeseries](#timeseries) forecasting 
-    - ML-forecasting 
-  - What if...? (Modeling)
-    - ML-prediction 
-  - What to do? (Optimization)
-    - recommenders
-- `video` [Microsoft: Data Architecture for Business](https://www.youtube.com/watch?v=ArzohefZLE4)
-  - The data science hierarchy of needs (pyramid)
-    - AI, DL
-    - Learn/optimize: [ABT](#abt), experimentation, simple ML algorithms
-    - Aggregate/label: Analytics, metrics, segments, aggregates, features, training data
-    - Explore/transform: Cleaning, [anomaly detection](#anomaly), prep
-    - Move/store: Reliable data flow, infrastructure, pipelines, ETL, structured and unstructured data storage
-    - Collect: instrumentation, logging, sensors, external data, UGC
-  - Timeline
-    - Start of a product
-    - Looking for a weekly reports and a [KPI](./metrics.md#kpi) [dashboard](#dash)
-    - [Anomaly detection](#anomaly) to see issues right away
-    - Want to make [decisions](./arch.md#decision) based on information
-    - Want a platform for a forensic analytics to speed up product development
-    - ...
-    - You are road-blocked by your current setup and looking for new opportunities/improvements
-    - Recognize you want to use your data more excessively
-    - Transition into a data-driven company
-  - Data collection
-    - Ownership and access of data
-    - Near-real time raw data
-    - No data sampling
-    - Personal identification Information
-    - Data model
-    - SDKs with persistent layer
+### Data-maturity
+- Методы для разных стадий зрелости Даты в Бизнесе 
+  - 7 вопросов к аналитикам (согласно [AI community @ Avito 2018-04-24](https://www.youtube.com/watch?v=QbISiKZRDLg))
+    - What happens? (Standard reporting)
+      - [BI-reporting](#bi)
+    - What, where, when? (AdHoc reports)
+      - adhoc reporting 
+    - Where is the problem? (Investigations)
+      - [anomaly investigation](./metrics.md#anomaly) 
+      - factor decomposition 
+      - [exploratory data analysis](./ds.md#eda) 
+      - correlation analysis
+      - [hypothesis testing](./ds.md#hypothesis)
+    - What [decisions](./arch.md#decision) are needed? (Detect, alerting)
+      - [anomaly detection](#anomaly) 
+      - [timeseries](#timeseries) decomposition 
+      - funnel analysis
+    - Why did this happen? (Statistic analysis)
+      - [AB-testing](#abt)
+      - [causal inference](#ci)
+    - What will happen next? (Extrapolations)
+      - [timeseries](#timeseries) forecasting 
+      - ML-forecasting 
+    - What if...? (Modeling)
+      - ML-prediction 
+    - What to do? (Optimization)
+      - recommenders
+  - `video` [Microsoft: Data Architecture for Business](https://www.youtube.com/watch?v=ArzohefZLE4)
+    - The data science hierarchy of needs (pyramid)
+      - AI, DL
+      - Learn/optimize: [ABT](#abt), experimentation, simple ML algorithms
+      - Aggregate/label: Analytics, metrics, segments, aggregates, features, training data
+      - Explore/transform: Cleaning, [anomaly detection](#anomaly), prep
+      - Move/store: Reliable data flow, infrastructure, pipelines, ETL, structured and unstructured data storage
+      - Collect: instrumentation, logging, sensors, external data, UGC
+    - Timeline
+      - Start of a product
+      - Looking for a weekly reports and a [KPI](./metrics.md#kpi) [dashboard](#dash)
+      - [Anomaly detection](#anomaly) to see issues right away
+      - Want to make [decisions](./arch.md#decision) based on information
+      - Want a platform for a forensic analytics to speed up product development
+      - ...
+      - You are road-blocked by your current setup and looking for new opportunities/improvements
+      - Recognize you want to use your data more excessively
+      - Transition into a data-driven company
+    - Data collection
+      - Ownership and access of data
+      - Near-real time raw data
+      - No data sampling
+      - Personal identification Information
+      - Data model
+      - SDKs with persistent layer
 
 <a name="metrics"></a>
 ## Метрики
