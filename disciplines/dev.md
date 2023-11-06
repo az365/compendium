@@ -52,7 +52,7 @@
 - популярные
   - [Python](#py)
   - R - среда вычислений, разработанная учёными для обработки данных, математического моделирования, работы с графикой
-  - Java
+  - [Java](#java)
   - JavaScript
   - [HTML](#html)
   - [SQL](#sql) - для создания, модификации и управления данными в реляционной БД, управляемой соответствующей СУБД 
@@ -225,6 +225,40 @@
       - 2.17 Function and Method Decorators
       - 2.19 Power Features
       - 2.21 Type Annotated Code
+- `doc` [Матрица компетенций Python-dev](https://clck.ru/36SBro)
+  - [Алгоритмы и структуры данных](./algo.md): структуры (list, linked list, hashmap, деревья), алгоритмы поиска и сортировки
+  - [Python](#py) 
+  - Пакеты, пакетные менеджеры: PyPi, virtualenv/pyenv, requirements, semver, private registry, proxying, pip, twine, setuptools, distutils / Pipfile, requirements.txt, setup.py / virtualenv, venv, pyenv / poetry, dephell, ...  
+  - Django: MTV/MVC, структура проекта/приложения, ORM, URLs, Views, Templates, Sessions/engines/authorization, Signals, deployment (uwsgi, gunicom, ...), безопасность  
+  - Django REST Framework: settings, APIView, serializers, URLs для API, Viewers/Viewsets, Pagination, Serializers/Renderers, Authentication/permissions, Caching/throttling/versioning
+  - asyncio: асинхронные функции, cpu/io-bound задачи, event loop, task/future/coroutine/callback, contextvars/cancellation/EventLoop.set_debug(), ASGI, trio/curio 
+  - Знание асинхронных фреймворков 
+  - SQLAlchemy 
+  - Другие фреймворки (flask, …)
+  - Celery 
+  - Форматы данных 
+  - UNIX-like 
+  - Git 
+  - Профилирование, отладка кода 
+  - Документирование (кода, сервисов)
+  - Безопасность приложений 
+  - Общая теория РСУБД 
+  - PostgreSQL 
+  - Архитектура и шаблоны Баз Данных 
+  - NoSQL БД: MongoDB, ...
+  - API – общее: Аутентификация (JWT, Oauth, Basic, ApiKey, …), JWT/Basic/Bearer, Frontend (специфика, CORS, XSRF, …), браузеры и мобильные приложения
+  - HTTP, RESTful 
+  - OpenAPI/swagger 
+  - Kafka 
+  - MQ 
+  - Redis 
+  - GitLab 
+  - Docker 
+  - Kubernetes, OpenShift 
+  - Прикладное ПО для эксплуатации 
+  - Мониторинг: Grafana, Prometheus, ELK 
+  - Тестирование: виды тестирования, unit-тесты, Mock, Stub, инструменты (py.test, coverage)
+  - [Архитектура систем](./arch.md#matrix)
 - Литература
   - [roadmap.sh: Python Developer](https://roadmap.sh/python)
   - рекомендуемые книги по Python
@@ -361,6 +395,61 @@
 <a name="cpp"></a>
 ### C++
 - `course` «Основы разработки на C++: белый пояс»: Илья Шишков, Антон Полднев, Евгений Парамонов, Иван Лежанкин
+
+<a name="java"></a>
+### Java
+- `doc` [Матрица компетенций backend java](https://clck.ru/36SB2Y)
+  - Алгоритмы и структуры данных
+  - Java Core
+  - Java Streams API
+  - Java Concurrency
+  - Spring Core: DI, IoC, PostProcessors
+  - Spring Web: в т.ч. ExceptionHandlers
+  - Spring Data: JPA, JDBC
+  - Spring Security
+  - Spring AOP
+  - GC
+  - Профилирование, отладка кода
+  - VM providers
+  - Форматы данных: XML, JSON, YAML
+  - UNIX-like: Навыки работы с Linux,  MacOS и тп
+  - Git: Примение системы контроля версий, механизмов ветвления и слияния
+  - Документирование (кода, сервисов, …): Documentation requirements
+  - Безопасность приложений
+  - Общая теория РСУБД
+  - Работа с PostgreSQL / Oracle
+  - NoSQL БД
+  - API сервисов: REST, SOAP, версионирование, обратная совместимость, идемподентность....
+  - HTTP, RESTful
+  - Websockets, HTTPS
+  - Kafka
+  - MQ
+  - Redis
+  - GitLab: MR, Code Review, Likes, comments and so on hooks
+  - Docker
+  - Kubernetes, OpenShift
+  - CI/CD
+  - Прикладное ПО для эксплуатации: nginx, ansible, vault...
+  - Мониторинг
+  - Тестирование
+  - Пакеты, пакетные менеджеры
+  - Архитектура систем
+  - Kotlin Core
+  - Kotlin Collections
+  - Kotlin Coroutines
+
+<a name="js"></a>
+### JavaScript
+- `doc` [Матрица Frontend JS](https://clck.ru/36SBKB)
+  - Git: merge/pull requests, commit message, diff, stash, reset, revert, rebase, cherry-pick, git-flow 
+  - CI/CD
+  - Вёрстка: HTML, блочная модель элемента, сетки (float/flex/grid), препроцессоры, адаптивность и кросс-браузерность, миксины и функции в препроцессорах, анимации
+  - JS: var/let/const, асинхронность (event loop, promise, async/await), классы/проототипы/замыкания, Set/Map, каррирование
+  - TS: type/interface, утилитарные типы, Enum, generic/перегрузка функций, декораторы
+  - React и/или Vue: жизненный цикл компонента, хуки useEffect, useState, useMemo, useCallback, useContext, useReducer, useRef, роутинг приложения
+  - Vuex
+  - Redux
+  - Computer networks & APIs: HTTP(S), WebSocket, SSL, TLS, OSI, TCP/IP, Ethernet 
 
 <a name="practice"></a>
 ## Практики
