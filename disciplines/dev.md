@@ -62,7 +62,8 @@
 ### Python
 - Python basis 
   - Python - ЯП общего назначения, ориентированный на повышение производительности разработчика и читаемости кода
-  - [roadmap.sh: Python Developer](https://roadmap.sh/python)
+  - `hub` [roadmap.sh: Python Developer](https://roadmap.sh/python)
+  - `course` `ipynb` [ФизТех.Статистика: Python для анализа данных](https://mipt-stats.gitlab.io/courses/python.html)
   - basics 
     - утиная типизация
       - отличия от (не)строгой
@@ -155,6 +156,7 @@
       - Seaborn
         - Seaborn basics: `home` https://seaborn.pydata.org
         - JoinPlot: `doc` [seaborn.jointplot](https://seaborn.pydata.org/generated/seaborn.jointplot.html)
+        - [`ipynb`](https://mipt-stats.gitlab.io/courses/python/09_seaborn.ipynb) [Физтех.Статистика: Библиотека Seaborn](https://mipt-stats.gitlab.io/courses/python/09_seaborn.html)
       - Plotly 
         - basics
           - `home` https://plotly.com/
