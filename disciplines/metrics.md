@@ -14,7 +14,7 @@
 - из Lean Analytics http://leananalyticsbook.com/
     - qualitative vs quantitative
     - vanity vs actionable (8 vanity m: hits, pageviews, visits, visitors, followers/likes, time on, emails collected, downloads)
-    - exploratory vs reporting metrics (the hidded genius of Donald Rumsfeld)
+    - exploratory vs reporting metrics (the hidden genius of Donald Rumsfeld)
     - accounting (how close you are to an ideal) vs experimental (help to optimize the product, pricing, market)
     - leading vs lagging
     - correlated vs causal
@@ -40,16 +40,25 @@
         - см. далее: Метрики в АБ-тестинге
     - абстрактные: счастье пользователя (то, что в идеале хотим померить, но не можем)
 - по назначению
-    - бизнесовые: оцифровка бизнес-модели 
+  - бизнесовые: оцифровка бизнес-модели 
+  - продуктовые 
     - аудиторные: MAU, DAU, Core, Churn/Retention, LT, LTV
-        - про ретеншены и LifeTime: http://kxk.ru/matriarhat/v1_693889__.php
-        - параметры сессионного LT/LTV: timeout, timebound
+      - про ретеншены и LifeTime: http://kxk.ru/matriarhat/v1_693889__.php
+      - параметры сессионного LT/LTV: timeout, timebound
     - поведенческие: как пользуются продуктом 
-        - сессионные (session-based)
-        - секвенциальные (CJM-based)
+      - сессионные (session-based)
+      - секвенциальные (CJM-based)
     - оценочные
-        - метрики качества продукта
-        - метрики качества ML-модели
+      - метрики качества продукта
+      - метрики качества ML-модели
+    - литература 
+      - [Иван Шамаев: Продуктовая аналитика. Топ 50 продуктовых метрик с примерами](https://ivan-shamaev.ru/product-analytics-top-30-product-metrics-with-examples/)
+  - статистические
+    - меры погрешности
+    - меры близости
+      - лингвистика
+        - расстояния левенштейна и джаккара 
+          - `post` [James Briggs @ Habr: Семантический поиск: от простого сходства Жаккара к сложному SBERT](https://habr.com/ru/companies/skillfactory/articles/566414/)
 
 <a name="prod"></a><a name="business"></a>
 ## Продуктовые и бизнесовые метрики
