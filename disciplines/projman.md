@@ -120,6 +120,7 @@
 ### Встречи, ритуалы
 - командные встречи 
   - scrum rituals
+    - [PBR](./prodman.md#pbr)
     - daily standup
       - `webinar` [Евгений Лабунский (Scrum Ukraine): Сила Daily Scrum: как улучшить динамику своей команды за 15 минут (2020)](https://youtu.be/xWKIHdOj80k)
         - Daily - самая короткая встреча в Scrum и самая недооцененная из всех. Крутой Daily scrum может в корне изменить динамику внутри команды.
@@ -687,6 +688,16 @@
     - убеждающие и мотивирующие письма клиентам и партнерам
     - трудные письма (ситуация нарушения интересов)
   - Литература
+    - `post` [Ася Окулова @ ИнфоСтарт: Деловая переписка. Как выедать мозг чайной ложечкой через письма и получать нужный результат](https://infostart.ru/pm/2051554/)
+      - `post` [Changellenge: Как писать email, который не отправят в спам](https://changellenge.com/article/zapovedi-delovoy-perepiski/)
+      - `post` [HSE: Как соблюдать этику деловой переписки](https://www.hse.ru/our/news/440630882.html)
+      - `post` [Александр Щукин (Тенденция): Этика деловой переписки](https://tendence.ru/articles/korporativnaya-email-perepiska-osobennosti-vedeniya-i-osnovnye-pravila-delovogo-obscheniya)
+      - `post` [Тимур Асланов @ Контур: 10 основных правил деловой переписки (2015)](https://kontur.ru/articles/2003)
+      - `post` [Илья Кривошеев (Неумека): Деловая переписка по эл.почте](https://neumeka.ru/pravila_obscheniya.html)
+      - `book` Максим Ильяхов, Людмила Сарычева - Новые правила деловой переписки
+      - `book` Саша Карепина - Искусство делового письма
+      - `book` Максим Ильяхов, Людмила Сарычева - Пиши, сокращай
+      - `book` Барбара Минто - Принцип пирамиды Минто
     - `wiki` [tlroadmap.io: Работа с текстом](https://tlroadmap.io/self-skills/communications/text.html)
 - нетворкинг 
   - `wiki` [tlroadmap.io: Нетворкинг](https://tlroadmap.io/self-skills/communications/networking.html)

@@ -33,6 +33,12 @@
     - проверка статистических гипотез - подтверждение или опровержении существующих [гипотез](hypothesis)
     - прогнозный анализ - применение статистических или структурных моделей для предсказания или классификации
     - анализ текста - статистические, лингвистические и структурные методы для извлечения и классификации информации из текстовых источников принадлежащих к неструктурированным данным
+  - по предметным областям 
+    - продуктовая аналитика
+      - [Иван Шамаев: Продуктовая аналитика. Топ 50 продуктовых метрик с примерами](https://ivan-shamaev.ru/product-analytics-top-30-product-metrics-with-examples/)
+    - веб-аналитика 
+    - маркетинговая аналитика
+    - ...
   - [области и методы](./datan.md#methods)
     - [временнЫе ряды](./datan.md#timeseries)
     - [продуктовая аналитика](./datan.md#product)
@@ -1481,14 +1487,14 @@
       - Интерпретируемая модель для оценки эффектвности промо-акций 
     - `track` [ODS: Causal and Interpretable ML @ DataFest 2021](https://ods.ai/tracks/interpretable-ml-df2021)
       - `video` [Ольга Филиппова (Открытие) - Causality and Shapley values](https://www.youtube.com/watch?v=rrreuktS0gk)
-        - зачем shapleey values
+        - зачем shapley values
           - Shapley values нужны чтобы понять
             - как модель принимает решения
             - как устроен мир
             - за какие рычаги дёргать, чтобы менять мир
           - From colitional game theory to ML model outputs explanation
-            - arxiv.org/pdf/2006.01272.pdf Shapley Explainability on the Data Manifold
-            - arxiv.org/pdf/1910.30413.pdf
+            - `paper` [C.Frye et al. @ ICLR: Shapley Explainability on the Data Manifold (2021)](https://arxiv.org/pdf/2006.01272.pdf)
+            - `paper` https://arxiv.org/pdf/1910.30413.pdf
         - виды Shapley Values
           - Marginal Shapley values
             - свойства Shapley values
@@ -1498,8 +1504,8 @@
               - Nullity: если фича не влияет на предсказание модели, её Shapley value равно нулю
           - Asymmetric Shapley values
             - в Asymmetric SV из свойств Shapley Values выпадает Symmetry
-            - arxiv.org/pdf/1910.06358.pdf
-            - youtube.com/watch?v=7d13f4UaAn0&t=3061s
+            - `paper` [C.Frye @ NeurIPS: Asymmetric Shapley values: incorporating causal knowledge into model-agnostic explainability (2020)](arxiv.org/pdf/1910.06358.pdf)
+            - `video` [C.Frye @ Faculty YouTube: Tech talk: More explainable AI with Asymmetric Shapley Values](https://youtube.com/watch?v=7d13f4UaAn0&t=3061s)
             - приложения
               - casual-based model explanations
                 - пример: предсказание зарплаты сотрудникам (1994 US Census)
@@ -1507,15 +1513,15 @@
               - data types with intrinsic ordering
             - ShapFlex - реализация Asymmetric Shapley Values на R: github.com/nredell/shapFlex
           - Causal Shapley values
-            - терминология bradyneal.com/causal-inference-course
+            - терминология `course` [Introduction to Causal Inference (2020)](https://bradyneal.com/causal-inference-course)
               - causal graph - инструмент опесания причинно-следственной модели данных
               - pearl's do-calculus - методика перевода causal estimate в statistical estimate
-            - partial causal ordering arxiv.org/pdf/2011.01625.pdf
+            - partial causal ordering: `paper` [T.Heskes et al. @ NeurIPS: Causal Shapley Values: Exploiting Causal Knowledge to Explain Individual Predictions of Complex Models (2020)](https://arxiv.org/pdf/2011.01625.pdf)
             - total_effect = direct_effect + indirect effect
-            - Caushapley - реализация Causal Shapley Values на R: gitlab.science.ru.nl/gbucur/caushapley
+            - Caushapley - реализация Causal Shapley Values на R: `git` [gbucur/CauSHAPley](https://gitlab.science.ru.nl/gbucur/caushapley)
         - реализации Shapley Values
-          - ShapFlex - реализация Asymmetric Shapley Values на R: github.com/nredell/shapFlex
-          - Caushapley - реализация Causal Shapley Values на R: gitlab.science.ru.nl/gbucur/caushapley
+          - ShapFlex - реализация Asymmetric Shapley Values на R: `git` [nredell/shapFlex](https://github.com/nredell/shapFlex)
+          - Caushapley - реализация Causal Shapley Values на R: `git` [gbucur/CauSHAPley](https://gitlab.science.ru.nl/gbucur/caushapley)
         - общие соображения по Shapley Values
           - методы causal inference пока не работают из коробки
             - определение причинно-следственных связей - это творчество и труд
@@ -1552,7 +1558,7 @@
             - зафиксировать значимые переменные при регрессии, которые влияют и на X, и на Y, чтобы чётко выделить влияние T на Y
           - инструментальные переменные
             - если влияющие на X и Y переменные нельзя измерить или они неизвестны
-            - Филипп Картаев - За пределами контролируемых экспериментов: инструментальные переменные: youtu.be/Qrz04qUMgVc
+            - Филипп Картаев - За пределами контролируемых экспериментов: инструментальные переменные: [Ф.Картаев (МГУ) @ ML Track ODS: За пределами контролируемых экспериментов. Инструментальные переменные (2020)](https://youtu.be/Qrz04qUMgVc)
           - Difference in Difference
             - изменение относительно контрольной группы и относительно прошлой динамике
             - Дмитрий Архангельский - Causal Inference in panel data: youtu.be/sFJ4tNVc5Kw
@@ -1636,6 +1642,8 @@
     - `course` [Brady Neal - Introduction to Causal Inference (2020)](https://www.bradyneal.com/causal-inference-course)
     - `course` [Penn @ Coursera - Crash Course In Causality](https://www.coursera.org/learn/crash-course-in-causality)
     - `track` [МГУ @ YouTube - Вводный курс про квази-экспериментальные методы](https://www.youtube.com/watch?v=Re62IvoWBvU&list=PLjCtgsu37IBLZV1mEZICTTVz5mNBihyPJ)
+    - `post` [О.Седухин @ ODS Habr: Интерпретация моделей и диагностика сдвига данных: LIME, SHAP и Shapley Flow (2022)](https://habr.com/ru/companies/ods/articles/599573/)
+      - `paper` [S.Lundberg, Su In Lee @ NIPS: A Unified Approach to Interpreting Model Predictions (2017)](https://arxiv.org/pdf/1705.07874.pdf)
 - Simple modeling
   - Causal Impact
     - based on: Bayesian structural time-series models

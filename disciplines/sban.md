@@ -117,14 +117,18 @@
         - нотации
             - BPMN - Business Process Model and Notation (https://habr.com/ru/company/trinion/blog/331254/)
                 - базовые объекты
-                    Event – Событие;
-                    Activity – Действия;
-                    Gateway – Шлюзы или Развилки;
-                    Flow – Поток.
-                    Date – Данные;
-                    Artefact – Артефакты;
-                    Swimline – «плавательные дорожки»;
-                    Pool (Пул) — набор.
+                    - Event – Событие
+                    - Activity – Действия
+                    - Gateway – Шлюзы или Развилки
+                    - Flow – Поток
+                    - Data – Данные
+                    - Artefact – Артефакты
+                    - Swimline – «плавательные дорожки»
+                    - Pool (Пул) — набор
+                - литература
+                  - https://habr.com/ru/company/trinion/blog/331254/
+                  - [Comindware: Нотация BPMN 2.0: ключевые элементы и описание](https://www.comindware.ru/blog/нотация-bpmn-2-0-элементы-и-описание/)
+                  - [Рамиль Кинзябулатов @ Инфостарт: Краткое описание BPMN с примером](https://infostart.ru/pm/640964/)
             - IDEF3 - Integrated Computer-Aided Manufacturing: Process Description Capture
             - EPC - Event-driven process chain - используется для настройки ERP
         - CRM с поддержкой моделирования бизнес-процессов

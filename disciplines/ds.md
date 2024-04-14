@@ -8,10 +8,18 @@
   - linear algebra
   - numerical optimisation
 - [programming](./dev.md)
+- [data analysis](./datan.md)
 
 <a name="supervised"></a>
 ## Supervised learning
 обучение с учителем = обучение на размеченных выборках = supervised learning
+
+### Tasks
+задачи обучения с учителем
+- regression | регрессия
+  - `post` [О.Седухин @ ODS Habr: Теория вероятностей в машинном обучении. Часть 1: модель регрессии (2023)](https://habr.com/ru/companies/ods/articles/713920/)
+- classification | классификация
+  - `post` [О.Седухин @ ODS Habr: Теория вероятностей в машинном обучении. Часть 2: модель классификации (2023)](https://habr.com/ru/companies/ods/articles/714670/)
 
 ### Methods and models
 methods/models for regression&classification
@@ -55,8 +63,12 @@ methods/models for regression&classification
   - Random Forest
     - Random Forests explained intuitively https://www.datasciencecentral.com/profiles/blogs/random-forests-explained-intuitively
   - GBDT
-    - Gradient Boosting explained http://arogozhnikov.github.io/2016/06/24/gradient_boosting_explained.html
-    - TimeBudget = Iterations * BorderCount * RSM
+    - intro
+      - `post` [О.Седухин @ Habr: CatBoost, XGBoost и выразительная способность решающих деревьев (2022)](https://habr.com/ru/companies/ods/articles/645887/)
+    - интерактивная визуализация аппроксимации функций деревьями 
+      - `post` [А.Рогожников @ github.io: Gradient Boosting explained. Demonstration (2016)](http://arogozhnikov.github.io/2016/06/24/gradient_boosting_explained.html)
+    - скорость обучения, зависимость времени от параметров 
+      - TimeBudget = Iterations * BorderCount * RSM
   - ExtraTrees
     - ExtraTrees classifier always tests random splits over fraction of features (in contrast to RandomForest, which tests all possible splits over fraction of features)
   - RGF - Regularized GreedyForest
@@ -647,6 +659,8 @@ methods/models for regression&classification
   - LIME functions
   - SHAP functions
   - ELI5 functions
+- `post` [О.Седухин @ Habr: Интерпретация моделей и диагностика сдвига данных: LIME, SHAP и Shapley Flow (2022)](https://habr.com/ru/companies/ods/articles/599573/)
+  - `paper` [S.Lundberg, Su In Lee @ NIPS: A Unified Approach to Interpreting Model Predictions (2017)](https://arxiv.org/pdf/1705.07874.pdf)
 - `video` [Д.Воротынцев (Oura): ML Interpretability Problems in Tabular Data Tasks (2020)](https://youtu.be/jOfl9_utKx8)
 - self-explainable models 
   - `paper` [LTI, CMU - A Self-Explaining Architecture for Neural Text Classifiers](https://arxiv.org/pdf/2103.12279.pdf)
