@@ -245,7 +245,10 @@
             - частый частный случай: отображение дерева иерархии (товаров, например)
                 - пример https://dl.acm.org/cms/attachment/7081f85b-d731-41bd-9af6-26c5cde19e91/heer_fig4a.png https://queue.acm.org/detail.cfm?id=1805128 
                 - альтернатива для дерева: прямоугольники с мощностями классов
-        - [графы](./math.md#graph), укладка, [кластеризация](./ds.md#clustering) (+деревья, +simple-flow-charts)
+        - [графы](./math.md#graph), укладка, [кластеризация](./ds.md#clustering)
+            - отдельные типы графов
+                - деревья | dendrogram
+                - simple-flow-charts
             - примеры: 
                 - схема метро
                 - [кластера](./ds.md#clustering) 
@@ -263,6 +266,11 @@
             - хитмап, карты изолиний (триангуляция?), берк-штрихи, потоки 
         - гео 
             - точки, линии, изолинии, потоки 
+            - инструменты для geo
+                - `git` [GeoPlotLib](https://github.com/andrea-cuttone/geoplotlib)
+                  - `wiki` [GeoPlotLib UserGuide](https://github.com/andrea-cuttone/geoplotlib/wiki/User-Guide)
+                - `app` [Kepler.gl - geo/spacial visuals](https://kepler.gl/)
+                  - [`git`](https://github.com/keplergl/kepler.gl)
         - подсветка объектов на фото/видео 
             - примеры
                 - отображение дорожной ситуации в беспилотном автомобиле
