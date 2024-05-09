@@ -121,6 +121,23 @@
       - redundance/replication
       - ...
 
+<a name="notations"></a>
+### Нотации моделирования архитектуры
+- `post` [Аналитика @ Дзен: ТОП-5 нотаций моделирования архитектуры (2023)](https://dzen.ru/a/ZOjV_xObZlWXDQfA)
+  - Unified Modeling Language (UML)
+  - ArchiMate
+  - Business Process Model and Notation (BPMN)
+  - Data Flow Diagram (DFD)
+  - SysML (UML-based) 
+- `post` [Екатерина Ананьева (GetAnalyst community, The Digital Unicorn, USA) @ Habr: Нотация моделирования архитектуры С4 — примеры диаграмм и инструменты (2023)](https://habr.com/ru/articles/778726/)
+  - популярные нотации для визуализации схем архитектуры: C4, ArchiMate, SysML, 4+1, AADL
+  - расшифровка с4: context, containers, components, code
+    - context | контекст
+    - containers | контейнеры
+    - components | компоненты
+    - code | код
+  - инструменты для c4: draw.io (diagrams.net), Miro, MS Visio, Structurizr DSL, PlantUML, 
+
 <a name="api"></a>
 ### APIs 
 - API Gateway https://www.youtube.com/watch?v=vHQqQBYJtLI
