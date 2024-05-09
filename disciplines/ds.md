@@ -877,6 +877,17 @@ methods/models for regression&classification
       - оценка загородной недвижимости
       - распределение задач по экспертам 
       - оценка легковых автомобилей 
+  - `meetup` [Reliable ML @ DataFest 2022](https://ods.ai/tracks/reliable-ml-df2022)
+- `meetup` [ODS Reliable ML - АБТ & CI 2022-12-17](https://ods.ai/tracks/reliable_ml_ab_testing-causal_inference_meetup)
+  - Ваагн Минасян: Оценки с двойной надёжностью для выявления причинно-следственных связей в бизнесе 
+  - Васькин Дмитрий: Synthetic Control для AБ тестов на малых размерах выборок 
+  - Аслан Байрамкулов: Ambrosia - open-source библиотека для быстрой и удобной работы с A/B тестами 
+  - Артём Ерохин: Методы балансировки в Causal Inference 
+  - Александр Сахнов: Парный, пуассоновский и дикий бутстреп 
+  - Валерий Бабушкин: Метрики: от офлайна до иерархии 
+  - Григорий Чернов: Про что не расскажут АБ тесты: Causal Discovery Methods for Experimental Design 
+  - Дмитрий Торшин: Causal Impact и как его готовить 
+  - Максим Кочуров: Планирование Байесовских АБ-тестов
 - `meetup` ODS Reliable ML - [AB-testing](./datan.md#abt) & [Causal Inference](./datan.md#ci) 2023-01-17
   - `video` [Валерий Бабушкин - Метрики: от офлайна до иерархии](https://youtu.be/RxQWOTlGv2M)
   - `video` [Александр Сахнов - Парный, пуассоновский и дикий бутстреп](https://youtu.be/N1_iN1oO3UU)
@@ -1084,6 +1095,7 @@ methods/models for regression&classification
       - `doc` [A beginner guide for sale data prediction](https://www.kaggle.com/minhtriet/a-beginner-guide-for-sale-data-prediction)
   <a name="pricing"></a>
   - ценообразование
+    - `video` [ECR @ YouTube: Подходы и инструменты для оптимизации промо-процессов в FMCG-компаниях 2023-02-28](https://youtu.be/x_-4Ia2GoI0)  
     - `video` [Богдан Печёнкин (carpov.cources) @ YouTube - Как построить ML-ценообразование на маркетплейсе](https://www.youtube.com/watch?v=cC1Z7r2WO9E)
       - `miro` [Dynamic Pricing ML System Design](https://miro.com/app/board/uXjVODg5odE=)
       - `tg` `blog` [Богдан Печёнкин - телеграм-канал автора](https://t.me/bogdanisssimo)
@@ -1258,6 +1270,8 @@ Cross-industry standard process for data mining
   - Как версионировать данные и возможно ли это?
   - Существует ли test driven development в Data Science?
   - Как (можно) хранить модели и состояния датасетов?
+- CRISP-ML(Q): Cross-Industry Standard Process for the development of Machine Learning applications with Quality assurance methodology
+  - `post` [ML-ops.org: CRISP-ML(Q)](https://ml-ops.org/content/crisp-ml)
 
 <a name="leands"></a>
 ### Методология LeanDS
@@ -1280,7 +1294,7 @@ LeanDS (с митапов Асхата Уразбаева)
     - experimenting - работа с данными, создание модели, тестирование и верификация
     - evaluation - приёмка заказчиком, валидация модели
     - development - подготовка к деполю
-    - prod/abt - валидаци в проде (АБТ)
+    - prod/abt - валидация в проде (АБТ)
   - свимлвйны - отдельные продуктовые гипотезы
   - на выходе - Findings
 - метрики
