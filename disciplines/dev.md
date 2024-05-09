@@ -53,7 +53,7 @@
   - [Python](#py)
   - R - среда вычислений, разработанная учёными для обработки данных, математического моделирования, работы с графикой
   - [Java](#java)
-  - JavaScript
+  - [JavaScript](#js)
   - [HTML](#html)
   - [SQL](#sql) - для создания, модификации и управления данными в реляционной БД, управляемой соответствующей СУБД 
   - C++
@@ -379,6 +379,7 @@
     - `post` [Я.Практикум - Как устроен язык SQL и почему он так востребован](https://practicum.yandex.ru/blog/chto-takoe-sql/)
     - `post` [Игорь Агапов @ Habr - Памятка/шпаргалка по SQL](https://habr.com/ru/post/564390/)
     - `post` [Даниил Джепаров (EPAM) @ Habr - Оконные функции SQL простым языком с примерами](https://habr.com/ru/post/664000/)
+    - `post` [СитиМобил @ Habr: Читаем EXPLAIN на максималках](https://habr.com/ru/companies/citymobil/articles/545004/)
   - книги
     - `post` [Selectel @ vc.ru - 7 полезных книг по PostgreSQL для старта и развития навыков](https://vc.ru/dev/478765-7-poleznyh-knig-po-postgresql-dlya-starta-i-razvitiya-navykov)
     - `book` [Г.Домбровская, Б.Новиков, А.Бейликова - Оптимизация запросов в PostgreSQL](https://www.ozon.ru/product/optimizatsiya-zaprosov-v-postgresql-novikov-boris-dombrovskaya-g-r-335588361)
@@ -414,7 +415,7 @@
   - Профилирование, отладка кода
   - VM providers
   - Форматы данных: XML, JSON, YAML
-  - UNIX-like: Навыки работы с Linux,  MacOS и тп
+  - UNIX-like: Навыки работы с Linux, MacOS и тп
   - Git: Примение системы контроля версий, механизмов ветвления и слияния
   - Документирование (кода, сервисов, …): Documentation requirements
   - Безопасность приложений
@@ -452,6 +453,21 @@
   - Vuex
   - Redux
   - Computer networks & APIs: HTTP(S), WebSocket, SSL, TLS, OSI, TCP/IP, Ethernet 
+- `compendium` [визуализация данных на JavaScript](./datavis.md)
+  - библиотеки/инструменты
+    - [ECharts](https://echarts.apache.org/en/index.html)
+    - [HighCharts](https://highcharts.com) - коммерческий, используется в дешбордах
+    - [Chart.js](https://github.com/chartjs/Chart.js#readme)
+    - [d3js: Data-Driven Documents](http://d3js.org) - лучшие интерактивные визуализации 
+      - `off` [D3js.org](http://d3js.org)
+      - `git` [github.com/d3](https://github.com/d3/d3)
+      - [Дима Семьюшкин @ Habr: Введение в d3js](https://habr.com/ru/company/datalaboratory/blog/217905)
+    - [dc.js](https://github.copm/dc-js/dc.js#readme) Dimensional Charting Javascript Library http://nickqizhu.github.com/dc.js
+    - [LeafLet.js](https://github.com/Leaflet/Leaflet#readme)
+    - [Sigma.js](https://www.sigmajs.org)
+    - [Vega](https://github.com/vega/vega#readme)
+    - [Epoch](https://epochjs.github.io/epoch)
+    - [bokeh](https://docs.bokeh.org) - js-визуализация для Python-ноутбуков позволяет рисовать динамические графики для моделей 
 
 <a name="practice"></a>
 ## Практики
