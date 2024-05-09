@@ -113,7 +113,7 @@
 - Требования к кандидату в продакт-менеджеры
     - личностные характеристики и установки
         - страстная увлечённость продуктом
-        - умение поставить себя на место клиена
+        - умение поставить себя на место клиента
         - интеллект
     - отношение к работе
         - честность и добросовестность
@@ -126,6 +126,8 @@
         - коммуникативные навыки
         - деловые навыки
     - опыт в предметной области не важен
+- `git` [avito-tech/playbook @ GitHub: Управление продуктом](https://github.com/avito-tech/playbook/blob/master/product-management.md)
+- `git` [avito-tech/playbook @ GitHub: Профили продакт-менеджеров](https://github.com/avito-tech/playbook/blob/master/product-levels.md)
 
 <a name="man"></a>
 ### [Управление](./projman)
@@ -191,6 +193,11 @@
         - S: Slice - разделение [пользовательских историй](#story) (больших задач) на мелкие для выделения самого важного
         - O: Order - приоритезация задач в беклоге (чаще всего, спринта)
         - B: Bench - выкинуть лишнее из бэклога
+- приоритезация
+  - методы приоритезации проектов, фичей, задач, гипотез
+    - RIES
+    - ICE
+    - Moscow
 
 <a name="methods"></a>
 ## Методы и концепции
@@ -258,11 +265,14 @@
 
 ### Выявление требований
 - Способы выявления
-    - customer development
+    - CustDev | Customer Development
+      - способы
         - интервью
         - опросы
         - анкетирование
         - фокус-группы
+      - литература
+        - Роб Фитцпатрик - Спроси Маму. Как общаться с клиентами и подтвердить правоту своей бизнес-идеи, если все кругом врут?
     - наблюдение
         - наблюдение за пользователями
         - анализ моделей деятельности
@@ -479,7 +489,7 @@
 
 ### Книги 
 - `book` [Marty Cagan - Inspired / На Крючке. Как создавать продукты-хиты](https://www.ozon.ru/context/detail/id/30696453/)
-- Алан Купер - Интерфейс https://habr.com/ru/company/piter/blog/277325/
+- `book` [Алан Купер - Интерфейс](https://habr.com/ru/company/piter/blog/277325/)
 - Карл Вигерс (Microsoft) - Разработка требований к программному обеспечению
 - Интерком о продакт менеджменте (рекомендует Иван Замесин) https://docs.google.com/document/d/1Ygw9hPIEqq7ms_ZuGniawheI0ZkoRukLXHOs0Qxusig/edit#
 - Роман Пихлер - Управление продуктом в Scrum https://www.mann-ivanov-ferber.ru/books/upravlenie-produktom-v-scrum/
@@ -488,3 +498,8 @@
 ### Блоги
 - https://gopractice.ru
 - http://sergeytikhomirov.ru
+
+### Доки
+- `git` [avito-tech/playbook @ GitHub: Управление продуктом](https://github.com/avito-tech/playbook/blob/master/product-management.md)
+- `git` [avito-tech/playbook @ GitHub: Профили продакт-менеджеров](https://github.com/avito-tech/playbook/blob/master/product-levels.md)
+
