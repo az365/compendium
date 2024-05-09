@@ -466,7 +466,7 @@
   - data-driven business
 
 <a name="db"></a>
-### Базы данных
+### DataBases / Базы данных
 - RDBMS/реляционные
   - нормальные формы
     - 1NF
@@ -514,6 +514,14 @@
       - типы, идентификаторы и разрядность полей
       - размещение данных на машинных носителях, то есть, какой файл, какие объекты, с какими атрибутами содержит
     - Онлайн генератор схем баз данных https://habr.com/ru/post/111754/
+
+### Data formats
+- structured 
+  - columnar: csv, tsv, tskv, ...
+  - object tree: json, yaml, xml 
+    - yaml
+      - `post` [Ruud van Asseldonk @ Habr: YAML из ада (2023)](https://habr.com/ru/articles/710414)
+      - `doc` [1Cloud Docker help: Краткий мануал по YAML](https://1cloud.ru/help/docker/manual_yaml)
 
 ### Data architecture
 - архитектура хранилищ данных https://habr.com/ru/post/441538/

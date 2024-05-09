@@ -2,6 +2,10 @@
 
 <a name="intro"></a>
 ## Intro
+- Что такое данные 
+  - `doc` [ISO/IEC/IEEE 24765:2017 Systems and software engineering. Vocabulary](https://www.iso.org/standard/71952.html)
+    - EN: Data is a representation of facts, concepts, or instructions in a manner suitable for communication, interpretation, or processing by humans or by automatic means
+    - RU: Данные - предтавление фактов, понятий или инструкций в форме, приемлемой для обобщения, интерпретации или обработки человеком или с помощью автоматических стредств
 - [Что такое Дата-аналитика](#tasks)
   - извлечение знаний из данных
   - исследования и расследования 
