@@ -318,6 +318,12 @@
       - `wiki` [tlroadmap.io: Понимание ценности различий](https://tlroadmap.io/self-skills/relationship/diversity.html)
     - найм и увольнение
       - `wiki` [tlroadmap.io: Увольнение](https://tlroadmap.io/roles/people-manager/people-management/firing.html)
+      <a name="fit"></a>
+      - проведение фит-интервью
+        - STAR-method
+          - [М.Болотская, Н.Грачева @ UniSender: Методика STAR](https://www.unisender.com/ru/glossary/chto-takoe-metodika-star/)
+          - [Елена Леонова @ Hurma: Как провести собеседование по методике STAR? (2019)](https://hurma.work/rf/blog/kak-provesti-sobesedovanie-po-metodike-star-2/)
+        - PARLA-method
     - управление компетенциями
       - `chapter` [управление компетенциями](#skillman)
     - запуск команды
@@ -1089,7 +1095,7 @@
       - техники приведения к согласию 
         - определиться, как будет приниматься решение
         - шкала согласия: 3/5/8 степеней согласия
-      - понятие "консент"
+      - понятие "консент" | concent
         - `post` [Александр Шемякин @ Дзен: Консент или консенсус? Как внедрять нововведения в компании](https://dzen.ru/a/YD-QHq_ADkxlBwFx)
         - [neoinnovators.ru: Принятие решений методом Консента (Consent decision making)](https://about.neoinnovators.ru/library/s3/pattenry-socikokratii-3.0-s3/1.4-prinyatie-reshenii-metodom-konsenta-consent-decision-making)
     - поддержание энергии (задайте темп, боритесь с сонливостью участников)
