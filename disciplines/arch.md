@@ -397,12 +397,6 @@
 
 <a name="level"></a>
 ### Уровни протоколов/архитектур
-- архитектура предприятия 
-  - `post` [А.Радзишевский @ Habr - Архитектура ИТ решений. Часть 1. Архитектура предприятия](https://habr.com/ru/post/347204/)
-    - 1 EIA - Enterprise Information Architecture
-    - 2 ESA - Enterprise Solution Architecture
-    - 3 ETA - Enterprise Technical Architecture
-    - 4 EBA - Enterprise Business Architecture
 - архитектуры
   - CORBA - Common Object Request Broker Architecture
   - ...
@@ -448,6 +442,127 @@
 - стремление к простоте
   - rich hickey - simple made easy
   - аналогия между adhoc-исключениями в научных теориях (когда они перестают объяснять факты) и костылями в коде (когда реализация новых требований перестаёт ложиться в архитектуру/дизайн технологии)
+
+<a name="ea"></a>
+## Enterprise architecture
+Архитектура предприятия
+- методологии
+  - TOGAF - Open Group Architecture Framework от консорциума The Open Group
+    - литература
+      - `post` [Rajesh Verma @ TowardsAI.net: Enterprise Architecture, TOGAF 10 & Enterprise Agility (2023)](https://towardsai.net/p/l/enterprise-architecture-togaf-10-enterprise-agility)
+        - перевод: `post` [Rajesh Verma @ Habr: Архитектура предприятия, TOGAF 10 и адаптивность организационной структуры (2023)](https://towardsai.net/p/l/enterprise-architecture-togaf-10-enterprise-agility)
+      - `post` [Рустем Галиев (IBM) @ Habr: Enterprise Architecture и ее подходы (2023)](https://habr.com/ru/companies/otus/articles/710138/)
+    - consists from
+      - ADM - TOGAF Architecture Development Method | метод разработки архитектуры
+        - этапы (caution: замечено противоречие нумерации/перевода между источниками):
+          - 1: понимание
+            - вИдение
+              - A: architecture vision | цикл разработки архитектуры
+            - ABB: Architecture Building Blocks - решить, что необходимо
+              - B: business architecture | бизнес-архитектура
+              - C: information systems architecture | архитектура данных, архитектура приложений
+              - D: technology architecture | технологическая архитектура
+          - 2: определение
+            - SBB: Solution Building Blocks - выбор реализации решения
+              - E: opportunities and solutions | возможности и решения
+              - F: migration planning | планирование миграции
+          - 3: управление
+            - G: implementation governance | управление реализацией
+            - H: architecture change management 
+      - CF - TOGAF Content Framework
+        - `doc` https://pubs.opengroup.org/togaf-standard/architecture-content/chap01.html
+          - content framework overview
+            - architecture principles, vision, requirements
+              - preliminary 
+              - architecture requirements
+              - architecture vision
+            - architecture definition
+              - motivation
+              - business architecture
+              - information systems architecture
+              - technology architecture
+            - architecture realization
+              - opportunities, solutions, migration planning
+              - implementation governance
+- литература
+  - `post` [А.Радзишевский @ Habr - Архитектура ИТ решений. Часть 1. Архитектура предприятия (2018)](https://habr.com/ru/post/347204/)
+    - 1 EIA - Enterprise Information Architecture
+    - 2 ESA - Enterprise Solution Architecture
+    - 3 ETA - Enterprise Technical Architecture
+    - 4 EBA - Enterprise Business Architecture
+  - `post` [Рустем Галиев (IBM) @ Habr: Enterprise Architecture и ее подходы (2023)](https://habr.com/ru/companies/otus/articles/710138/)
+    - EA - это практика проектирования, планирования и управления общей структурой и работой организации
+      - связана с согласованием технологий, процессов и людей организации с ее бизнес-целями и стратегией
+    - платформы и методологии
+      - TOGAF - Open Group Architecture Framework от консорциума The Open Group
+        - ADM - метод разработки архитектуры, этапы:
+          - A: цикл разработки архитектуры
+          - B: бизнес-архитектура
+          - C: архитектура данных
+          - D: архитектура приложений
+          - E: технологическая архитектура
+          - F: возможности и решения
+          - G: планирование миграции
+          - H: управление реализацией
+      - FEAF - Federal Enterprise Architecture Framework
+        - используется правительством США
+        - 5 компонентов
+          - эталонная модель
+          - BRM: эталонная бизнес-модель
+          - DRM: эталонная модель данных
+          - TRM: техническая эталонная модель
+          - SRM: эталонная модель услуг
+      - Zachman Framework
+        - матрица, состоящая из шести строк и столбцов
+          - строки - 6 вопросов wh*: who, what, where, when, why, how
+          - столбцы - 6 категорий: контекста, мотива, масштаба, перспективы, реализации, эволюции
+      - методологии IBM
+        - RAIE - эталонная архитектура IBM для интеллектуальных предприятий
+        - RSA - IBM Rational System Architect
+        - EAP - IBM Enterprise Architecture Practice
+  - `post` [Рустем Галиев (IBM) @ Habr: Архитектура предприятия в гигантах индустрии. FAANG+IBM (2023)](https://habr.com/ru/companies/otus/articles/711238/)
+  - `post` [Максим Лукьянов @ Otus: Описание архитектурного ландшафта fintech-компании](https://otus.ru/journal/opisanie-arhitekturnogo-landshafta-fintech-kompanii/)
+    - бизнес-модель по Остервальду 
+    - бизнес-архитектура
+      - value stream
+      - capabilities
+      - motivation view 
+    - data assets 
+    - integrations
+    - comparison of solutions 
+    - implementation & migration 
+    - IT infrastructure requirements
+    - IT infrastructure
+    - реализация и планирование
+      - transformation roadmap
+  - `course` [OTUS: Enterprise Architect](https://otus.ru/lessons/arch_ent/)
+    - архитектура и стратегия
+      - структура и жизненный цикл архитектуры предприятия
+      - разработка и презентация стратегического видения
+    - бизнес-архитектура
+      - иерархическая декомпозиция структуры предприятия
+      - организационная декомпозиция и целеполагание
+      - моделирование элементов бизнес-архитектуры и их взаимосвязей
+    - архитектура информационной среды 
+      - информационная архитектура и data-driven организация
+      - информационная архитектура и бизнес-глоссарий
+      - типовые решения - паттерны корпоративного ландшафта 
+      - интеграционная архитектура - паттерны интеграции
+    - техническая архитектура 
+      - выбор технологического стека и оценка решений
+      - технологии и интеграции - exchange capacity
+      - инфраструктура и поддержка
+    - архитектурное исследование
+      - коммуникации архитектора и принятие архитектурных решений
+    - управление архитектурой и реализация изменений
+      - формирование и управление траектории развития
+      - аспекты миграции из текущего в целевое состояние
+      - архитектурное управление рисками и тех-долгом
+      - архитектурные стандарты и architecture-as-a-code
+      - обеспечение архитектурных стандартов 
+      - архитектура гибкой цифровой организации
+- корпоративная архитектура 
+  - `post` [Варвара Фролочкина (X5) @ Habr: Короткий или длинный путь: зачем проекту корпоративный архитектор? (2024)](https://habr.com/ru/companies/X5Tech/articles/807067)
 
 <a name="data"></a>
 ## Data
