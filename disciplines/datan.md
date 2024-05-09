@@ -39,7 +39,8 @@
     - анализ текста - статистические, лингвистические и структурные методы для извлечения и классификации информации из текстовых источников принадлежащих к неструктурированным данным
   - по предметным областям 
     - продуктовая аналитика
-      - [Иван Шамаев: Продуктовая аналитика. Топ 50 продуктовых метрик с примерами](https://ivan-shamaev.ru/product-analytics-top-30-product-metrics-with-examples/)
+      - `post` [Иван Шамаев: Продуктовая аналитика. Топ 50 продуктовых метрик с примерами](https://ivan-shamaev.ru/product-analytics-top-30-product-metrics-with-examples/)
+      - `collection` [Head of Analytics Павел Бухтик (Яндекс): Сборник тестовых заданий для Product Analyst и Data Analyst](https://pavelbukhtik.notion.site/Product-Analyst-Data-Analyst-a5f7bea5a0064960bbdb7a3ee1e46e97)
     - веб-аналитика 
     - маркетинговая аналитика
     - ...
@@ -900,6 +901,7 @@
     - feature-based модели на временнЫх рядах
       - линейная регрессия 
       - XGBoost на временнЫх рядах
+  - `ipynb` [Chuguevskij/Time-series/web_traffic_prediction.ipynb](https://github.com/Chuguevskij/Time-series/blob/main/web_traffic_prediction.ipynb)
 - популярные методы и библиотеки
   - Facebook Prophet 
     - `post` [ODS: Предсказываем будущее с помощью библиотеки Facebook Prophet](https://habr.com/ru/company/ods/blog/323730/)
@@ -1248,6 +1250,15 @@
     - bayesian structural time-series model 
     - регрессионный анализ (распределение ошибок предсказаний линрег смещается при воздействии)
     - [causal impact](#ci)
+<a name="bayes"></a>
+- байесовское АБ-тестирование
+  - основано на [Байесовских методах](./math.md#bayes)
+  - литература
+    - `video` [Н.Багинян (Райфайзен): Peeking at A/B tests / Последовательное тестирование (2020)](https://youtu.be/BJwNdethKwQ) 
+      - `post` [TDS - Простой гид по Байесовскому АБТ на Python](https://academy.yandex.com/journal/prostoy-gid-po-bayesovskomu-a-b-testirovaniyu-na-python)
+      - `course` [Максим Кочуров - State of Bayes Lecture Series: Session 5 AB testing](https://www.meetup.com/pymc-labs-online-meetup/events/293841718)
+      - `git` [GrowthBook](https://github.com/growthbook) - Python-библиотека для Байесовского АБТ
+    - `post` [TDS - Простой гид по Байесовскому АБТ на Python](https://academy.yandex.com/journal/prostoy-gid-po-bayesovskomu-a-b-testirovaniyu-na-python)
 - проблемы и решения 
   - некорректный эксперимент 
     - пересмотреть методику и реализацию, перепровести
@@ -1274,7 +1285,7 @@
       - `video` [Н.Багинян (Райфайзен): Peeking at A/B tests / Последовательное тестирование (2020)](https://youtu.be/BJwNdethKwQ) 
         - решения Peeking problem 
           - уменьшим уровень значимости (плохой путь)
-          - [байесовское](./math.md#bayes) АБТ 
+          - [байесовское АБТ](#bayes) 
             - `post` [TDS - Простой гид по Байесовскому АБТ на Python](https://academy.yandex.com/journal/prostoy-gid-po-bayesovskomu-a-b-testirovaniyu-na-python)
             - `course` [Максим Кочуров - State of Bayes Lecture Series: Session 5 AB testing](https://www.meetup.com/pymc-labs-online-meetup/events/293841718)
             - `git` [GrowthBook](https://github.com/growthbook) - Python-библиотека для Байесовского АБТ
