@@ -176,7 +176,13 @@
     - [statistic](./math.md#stat), [modeling](./datan.md#modeling)
       - statsmodels
       - sklearn 
-    - python for db: https://www.coursera.org/learn/python-databases
+    - python for db
+      - `course` https://www.coursera.org/learn/python-databases
+      - SQL-alchemy 
+        - `post` [SkillBox: SQLAlchemy: что это такое и зачем нужно](https://skillbox.ru/media/code/sqlalchemy-chto-eto-takoe-i-zachem-nuzhno/)
+        - `site` [SQLAlchemy: The Python SQL Toolkit and Object Relational Mapper](https://www.sqlalchemy.org/)
+        - `doc` [SQLAlchemy: Declarative API](https://docs.sqlalchemy.org/en/13/orm/extensions/declarative/api.html#sqlalchemy.ext.declarative.declarative_base)
+        - `git` [sandix90/sqlalchemy_basics (lessons)](https://github.com/sandix90/sqlalchemy_basics)
   - distributed computing py-libs
     - Dask
     - PySpark
