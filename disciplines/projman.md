@@ -513,7 +513,7 @@
       - `chapter` [performance review](#review)
       - `chapter` [обратная связь](#feedback)
 
-<a name="skillman></a>
+<a name="skillman"></a>
 ### Skill-management / Управление компетенциями
 - intro
   - литература
@@ -648,7 +648,7 @@
 - [деловая коммуникация](#external)
 - [деловая переписка](#letter)
 
-<a name="external"></a><a name="business"></a>
+<a name="external"></a> <a name="business"></a>
 ### Деловая коммуникация и переписка
 - деловая коммуникация
   - схема восприятие-действие-результат

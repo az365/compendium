@@ -451,6 +451,7 @@
         - очистка данных
         - агрегация данных
       - [исследовательский анализ данных (EDA)](./ds.md#eda)
+
 ### DA-docs
 <a name="docs"></a>
 - [Design Doc](./ds.md#designdoc)
@@ -818,10 +819,10 @@
   - `post` [Habr: SkillFactory - Операционализация. Азы психологии для DA](https://habr.com/ru/company/skillfactory/blog/554430/)
     - Операционализация - это создание поддающихся измерению приближённых значений для тщательного изучения нечётких понятий.
 
-<a name="domains"></a><a name="methods"></a>
+<a name="domains"></a> <a name="methods"></a>
 ## Области и методы
 
-<a name="series"></a><a name="timeseries"></a><a name="ts"></a>
+<a name="series"></a> <a name="timeseries"></a> <a name="ts"></a>
 ### Timeseries
 - что это ([wiki](https://ru.wikipedia.org/wiki/Временной_ряд))
   - временной ряд - собранный в разные моменты времени статистический материал о значении каких-либо параметров исследуемого процесса
@@ -1224,7 +1225,8 @@
     - не красить контроли (АА-тест)
     - чувствительность (красить лучше других)
     - применимость (некоторые метрики не совместимы с некоторыми типами экспериментов)
-- <a name="bootstrap"></a>бутстрэп
+<a name="bootstrap"></a>
+- бутстрап | bootstrap
   - `video` [Карта статистических методов: bootstrap VS t-test](https://www.youtube.com/watch?v=-zps6hm0nX8)
   - `video` [И.Кацев (Яндекс): Как повысить чувствительность метрик](https://youtu.be/z8CqaOQgYcI)
     - [бутстрэп](#bootstrap)

@@ -248,7 +248,7 @@
   - `post` [Martin Fowler: Given When Then (2013)](https://martinfowler.com/bliki/GivenWhenThen.html)
   - `post` [А.Асеева-Нгуен (Онтико) @ Habr: 3 Амиго — способ коммуникации, для создания качественного продукта (2019)](https://habr.com/ru/companies/oleg-bunin/articles/449424/)
 
-<a name="requirements"></a><a name="prd"></a>
+<a name="requirements"></a> <a name="prd"></a>
 ## Продуктовые требования 
 ### Intro
 - Назначение
@@ -349,7 +349,7 @@
             - сохранность данных 
             - качество 
             - безопасность 
-    <a name="rup">
+    <a name="rup"></a>
     - по RUP (Rationel Unified Process)
         - введение 
             - цели 
@@ -405,7 +405,7 @@
     - `post` [Мария Родина (М.Видео-Эльдорадо) @ PMClub: User Story: пора применять правильно (2020)](https://pmclub.pro/articles/user-story-pora-primenyat-pravilno)
     - `post` [Uprock: User Story и Job Story Mapping](https://www.uprock.ru/education/user-story-i-job-story-mapping)
 
-<a name="metrics></a>
+<a name="metrics"></a>
 ## Продуктовые метрики
 - Понятие качества
     - если в продукте возможны различные подходящие пользователю реализации, то неотъемлемой частью требований становятся метрики - числовые индикаторы качества
