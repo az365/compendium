@@ -792,6 +792,268 @@
   - `course` [coursera: big data for engineers](https://www.coursera.org/specializations/big-data-engineering) (5c*6w*8h)
   - `post` [Habr: hadoop + cloudera + ...](https://habrahabr.ru/post/151062/)
 
+<a name="strategy"></a>
+### Data Strategy
+- `conf` [DataFest 2024](https://ods.ai/events/datafest2024) / [VK offline day](https://ods.ai/events/fest2024-vk) / Strategy section
+  - `speech` Ирина Голощапова (Raiffeisen): Data-роли и где они обитают 
+    - Типы аналитики: BI & Retrospective Analytics
+      - business intelligence
+        - descriptive analytics
+          - retrospective analysis: что произошло?
+          - factor analysis: каковы ключевые компоненты изменения?
+          - statistical inference: это случилось повсеместно?
+      - advanced analytics 
+        - forecasting analytics
+          - forecast: что произойдёт?
+          - causal inference: что произойдёт, если я поменяю какой-либо фактор в системе?
+        - prescriptive analytics
+          - optimisation: что именно нужно сделать, чтобы достичь моей цели?
+    - Data value chain | Цепочка ценности данных (axis: value, business use of information)
+      - information assets 
+        - сбор данных
+        - качество данных и интеграция
+        - обогащение данных
+      - data monetisation 
+        - аналитика
+        - продукт
+    - Data roles 
+      - DE 
+        - role
+          - e2e-создание информационного актива
+        - skills
+          - key-skills: интеграции, инфраструктура и трансфер данных
+          - triangle: domain=good, sci=basic, dev=excellent 
+      - DG 
+        - role
+          - создание информационного актива, работа с источниками данных, акцент - качество данных
+        - skills
+          - key-skills: все детали про данные в системах-источниках данных, акцент на решении проблем с качеством данных
+          - add-skills: бизнес-аспекты интеграции и трансфера данных из источников в DWH, содержание витрин в DWH
+          - triangle: domain=excellent, sci=basic, dev=basic 
+      - DWH
+        - skills
+          - key-skills: проектирование, поддержка и развитие аналитических хранилищ данных
+          - add-skills: интеграции и трансфер данных из источников
+          - triangle: domain=excellent, sci=basic, dev=good 
+      - DA 
+        - role
+          - e2e analytical product creation in descriptive analytics
+          - монетизация данных, e2e-создание аналитического продукта в сфере дескриптивной аналитики 
+          - помогает бизнесу принимать более объективные решения, основанные на данных в области ретроспективной аналитики, находится в постоянном поиске точек роста для продукта и бизнеса
+        - skills
+          - key-skills: ретроспективная аналитика
+          - add-skills: потоки данных для аналитики
+          - hard-skills: math/stat, ml, vis, git&bash, sql, python, de 
+          - triangle: domain=good, sci=excellent, dev=basic
+      - DS
+        - role
+          - e2e analytical product creation in advanced analytics
+          - помогает бизнесу принимать более объективные решения, основанные на данных в области продвинутой аналитики, находится в постоянном поиске точек роста для продукта и бизнеса
+        - skills
+          - key-skills: продвинутая аналитика
+          - add-skills: потоки данных для моделей 
+          - hard-skills: math/stat, ml, mle, mlsd, git&bash, python, de
+          - triangle: domain=basic, sci=excellent, dev=good
+      - PO 
+        - role
+          - maximizing value from analytical products
+          - монетизация данных, e2e-управление созданием аналитического продукта с максимальной ценностью для бизнеса
+          - человек, который стремится к максимизации business value системы аналитических продуктов команды, находится в постоянном поиске точек роста для продукта и бизнеса
+        - skills
+          - key-skills: максимизация пользы аналитических продуктов для бизнеса
+          - add-skills: ретроспективная и продвинутая аналитика
+          - hard-skills: economics, workflow, requirements, math&stat, ml, mlsd, vis, python
+          - triangle: domain=good, sci=basic, dev=basic, value=excellent 
+    - grades & tracks 
+      - common
+        - intern
+        - junior
+        - middle 
+          - самостоятельная боевая единица
+          - как стать: приобрести опыт разработки и внедрения решений, прокачать харды, начать реализовывать крупные задачи самостоятельно
+        - senior
+          - мощная самостоятельная боевая единица 
+          - как стать: вести отдельные проекты от начала до конца, менторить 2-3 младших, выходить за рамки задачи от бизнеса, предлагать идеи, спрашивать и думать зачем, ещё прокачать харды
+      - individual contributor
+        - expert
+          - топ в своей компании в своей роли 
+          - как стать: участвовать в стратегии, системно предлагать идеи для развития, менторить другие команды, делиться экспертизой в компании
+        - staff
+          - топ на рынке в своей роли
+          - как стать: выходить на уровень отрасли 
+      - manager
+        - team lead
+          - руководитель команды от 3 до 10 чел
+          - как стать: формировать стратегию, думать в терминах business value, вкладываться в развитие людей, делиться экспертизой
+        - head
+          - руководитель крупной команды, в подчинении есть team leads
+          - как стать: стратегия и value компании, оченнь много вкладываться в разивитие людей 
+  - `speech` Евгений Смирнов (Альфа): 10 вопросов, которые нужно задать перед трудоустройством 
+    - данные: объём, глубина истории, доступность
+    - железо: сервера для моделирования, продакшена и ПК
+    - масштаб влияния DS на core-бизнес
+    - текущий уровень развития DS в компании
+    - чем именно занимаются DS в компании
+      - коммуникация с командой бизнес-продукта
+      - постановка задачи в терминах ML
+      - сбор данных и постановка задач на разметку
+      - построение моделей и вывод в продакшн
+      - мониторинг и обновление модели 
+    - бэкграунд потенциального руководителя  
+      - опыт успешных монетизаций данных
+      - уровень технических навыков членов команды
+      - опыт senior-уровня в линейной роли
+    - как часть будут мешать работать 
+      - Сергей Капица: Руководить - это значит не мешать хорошим людям работать
+    - способствует ли компания карьерному росту
+    - исследования vs продакшен
+      - 3 кита: свобода, ответственность, признание
+      - как устроен процесс карьерного роста
+      - как обстоят дела с текучкой
+      - как фактические данные об этом свидетельствуют 
+    - сервис vs лидер 
+      - сервис: нет рисков, странные задачи, размеренный темп
+      - лидер: ответственность, свобода, самоотдача
+  - `speech` Виктор Кантор (MTS): Дата-стратегия в крупной компании
+    - big data mts: 20 ПБ хранения, 14М событий/сек, 100 ТБ/сутки, 650 специалистов
+    - matrix | матричная структура
+      - бизнес вертикали: центр продуктов телекома, центр рекламных продуктов, центр финтех продуктов, ...
+      - big data ЦК
+    - cases
+      - система блокировки спама
+      - smart rollout
+      - рекомендательные системы: MTS Банк, Kion, книги, TicketLand 
+      - скоринговая платформа
+      - Геоэффект
+      - digital HR 
+    - monetization: telecom, marketing, mediaservices, fintech, реклама, скоринги
+      - internal effects
+        - телеком: планирование сети, антиспам, b2c-лидогенерация и удержание, b2b-лидогенерация
+        - медиасервисы: рекомендательные системы
+        - маркетинг: таргетирование в CVM, smart pricing
+        - финтех: лидогенерация, рекомендации услуг, скоринг
+      - external effects
+        - adtech: лидогенерация + рекомендации в ретаргетинге
+        - скоринги: рисковый и антифрод скоры 
+    - платформизация 
+      - платформа - конвеерное решение полного цикла, ускоряющее внедрение (скорингов, рекомендаций, ...) 
+      - пример платформизации RecSys
+    - data quality
+      - уровни оценки качества данных 
+        - 1 min: DQ проверки на количество событий
+        - 2 base: анализ битых данных и проверки на адекватность
+        - 3 точность: сопоставление с golden set 
+        - 4 полезность: связь точности модели и точности данных 
+    - data strategy
+      - акценты стратегии в большой группе
+        - сбор и хранение: какие данные нужны и в каком виде
+        - монетизация: внутри/вне, в каких сферах, платформизируемость задач
+        - качество данных: одного наличия мало
+        - реализация сверху-вниз: KPI, индексы, поручения руководства
+        - реализация снизу-вверх: наполнение, ... people
+      - когда data strategy вредит
+        - сбор и хранение: ошиблись с данными или форматом
+        - монетизация: ошиблись, где деньги
+        - качество данных: переоценили реально возможное
+        - реализация сверху-вниз: кривые KPI и поручения
+        - реализация снизу-вверх: уровень людей выше уровня задач (сжигание бюджетов и рост текучки)
+  - `speech` Александр Толмачёв (Ozon Fintech): Сквозная инфраструктура и процессы данных для DE/DA/DS
+    - инфраструктура Ozon - itc 
+    - 3 уровня данных 
+      - прод-данные - обложены дежурством, ревью, сервисами, документацией
+      - ключевые данные - надёжные, методологически выверенне, с автоматическими проверками
+      - общие данные - нет требований, поставляются быстро и бизнес получает результат 
+    - все миграции (интеграции?) данных через единый репозиторий миграций на компанию
+    - ML-платформа
+    - глоссарий всех ключевых данных 
+    - модель данных DDS / CDM 
+      - DDS - максимальная гранулярность, детализация по зерну (пользователь, транзакция, ...)
+      - CDM - агрегированные показатели на уровень выше минимальной гранулярности (продукт, дата, срез, ...)
+      - ограничение на уровне инфры: все прод-сервисы работают только на dds или cdm
+    - весь процесс данных состоит из общих компонент и ответственности
+      - DDS - нет бизнес-логики
+      - CDM - есть бизнес-логика и методология 
+    - компонентные решения обёрнуты в quickstartы
+      - документация как компонента - любое новое решение релизится с докой, отдельное свое приложение
+      - единая точка входа для всех - DA/DE/DS используют единые каналы взаимодействия 
+      - маршруты данных - компоненты работают в поставке одних данных во всех нужных направлениях
+      - онбординг единый для всех сотрудников департамента 
+    - иерархия метрик как итоговое решение
+      - иерархия метрик - отдельное приложение - объединяет все взаимосвязи данных 
+      - и для бизнеса, и для технарей - все нужные данные собраны в одном месте 
+      - обновление метрик - видна ежедневная динамика всех показателей 
+  - `speech` Ирина Голощапова (RaiffeisenBank): Data Strategy. С чего начать и как сделать хорошо 
+    - reliable ml - фреймворк по внедрению и развитию продвинутой аналитики 
+    - data strategy - как организовать работу на всех этапах цепочки ценности данных: от сбора данных до получения конечного продукта
+      - Data value chain | Цепочка ценности данных (axis: value, business use of information)
+        - information assets 
+          - сбор данных
+          - качество данных и интеграция
+          - обогащение данных
+        - data monetization 
+          - аналитика
+          - продукт
+    - reliable data strategy - фрейм для подготовки стратегии данных 
+      - input
+        - DMM assessment
+          - audit of the current state and identification of directions for development
+          - data management maturity models: international standard for identifying key development areas for a data strategy
+            - DMM from DAMA DMBOK - Data Management Body of Knowledge
+            - CMMI DMM from Carnbegie-Mellon University
+            - DMM from UK Government Data Quality Hub
+          - роза ветров as-is/to-be: DG, DQ, metadata, reference and master-data, document and content management, retrospective analytics (BI), advanced analytics, data architecture, data storage and operations, data modelling, data integration and interoperability, data security
+        - interviews
+          - feedback, recommendations and ideas from the team, key peers, stakeholders
+        - company & IT strategy
+          - key takeaways from the latest company's strategy and technical strategy 
+      - data strategy 
+        - vision, value, metrics
+          - what we want to achieve and why
+          - 6 elements of effective strategic planning (pyramide): vision, mission, objectives, strategy, approach, tactics
+          - example: strategic theses for analytics division
+            - we want to make efficient data-driven decisions: fast, high-quality, valuable for business 
+              - fast: development of data-driven architecture in OPS
+              - high-quality: creating data quality procedures for key data 
+              - valuable for business
+                - extending the coverage of retrospective analytics: we want all key processes to be covered by retrospective analytics (reporting) 
+                - systematic development of advanced analytics: moving from retrospective analytics to forecasts and recommendations to increase the value of analytics for business
+                - analytics as a product: assessment and monitoring of the effects of analytics and ML, maximizing the value of analytics
+          - example: the map of metrics for data office
+            - качество сервиса (опросы, T2M, Reliability&Resilience, Pain-index), business needs coverage, finance (net value)
+            - incident management, DQ monitoring, weighted data source score 
+            - incident management, DQ monitoring, tchnical quality of reporting
+            - importance (usage), value (proxy metrics), finance (income)
+        - people & skills
+          - who and what (roles&skills) do we need to achieve our goals 
+          - какие роли и навыки нужны для достижения целей: что есть, а что нужно развивать (звёздная карта и FTAM)
+          - куда хочет двигаться команда
+          - есть ли единое понимание ролей и их ответственности на уровне компании
+        - operational model
+          - how to organise processes for the fast and high quality result 
+          - какова зона ответственности дата-офиса (поможет цепочка ценности данных)
+          - какой орг-сетап команды нужен: внутри и снаружи (учитываем структуру коммуникаций)
+        - data governance
+          - how we develop trust in data, figures in reports, conclusions and recommendations of analytical teams
+          - как сделать хорошо (советы по проработке деталей стратегии)
+            - подумать, на какой стадии DG, действительно, требуется
+            - определить оптимальный скоуп для вашего этапа, отрасли и другой специфики
+        - technology & architecture 
+          - what tools do we choose to implement a data-driven strategy and how do we link them together 
+          - как сделать хорошо (советы по проработке деталей стратегии)
+            - не теряем акцент на цели
+            - оцениваем целесообразность различных компонент 
+      - 10 признаков хорошей стратегии по данным 
+        - стратегия по данным есть и задокументирована 
+        - ваша команда была вовлечена в разработку стратегии и разделяет результат
+        - ваши заказчики/стейкхолдеры понимают стратегию, разделяют цели и приоритеты
+        - стратегию нельзя скопировать как есть и применить для другой компании
+        - продумано целевое состояние для каждого раздела фрейма
+        - есть карта метрик для измерения прогресса
+        - есть понимание ключевых шагов для движения к целевому состоянию
+        - есть роадмапы для основных направлений/прооектов
+        - вы регулярно обсуждаете с командой и стейкхолдерами прогресс по стратегии (раз в квартал)
+        - вы регулярно проводите ревью DDM-оценок (ежегодно)
+
 ## Knowledge
 ### Intro
 - определение (согласно `wiki`)
