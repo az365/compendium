@@ -1190,13 +1190,13 @@
 
 <a name="abt"></a>
 ### AB-Testing
-- intro
+- intro:
   - АБ-тест - научный способ проверки каузации
     - нулевая и альтернативные гипотезы 
     - p-value 
     - у каждой статистики есть своё распределение  
     - мы не можем сказать что 0-гипотеза верна, мы только можем сказать, что не можем её отвергуть
-  - terms
+  - terms:
     - АБТ
       - syn: ABT, AB-testing, АБ-тестинг, АБ-тестирование, сплит-тестирование, split-testing
       - def: 
@@ -1222,8 +1222,8 @@
       - def: объекты (пользователи, клиенты, сессии, запросы, филиалы, магазины, города, регионы), на которые влияет (может влиять) тестируемое внедрение
     - контрольная группа
       - syn: control, контроль, контрольная выборка
-      - def: объекты (реальные или смоделированные - синтетические), с показателями которых сравниваются показатели тестовой группы/выборки при обсчёте эксперимента
-    - синтетический контроль
+      - def: объекты (реальные или смоделированные - [синтетические](#synth)), с показателями которых сравниваются показатели тестовой группы/выборки при обсчёте эксперимента
+    - [синтетический контроль](#synth)
       - syn: synthetic control
       - def: 
         - смоделированная выборка, поведение которой репрезентует поведение тестовой выборки в ситуации/сценарии, где пилотного внедрения не произошло
@@ -1275,10 +1275,10 @@
       - contents: 
         - единица сплитования (кука пользователя, id клиента, номер телефона, город, регион, ...)  # или это часть сетапа теста?
         - способ получения тестовой группы (рандомизированный или по определённому правилу)
-        - способ получения контрольной группы (случайные или похожие объекты, PropensityScore-методы, синтетический контроль и другие методы паричинно-следственного анализа)
+        - способ получения контрольной группы (случайные или похожие объекты, [PropensityScore-методы](#propensity), [синтетический контроль](#synth) и другие методы причинно-следственного анализа)
         - приёмочная метрика - ...
         - контролируемые метрики - ...
-        - минимальный детектируемый эффект (MDE)
+        - минимальный детектируемый эффект ([MDE](#mde))
         - метод обсчёта
         - методы снижения дисперсии 
         - стат-тест 
@@ -1296,7 +1296,7 @@
     - effect size 
       - syn: размер эффекта
       - def: изменение приёмочной метрики, полученное по результатам эксперимента
-    - MDE
+    - MDE <a name="mde"></a>
       - syn: минимальный детектируемый эффект 
       - def: минимальное значение изменения приёмочной метрики, которое может быть замерено при заданном объёме выборки
       - details/comment: если влияние тритмента будет меньше MDE, то оно не будет зафиксировано (прокрашено) в АБ-эксперименте
@@ -1328,12 +1328,31 @@
           - возвращает величины прокрашенных изменений, отстоящие от имеющихся эталонных оценок не более, чем на заданную погрешность
           - красит тесты на наименьшем объёме выборки (в сравнении с другими реализациями, т.е. имеет бОльшую чувствительность, и позволяет получать стат-значимые результаты при меньшей продолжительности эксперимента)
           - не красит контроли (АА-тесты)
+      - lib: `wiki` [ru: Валидация](https://ru.wikipedia.org/wiki/Валидация)
     - голден-сет 
       - syn: голден-сет эталонных экспериментов
       - def: набор ранее проведённых и оцененных экспериментов, для которых уже известен достоверный вердикт, есть уверенность (согласие заинтересованных сторон) в его корректности
       - details/comment: может состоять либо из специально ухудшающих экспериментов, либо из надёжно оцененных ранее доказанными методами по утверждённым бизнес-метрикам  
       - usage: используется для подбора (прокси)метрик и валидации методов/методики/реализации оценки
-  - lib
+  - разновидности АБТ
+    - online vs offline 
+    - множественное тестирование - тестирование нескольких гипотез в одном эксперименте - требует поправок к стат-тесту
+      - `post` [Николай Назаров (DA, X5) @ Habr: А/Б тестирование: множественная проверка гипотез](https://habr.com/ru/companies/X5Tech/articles/842426/)
+      - `post` [Александр Сахнов (HDA/DS X5) @ Habr: Определяем оптимальный размер групп при множественном А/Б тестировании](https://habr.com/ru/companies/X5Tech/articles/763656/)
+      - `post` [Артем Пономарев @ Habr: Проблема множественного тестирования на практике](https://habr.com/ru/articles/772940/)
+        - `pdf` [Антон Коробейников: Проблема множественной проверки статистических гипотез](https://bioinformaticsinstitute.ru/sites/default/files/07-29-4-korobeynikov.pdf) 
+        - `wiki` [Метод Бенджамини-Иекутиели](http://www.machinelearning.ru/wiki/index.php?title=Метод_Бенджамини-Иекутиели)
+        - `wiki` [Метод Бенджамини-Хохберга](http://www.machinelearning.ru/wiki/index.php?title=Метод_Бенджамини-Хохберга)
+        - `git` [MTS/Ambrosia](https://github.com/MobileTeleSystems/Ambrosia)
+        - `pdf` [Рябенко Евгений: Множественная проверка гипотез](http://www.machinelearning.ru/wiki/images/e/ea/Psad_mht.pdf)
+        - `post` [JustMind Dilemma @ Habr: Множественные эксперименты: теория и практика](https://habr.com/ru/companies/yandex/articles/476826/)
+        - `paper` [Methods to adjust for multiple comparisons in the analysis and sample size calculation of randomised controlled trials with multiple primary outcomes](https://bmcmedresmethodol.biomedcentral.com/articles/10.1186/s12874-019-0754-4)
+        - `paper` [Sample size calculations for the experimental comparison of multiple algorithms on multiple problem instances](https://link.springer.com/article/10.1007/s10732-020-09454-w)
+      - `wiki` [en: Multiple comparisons problem](https://en.wikipedia.org/wiki/Multiple_comparisons_problem), [ru: Поправка на множественную проверку гипотез](https://ru.wikipedia.org/wiki/Поправка_на_множественную_проверку_гипотез)
+    - MVT - мультивариантное тестирование - проверка комбинаций разных элементов в одном продукте/процессе 
+      - `post` [Altcraft @ vc.ru: A/B/n и MVT-тестирование: польза для бизнеса, сходства и различия](https://vc.ru/marketing/316401-a-b-n-i-mvt-testirovanie-polza-dlya-biznesa-shodstva-i-razlichiya)
+      - `product` [UX-Rocket (promo)](https://www.uxrocket.ru/ab-tests)
+  - lib:
     - `post` [ProductStar @ vc: АБ тесты - что это такое и как проводить?](https://vc.ru/s/productstar/425821-a-b-testy-chto-eto-takoe-i-kak-provodit)
     - `post` [Валерий Белокуров (Яндекс) @ vc: AБ-тесты - что это такое и как использовать?](https://vc.ru/s/productstar/132981-a-b-testy-chto-eto-takoe-i-kak-ispolzovat)
       - Что такое АБ-тест
@@ -1368,6 +1387,7 @@
       - Как проводим тесты?
       - Что улучшаем: конверсия, экономические метрики, поведенческие факторы
       - Анализ результатов: оценить значимость, инструменты
+    - `post` [JustMind Dilemma @ Habr: Фреймворк для дизайна A/B-теста](https://habr.com/ru/articles/780932/)
     - `post` [Я.Академия, Lisa Xu: Как провести АБТ, 6 простых шагов (2019)](https://academy.yandex.ru/posts/kak-provesti-a-b-testirovanie-6-prostykh-shagov)
     - `post` [Яндекс @ Habr: Как у нас устроено АБТ (2017)](https://habr.com/ru/company/yandex/blog/342704)
     - `video` [И.Кацев (Яндекс): Как повысить чувствительность метрик](https://youtu.be/z8CqaOQgYcI)
@@ -1395,6 +1415,7 @@
     - применимость (некоторые метрики не совместимы с некоторыми типами экспериментов)
 <a name="bootstrap"></a>
 - бутстрап | bootstrap
+  - `post` [Н.Назаров, А.Сахнов (x5) @ Habr: Бутстреп и А/Б тестирование](https://habr.com/ru/companies/X5Tech/articles/679842/)
   - `video` [Карта статистических методов: bootstrap VS t-test](https://www.youtube.com/watch?v=-zps6hm0nX8)
   - `video` [И.Кацев (Яндекс): Как повысить чувствительность метрик](https://youtu.be/z8CqaOQgYcI)
     - [бутстрэп](#bootstrap)
@@ -1402,25 +1423,83 @@
   - используется в EconML
     - `video` [Наталья Тоганова (GlowByte) Обзор библиотеки EconML: идеи и реализация](https://www.youtube.com/watch?v=oCJI5tKi3AU)
   - `paper` [Питер Бюльман @ Квантиль - Бутстрап-схемы для временных рядов (2007-09)](http://quantile.ru/03/03-PB.pdf)
-- АБ-тесты на малых выборках 
-  - `video` [МТС: АБТ на регионах (2020)](https://youtu.be/e9kSPMjpLL8)
-    - https://engineering.nordeus.com/
-    - https://www.tripadvisor.com/engineering/reducing-a-b-test-measurement-variance-by-30/
-    - https://booking.ai/how-booking-com-increases-the-power-of-online-experiments-with-cuped-995d186fff1d
-  - `video` [В.Бабушкин: АБТ без разбиения на группы (2019)](https://youtu.be/XWw4Wi6K0QU) 
-    - методология тройной разности 
-    - bayesian structural time-series model 
-    - регрессионный анализ (распределение ошибок предсказаний линрег смещается при воздействии)
-    - [causal impact](#ci)
+<a name="delta"></a>
+- delta-method | дельта-метод
+  - def: способ оценки А/Б тестов с метрикой отношения, который основан на вычислении дисперсии зависимых данных
+  - lib: `post` [Николай Назаров (x5) @ Habr: А/Б тесты с метрикой отношения. Дельта-метод](https://habr.com/ru/companies/X5Tech/articles/740476/)
+<a name="synth"></a>
+- АБ-тесты на малых выборках и оффлайн-АБТ
+  - synthetic control | синтетический контроль
+    - syn: SCM, synthetic control method, synthetic control, синтетический контроль 
+    - def: 
+      - смоделированная выборка, поведение которой репрезентует поведение тестовой выборки в ситуации/сценарии, где пилотного внедрения не произошло
+      - эконометрический метод анализа данных, который позволяет оценивать эффекты исследуемого воздействия в сравнительных кейс-стади
+    - details/comment: как правило, синтетический контроль моделируется путём предсказания значений для тестовой выборки на основе факторов из любых других объектов или временнЫх рядов, для которых гарантируется, что они не аффектятся (не подвергаются воздействию) тритментом (пилотным внедрением)
+    - lib:
+      - `post` [Matteo Courthoud @ Habr: Подробное руководство по методам синтетического контроля](https://habr.com/ru/companies/skillfactory/articles/700260/)
+      - `post` [Иван Юрашку (Сбер) @ Habr: Causal Inference: прозрение и практика](https://habr.com/ru/companies/sberbank/articles/847382/) ([telegra.ph](https://telegra.ph/Causal-Inference-prozrenie-i-praktika-Lekciya-1-Osnovnye-ponyatiya-Causal-Inference-10-02))
+      - `wiki` [ruWiki: Синтетический контроль](https://ru.ruwiki.ru/wiki/Синтетический_контроль), [ruWiki.Data: Синтетический контроль](https://data.ruwiki.ru/wiki/Q25053940)
+      - `wiki` WikiPedia.org: [ru: Синтетический контроль](https://ru.wikipedia.org/wiki/Синтетический_контроль), [en: Synthetic control method](https://en.wikipedia.org/wiki/Synthetic_control_method)
+    - Causal Impact <a name="causalimpact"></a>
+      - based on: Bayesian structural time-series models
+      - [R package CausalImpact](https://github.com/google/CausalImpact)
+      - Python port
+        - `doc` [Jamal Senouci](https://nbviewer.org/github/jamalsenouci/causalimpact/blob/master/GettingStarted.ipynb) [GettingStarted.ipynb](https://github.com/jamalsenouci/causalimpact/blob/master/GettingStarted.ipynb)
+        - how to install
+          - `download` [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/ru/visual-cpp-build-tools)
+          - `pip install causalimpact`
+      - `video` [Дмитрий Торшин (Лента) @ ODS YouTube - Causal Impact и как его готовить](https://youtu.be/0_bl0A-cXcY) 2022-12-17
+        - Как устроен Causal Impact и в каких случаях его стоит применять.
+        - Как используется Causal Impact в Ленте и какие доработки потребовались, чтобы получать устойчивые результаты и эффективно оценивать нововведения.
+  - matching <a name="psm"></a> <a name="propensity"></a> <a name="matching"></a>
+    - PropensityScore-методы 
+      - `post` [Артем Пономарев @ Habr: Causal Inference методы на практике](https://habr.com/ru/articles/870874/)
+    - HypEx python library
+      - `post` [Дмитрий Тихомиров (Сбер) @ Habr: HypEx и мэтчинг. Эксперимент без A/B-тестирования?](https://habr.com/ru/companies/sberbank/articles/778774/)
+      - `git` [sb-AI-lab/HypEx](https://github.com/sb-ai-lab/HypEx)
+  - стат-критерии для малых выборок 
+    - `post` [Николай Назаров (x5): А/Б тестирование на маленьких выборках. Построение собственного критерия](https://habr.com/ru/companies/X5Tech/articles/801527/)
+  - lib:
+    - `video` [МТС: АБТ на регионах (2020)](https://youtu.be/e9kSPMjpLL8)
+      - https://engineering.nordeus.com/
+      - https://www.tripadvisor.com/engineering/reducing-a-b-test-measurement-variance-by-30/
+      - https://booking.ai/how-booking-com-increases-the-power-of-online-experiments-with-cuped-995d186fff1d
+    - `video` [В.Бабушкин: АБТ без разбиения на группы (2019)](https://youtu.be/XWw4Wi6K0QU) 
+      - методология тройной разности 
+      - bayesian structural time-series model 
+      - регрессионный анализ (распределение ошибок предсказаний линрег смещается при воздействии)
+      - [causal impact](#causalimpact)
+    - [causal inference](#ci)
+<a name="cuped"></a> <a name="stratif"></a>
+- методы снижения дисперсии 
+  - CUPED и стратификация
+    - terms 
+      - стратификация - перевзвешивание страт/сегментов в зааффекченной выборке на их доли в генеральной совокупности
+    - lib:
+      - `post` [Николай Назаров (x5): А/Б тестирование с CUPED: детальный разбор (2023)](https://habr.com/ru/companies/X5Tech/articles/780270/)
+      - `post` [Николай Назаров (x5): А/Б тестирование: CUPED vs Stratification (2024)](https://habr.com/ru/companies/X5Tech/articles/826488/)
+      - `post` [Н.Назаров, А.Сахнов (x5): Стратификация. Как разбиение выборки повышает чувствительность A/B теста (2021)](https://habr.com/ru/companies/X5Tech/articles/596279/)
+      - `video` [001 А.Карпов: Методы сокращения дсперсии (2020)](https://youtu.be/KvIJ8FCJzr4)
+      - `video` `post` 002 В.Бабушкин: CUPED для увеличения чувствительности АБТ (2020) [habr](https://habr.com/ru/company/yandex/blog/497804) [video](https://youtu.be/pZpUM08mv-E)
+        - [стратификация](#stratif) снижает дисперсию, но в хороших экспериментах не сильно - для дискретных величин
+          - в x5 это не работает
+          - альтернатива - линеаризация, переводит метрику в новое признаковое пространство (про это есть отдельный доклад)
+        - CUPED ковариаты используют пред-экспериментальные данные - для непрерывных величин
+          - CUPED убирает внутригрупповую дисперсию, чтобы межгрупповая стала более явной 
+          - статьи uber и booking.com
+          - у x5 дисперсия снизилась на 45%, на оффлайн - в 4 раза, максимум - в 19 раз 
+          - можно брать ковариаты по часам и дням недели 
+        - в x5 единица оффлайн-АБТ - магазин, их 16к
 <a name="bayes"></a>
 - байесовское АБ-тестирование
   - основано на [Байесовских методах](./math.md#bayes)
-  - литература
+  - lib:
+    - `post` [Николай Назаров (X5) @ Habr: Мифы о байесовском А/Б тестировании (2025)](https://habr.com/ru/companies/X5Tech/articles/900032/)
     - `video` [Н.Багинян (Райфайзен): Peeking at A/B tests / Последовательное тестирование (2020)](https://youtu.be/BJwNdethKwQ) 
       - `post` [TDS - Простой гид по Байесовскому АБТ на Python](https://academy.yandex.com/journal/prostoy-gid-po-bayesovskomu-a-b-testirovaniyu-na-python)
       - `course` [Максим Кочуров - State of Bayes Lecture Series: Session 5 AB testing](https://www.meetup.com/pymc-labs-online-meetup/events/293841718)
       - `git` [GrowthBook](https://github.com/growthbook) - Python-библиотека для Байесовского АБТ
-    - `post` [TDS - Простой гид по Байесовскому АБТ на Python](https://academy.yandex.com/journal/prostoy-gid-po-bayesovskomu-a-b-testirovaniyu-na-python)
+    - `post` [TDS - Простой гид по Байесовскому АБТ на Python (2020)](https://academy.yandex.com/journal/prostoy-gid-po-bayesovskomu-a-b-testirovaniyu-na-python)
 - проблемы и решения 
   - некорректный эксперимент 
     - пересмотреть методику и реализацию, перепровести
@@ -1428,7 +1507,7 @@
     - провести разовый обратный эксперимент
   - шумные метрики, ничего не красится 
     - увеличение выборок и продолжительности
-    - методы на малых выборках (см. выше про  АБТ на регионах)
+    - методы на малых выборках (см. выше про АБТ на регионах)
     - методы понижения дисперсии 
     - поиск чувствительных прокси-метрик (см. про приёмочные метрики выше)
     - последовательные внедрения с оффлайн-приёмкой + постоянный/долгий обратный эксперимент
@@ -1439,7 +1518,7 @@
     - однорукие бандиты - для автоматического опробования большого числа гипотез/объектов-кандидатов
   - сложно задизайнить или дорого провести эксперимент 
     - [Observational studies на исторических данных](#ci)
-- литература 
+- lib:
   - доклады с профильных мероприятий
     - `track` [ABT section @ DataFest 2020](https://ods.ai/tracks/ab-testing-df2020/)
       - [А.Сахнов x5: Geometric interpretation of variance reduction (2020)](https://youtu.be/BhxFaMGpVFw) 
@@ -1461,12 +1540,12 @@
         - работать с другой метрикой
         - увеличить выборку
         - снизить дисперсию выборочных средних
-          - стратификация
+          - [стратификация](#stratif)
           - постстратификация
           - зависимые выборки и paired-тесты
         - трансформировать переменные
       - `video` `post` 002 В.Бабушкин: Cruped для увеличения чувствительности АБТ (2020) [habr](https://habr.com/ru/company/yandex/blog/497804) [video](https://youtu.be/pZpUM08mv-E)
-        - стратификация снижает дисперсию, но в хороших экспериментах не сильно - для дискретных величин
+        - [стратификация](#stratif) снижает дисперсию, но в хороших экспериментах не сильно - для дискретных величин
           - в x5 это не работает
           - альтернатива - линеаризация, переводит метрику в новое признаковое пространство (про это есть отдельный доклад)
         - CUPED ковариаты используют пред-экспериментальные данные - для непрерывных величин
@@ -1507,7 +1586,7 @@
         - `?` чтобы расследовать - мы ищем корреляции и используем формулы, выражающие связи
         - пример: если мы за год выросли - повлияли менеджеры, если упали - повлияли внешние факторы
   - AB-testing vs Observational Studies
-    - АБ-тест
+    - [АБ-тест](#abt)
       - иногда проблематично задизайнить или дорого провести
     - Observational studies
       - корреляции не означают причинно-следственной связи
@@ -1517,8 +1596,8 @@
     - selection bias (общее следствие, пример: фолиевая кислота беременным)
     - complicated bias with conditioning (зафиксированный фактор, пример: зожники vs больные раком)
   - подходы
-    - stratification (перевзвешивание страт/сегментов в зааффекченной выборке на их доли в генеральной совокупности)
-    - propensity scores (перевзвешивание групп на вероятность воздействия на объект)
+    - [stratification](#stratif) (перевзвешивание страт/сегментов в зааффекченной выборке на их доли в генеральной совокупности)
+    - [propensity scores](#propensity) (перевзвешивание групп на вероятность воздействия на объект)
     - outcome regression (проблема: могут просочиться фичи с результатами воздействия)
     - тесты причинности
       - Granger causality test https://ru.wikipedia.org/wiki/Причинность_по_Грэнджеру
@@ -1596,16 +1675,16 @@
         - Brief introduction to causal graphs and potential outcomes
         - Randomized experiments: The gold standard for causal inference
       - Methods for causal inference
-        - Conditioning-based methods
-          - Conditioning effect on confounders
-          - Matching and stratification
-          - Regression
-          - Doubly robust estimator
-          - Synthetic control method
-        - Natural experiments
-          - Simple natural experiment
-          - Instrumental Variables
-          - Regression discontinuity
+        - conditioning-based methods
+          - conditioning effect on confounders
+          - [matching](#matching) and [stratification](#stratif)
+          - regression
+          - doubly robust estimator
+          - [synthetic control method](#synth)
+        - natural experiments
+          - simple natural experiment
+          - instrumental variables
+          - regression discontinuity
         - Sensitivity Analysis
       - Large-scale and network data
         - Special considerations when dealing with large-scale and network data
@@ -1824,18 +1903,6 @@
     - `track` [МГУ @ YouTube - Вводный курс про квази-экспериментальные методы](https://www.youtube.com/watch?v=Re62IvoWBvU&list=PLjCtgsu37IBLZV1mEZICTTVz5mNBihyPJ)
     - `post` [О.Седухин @ ODS Habr: Интерпретация моделей и диагностика сдвига данных: LIME, SHAP и Shapley Flow (2022)](https://habr.com/ru/companies/ods/articles/599573/)
       - `paper` [S.Lundberg, Su In Lee @ NIPS: A Unified Approach to Interpreting Model Predictions (2017)](https://arxiv.org/pdf/1705.07874.pdf)
-- Simple modeling
-  - Causal Impact
-    - based on: Bayesian structural time-series models
-    - [R package CausalImpact](https://github.com/google/CausalImpact)
-    - Python port
-      - `doc` [Jamal Senouci](https://nbviewer.org/github/jamalsenouci/causalimpact/blob/master/GettingStarted.ipynb) [GettingStarted.ipynb](https://github.com/jamalsenouci/causalimpact/blob/master/GettingStarted.ipynb)
-      - how to install
-        - `download` [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/ru/visual-cpp-build-tools)
-        - `pip install causalimpact`
-    - `video` [Дмитрий Торшин (Лента) @ ODS YouTube - Causal Impact и как его готовить](https://youtu.be/0_bl0A-cXcY) 2022-12-17
-      - Как устроен Causal Impact и в каких случаях его стоит применять.
-      - Как используется Causal Impact в Ленте и какие доработки потребовались, чтобы получать устойчивые результаты и эффективно оценивать нововведения.
 
 <a name="graph"></a>
 ### Анализ графов
