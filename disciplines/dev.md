@@ -190,11 +190,48 @@
   - Py web frameworks
     - Flask 
     - Django 
-- рекомендуемые окружения
-  - для DA/DS
-    - tensorflow virualenv
-      - https://medium.com/@margaretmz/anaconda-jupyter-notebook-tensorflow-and-keras-b91f381405f8
-      - https://docs.docker.com/toolbox/toolbox_install_windows/
+- управление зависимостями 
+  - poetry
+    - def: инструмент для управления проектами на Python
+    - usage:
+      - управление зависимостями с воспроизводимыми установками и резолвером конфликтов
+      - автоматическое управление виртуальными окружениями
+      - сборка и публикация
+    - alt:
+      - pipEnv - для структурирования зависимостей и конфигурации проектов
+      - UV - может публиковать на PyPi + есть супервизор, от того же Astral, что и Ruff 
+      - conda - рекомендован для ML и зависимостей не из Python  
+    - lib:
+      - `post` [sn4kebyte @ Habr: Poetry: from zero to hero](https://habr.com/ru/articles/740376/)
+  - сравнение 
+    - `post` [chobeat @ Habr: Полезные инструменты Python (2019)](https://habr.com/ru/companies/otus/articles/456624/)
+      - базовые 
+        - setuptools - стандартный способ создавать пакеты в Python
+        - virtualenv – менеджер виртуальной среды
+        - pip – наиболее распространённый менеджер пакетов в python
+        - distutils – предшественник setuptools
+        - PyPi (Python Package Index) — репозиторий модулей, где pip берет билды пакетов
+        - Pypiserver – одна из реализаций Package Index API, используемая Pypi
+        - Poetry - альтернатива setuptools, pip, pipEnv
+        - pipEnv - инструмент структурирования зависимостей и конфигурации проектов
+      - документация 
+        - Sphinx – инструмент для создания документации
+        - autodoc — расширение Sphinx, создающее reStructuredText файлы из исходного кода на Python
+        - Docutils, Doxygen, autosummary - альтернативы
+      - тестирование
+        - py.test - альтернатива unittest, nose
+        - Hypothesis – для тестирования отдельных свойств, в т.ч. обработки данных
+        - tox - менеджер виртуальной среды для тестирования
+      - другие
+        - pyenv – менеджер версий python
+        - PyScaffold — для инициализации структуры проекта стандартизированным способом
+        - flake8 – линтер PEP8
+        - Black - автоформаттер 
+  - рекомендуемые окружения
+    - для DA/DS
+      - tensorflow virualenv
+        - https://medium.com/@margaretmz/anaconda-jupyter-notebook-tensorflow-and-keras-b91f381405f8
+        - https://docs.docker.com/toolbox/toolbox_install_windows/
 - тесты и отладка
   - отладка теста через PDB - PythonDeBugger
     - `$ python -m pdb test.py`
@@ -233,6 +270,10 @@
       - 2.17 Function and Method Decorators
       - 2.19 Power Features
       - 2.21 Type Annotated Code
+  - линтеры, форматтеры 
+    - flake8
+    - black 
+    - Ruff - линтер и форматтер для Python, написанный на Rust, от того же Astral, что и UV 
 - `doc` [Матрица компетенций Python-dev](https://clck.ru/36SBro)
   - [Алгоритмы и структуры данных](./algo.md): структуры (list, linked list, hashmap, деревья), алгоритмы поиска и сортировки
   - [Python](#py) 
