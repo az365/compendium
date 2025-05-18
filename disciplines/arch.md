@@ -208,6 +208,26 @@
     - XML, JSON support
     - create app ecosystem around product & inventory data
 
+<a name="microservices"></a>
+### Микросервисы 
+<a name="orchestr"></a>
+- хореография vs оркестрация 
+  - преимущества хореографии: масштабируемость, устойчивость, гибкость и простота обслуживания 
+  - недостатки хореографии: сложность, отсутствие прозрачности, устранение неполадок 
+  - преимущества оркестрации: централизованное управление, явный рабочий процесс, упрощённая обработка ошибок
+  - недостатки оркестрации: единая точка отказа, сложность добавления/удаления/замены микросервисов, накладные расходы
+- примеры оркестраторов 
+  - SalesForce
+  - PowerAutomate 
+  - [Camunda](./dev.md#camunda)
+  - ServiceNow
+  - Nintex
+  - ProcessMaker
+  - KissFlow
+  - Pipefy
+  - Bizagi
+  - Pega
+
 ### Examples
 - netflix
   - scenes/chunks
@@ -624,6 +644,7 @@
   - [Hadoop](#hadoop) - технология/фреймворк/экосистема распределённых вычислений на кластерах из сотен и тысяч узлов
 - БД для логов
   - ELK-stack
+    <a name="elasticsearch"></a>
     - elasticsearch
       - хорошо сёрчит текст, плохо плотные представления 
         - чит/хак: транслировать плотные представления в текст
@@ -730,6 +751,12 @@
   - `doc` [PowerBI - Data modeling](powerbi.microsoft.com/ru-ru/what-is-data-modeling)
 - data governance
   - `track` [DataFest2020: Data Governance](https://ods.ai/tracks/data-governance-df2020)
+- data architecture
+  - `post` [Александр Сушков @ Я.Практикум: Что такое архитектура данных и как её построить (2023)](https://practicum.yandex.ru/blog/chto-takoe-arhitektura-dannyh/)
+    - состав архитектуры данных: 
+      - модель: как данные взаимодействуют между собой и с другими сферами
+      - стратегия: для чего создают архитектуру данных (напр., улучшить качество клиентского сервиса или работу рекомендательных систем)
+      - политика: правила и стандарты
 - кейсы
   - `post` [Тинькофф @ Habr: Data Lake от теории к практике. Сказ про то, как мы строим ETL на Hadoop](https://habrahabr.ru/company/tcsbank/blog/259173/)
 
@@ -813,7 +840,7 @@
         - сбор данных
         - качество данных и интеграция
         - обогащение данных
-      - data monetisation 
+      - data monetization 
         - аналитика
         - продукт
     - Data roles 
