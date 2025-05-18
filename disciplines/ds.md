@@ -392,12 +392,12 @@ methods/models for regression&classification
       - stopwords removal (articles and prepositions)
         - NLTK - natural language toolkit library for python
         - sklearn.feature_extraction.text.CountVectorizer(max_df=) - threshold for most often words
-    - BOW - bag of words: sklearn.feature_extraction.text.CountVectorizer
+    - BOW - bag of words: `sklearn.feature_extraction.text.CountVectorizer`
       - TFiDF - term frequency transformation
-        - TF: tf = 1 / x.sum(axis=1)[:,None]; x=x*tf
-        - IDF: idf = np.log(x.shape[0]/(x>0).sum(0)); x=x*idf
-        - sklearn.feature_extraction.text.TfidfVectorizer
-      - N-grams: sklearn.feature_extraction.text.CountVectorizer(Ngram_range=, analyzer=)
+        - TF: `tf = 1 / x.sum(axis=1)[:,None]; x=x*tf`
+        - IDF: `idf = np.log(x.shape[0]/(x>0).sum(0)); x=x*idf`
+        - `sklearn.feature_extraction.text.TfidfVectorizer`
+      - N-grams: `sklearn.feature_extraction.text.CountVectorizer(Ngram_range=, analyzer=)`
     - embeddings word2vec
       - for words
         - word2vec
@@ -423,8 +423,8 @@ methods/models for regression&classification
     - fine-tuning
       - pretrained CNN network
         - recommended architectures
-          - VGG[-16]
-          - ResNet[-50]
+          - `VGG[-16]`
+          - `ResNet[-50]`
         - read more
           - Using pretrained models in Keras https://keras.io/applications/
           - Image classification with a pre-trained deep neural network https://www.kernix.com/blog/image-classification-with-a-pre-trained-deep-neural-network_p11
@@ -803,6 +803,19 @@ methods/models for regression&classification
     - ещё применения
       - [визуализация](./datavis.md)
         - Biclustering algorithms for sorting corrplots https://scikit-learn.org/stable/auto_examples/bicluster/plot_spectral_biclustering.html
+    - `post` [Александр Сушков @ Я. Практикум: Что такое кластерный анализ и как аналитики с его помощью группируют данные (2025)](https://practicum.yandex.ru/blog/chto-takoe-klasterizaciya-i-klasternyi-analiz/)
+      - func: не непосредственно анализ, а предварительный этап - кластеризация облегчает использование других методов анализа
+      - usage:
+        - понимание
+        - выявление аномалий
+        - расширение
+        - сжатие
+      - methods: 
+        - нисходящие алгоритмы
+        - восходящие алгоритмы
+        - алгоритмы квадратичной ошибки: k-means 
+        - системы искусственного интеллекта
+        - логический подход: decision tree 
   - `compendium` `chapter` [clustering metrics](#clustering_metrics)
     - how to choose cluster count
       - `post` [Инфосистемы Джет @ Habr - Кластеризуем лучше, чем «метод локтя»](https://habr.com/ru/companies/jetinfosystems/articles/467745/)
