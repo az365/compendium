@@ -89,6 +89,24 @@
 - алгебраическая теория чисел
 - геометрическая теория чисел
 
+<a name="probability"></a>
+## ТерВер
+Теория вероятности
+- `post` [Полина Нестеренко @ Я.Практикум: Теория вероятностей: как научиться предсказывать случайные события (2024)](https://practicum.yandex.ru/blog/teoriya-verotyanosti/)
+  - terms:
+    - случайный эксперимент
+    - исход
+    - событие
+    - вероятность
+  - связи пар событий:
+    - противоположные
+    - несовместные
+    - совместные события
+      - независимые события
+      - зависимые события
+        - словная вероятность
+          - [теорема Байеса](#bayes)
+
 <a name="stat"></a>
 ## Матстат
 
@@ -265,6 +283,10 @@
   <a name="bayes"></a>
   - байесовский вывод
     - `p(X|Y) = p(Y|X)*p(X)/p(Y)`
+    - `post` [А.Толмачёв (Ozon.Fintech) @ Я.Практикум: В чём польза теоремы Байеса — или как управлять неопределённостью (2024)](https://practicum.yandex.ru/blog/teorema-bajesa-dlya-data-science/)
+      - парадокс Монти Холла
+      - наивный байесовский классификатор
+      - usage: оценка рисков в сценариях планирования годовых стратегий
     - `book` [Cameron Davidson-Pilon - Bayesian Methods for Hackers (2013..2022, using PyMC)](https://github.com/CamDavidsonPilon/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers)
     - `paper` [Bayesian Workflow (2020)](https://arxiv.org/abs/2011.01808) - проблемы, с которыми вы столкнётесь в Байесовском подходе
     - `compendium` [байесовское АБ-тестирование](./datan.md#bayes)
