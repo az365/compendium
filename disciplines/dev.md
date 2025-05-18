@@ -63,6 +63,7 @@
 - Python basis 
   - Python - ЯП общего назначения, ориентированный на повышение производительности разработчика и читаемости кода
   - `hub` [roadmap.sh: Python Developer](https://roadmap.sh/python)
+  - `hub` [Я.Практикум: Самоучитель Python](https://practicum.yandex.ru/blog/samouchitel-python/)
   - `course` `ipynb` [ФизТех.Статистика: Python для анализа данных](https://mipt-stats.gitlab.io/courses/python.html)
   - basics 
     - утиная типизация
@@ -516,6 +517,29 @@
     - [Epoch](https://epochjs.github.io/epoch)
     - [bokeh](https://docs.bokeh.org) - js-визуализация для Python-ноутбуков позволяет рисовать динамические графики для моделей 
 
+<a name="platforms"></a>
+## Платформы 
+
+<a name="orcherstr"></a>
+### [Оркестрация](./arch.md#orchestr)
+<a name="camunda"></a>
+- Camunda 
+  - def: платформа для моделирования и выполнения бизнес-процессов 
+  - features:
+    - поддержка [BPMN](./sban.md#bpmn), DMN, CMMN
+    - масштабируемость, отказоустойчивость
+    - open source, на [Java](#java) (но некоторые компоненты коммерческие)
+    - мониторинг из коробки
+    - хорошая дока, большое комьюнити
+  - components:
+    - modeler (for BA/dev)
+    - task llist (for task worker) 
+    - engines: BPMN, DMN (+SQL DB)
+    - cockpit (for operator, частично коммерческий компонент)
+    - admin (for administrator)
+    - optimize (+[ElasticSearch](./arch.md#elasticsearch), for process ownwer, коммерческий компонент)
+  - ...
+
 <a name="practice"></a>
 ## Практики
 
@@ -633,6 +657,7 @@
       - `post` [DataQuest: 28 Jupyter Notebook tips, tricks and shortcuts](https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts)
   - клиенты БД
     - DBeaver - бесплатный универсальный инструмент для управления БД
+      - `post` [Александр Сушков @ Я.Практикум: DBeaver: дружелюбный помощник аналитика данных (2023)](https://practicum.yandex.ru/blog/menedzher-baz-dannyh-dbeaver/)
     - SuperSet - веб-клиент
 <a name="dag"></a>
 - graph/DAG-based programming 
