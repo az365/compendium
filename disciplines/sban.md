@@ -56,7 +56,25 @@
   - Интеграции
     - Владение инструментами (Postman, SoapUI, Swagger, DevTools браузера)
   - Общие архитектурные практики
-    - Инструменты и подходы 
+    - Инструменты и подходы
+
+### Skill-set
+- системный аналитик (согласно [Я.Практикуму](https://practicum.yandex.ru/systems-analyst/))
+  - uml
+  - [bpmn](#bpmn)
+  - user/job story
+  - [er-diagram](#er)
+  - sql
+  - figma
+  - postman
+  - dfd
+  - user story map
+  - json/xml
+  - bdd
+  - personas
+  - user journey map
+  - gui
+  - rest/soap api
 
 <a name="domain"></a>
 ## Предметная область
@@ -112,39 +130,18 @@
         - функции могут декомпозироваться по мере необходимости детализации
         - можно использовать для демонстрации идей и вариантов решения
         - нотации
-            - IDEF0 - Integrated Computer-Aided Manufacturing: Function Modeling (habr.com/ru/company/trinion/blog/322832/)
-                - акцент на соподчиненность объектов
-                - стрелки ICOM - существительные (опыт, план, правила)
-                    - Input - входящие - задачи/вводные
-                    - Output - исходящие - результаты
-                    - Control - управляющие (сверху-вниз) механизмы управления (положения, инструкции и пр)
-                    - Machanism - механизмы (снизу вверх) – что используется для того, чтобы произвести необходимую работу
-                - блоки - глаголы (создать товар, заключить договор, произвести отгрузку)
-                - поддерживается в VISIO, BPWIN, ERWIN, Bussines studio
+            - [IDEF0 - Integrated Computer-Aided Manufacturing: Function Modeling](#idef)
             - ...
     - процессный
-        - основано на последовательности действий в опр. границах: начало и конец события
+        - основано на последовательности действий в определённых границах: начало и конец события
         - бизнес-процесс - последовательность действий, приводящая к результату
             - управляющие
             - операционные
             - поддерживающе
         - процессы могу делиться на подпроцессы вплоть до задач (дальнейшая детализация которых невозможна)
         - нотации
-            - BPMN - Business Process Model and Notation (https://habr.com/ru/company/trinion/blog/331254/)
-                - базовые объекты
-                    - Event – Событие
-                    - Activity – Действия
-                    - Gateway – Шлюзы или Развилки
-                    - Flow – Поток
-                    - Data – Данные
-                    - Artefact – Артефакты
-                    - Swimline – «плавательные дорожки»
-                    - Pool (Пул) — набор
-                - литература
-                  - https://habr.com/ru/company/trinion/blog/331254/
-                  - [Comindware: Нотация BPMN 2.0: ключевые элементы и описание](https://www.comindware.ru/blog/нотация-bpmn-2-0-элементы-и-описание/)
-                  - [Рамиль Кинзябулатов @ Инфостарт: Краткое описание BPMN с примером](https://infostart.ru/pm/640964/)
-            - IDEF3 - Integrated Computer-Aided Manufacturing: Process Description Capture
+            - [BPMN - Business Process Model and Notation](#bpmn)
+            - [IDEF3 - Integrated Computer-Aided Manufacturing: Process Description Capture](#idef)
             - EPC - Event-driven process chain - используется для настройки ERP
         - CRM с поддержкой моделирования бизнес-процессов
             - Terrasoft CRM (включая облачный bpm'online sales) - поддерживает BPMN
@@ -156,6 +153,72 @@
     - ментальный
         - назначение: структурировать знания
         - интуитивен, но не стандартизирован, может вызывать разночтения
+
+<a name="notations"></a>
+## Нотации
+- `post` [Маргарита Нижельская @ Я.Практикум: IDEF, EPC и BPMN: как выбрать нотацию для моделирования бизнес-процессов (2024)](https://practicum.yandex.ru/blog/notacii-modelirovaniya-biznes-processov/)
+  - [IDEF (функциональное моделирование)](#idef)
+    - visual:
+      - прямоугольник - процесс, функция
+      - стрелки
+        - стрелка входа - триггеры для старта процесса: входящие документы, события, ...
+        - стрелка выхода - результат процесса: исходящие документы, письма, заявки, ...
+        - стрелка управления - правила или ограничения в работе процесса
+        - стрелка механизма - ресурсы, которые требуются для выполнения работы
+    - usage: для верхнеуровневого моделирования бизнес-процессов
+    - limitations: нельзя показать развилки в сценарии
+  - EPC (процессное моделирование)
+    - usage:
+      - детально смоделировать процесс или сделать графическую инструкцию
+      - для создания подробных регламентов
+    - visual: 
+      - стрелки 
+      - фигуры: многоугольники и овалы
+      - кружочки - логические операторы: и, или, xor
+    - rule: события и действия всегда должны чередоваться
+  - [BPMN (процессное моделирование)](#bpmn)
+
+<a name="idef"></a>
+### IDEF
+- IDEF0 - Integrated Computer-Aided Manufacturing: Function Modeling 
+  - IDEF0 - Function Modeling - продолжение SADT (Structured Analysis and Design Technique)
+  - habr.com/ru/company/trinion/blog/322832/
+      - акцент на соподчиненность объектов
+      - стрелки ICOM - существительные (опыт, план, правила)
+          - Input - входящие - задачи/вводные
+          - Output - исходящие - результаты
+          - Control - управляющие (сверху-вниз) механизмы управления (положения, инструкции и пр)
+          - Machanism - механизмы (снизу вверх) – что используется для того, чтобы произвести необходимую работу
+      - блоки - глаголы (создать товар, заключить договор, произвести отгрузку)
+      - поддерживается в VISIO, BPWIN, ERWIN, Business studio
+- IDEF1 - Information Modeling - модель данных, эквивалентная реляционной модели в 3NF
+- IDEF1X (eXtended) - Data modeling - на основе модели сущность-связь
+- x IDEF2 - Simulation Model Design - динамическое моделирование развития систем (мертворождённая методология)
+- IDEF3 - Integrated Computer-Aided Manufacturing: Process Description Capture
+  - IDEF3 - Process Description Capture - документирование процессов на предприятии: сценарий и последовательность операций
+- IDEF4 - Object-Oriented Design - ООП
+- IDEF5 - Ontology Description Capture - словарь терминов и правил для формулировки состояния системы в моменте
+- IDEF6 - Design Rationale Capture - обоснование проектных действий, процесса создания модели - почему модель получилась такой
+- х IDEF7 - Information System Auditing
+- IDEF8 - User Interface Modeling - 3 уровня: выполняемая операция, сценарии взаимодействия, элементы управления в интерфейсе
+- IDEF9 - Scenario-Driven IS Design (Business Constraint Discovery method) - обнаружение и анализ ограничений
+
+<a name="bpmn"></a>
+### BPMN - Business Process Model and Notation
+- базовые объекты
+    - Event – событие: стартовое, конечное, промежуточное
+    - Activity – действия или задачи: подпроцесс, цикл, параллельные/последостельные процессы
+    - Gateway – шлюзы или развилки: эксклюзивный, неэксклюзивный, параллельный
+    - Flow – поток: поток по умолчению, последостельный поток
+    - Data – данные
+    - Artefact – артефакты: объект данных, коллекция объектов, хранилище данных, сообщение
+    - Swimline – плавательные дорожки
+    - Pool (Пул) — набор
+- lib:
+  - `post` [Маргарита Нижельская @ Я.Практикум: Что такое нотация BPMN 2.0 и как она помогает смоделировать бизнес-процесс (2023)](https://practicum.yandex.ru/blog/notaciya-bpmn-dlya-biznes-processov/)
+  - `post` [Рамиль Кинзябулатов (Trinion): Краткое описание BPMN с примером](https://www.trinion.org/blog/kratkoe-opisanie-bpmn-s-primerom)
+  - [Comindware: Нотация BPMN 2.0: ключевые элементы и описание](https://www.comindware.ru/blog/нотация-bpmn-2-0-элементы-и-описание/)
+  - [Рамиль Кинзябулатов @ Инфостарт: Краткое описание BPMN с примером](https://infostart.ru/pm/640964/)
 
 <a name="instr"></a>
 ## Инструменты
@@ -174,7 +237,7 @@
 
 <a name="standard"></a>
 ### Семейства стандартов
-- IDEF - Integrated Computer-Aided Manufacturing
+- [IDEF - Integrated Computer-Aided Manufacturing](#idef)
     - IDEF0 - Function Modeling - продолжение SADT (Structured Analysis and Design Technique)
     - IDEF1 - Information Modeling - модель данных, эквивалентная реляционной модели в 3NF
     - IDEF1X (eXtended) - Data modeling - на основе модели сущность-связь
@@ -245,3 +308,36 @@
     - мозговой штурм 
     - совещание 
     - use case 
+
+<a name="data"></a>
+## Моделирование данных
+- `post` [Юлия Кононенко @ Я.Практикум: Моделирование данных: что это и зачем нужно (2024)](https://practicum.yandex.ru/blog/chto-takoe-modelirovanie-dannyh-i-kak-ego-ispolzovat/)
+  - levels:
+    - концептуальный - предметная область
+    - логический - структура данных
+    - физический - реализация в БД
+  - types:
+    - иерархическая: связи вертикальные
+    - сетевая: связаны элементы разных уровней   
+    - реляционная
+  - usage:
+    - определить структуру информационной системы
+    - взаимодействовать с коллегами и заказчиками
+    - улучшить работу системы
+  - process:
+    - собрать требования к системе
+    - построить концептуальную модель
+    - построить логическую модель
+    - проверить модель, нормализация
+    - подготовить техническую документацию
+  - notations:
+    - [ER-диаграммы](#er)
+  - tools:
+    - Erwin Data Modeler
+    - ER/Studio Data Architect
+    - Enterprise Architect
+
+<a name="er"></a>
+### ER-diagram
+- `post` [Сущности и связи: как и для чего системные аналитики создают ER‑диаграммы](https://practicum.yandex.ru/blog/chto-takoe-er-diagramma/)
+
