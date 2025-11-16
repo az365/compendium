@@ -1077,7 +1077,7 @@
         - продумано целевое состояние для каждого раздела фрейма
         - есть карта метрик для измерения прогресса
         - есть понимание ключевых шагов для движения к целевому состоянию
-        - есть роадмапы для основных направлений/прооектов
+        - есть роадмапы для основных направлений/проектов
         - вы регулярно обсуждаете с командой и стейкхолдерами прогресс по стратегии (раз в квартал)
         - вы регулярно проводите ревью DDM-оценок (ежегодно)
 
@@ -1235,6 +1235,9 @@
       - СУБД онтологий (для хранения и обращения к онтологии)
       - хранилища онтологий (для работы с несколькими онтологиями)
     - `wiki` [Onthology engineering](https://en.wikipedia.org/wiki/Ontology_engineering)
+  - `lib` литература
+    - `wiki` [Ontology (information science)](https://en.wikipedia.org/wiki/Ontology_(information_science))
+    - `wiki` [Ontology engineering](https://en.wikipedia.org/wiki/Ontology_engineering)
 <a name="semantic"></a>
 - семантическая сеть 
   - что это 
@@ -1270,8 +1273,99 @@
       - слоты - переменные параметры фрейма
       - презумпция - значения слотов фрейма по умолчанию
       - протофрейм - незаполненный фрейм, экзофрейм - заполненный
+<a name="web"></a>
+- семантический веб 
+  - intro
+    - `post` [Дэлия Махмутова (Яндекс) @ Habr: Как устроен мир семантической микроразметки (2014)](https://habr.com/ru/companies/yandex/articles/211638/)
+      - термины
+        - словарь - язык, набор классов и свойств, с помощью которых указывается суть содержимого на странице
+          - словари: Schema.org, OpenGraph, Микроформаты, FOAF, DublinCore, DataVocabulary 
+        - синтаксис - с помощью каких тегов и как будут указываться сущности и свойства на страницах
+          - синтаксисы: микроданные, RDFa, микроформаты, JSON-LD
+      - статистика распространённости словарей в Рунете (по данным Яндекса, 2014-01)
+        - `15%` OpenGraph
+        - `7.4%` Schema.org
+        - `4%` Microformats
+        - `3.6%` DataVocabulary
+        - `0.27%` DublinCore
+    - `post` [Дэлия Махмутова (Яндекс) @ Habr: Сложный и противоречивый мир синтаксиса микроразметки. Почему стандартов так много? Опыт Яндекса (2014)](https://habr.com/ru/companies/yandex/articles/221881/)
+      - основные стандарты
+        - MicroData - словарь Schema.org чаще всего встречается именно в этом синтаксисе
+        - MicroFormats - микроформаты, объединенный стандарт синтаксиса и словаря
+        - RDFa и RDFa Lite - рекомендуется создателями Open Graph, также встречается с Dublin Core или Data Vocabulary
+        - JSON-LD — расширение JSON
+    - `post` [Panshin: Все, что вы должны знать о сниппетах и микроразметке (2014)](https://apanshin.ru/blog/wiki/snippety-i-mikrorazmetka)
+      - практическое использование микроразметки 
+        - microformats: first, simple, rigid 
+        - RDFa: official, complex, OpenGraph 
+        - microdata: unofficial, flexible, schema.org
+    - статистика использования: [6cityMarketing.com: Schema Markup: Statistics, Facts, & Key Things to Know for 2026](https://www.sixthcitymarketing.com/2023/12/20/schema-markup-statistics-facts/)
+  - словари
+    - микроформаты
+      - используется свойство `class` HTML-тегов `div` или `span`
+      - supported types: hCalendar, hCard, hListing, hMedia, hProduct, hRecipe, hResume, hReview, hReview-aggregate, adr, geo
+      - `home` [MicroFormats.org](https://microformats.org/)
+      - `hub` [Habr: Микроформаты](https://habr.com/ru/hubs/microformats/)
+    - Schema.org от Я, G, Bing, Yahoo
+      - используются свойства HTML-тегов: `itemscope`, `itemtype`, `itemprop` 
+      - древовидная иерархия классов сущностей: `doc` [Full schema hierarchy](https://schema.org/docs/full.html)
+      - `post` [Click.ru @ Habr: Schema.org своими руками: настраиваем микроразметку без программиста (2020)](https://habr.com/ru/companies/click/articles/486764/)
+    - Data Vocabulary от Google 
+      - устарело, не развивается, заменено на Schema.org
+      - классы: Person, Organization, Breadcrumb, Review, Product, Address
+    - DCMI/DublinCore 
+      - для научных статей, электронных библиотек
+      - поля: Title, Creator, Subject, Description, Publisher, Rights, ...
+      - выражается HTML-тегами `meta` с полями `name` и `content` 
+      - `home` [Dublin Core](https://www.dublincore.org/)
+      - `doc` [DCMI MetaData Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/)
+    - OpenGraph (OG) от Facebook 
+      - для отображения сниппетов страниц в соц-сетях 
+      - используются HTML-теги `<meta property="..." content="..."/>`
+      - поля: og:title, og:type (article, video.movie, ...), og:url, og:image, og:description, og:site_name, og:video
+      - `post` [Click.ru @ Habr: Что такое разметка Open Graph и как ее внедрить без программиста (2020)](https://habr.com/ru/companies/click/articles/492258/)
+    - FOAF (friend-of-a-friend)
+      - для связей между людьми 
+      - классы: Agent, Organization, Group, Person
+      - выражается RDF-разметкой
+  - синтаксисы
+    - микроформаты
+      - используется свойство `class` HTML-тегов `div` или `span`
+      - supported types: hCalendar, hCard, hListing, hMedia, hProduct, hRecipe, hResume, hReview, hReview-aggregate, adr, geo
+      - `home` [MicroFormats.org](https://microformats.org/)
+      - `hub` [Habr: Микроформаты](https://habr.com/ru/hubs/microformats/)
+    - микроданные
+      - данные встраиваются в поля `itemscope`, `itemprop`
+      - `wiki` [Микроданные](https://ru.wikipedia.org/wiki/%D0%9C%D0%B8%D0%BA%D1%80%D0%BE%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5)
+      - `post` [Александр Васильев @ Habr: Немного о Microdata](https://habr.com/ru/articles/141216/)
+    - RDFa (Resource Description Framework in Attributes)
+      - данные встраиваются в атрибуты HTML-элементов
+      - примеры атрибутов: about, property, typeof
+      - `home` [rdfa.info](https://rdfa.info/)
+      - `wiki` [RDFa](https://en.wikipedia.org/wiki/RDFa) `en`
+    - JSON-LD
+      - данные встраиваются в тег `<script>` внутри `head` или `body` 
+  - графовые семантические вики
+    - intro 
+      - `wiki` [ruwiki: Семантическая вики](https://ru.ruwiki.ru/wiki/%D0%A1%D0%B5%D0%BC%D0%B0%D0%BD%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F_%D0%B2%D0%B8%D0%BA%D0%B8)
+      - `wiki` [wikipedia: Семантическая вики](https://ru.wikipedia.org/wiki/%D0%A1%D0%B5%D0%BC%D0%B0%D0%BD%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F_%D0%B2%D0%B8%D0%BA%D0%B8)
+    - примеры
+      - Semantic MediaWiki
+        - `wiki` [ruwiki: Semantic MediaWiki](https://ru.ruwiki.ru/wiki/Semantic_MediaWiki)
+        - `home` [semantic-mediawiki.org](https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki/ru)
+        - `git` [SemanticMediaWiki](https://github.com/SemanticMediaWiki/SemanticMediaWiki)
+      - OntoWiki
+        - `wiki` [OntoWiki](https://ru.ruwiki.ru/wiki/OntoWiki)
+      - Ikewiki
+      - WikiData.org
+        - `wiki` [Wikidata:Introduction](https://www.wikidata.org/wiki/Wikidata:Introduction)
+      - RuWiki
+        - https://ru.ruwiki.ru
 - литература
   - `post` [Юрий Катков @ Habr: Базы знаний](https://habr.com/ru/post/195650/)
+  - `post` [How Knowledge Graph is Revolutionizing Data-driven Enterprise Application Management (2025)](https://www.quinnox.com/blogs/revolutionizing-enterprise-application-management-with-knowledge-graph)
+  - `paper` [Marvin Hofer et al @ MDPI information: Construction of Knowledge Graphs: Current State and Challenges (2024)](https://www.mdpi.com/2078-2489/15/8/509) ([doi:15080509](https://doi.org/10.3390/info15080509))
+  - `lib` [MDPI special issue: Knowledge Graph Technology and its Applications II](https://www.mdpi.com/journal/information/special_issues/W57453E11U)
 
 <a name="expert"></a>
 ### Expert systems
