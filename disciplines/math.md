@@ -480,8 +480,10 @@
   - альфа-факторизация
   - канонический факторный анализ
 - lib
-  - `post` [Б.Сиротич @ Я.Практикум: Факторный анализ: что это такое и как его проводить](https://practicum.yandex.ru/blog/chto-takoe-faktornyj-analiz-vidy-i-metody/)
-  - `post` [А.Михайлов (Otus) @ Habr: Факторный анализ](https://habr.com/ru/companies/otus/articles/741064/)
+  - `post` [Б.Сиротич @ Я.Практикум: Факторный анализ: что это такое и как его проводить (2024)](https://practicum.yandex.ru/blog/chto-takoe-faktornyj-analiz-vidy-i-metody/)
+  - `post` [А.Михайлов (Otus) @ Habr: Факторный анализ (2023)](https://habr.com/ru/companies/otus/articles/741064/)
+  - `post` [Ю.Федотова (Лента) @ Habr: Факторный анализ для интерпретации исследования клиентского опыта (2022)](http://habr.com/ru/articles/687338)
+  - `post` [В.Афонин @ RussianBusiness: Факторный анализ: что это и как проводить. И какие его виды и методы (2024)](https://rb.ru/stories/faktornyj-analiz)
   - `synopsis` [ВШЭ @ studfile: Факторный анализ](https://studfile.net/preview/9014670/)
 
 <a name="clustering"></a>
