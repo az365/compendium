@@ -72,6 +72,14 @@
         - [product manager](./projman.md) -> CPO (chief product officer)
         - data engineer 
         - [data scientist / ml engineer](./ds.md) 
+- data-driven
+  - `post` [Мария Пелешенко @ Я.Практикум: Data-driven подход: управление продуктом на основе данных (2023)](https://practicum.yandex.ru/blog/chto-takoe-data-driven-podhod/)
+    - principles:
+      - итеративный сбор и анализ данных
+      - изучение поведения и предпочтений пользователя
+      - эксперименты и тестирование
+      - командная работа
+    - cycle: ideas, build, product, measure, data, learn, (continue)
 - [Литература](#lib)
   - `post` [Я.Академия: Чем занимаются аналитики данных и как начать? (2019)](https://academy.yandex.ru/posts/chem-zanimayutsya-analitiki-dannykh-i-kak-nachat-rabotat-v-etoy-oblasti)
   - `post` [ProductStar@vc: Почему все помешались на профессии аналитика (2020)](https://vc.ru/s/productstar/169600-pochemu-vse-pomeshalis-na-professii-analitik)
@@ -1337,7 +1345,15 @@
   - разновидности АБТ
     - online vs offline 
     - множественное тестирование - тестирование нескольких гипотез в одном эксперименте - требует поправок к стат-тесту
-      - `post` [Николай Назаров (DA, X5) @ Habr: А/Б тестирование: множественная проверка гипотез](https://habr.com/ru/companies/X5Tech/articles/842426/)
+      - `post` [Николай Назаров (DA, X5) @ Habr: А/Б тестирование: множественная проверка гипотез (2024)](https://habr.com/ru/companies/X5Tech/articles/842426/)
+        - метрики FWER и FDR для контроля ошибок первого рода при множественном тестировании
+          - FWER (Family-wise error rate) - вероятность, что хотя бы один из тестов даёт ложноположительный результат при истинности нулевых гипотез
+          - FDR (False discovery rate) – средняя доля ложноположительных результатов среди положительных результатов
+          - (при прочих равных) алгоритмы, контролирующие FWER, допускают меньше ложноположительных результатов, чем FDR
+        - поправки: Бенферрони, Холма, Бенджамини-Хохберга
+          - Бонферрони прост в реализации, но менее мощен: A=a/m, использует FWER
+          - Холм перебирает сортированный ряд p-value, тоже FWER
+          - Бенджамини-Хохберг контролирует FDR аналогично Холму, использует значения alpha_i = alpha * i / m
       - `post` [Александр Сахнов (HDA/DS X5) @ Habr: Определяем оптимальный размер групп при множественном А/Б тестировании](https://habr.com/ru/companies/X5Tech/articles/763656/)
       - `post` [Артем Пономарев @ Habr: Проблема множественного тестирования на практике](https://habr.com/ru/articles/772940/)
         - `pdf` [Антон Коробейников: Проблема множественной проверки статистических гипотез](https://bioinformaticsinstitute.ru/sites/default/files/07-29-4-korobeynikov.pdf) 
@@ -1429,7 +1445,7 @@
   - lib: `post` [Николай Назаров (x5) @ Habr: А/Б тесты с метрикой отношения. Дельта-метод](https://habr.com/ru/companies/X5Tech/articles/740476/)
 <a name="synth"></a>
 - АБ-тесты на малых выборках и оффлайн-АБТ
-  - synthetic control | синтетический контроль
+  - synthetic control | SCM | синтетический контроль
     - syn: SCM, synthetic control method, synthetic control, синтетический контроль 
     - def: 
       - смоделированная выборка, поведение которой репрезентует поведение тестовой выборки в ситуации/сценарии, где пилотного внедрения не произошло
@@ -1440,6 +1456,7 @@
       - `post` [Иван Юрашку (Сбер) @ Habr: Causal Inference: прозрение и практика](https://habr.com/ru/companies/sberbank/articles/847382/) ([telegra.ph](https://telegra.ph/Causal-Inference-prozrenie-i-praktika-Lekciya-1-Osnovnye-ponyatiya-Causal-Inference-10-02))
       - `wiki` [ruWiki: Синтетический контроль](https://ru.ruwiki.ru/wiki/Синтетический_контроль), [ruWiki.Data: Синтетический контроль](https://data.ruwiki.ru/wiki/Q25053940)
       - `wiki` WikiPedia.org: [ru: Синтетический контроль](https://ru.wikipedia.org/wiki/Синтетический_контроль), [en: Synthetic control method](https://en.wikipedia.org/wiki/Synthetic_control_method)
+      - `doc` [LostStats @ GitHub pages: Model Estimation	Research Design	Synthetic Control](https://lost-stats.github.io/Model_Estimation/Research_Design/synthetic_control_method.html) 
     - Causal Impact <a name="causalimpact"></a>
       - based on: Bayesian structural time-series models
       - [R package CausalImpact](https://github.com/google/CausalImpact)
@@ -1453,10 +1470,23 @@
         - Как используется Causal Impact в Ленте и какие доработки потребовались, чтобы получать устойчивые результаты и эффективно оценивать нововведения.
   - matching <a name="psm"></a> <a name="propensity"></a> <a name="matching"></a>
     - PropensityScore-методы 
-      - `post` [Артем Пономарев @ Habr: Causal Inference методы на практике](https://habr.com/ru/articles/870874/)
-    - HypEx python library
-      - `post` [Дмитрий Тихомиров (Сбер) @ Habr: HypEx и мэтчинг. Эксперимент без A/B-тестирования?](https://habr.com/ru/companies/sberbank/articles/778774/)
-      - `git` [sb-AI-lab/HypEx](https://github.com/sb-ai-lab/HypEx)
+      - `post` [Артем Пономарев @ Habr: Causal Inference методы на практике (2024)](https://habr.com/ru/articles/870874/)
+      - `video` http://youtube.com/watch?v=dm-BWjyYQpw&ab_channel=ShawhinTalebi `EN`
+      - `video` https://youtube.com/watch?v=kYjGv7wnc6E&ab_channel=ODSAIRu `RU`
+    - Python libraries 
+      - CausalML
+        - `doc` [CausalML @ ReadTheDocs: API Quickstart: Propensity Score](https://causalml.readthedocs.io/en/latest/quickstart.html#propensity-score)
+        - `ipynb` [Uber CausalML @ GitHub: benchmark_simulation_studies.ipynb](https://github.com/uber/causalml/blob/master/docs/examples/benchmark_simulation_studies.ipynb)
+      - HypEx
+        - `post` [Дмитрий Тихомиров (Сбер) @ Habr: HypEx и мэтчинг. Эксперимент без A/B-тестирования?](https://habr.com/ru/companies/sberbank/articles/778774/)
+        - `git` [sb-AI-lab/HypEx](https://github.com/sb-ai-lab/HypEx)
+      - PSMpy
+        - [PSMpy @ TowardsDataScience](https://towardsdatascience.com/psmpy-propensity-score-matching-in-python-a3e0cd4d2631/)
+        - [4 python packages to learn causal analysis](https://readmedium.com/4-python-packages-to-learn-causal-analysis-9a8eaab9fdab)
+  - did | dif-in-dif | diff-in-diff | difference-in-difference 
+    - `doc` [ds4ps.org: Difference in Difference](https://ds4ps.org/PROG-EVAL-III/DiffInDiff.html)
+    - `ipynb` [sadhave2511 @ GitHub: Diff in diff.ipynb](http://github.com/sadhave2511/Diff-in-diff-testing/blob/main/Diff%20in%20diff.ipynb)
+    - `ipynb` [ivaner001 @ Colab: A/B test alternatives_.ipynb News effect](https://colab.research.google.com/drive/1_3UkKiGER7_nYwHz9g1hk1cgSnXvuhzQ) ([из доклада](https://youtu.be/eSo2Dzo7wkA?si=OfJFi9DY6Ewp5WEQ))
   - стат-критерии для малых выборок 
     - `post` [Николай Назаров (x5): А/Б тестирование на маленьких выборках. Построение собственного критерия](https://habr.com/ru/companies/X5Tech/articles/801527/)
   - lib:
@@ -1469,7 +1499,8 @@
       - bayesian structural time-series model 
       - регрессионный анализ (распределение ошибок предсказаний линрег смещается при воздействии)
       - [causal impact](#causalimpact)
-    - [causal inference](#ci)
+    - `post` [Дмитрий Лунин (Авито) @ Habr: ML-критерии для A/B-тестов](https://habr.com/ru/companies/avito/articles/590105/)
+    - `compendium` [causal inference](#ci)
 <a name="cuped"></a> <a name="stratif"></a>
 - методы снижения дисперсии 
   - CUPED и стратификация
@@ -1518,6 +1549,14 @@
     - однорукие бандиты - для автоматического опробования большого числа гипотез/объектов-кандидатов
   - сложно задизайнить или дорого провести эксперимент 
     - [Observational studies на исторических данных](#ci)
+<a name="ab-platform">
+- АБ-платформы 
+  - Avito TriSigma
+    - `video` [А.Дронов (Avito) @ RuTube: How to Trisigma: A/B платформа от Авито (2025)](https://vkvideo.ru/video-152990965_456239777)
+    - `post` [А.Ашарин (Avito) @ Habr: Как мы автоматизировали A/B-тестирование CRM-рассылок и избавили аналитиков от рутины (2025)](http://habr.com/ru/companies/avito/articles/918634)
+    - `post` [В.Божьев (Avito) @ Habr: Как мы храним 20000+ метрик и миллиарды комбинаций разрезов в одной таблице (2025)](https://habr.com/ru/companies/avito/articles/913694)
+    - `post` [А.Дронов (Avito) @ Habr: Самописная платформа для A/B-тестирования Trisigma: что она умеет и какую пользу способна принести бизнесу (2025)](https://habr.com/ru/companies/avito/articles/890272)
+    - `video` [Упрощаем жизнь аналитикам и бизнесу! М42 @ YouTube](http://youtube.com/watch?v=CqM2IsD1KK8)
 - lib:
   - доклады с профильных мероприятий
     - `track` [ABT section @ DataFest 2020](https://ods.ai/tracks/ab-testing-df2020/)
