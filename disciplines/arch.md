@@ -22,7 +22,7 @@
       - rpc, grpc, websocket - общее представление о протоколах
       - graphql - общее представление
     - strong
-      - CAP-теорема
+      - CAP-теорема (в распределенной системе возможно только 2 из 3 свойств: C (consistency), A (availability), P (partition tolerance) 
       - SSO
       - UWSGI, gunicorn: управление потоками/процессами, понимание модели worker-ов, обработка запроса приходящего от клиента
       - Очереди: разрешение конфликтов при обработке большого количества чередей, когда сообщения из разных очередний нужно обрабатывать в разном порядке - в Архитект
@@ -469,8 +469,8 @@
 - методологии
   - TOGAF - Open Group Architecture Framework от консорциума The Open Group
     - литература
-      - `post` [Rajesh Verma @ TowardsAI.net: Enterprise Architecture, TOGAF 10 & Enterprise Agility (2023)](https://towardsai.net/p/l/enterprise-architecture-togaf-10-enterprise-agility)
-        - перевод: `post` [Rajesh Verma @ Habr: Архитектура предприятия, TOGAF 10 и адаптивность организационной структуры (2023)](https://towardsai.net/p/l/enterprise-architecture-togaf-10-enterprise-agility)
+      - `post` [Rajesh Verma @ TowardsAI.net: Enterprise Architecture, TOGAF 10 & Enterprise Agility (2023)](https://towardsai.net/p/l/enterprise-architecture-togaf-10-enterprise-agility) `EN`
+        - `RU` перевод: `post` [Rajesh Verma @ Habr: Архитектура предприятия, TOGAF 10 и адаптивность организационной структуры (2023)](https://habr.com/ru/companies/otus/articles/756986/)
       - `post` [Рустем Галиев (IBM) @ Habr: Enterprise Architecture и ее подходы (2023)](https://habr.com/ru/companies/otus/articles/710138/)
     - consists from
       - ADM - TOGAF Architecture Development Method | метод разработки архитектуры
@@ -819,6 +819,13 @@
   - `course` [coursera: big data for engineers](https://www.coursera.org/specializations/big-data-engineering) (5c*6w*8h)
   - `post` [Habr: hadoop + cloudera + ...](https://habrahabr.ru/post/151062/)
 
+<a name="dm"></a>
+### Data Management 
+- DMBOK
+  - `book` [DAMA-DMBOK](https://dama.org/learning-resources/dama-data-management-body-of-knowledge-dmbok) 
+  - `doc` [DataLiteracy - Управление данными: DAMA DMBOK2. Конспект](http://dataliteracy.ru/dmbok)
+  - `post` [РСХБ @ Habr: Внедрение практик и принципов DAMA-DMBOK2 как предпосылки к использованию ИИ в бизнес-процессах организаций (2023)](https://habr.com/ru/companies/rshb/articles/767440/)
+
 <a name="strategy"></a>
 ### Data Strategy
 - `conf` [DataFest 2024](https://ods.ai/events/datafest2024) / [VK offline day](https://ods.ai/events/fest2024-vk) / Strategy section
@@ -1025,7 +1032,7 @@
         - DMM assessment
           - audit of the current state and identification of directions for development
           - data management maturity models: international standard for identifying key development areas for a data strategy
-            - DMM from DAMA DMBOK - Data Management Body of Knowledge
+            - DMM from DAMA [DMBOK - Data Management Body of Knowledge](#dm)
             - CMMI DMM from Carnbegie-Mellon University
             - DMM from UK Government Data Quality Hub
           - роза ветров as-is/to-be: DG, DQ, metadata, reference and master-data, document and content management, retrospective analytics (BI), advanced analytics, data architecture, data storage and operations, data modelling, data integration and interoperability, data security
