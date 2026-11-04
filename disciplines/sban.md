@@ -10,6 +10,7 @@
 - аналитики согласно BABOK https://www.a1qa.ru/blog/biznes-analitik-i-sistemnyj-analitik-v-it-razlichiya/
 - `post` [Алексей Khett @ Habr: Хочу все знать: бизнес-анализ](https://habr.com/ru/post/327354/)
 - `org` [System Education - школа cистемного анализа и проектирования](https://systems.education/)
+- `post` [Всё о профессии системного аналитика: чем занимается, сколько зарабатывает и как им стать (2024)](https://practicum.yandex.ru/blog/kto-takoy-sistemnyi-analitik/)
 - `doc` [Матрица компетенций Системного аналитика](https://clck.ru/36SCnb)
   - Работа в команде
     - Постановка задач 
@@ -215,7 +216,9 @@
     - Swimline – плавательные дорожки
     - Pool (Пул) — набор
 - lib:
+  - `doc` [OMG: bpmn.org](https://www.bpmn.org/)
   - `post` [Маргарита Нижельская @ Я.Практикум: Что такое нотация BPMN 2.0 и как она помогает смоделировать бизнес-процесс (2023)](https://practicum.yandex.ru/blog/notaciya-bpmn-dlya-biznes-processov/)
+  - `post` [Николай Колесник (Сбер) @ Habr: Памятка по BPMN и BPMN-диаграммам](https://habr.com/ru/companies/sberbank/articles/836092/)
   - `post` [Рамиль Кинзябулатов (Trinion): Краткое описание BPMN с примером](https://www.trinion.org/blog/kratkoe-opisanie-bpmn-s-primerom)
   - [Comindware: Нотация BPMN 2.0: ключевые элементы и описание](https://www.comindware.ru/blog/нотация-bpmn-2-0-элементы-и-описание/)
   - [Рамиль Кинзябулатов @ Инфостарт: Краткое описание BPMN с примером](https://infostart.ru/pm/640964/)
@@ -339,5 +342,13 @@
 
 <a name="er"></a>
 ### ER-diagram
-- `post` [Сущности и связи: как и для чего системные аналитики создают ER‑диаграммы](https://practicum.yandex.ru/blog/chto-takoe-er-diagramma/)
-
+- `post` [Маргарита Нижельская @ Я.Практикум: Сущности и связи: как и для чего системные аналитики создают ER‑диаграммы (2023)](https://practicum.yandex.ru/blog/chto-takoe-er-diagramma/)
+  - виды связей: `1:1` one-to-one, `1:N` one-to-many, `M:N` many-to-many
+  - usage:
+    - перед началом проекта ещё не понятно, с какими данными предстоит работать
+    - создать новую базу данных или добавить таблицу в уже существующую
+  - notations:
+    - [IDEF1X](#idef) - относят к фундаментальным, на практике давно не используют
+    - Нотация Чена - классическая нотация для концептуальных моделей, которые презентуют заказчику, понятна не-аналитикам
+    - Нотация Мартина, воронья лапка (Crow's Foot) - компактнее Чена, для логического уровня, когда нужно описать в модели все атрибуты сущностей
+    - ...
