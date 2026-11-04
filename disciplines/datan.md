@@ -1182,6 +1182,17 @@
     - `post` [GoPractice: О.Якубенков - Длинный и короткий ретеншен (2020)](https://gopractice.ru/why-long-term-retention-is-key-to-growth/)
     - `paper` [В.Голубев - Оценка LifeTime через ретеншен (2010)](http://kxk.ru/matriarhat/v1_693889__.php)
     - `video` `webinar` [Лаврентий Данилов - Применение анализа выживаемости для оценки оттока клиентов](https://youtu.be/vaFTwxjdLGQ)
+- LTV
+  - `tg` Product Analytics: рекомендованные материалы от Генриха 
+    - `doc` [Meridian](https://developers.google.com/meridian/docs/user-guide/plot-media-visualizations) - инструмент оценки инкрементального эффекта каналов на основе Bayesian interference без экспериментов
+      - `paper` [Xiaojing Wang, Tianqi Liu, Jingang Miao @ arXiv: A Deep Probabilistic Model for Customer Lifetime Value Prediction (2019)](https://arxiv.org/abs/1912.07753)
+    - Deep Probabilistic Model for cLTV
+      - `paper` [A Deep Probabilistic Model for Customer Lifetime Value Prediction (2019)](http://research.google/pubs/a-deep-probabilistic-model-for-customer-lifetime-value-prediction)
+    - `wiki` [Zero Inflated Model](https://en.wikipedia.org/wiki/Zero-inflated_model)
+    - `video` [Peter Fader " YouTube: Объяснение расчётов на простом языке](http://youtube.com/watch?v=guj2gVEEx4s&t=1976s&ab_channel=FirstMarkCapital)
+    - `git` [CamDavidsonPilon/LifeTimes](http://github.com/CamDavidsonPilon/lifetimes) - модель Fader
+    - [Klaviyo](https://help.klaviyo.com/hc/en-us/articles/360020919731) считают cLTV похоже на Fader, но с AI
+    - `paper` [Peter S. Fader, Bruce G.S. Hardie: A Note on Deriving the Pareto/NBD Model and Related Expressions](https://brucehardie.com/notes/009/pareto_nbd_derivations_2005-11-05.pdf) `pdf` пояснения к модели Fader (см. Assumptions)
 
 <a name="segm"></a>
 ### Segmentation
